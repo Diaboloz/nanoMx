@@ -1,1 +1,0 @@
-[09-Feb-2017 21:28:24 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$posticon' (T_VARIABLE), expecting '(' in /home/diabolo/public_html/nanomx/modules/Discussion/post.newtopic.php on line 195
