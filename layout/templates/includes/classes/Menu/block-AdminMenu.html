@@ -1,0 +1,113 @@
+<?php
+/**
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: block-AdminMenu.html 6 2015-07-08 07:07:06Z PragmaMx $
+ */
+
+if ($this->level===0) {
+    /* Toplevel */ 
+
+    /* Javascript fur Klappfunktion in Headbereich integrieren */
+    pmxHeader::add_jquery('ui/jquery.ui.accordion.js', 'ui/jquery.ui.effect.js');
+    ob_start();
+?>
+<style type="text/css">
+#adminblockmenue ul,
+#adminblockmenue ul li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+#adminblockmenue ul li a {
+}
+</style>
+<?php
+    pmxHeader::add_style_code(ob_get_clean());
+
+
+    $i = 0;
+    $active = 'false'; // aktives Menü
+    ?>
+<ul class="clearfix" id="adminblockmenue">
+<?php foreach ($this->items as $row) { ?>
+
+ <li <?php echo $row['class'] ?> >
+  <a <?php echo $row['href'] ?> <?php echo $row['title'] ?> >
+    <?php echo $row['caption'] ?>
+  </a>
+ </li>
+
+<?php if($row['subtree']) {
+  $class = ($row['currents_parent']) ? ' class="submenu-active"' : ''; ?>
+  <li<?php echo $class ?>>
+    <?php echo $row['subtree'] ?>
+  </li>
+  <?php
+  if($row['expanded']) { $active = $i; }
+  $i++;
+  ?>
+<?php } ?>
+
+<?php } ?>
+</ul>
+
+<?php if($i) { // nur wenn Sublevel's vorhanden ?>
+<script type="text/javascript">
+/*<![CDATA[*/
+
+$(document).ready(function() {
+
+  $('#adminblockmenue').accordion({
+    active: <?php echo $active ?>,
+    event: 'click',
+    header: 'li.adminaccordion',
+    navigation: false,
+    autoHeight: true,
+    clearStyle: true,
+    animated: 'easeslide'
+  });
+
+});
+
+/*]]>*/
+</script>
+<?php } ?>
+
+<?php if($this->js_end) { ?>
+<script type="text/javascript">
+/*<![CDATA[*/
+<?php echo $this->js_end ?>
+
+/*]]>*/
+</script>
+<?php } ?>
+
+<?php
+
+    /* Ende Toplevel */
+
+} else {
+
+/* Sublevel's */
+?>
+
+ <ul>
+ <?php foreach ($this->items as $row) {
+  $class = ($row['current']) ? ' class="submenu-active"' : ''; ?>
+  <li<?php echo $class ?>>
+    <a <?php echo $row['href'] ?><?php echo $row['title'] ?>>
+      <?php echo $row['caption'] ?>
+    </a>
+    <?php echo $row['subtree'] ?> 
+  </li>
+
+ <?php } ?>
+ </ul>
+
+<?php
+
+/* Ende Sublevel's */
+}
+
+?>

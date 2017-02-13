@@ -1,0 +1,28 @@
+
+<div class="title" ><h2><?php echo $this->title ?></h2></div>
+<?php if ($this->doc_cfg['breadcrump']==1) { ?>
+	<div class="tiny"><a href="modules.php?name=<?php echo $this->module_name ?>" ><?php echo _DOCS_START; ?></a>
+	</div><hr />
+<?php } ?>
+<div class="opentable">
+<?php 
+		$books= $this->doc;
+		foreach($this->nodes as $key=>$value ) {
+		 $book=$books->getBookRoot($value['id']);
+		 $booklink="<a href=\"modules.php?name=$this->module_name&amp;act=page&amp;id=".$book['id']."\">".$book['title']."</a>";
+		 $date="<div class=\"note\"><span class=\"d\">".mx_strftime(_SHORTDATESTRING, $value['date_edit'])."</span>";
+		 $date .="<span class=\"a\">  "._FROM." ".mxCreateUserprofileLink($value['edit_uname'])."</span>";
+		 $date .=((is_array($book))?"<span class=\"a\">  "._DOCS_SECTION."  ".$booklink."" ."</span>":"");
+		 $date .="</div>";
+	     echo $date."<div class=\"post-title\"><h3> <a href=\"modules.php?name=$this->module_name&amp;act=page&amp;id=".$value['id']."\" >".$value['title']."</a>"."</h3></div>";
+		 if ($this->doc_cfg['cutlen']>0) echo "<div class=\"post-note\">".pmx_cutString($value['text1'],$this->doc_cfg['cutlen'])."</div>";
+		 ?>
+		 <div class="clear"></div>
+		 <?php
+	   }
+ 
+    ?>
+
+</div>
+
+<?php /* pragmaMx CVS $Id: view.lastchanged.html 171 2016-06-29 11:59:03Z PragmaMx $ */ ?>

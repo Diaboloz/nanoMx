@@ -1,0 +1,47 @@
+<div class="warning align-center">
+
+
+<?php if($this->part == 1){ ?>
+
+<form action="<?php echo adminUrl(PMX_MODULE, 'delete/send') ?>" method="post">
+
+  <h3><?php echo _AUTHORDEL ?></h3>
+  <br />
+  <p><?php echo sprintf(_AUTHORDELSURE, '<b>'.$this->aid.'</b>') ?></p>
+  <br />
+  <p>
+    <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/delete/send" />
+    <input type="hidden" name="aid" value="<?php echo $this->aid ?>" />
+    <input type="hidden" name="check" value="<?php echo $this->reqcheck ?>" />
+    <input type="submit" value="<?php echo _YES ?>" name="deleteyes" />
+    <input type="submit" value="<?php echo _NO ?>"  />
+  </p>
+
+</form>
+
+<?php } else { ?>
+
+<form action="<?php echo adminUrl(PMX_MODULE, 'delete/assignstories') ?>" method="post">
+  <h3><?php echo _PUBLISHEDSTORIES ?></h3>
+  <br />
+  <p><?php echo _SELECTNEWADMIN ?>:</p>
+  <br />
+  <p>
+    <select name="newaid">
+      <?php foreach ($this->items as $oaid) { ?>
+      <option value="<?php echo $oaid ?>"><?php echo $oaid ?>&nbsp;</option>
+      <?php } //endforeach ?>
+    </select>
+    <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/delete/assignstories" />
+    <input type="hidden" name="aid" value="<?php echo $this->aid ?>" />
+    <input type="hidden" name="check" value="<?php echo $this->reqcheck ?>" />
+    <input type="submit" value="<?php echo _OK ?>" name="deleteyes" />
+    <input type="submit" value="<?php echo _CANCEL ?>" />
+  </p>
+</form>
+
+<?php } //endif ?>
+
+</div>
+
+<?php // $Id: delete.html 6 2015-07-08 07:07:06Z PragmaMx $ äöüß ?>

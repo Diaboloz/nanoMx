@@ -1,0 +1,115 @@
+
+<h2><?php echo _EDITBLOCK ?></h2>
+
+<fieldset>
+  <legend><?php echo _BLOCK ?>: <?php echo $this->title ?> <em><?php echo $this->type ?></em></legend>
+
+  <form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
+    <table class="full form">
+
+      <tr>
+        <td><?php echo _BLOCKTITLE ?>:</td>
+        <td><input type="text" name="title" size="30" maxlength="60" value="<?php echo mxEntityQuotes($this->title) ?>" /></td>
+      </tr>
+      <?php switch($this->type):
+        case _BLOCKFILE: ?>
+          <?php if(!mxIsNewsBlockfile($this->module, $this->blockfile)): ?>
+
+      <tr>
+        <td><?php echo _FILENAME ?>:</td>
+        <td><?php echo getblockfileselect($this->module, $this->blockfile) ?></td>
+      </tr>
+          <?php endif; ?>
+        <?php break;
+        case _RSSCONTENT: ?>
+
+      <tr>
+        <td><?php echo _RSSFILE ?>:</td>
+        <td><?php echo getheadlineselect($this->url) ?></td>
+      </tr>
+      <?php break;
+      default: ?>
+
+      <tr>
+        <td colspan="2"><?php echo _CONTENT ?>:<br />
+        <?php echo $this->formWysiwyg('b_content', $this->content, array('height'=>'250')) ?></td>
+      </tr>
+      <?php break;
+      endswitch;?>
+
+      <tr>
+        <td><?php echo _POSITION ?>:</td>
+        <td>
+        <?php if(mxIsNewsBlockfile($this->module, $this->blockfile)): ?>
+          <b><?php echo _RIGHT ?></b>
+          <input type="hidden" name="position" value="r" />
+          <input type="hidden" name="blockfile" value="<?php echo sprintf(MXBLOCKFILENAMEFORMATER, $this->module, $this->blockfile) ?>" />
+        <?php else: ?>
+          <?php echo getPositionSelect($this->position) ?>
+        <?php endif; ?>
+        </td>
+      </tr>
+
+      <tr>
+        <td><?php echo _WEIGHT ?>:</td>
+        <td><input type="text" name="weight" size="5" maxlength="3" value="<?php echo $this->weight ?>" /></td>
+      </tr><?php if($this->multilingual): ?>
+
+      <tr>
+        <td><?php echo _LANGUAGE ?>:</td>
+        <td><?php echo mxLanguageSelect('blanguage', $this->blanguage, 'language', true) ?></td>
+      </tr><?php endif; ?>
+
+      <tr>
+        <td><?php echo _ACTIVATE2 ?></td>
+        <td><?php echo getActiveSelect($this->active) ?></td>
+      </tr>
+
+      <tr>
+        <td><?php echo _VIEWPRIV ?></td>
+        <td><?php echo getViewSelect($this->view) ?></td>
+      </tr>
+
+      <tr>
+        <td><!-- <?php echo _VIEWPRIV ?> --></td>
+        <td><?php echo getGroupSelect($this->bid) ?></td>
+      </tr>
+    <?php switch($this->type):
+    case _BLOCKFILE: ?>
+
+      <tr>
+        <td><?php echo _REFRESHTIME ?>:</td>
+        <td>
+          <?php echo getRefreshSelect($this->refresh, 1) ?>
+          <p class="note tiny"><?php echo _BLOCKCACHEMSG ?></p>
+          <input type="hidden" name="b_content" value="<?php echo $this->content ?>" />
+        </td>
+      </tr>
+      <?php break;
+    case _RSSCONTENT: ?>
+
+      <tr>
+        <td><?php echo _REFRESHTIME ?>:</td>
+        <td><?php echo getRefreshSelect($this->refresh, 0) ?></td>
+      </tr>
+      <?php break;
+    endswitch;?>
+    </table>
+    <?php if($this->menu): ?>
+    <input type="hidden" name="menu" value="1" />
+    <?php endif; ?> <?php if(!$this->multilingual): ?>
+    <input type="hidden" name="blanguage" value="" />
+    <?php endif; ?>
+    <input type="hidden" name="op" value="<?php echo  PMX_MODULE ?>/EditSave" />
+    <input type="hidden" name="oldposition" value="<?php echo $this->oldposition ?>" />
+    <input type="hidden" name="bid" value="<?php echo $this->bid ?>" />
+    <input type="submit" value="<?php echo _SAVEBLOCK ?>" />
+  </form>
+</fieldset><br />
+<?php
+
+echo block_editmenue ($this->block, _BLOCKACTIVATION, $this->menu);
+echo showpreview($this->block);
+
+/* pragmaMx CVS $Id: blocksedit.html 6 2015-07-08 07:07:06Z PragmaMx $ */
+?>

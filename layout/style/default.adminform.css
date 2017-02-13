@@ -1,0 +1,398 @@
+/*
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: default.adminform.css 173 2016-06-30 11:22:42Z PragmaMx $
+ */
+
+
+input.inputok [type="text"]{
+	background:#429943 !important;
+	color:#000000 !important;
+}
+
+input.inputerror [type="text"]{	
+	background:#EE0000 !important;
+	color:#000000 !important;
+	font-weight: bold !important;
+}
+input.inputrange[type="range"]{
+	max-width:200px !important;
+	width:80%;
+	
+}
+
+output.outputrange {
+  background-color: ___bgcolor3___;
+  border-color: ___bordercolor___ ___bordercolor-dark___ ___bordercolor-dark___ ___bordercolor___;
+  border-style: solid;
+  border-width: 1px;
+  color: ___textcolor2___;	
+  margin-left:1em;
+  vertical-align:top;
+}
+
+
+.homebutton{
+  background-color: transparent;
+  color: ___textcolor2___; 
+  display: block;
+  float: right;
+  height: auto;
+  margin: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.homebutton img {
+	border:none !important;
+	margin: 0px !important;
+	height:16px; 
+	width:10px;
+}
+
+.homebutton a {
+	float:right;
+	cursor:pointer;
+}
+.fieldset label, .fieldset legend,
+fieldset label,fieldset legend{
+   
+   line-height: 25px;
+   
+}
+
+fieldset ul {
+  list-style: none;
+  margin: 0 0 0 0;
+  padding: 0;
+}
+
+fieldset li {
+  list-style: none;
+  margin: 5px;
+  padding: 0 0 0 0;
+}
+
+
+.fieldset,
+fieldset {
+	background-color: ___alternate-0___; 
+	color: ___textcolor2___;	
+    border-color: ___bordercolor___ ___bordercolor-dark___ ___bordercolor-dark___ ___bordercolor___;
+	padding:0.25em;
+	margin:0.2em;
+}
+
+
+fieldset legend, .legend, .fieldsetlegend, .fieldset legend{
+	background-color: ___alternate-0___; 
+	color: ___textcolor2___;
+    border-color: ___bordercolor___ ___bordercolor-dark___ ___bordercolor-dark___ ___bordercolor___;
+	cursor:pointer;
+	
+}
+
+.formcontent {
+	padding: 0.5em;
+}
+.fielddescription {
+	display:block;
+	background-color: ___bgcolor2___;
+	color: ___textcolor1___;
+	padding:0.5em;	
+	cursor:pointer;
+	margin-bottom:0.25em;
+
+}
+
+.form-submit{
+  background-color: ___bgcolor3___;
+  border-color: ___bordercolor___ ___bordercolor-dark___ ___bordercolor-dark___ ___bordercolor___;
+  border-style: solid;
+  border-width: 1px;
+  color: ___textcolor2___;
+  display: block;
+  float: none;
+  height: auto;
+  margin: 3px;
+  /*width: auto;
+  margin-left:0;*/
+  padding: 2px;
+}
+
+
+
+.forminputline{
+  display: inline-block;
+  float: none;
+  height: auto;
+  margin: 3px;
+  width: 98%;
+}
+
+.forminputtitle {
+  float: left; /*display: block;*/
+  overflow: hidden;
+  width: 20%;
+}
+
+.forminputfield {
+  display: block;
+  float: left;
+  width: 30%;
+}
+
+.forminputdesc {
+  display: block;
+  float: left;
+  font-size: 9px;
+  overflow: hidden;
+  width: 50%;
+}
+
+.forminputinfo {
+  cursor: help !important;
+  display: block;
+  float: right;
+  font-size: 9px;
+  overflow: hidden;
+  width: 40px;
+}
+.formcontainer,
+.formcontent,
+.forminputblock {
+  /*clear: both;*/
+  display: block;
+  float: none;
+  margin: .25em 0;
+}
+
+/* customize design  */
+
+
+.a306010 .forminputtitle {
+
+  width: 30%;
+}
+
+.a306010 .forminputfield {
+ 
+  width: 60%;
+}
+
+.a306010 .forminputdesc {
+
+  width: 10%;
+}
+
+
+
+/* customize design  */
+
+.a305020 .forminputtitle {
+
+  width: 30%;
+}
+
+.a305020 .forminputfield {
+
+  width: 50%;
+}
+
+.a305020 .forminputdesc {
+
+  width: 20%;
+}
+
+
+/* customize design  */
+
+
+.a304030 .forminputtitle {
+
+  width: 30%;
+}
+
+.a304030 .forminputfield {
+
+  width: 40%;
+}
+
+.a304030 .forminputdesc {
+
+  width: 30%;
+}
+
+
+/* customize design  */
+
+.a205030 .forminputtitle {
+
+  width: 20%;
+}
+
+.a205030 .forminputfield {
+
+  width: 50%;
+}
+
+.a205030 .forminputdesc {
+
+  width: 30%;
+}
+
+/* customize design  */
+
+.a207010 .forminputtitle {
+
+  width: 20%;
+}
+
+.a207010 .forminputfield {
+
+  width: 70%;
+}
+
+.a207010 .forminputdesc {
+
+  width: 10%;
+}
+
+
+/* customize design  */
+
+
+.a503020 .forminputtitle {
+
+  width: 50%;
+}
+
+.a503020 .forminputfield {
+
+  width: 30%;
+}
+
+.a503020 .forminputdesc {
+
+  width: 20%;
+}
+
+
+
+.toolbar {
+  display: inline-block;
+  height: auto;
+
+  margin-bottom: 10px;
+  padding: 2px;
+  vertical-align: bottom;
+  width: 99%;
+}
+
+.toolbar ul {
+  background-color: transparent;
+  color: inherit; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toolbar li {
+  background: transparent none;
+  color: inherit;
+  list-style: none inside none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0 1px 0 0;
+  text-align: center;
+  width: auto;
+}
+
+.toolbar button {
+  background: transparent none;
+  border: none;
+  color: inherit;
+  
+  font-size: 14px;
+  margin: 0 2em !important;
+  overflow: hidden;
+  width: auto;
+}
+
+.toolbar img {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toolbar li p{
+  float: left;
+  text-align: left;
+  vertical-align: baseline;
+}
+
+/* Style 1 */
+.toolbar1 {
+  display: inline-block;
+  height: auto;
+  
+  margin-bottom: 10px;
+  padding: 2px;
+  vertical-align: bottom;
+  width: 99%;
+}
+
+.toolbar1 ul {
+  background: none;
+  
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toolbar1 li {
+  list-style: none inside none;
+  
+  margin: 0;
+  overflow: hidden;
+  padding-right: 1px;
+  text-align: center;
+  width: auto;
+}
+
+.toolbar1 button {
+  font-size: 14px; 
+  margin: 0 0 0 2px !important;
+  overflow: hidden;
+  width: auto;
+}
+
+.toolbar1 img {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toolbar1 li p{
+  float: left;
+  text-align: left;
+  vertical-align: baseline;
+}
+
+/* checklist und Tabellen */
+
+table.list .tablecheckbox {
+	width:15px;
+	text-align:center;
+}
+
+table.listtable {
+	width:100%;
+	
+}
+
+/* Toolbar fixed width */
+.toolbarfixed {
+	padding:20px;
+}

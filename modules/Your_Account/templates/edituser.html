@@ -1,0 +1,35 @@
+<?php if($this->messages){
+  $this->messages = '<div class="important">'.$this->messages.'</div>';
+ } //endif ?>
+
+
+<form name="Register" action="modules.php?name=Your_Account" method="post" id="Register" class="mx-form mx-form-aligned">
+
+  <div id="ya-access" class="tabs-panel">
+    <?php echo $this->messages ?><?php $this->display('edituser.access.html') ?>
+    <p id="prof-account-delete"><a href="modules.php?name=Your_Account&amp;op=delete"><?php echo _DELETEACCT ?></a></p>
+  </div>
+
+  <div id="ya-data" class="tabs-panel">
+    <?php echo $this->messages ?><?php $this->display('edituser.data.html') ?>
+  </div>
+
+<?php if($this->pic_allowed_avatar || $this->pic_allowed_upload): ?>
+  <div id="ya-photo" class="tabs-panel">
+    <?php echo $this->messages ?><?php $this->display('edituser.photo.html') ?>
+  </div>
+<?php endif; ?>
+
+  <input type="hidden" name="op" value="saveuser" />
+  <input type="submit" class="mx-button mx-button-primary" value="<?php echo _SAVECHANGES ?>" />
+</form>
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+  $('#prof-account-delete a').click(function() {
+    return confirm('<?php echo addslashes(_SUREDELETE) ?>');
+  });
+  /* ]]> */
+</script>
+
+<?php // pragmaMx CVS $Id: edituser.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

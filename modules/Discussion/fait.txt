@@ -1,0 +1,4 @@
+/includes/ ok verif
+
+postnewtopic.php ->voir tableau post nouveau message
+viewthread.php ->voir Link-Ergänzungen hier différent et en dessous digfférentes modifs

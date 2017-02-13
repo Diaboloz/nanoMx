@@ -1,0 +1,144 @@
+<div class="opentable" >
+<a name="contenthome" ></a>
+<?php if ($this->doc_cfg['view_title']==1)  echo '<h2 class="title">'. $this->title .'</h2>' ?>
+<?php if (MX_IS_ADMIN) echo '<p class="align-right tiny">'. $this->adminlink ." </p>"; ?>
+
+<?php if ($this->doc_cfg['breadcrump']==1) { ?>
+	<div class="tiny"><a href="modules.php?name=<?php echo $this->module_name ?>" ><?php echo _DOCS_START; ?></a>
+	<?php   foreach($this->breadcrump as $dummy=>$key) {
+				echo " &raquo; <a href=\"modules.php?name=".$this->module_name."&amp;act=page&amp;id=".$key['id']."\">".$key['title']."</a>";
+			  } ?>
+		 
+	</div>
+<?php } ?>
+<?php if ($this->doc_cfg['viewsearch']==1) { ?> 
+	<div class="align-right">
+	<form action="modules.php?name=<?php echo $this->module_name; ?>&amp;act=search" method="post" name="docsearch"  >
+	
+	<input class="form" value="" maxlength="50" size="15" name="keywords" /><input type="submit" value="<?php echo _SEARCH ?>" name="<?php echo _SEARCH ?>" />
+	</form><br /></div>
+	
+ <?php     } ?>
+	<div style="float:right;">
+		<?php echo $this->rating; ?>
+		<?php if ($this->doc_cfg['sendfriend']==1) { ?>
+				<a href="modules.php?name=<?php echo $this->module_name ?>&amp;act=sendfriend&amp;id=<?php echo $this->node['id'] ?>" 
+				title="<?php echo _FRIEND ?>" rel="nofollow,noindex"  >
+		<img src="images/friend.gif" width="16" height="16" alt="<?php echo _FRIEND ?>" /></a>
+		
+		<?php } ?>
+		<?php if ($this->doc_cfg['pageprint']==1) { ?>
+				<a href="modules.php?name=<?php echo $this->module_name ?>&amp;act=pageprint&amp;id=<?php echo $this->node['id'] ?>" 
+				title="<?php echo _PRINTER ?>" rel="nofollow,noindex" target="_blank" >
+		<img src="images/print.gif" width="16" height="16" alt="<?php echo _PRINTER ?>" /></a>
+
+		<?php } ?>
+	</div>
+
+
+<?php  if ($this->doc_cfg['alphaindex']==1) echo '<div class="title">' . $this->alphaindex . '</div>'; ?>
+
+<h2 ><?php echo $this->node['title']; ?><?php echo ($this->node['publish']==0)?"<i>["._INACTIVE."</i>]":""; ?></h2>
+<!-- Index Anfang -->
+
+<?php  if ($this->config['viewindex']==1){ ?>
+	<div class="float-right box" style="width:200px;margin-left: 10px;">
+			
+	<div style="display:inline-block"><img src="images/menu/square/node_plus.gif" height="10" id="index" style="cursor:pointer;margin:3px;" /></div><div style="display:inline-block" ><a href="modules.php?name=<?php echo $this->module_name ?>&amp;act=page&amp;id=<?php echo $this->bookid ?>" ><?php echo _DOCS_INDEX; ?></a></div><hr />
+	
+	<div class="indexcontent" id="indexon" >
+	<?php  echo $this->ullist;	?>	
+	
+	</div></div>
+<?php  } ?>
+<!-- Index ende -->
+
+<div class="postcontent">   
+ 	<?php echo $this->text; ?>
+</div>
+<hr />
+<?php echo ($this->node['text3']!="")?$this->node['text3']."<hr />":""; ?>
+
+<?php 
+	if (count($this->node['media'])>0) { ?>
+	   <div class="block post-media">
+	   <?php
+		foreach($this->node['media'] as $file) {
+		 echo $file['filename']." ";
+		}
+	   ?>   
+	   </div>
+	   <?php	
+	}
+	if (count($this->node['attachment'])>0) {  ?>
+		<div class="note post-media"><h3><?php echo _DOCS_ATTACHMENT ?></h3>
+		<table class="list" width="100%">
+		<?php
+		foreach($this->node['attachment'] as $file) {
+		 ?>
+		 <tr><td width="50"><img src="<?php echo $file['typeimg']; ?>" alt="" /></td><td><?php echo (($file['title']=="")?$file['name']:$file['title']); ?></td><td><?php echo $file['filelen']; ?> kBytes</td><td width="100"><?php echo $file['download']; ?></td></tr>
+		 <?php
+		} ?>
+		</table></div>
+	<?php } ?>
+	<div id="socialshareprivacy" style="width: 546px; margin-left: auto; margin-right: auto;height:60px;">
+		<?php echo $this->socialshare ;	?>
+
+	</div>
+	
+	<?php
+	
+if ($this->node['text1']!="" ) {
+	$subcont= ($this->config['viewcreator']==1)?_DOCS_CREATED." ".mx_strftime(_XDATESTRING,$this->node['date_created'])." ". _DOCS_FROM ." <i>".mxCreateUserprofileLink($this->node['owner_name'])."</i><br />":""; 
+	$subcont.= ($this->config['vieweditor']==1 && $this->node['date_edit']>($this->node['date_created']+86400))?_DOCS_LASTCHANGE." "." ".mx_strftime(_XDATESTRING,$this->node['date_edit'])." ". _DOCS_FROM ." <i>".mxCreateUserprofileLink($this->node['edit_uname'])."</i><br />":""; 
+    $subcont.= ($this->config['viewcreator']==1)?_SUBMISSIONS.": ".$this->node['views']." "._READS:"";
+	if ($subcont>"") {
+		echo "<div class=\"note post-info\" style=\"padding:5px;\">";
+		echo $subcont;
+		echo "</div>";
+	}
+}
+?>
+<?php if ($this->similarcount>0) { ?>
+	<div class="post-note">
+		
+			<h3> <?php echo _DOCS_PAGE_SIMILAR; ?> </h3>
+			<ul class="mainpage">
+				<?php
+				foreach ($this->similar as $cats)
+				{
+					echo "<li class=\"list\" ><a href=\"modules.php?name=$this->module_name&amp;act=page&amp;id=".$cats['id']."\">".$cats['title']."</a></li>";
+				}	?>
+				</ul>
+				
+	</div>
+<?php } ?>
+
+
+<?php 
+	$keywordarray= explode(",",$this->node['keywords']);
+	$keywordlink=""; 
+		foreach($keywordarray as $key =>$value) {
+	     $keywordlink .=($value>"")?"<a class=\"keywords\" href=\"modules.php?name=".$this->module_name."&amp;act=search&amp;keywords=$value\">". htmlspecialchars($value)."</a> ":"";
+	   }
+  echo ($keywordlink!="" && ($this->doc_cfg['viewkeywords']==1))?"<h4>"._DOCS_KEYWORDS."</h4><div class=\"post-meta\">".$keywordlink."</div>":"";
+    ?>
+<?php if ($this->doc_cfg['navigation']==1) { ?>
+	<div class="align-center">
+		<?php if (is_array($this->nodeupper)) { ?>
+		  <a class="button" href="modules.php?name=<?php echo $this->module_name; ?>&amp;act=page&amp;id=<?php echo $this->nodeupper['id']; ?>"  title="<?php echo $this->nodeupper['title']; ?>" >&lt; <?php echo _DOCS_PREVIOUS ?></a>
+		<?php } ?>   
+		<?php if (is_array($this->nodelower)) { ?>
+		  <a class="button" href="modules.php?name=<?php echo $this->module_name; ?>&amp;act=page&amp;id=<?php echo $this->nodelower['id']; ?>"  title="<?php echo $this->nodelower['title']; ?>" ><?php echo _DOCS_NEXT; ?> &gt;</a>
+		<?php } ?>
+	</div>
+<?php } ?>
+
+
+	<div class="align-right">
+		<a class="button" href="#contenthome"  title="<?php echo _HOME ?>" ><img src="images/up.gif" alt="up" /></a>
+	</div>
+
+<div class="clear"></div>
+</div>
+<?php /* pragmaMx CVS $Id: view.page.html 171 2016-06-29 11:59:03Z PragmaMx $ */ ?>

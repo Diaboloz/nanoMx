@@ -1,0 +1,63 @@
+<div class="opentable">
+
+<a name="contenthome" ></a>
+<?php if ($this->doc_cfg['view_title']==1)  echo '<h2 class="title">'. $this->title .'</h2>' ?>
+<p class="align-right tiny"><?php echo $this->adminlink ?> </p>
+<?php if ($this->doc_cfg['breadcrump']==1) { ?>
+	<div class="tiny"><a href="modules.php?name=<?php echo $this->module_name ?>" ><?php echo _DOCS_START; ?></a>
+	<?php   foreach($this->breadcrump as $dummy=>$key) {
+				echo "&nbsp;&raquo;&nbsp;<a href=\"modules.php?name=".$this->module_name."&amp;act=page&amp;id=".$key['id']."\">".$key['title']."</a>";
+			  } ?>
+		 
+	</div><hr />
+<?php } ?>
+
+<?php if ($this->doc_cfg['viewsearch']==1) { ?> 
+	<div class="align-right">
+	<form action="modules.php?name=<?php echo $this->module_name; ?>&amp;act=search" method="post" name="docsearch" >
+	
+	<input class="form" value="" maxlength="50" size="15" name="keywords" /><input type="submit" value="<?php echo _SEARCH ?>" name="<?php echo _SEARCH ?>" />
+	</form><br />
+	</div>
+	
+ <?php     }   /* head ende */ ?>
+ <div class="title align-center">
+<?php  if ($this->doc_cfg['alphaindex']==1) echo $this->alphaindex; ?>
+</div>
+
+<h2><?php echo $this->node['title']; ?></h2>
+<div class="opentable"><?php echo $this->node['text1']; ?></div>
+	<?php if (count($this->childs) ){ ?>
+		<ul class="list">
+		 	<?php foreach($this->childs as $child) { ?>
+				<li style="display:inline-block;width: <?php echo $this->width; ?>%;list-style-type:none;margin:0px;padding:5px;vertical-align:top;">
+				<a href="modules.php?name=<?php echo $this->module_name ?>&amp;act=page&amp;id=<?php echo $child['id']; ?>" title="<?php echo $child['title']; ?>" >
+				<?php echo $child['title']; ?>
+				</a></li>				  
+			<?php }  ?>
+		</ul>
+	<?php }	?>
+	<hr />
+
+
+
+<?php 	/* Page ende */ ?>
+
+<?php if ($this->doc_cfg['navigation']==1) { ?>
+	<div class="align-center">
+	<?php if (is_array($this->nodeupper)) { ?>
+	  <a class="button" href="modules.php?name=<?php echo $this->module_name; ?>&amp;act=page&amp;id=<?php echo $this->nodeupper['id']; ?>"  title="<?php echo $this->nodeupper['title']; ?>" >&lt; <?php echo _DOCS_PREVIOUS ?></a>
+	<?php } ?> 
+	<?php if (is_array($this->nodelower)) { ?>
+	  <a class="button" href="modules.php?name=<?php echo $this->module_name; ?>&amp;act=page&amp;id=<?php echo $this->nodelower['id']; ?>"  title="<?php echo $this->nodelower['title']; ?>" ><?php echo _DOCS_NEXT; ?> &gt;</a>
+	<?php } ?>
+	</div>
+<?php } ?>
+
+	<div class="align-right">
+		<a class="button" href="#contenthome"  title="<?php echo _HOME ?>" ><img src="images/up.gif" alt="up" /></a>
+	</div>
+</div>
+<div class="clear"></div>
+
+<?php /* pragmaMx CVS $Id: view.pagelist.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

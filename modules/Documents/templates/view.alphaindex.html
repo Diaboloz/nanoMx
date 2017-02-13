@@ -1,0 +1,43 @@
+
+<a name="contenthome" ></a>
+
+<div class="title" ><h2><?php echo $this->title ?></h2></div>
+<p class="align-right tiny"><?php echo $this->adminlink ?></p>
+<?php if ($this->doc_cfg['breadcrump']==1) { ?>
+	<div class="tiny"><a href="modules.php?name=<?php echo $this->module_name ?>" ><?php echo _DOCS_START; ?></a>
+	<?php   foreach($this->breadcrump as $dummy=>$key) {
+				echo " &raquo; <a href=\"modules.php?name=".$this->module_name."&amp;act=page&amp;id=".$key['id']."\">".$key['title']."</a>";
+			  } ?>
+		 
+	</div><hr />
+<?php } ?>
+
+
+<div class="opentable" style="height:auto;">
+   <?php   echo _DOCS_ALPHA_INDEX ?> <?php echo ($this->id !=0)? ": <span class=\"stronger\">" . $this->booktitle . "</span>":""; ?>
+<div class="title align-center">
+<?php   echo $this->alphaindex; ?>
+</div>
+<h3><?php echo $this->char ?></h3>
+	<div class="content">
+		<?php
+				foreach ($this->ilist as $cats)
+				{
+					echo "<li class=\"mainpage\" style=\"width: ".$this->width."%\">";
+					//$book=$this->doc->getBookRoot($cats['id']);
+					$bookstitle=$cats['title'];
+					echo "<a href=\"modules.php?name=$this->module_name&amp;act=page&amp;id=".$cats['id']."\">".$bookstitle."</a>";
+					?>
+					</li>
+				<?php }	?>
+				
+	</ul></div>
+
+ </div>
+	<div class="align-right">
+		<a class="button" href="#contenthome"  title="<?php echo _HOME ?>" ><img src="images/up.gif" alt="up" /></a>
+	</div>
+
+<div class="clear"></div>
+
+<?php /* pragmaMx CVS $Id: view.alphaindex.html 171 2016-06-29 11:59:03Z PragmaMx $ */ ?>

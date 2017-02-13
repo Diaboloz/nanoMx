@@ -1,0 +1,50 @@
+
+
+<h2><?php echo _HEADLINESADMIN ?></h2>
+
+<form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
+  <table class="list">
+
+    <tr>
+      <th><?php echo _SITENAME ?></th>
+      <th><?php echo _URL ?></th>
+      <th><?php echo _FUNCTIONS ?></th>
+    </tr>
+
+    <?php foreach ($this->items as $item) : ?>
+    <tr>
+      <td><?php echo $item['sitename'] ?></td>
+      <td class="tiny"><a href="<?php echo $item['headlinesurl'] ?>>" target="_blank"><?php echo $item['headlinesurl'] ?></a></td>
+      <td class="nowrap">[
+        <a href="<?php echo adminUrl(PMX_MODULE, 'HeadlinesEdit', array('hid'=>$item['hid'])) ?>"><?php echo _EDIT ?></a> |
+        <a href="<?php echo adminUrl(PMX_MODULE, 'HeadlinesDel', array('hid'=>$item['hid'], 'ok'=>0)) ?>"><?php echo _DELETE ?></a> ]
+      </td>
+    </tr>
+    <?php endforeach ?>
+
+  </table>
+</form>
+<hr />
+
+<h3><?php echo _ADDHEADLINE ?></h3>
+
+<form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
+  <table class="full form">
+    <tr>
+      <td><?php echo _SITENAME ?>:</td>
+
+      <td><input type="text" name="xsitename" size="31" maxlength="30" /></td>
+    </tr>
+
+    <tr>
+      <td><?php echo _RSSFILE ?>:</td>
+
+      <td><input type="text" name="headlinesurl" size="50" maxlength="200" /></td>
+    </tr>
+  </table><input type="hidden" name="op" value="<?php echo  PMX_MODULE ?>/HeadlinesAdd" /> <input type="submit" value="<?php echo _ADD ?>" />
+</form>
+
+<?php
+/* pragmaMx CVS $Id: headlinesadmin.html 6 2015-07-08 07:07:06Z PragmaMx $ */
+?>
+

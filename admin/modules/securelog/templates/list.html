@@ -1,0 +1,110 @@
+
+<h2><?php echo _SECLOGTITLE ?></h2>
+
+<?php if($this->warnings){ ?>
+<div class="warning">
+  <?php echo implode('<br />', $this->warnings) ?>
+</div>
+<?php } //endif ?>
+
+<div class="align-right clear-right"><?php echo $this->pagination ?></div>
+
+<form action="<?php echo adminUrl(PMX_MODULE, 'delete') ?>" method="post" id="securelog">
+  <table class="list full">
+    <thead>
+      <tr>
+        <th style="width: 1em"><?php echo $this->formCheckbox('check_all_id', 0, array('title'=>_SECLOGSELECTALL)) ?></th>
+        <th style="width: 9em"><?php echo _SECLOGTIME ?></th>
+        <th><?php echo _SECLOGLOG ?></th>
+        <th><?php echo _SECLOGIP ?></th>
+        <th><?php echo _SECLOGADMIN ?></th>
+        <th><?php echo _SECLOGUSER ?></th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($this->rows as $key => $values) { ?>
+      <tr>
+        <td><?php echo $this->formCheckbox('id[' .$values['id']. ']') ?></td>
+        <td class="nowrap"><?php echo $this->ahref(adminUrl(PMX_MODULE, 'details', array('id'=>$values['id'], 'ajax'=>'true', 'width'=>'80%', 'height'=>'80%')), mx_strftime(_SHORTDATESTRING . '  %H:%M:%S', $values['log_time']), array('rel'=>'pretty[ajax]', 'title'=>_SECLOGDETAILS))  ?></td>
+        <td class="tiny"><?php echo $values['log_event'] ?></td>
+        <td><?php echo $values['log_ip'] ?></td>
+        <td><?php echo $values['aid'] ?></td>
+        <td><?php echo $values['uname'] ?></td>
+      </tr><?php } ?>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th title="<?php echo _SECLOGSELECTALL ?>"><?php echo $this->formCheckbox('check_all_id', 0, array('title'=>_SECLOGSELECTALL)) ?></th>
+        <th colspan="5"></th>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="align-right"><?php echo $this->pagination ?></div>
+
+  <div class="align-center">
+    <?php echo $this->formSubmit('delsome', _SECLOGDELSOME) ?>
+  </div>
+  <div class="align-right"><br /><br />
+    <?php echo $this->formSubmit('delall', _SECLOGDELALL) ?>
+  </div>
+
+  <?php echo $this->formHidden('op', PMX_MODULE . '/delete') ?>
+</form>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+
+$(document).ready(function() {
+
+  var tcheckall = 'form#securelog input[name="check_all_id"]';
+  var checklist = $(tcheckall).parents('table').find(':checkbox[name^="id"]');
+
+  $(tcheckall).click(function() {
+    var vari = ($(this).prop('checked')) ? true : false;
+    checklist.prop('checked', vari)
+    $(tcheckall).prop('checked', (is_checked() == checklist.size()));
+  });
+
+  checklist.click(function() {
+    $(tcheckall).prop('checked', (is_checked() == checklist.size()));
+  });
+
+  var chx = false;
+  $('form#securelog input[name="delsome"]').click(function() {
+    if (is_checked()) {
+      chx = confirm("<?php echo _SECLOGSUREDELSOME ?>");
+    }
+  });
+  $('form#securelog input[name="delall"]').click(function() {
+    chx = confirm("<?php echo _SECLOGSUREDELALL ?>");
+  });
+  $('form#securelog').submit(function() {
+    return chx; // wird nur true, wenn einer der Buttons gedrückt wurde
+  });
+
+  var is_checked = function() {
+    cnt = 0;
+    $.each(checklist, function(index, item) {
+      if ($(this).prop('checked')) {
+        cnt++;
+      }
+    });
+    return cnt;
+  }
+
+  $('table.list tbody tr:even').addClass('alternate');
+
+  $('table.list.full a, .pagination a').tooltip();
+  $(tcheckall).tooltip();
+
+});
+
+/*]]>*/
+</script>
+
+
+<?php 
+pmxHeader::add_jquery('ui/jquery.ui.tooltip.js');
+/* pragmaMx CVS $Id: list.html 6 2015-07-08 07:07:06Z PragmaMx $ */ 
+?>

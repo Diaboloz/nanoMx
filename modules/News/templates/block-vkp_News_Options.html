@@ -1,0 +1,17 @@
+<p class="align-center">
+<a href="modules.php?name=<?php echo $this->module_name ?>&amp;file=print&amp;sid=<?php echo $this->storyid ?>" rel="nofollow" target="_blank"><?php echo $this->image('images/print.gif', _NEWSPRINT, array('title' => _NEWSPRINT)) ?></a>
+  <?php if (mxModuleAllowed('Recommend_Us')): ?>
+    <a href="modules.php?name=<?php echo $this->module_name ?>&amp;file=friend&amp;sid=<?php echo $this->storyid ?>" rel="nofollow"><?php echo $this->image('images/friend.gif', _NEWSTOFRIEND, array('title' => _NEWSTOFRIEND)) ?></a>
+  <?php endif; ?>
+</p>
+
+<?php if(MX_IS_ADMIN): ?>
+<p class="tiny">
+  <strong><?php echo _NEWSADMIN ?></strong><br />
+  [<a href="<?php echo adminUrl($this->module_name, 'adminStory') ?>"><?php echo _SUBMITNEWS ?></a>
+  |<a href="<?php echo adminUrl($this->module_name, 'EditStory', 'sid=' . $this->storyid) ?>"><?php echo _EDIT ?></a>
+  |<a href="<?php echo adminUrl($this->module_name, 'RemoveStory', 'sid=' . $this->storyid) ?>"><?php echo _DELETE ?></a>]
+</p>
+<?php endif; ?>
+
+<?php // $Id: block-vkp_News_Options.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

@@ -1,0 +1,82 @@
+<?php
+/**
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ *
+ * pragmaMx is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * $Revision: 6 $
+ * $Author: PragmaMx $
+ * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ *
+ * based on: Centerblock mxTabs 1.1 for pragmaMx 0.1.10
+ * written by (c) 2008 Siggi Braunert, http://www.sb-websoft.com
+ */
+
+pmxHeader::add_script_code("var lang_bidselected = '" . mxHtmlEntityDecode(_MXTABS_BLKALREADYSELECTED) . "';\nvar lang_close = '" . mxHtmlEntityDecode(_EXPAND2COLLAPSE_TITLE_C) . "';");
+pmxHeader::add_script($this->resource_dir . 'addbid.js');
+
+?>
+
+<div id="wraptabs-<?php echo $this->bid ?>">
+
+  <ul id="maintab<?php echo $this->bid ?>" class="tabs-nav">
+    <li class="current"><a href="#tc-main"><?php echo _MXTABS_EDIT ?></a></li>
+    <li><a href="<?php echo adminUrl('blocks', 'Edit', 'bid=' . $this->bid) ?>"><?php echo _MXTABS_BLOCKADMIN ?></a></li>
+  </ul>
+
+  <div class="tabs-panel">
+    <div id="tc-main" class="tabcontent">
+
+      <form action="<?php echo $this->admin_link ?>" method="post">
+        <div>
+          <span style="font-weight:bold;"><?php echo _MXTABS_BLOCKIDS ?></span><br />
+          <input id="inpbids" maxlength="40" name="form_main_<?php echo $this->bid ?>[bids]" size="40" value="<?php echo $this->bids ?>" type="text" /> <input type="submit" name="form_main_<?php echo $this->bid ?>[submit]" value="<?php echo _SAVE ?>" />
+
+          <p class="tiny">
+            <?php echo _MXTABS_IDSINORDER ?>&nbsp;<?php echo _MXTABS_EDITBLOCKINFO ?>
+          </p>
+        </div>
+
+        <?php if($this->message): ?>
+          <div class="note">
+            <?php echo $this->message ?>
+          </div>
+        <?php endif; ?>
+
+          <table width="100%" class="list full">
+           <thead>
+            <tr>
+              <th>ID</th>
+              <th><?php echo _MXTABS_BLOCKNAME ?></th>
+              <th><?php echo _MXTABS_MODULE ?></th>
+              <th><?php echo _MXTABS_POSITION ?></th>
+              <th><?php echo _MXTABS_ACTIVE ?></th>
+            </tr>
+           </thead>
+           <tbody style="overflow:auto; height:180px;">
+            <?php foreach($this->allblocks as $block) :?>
+            <tr>
+              <td style="text-align:center; font-weight:bold; padding-right:1em;"><a id="bid_<?php echo $block['bid'] ?>" href="<?php echo adminUrl('blocks', 'Edit', 'bid=' . $block['bid']) ?>" title="<?php echo sprintf(_MXTABS_EDITBLOCK, "'" . $block['title'] . "'") ?>"><?php echo $block['bid'] ?></a></td>
+              <td><a href='javascript:void(0);' onclick="addbid('bid_<?php echo $block['bid'] ?>');" title="<?php echo _MXTABS_ADD ?>"><?php echo $block['title'] ?></a></td>
+              <td><?php echo $block['module']?></td>
+              <td><?php echo $block['blkpos'] ?></td>
+              <td><?php echo ($block['active'] == 1) ? _YES : _NO ?></td>
+            </tr>
+            <?php endforeach ?>
+           </tbody>
+          </table>
+
+        <div style="padding:10px 0 10px 10px;">
+          <input type="button" onclick="document.getElementById('inpbids').value='';" value="<?php echo _MXTABS_DELINPUT ?>" style="margin-right:15px;" /> <input type="button" onclick="javascript:history.go(-1)" value="<?php echo _MXTABS_GOBACK ?>" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+

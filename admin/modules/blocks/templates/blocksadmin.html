@@ -1,0 +1,48 @@
+
+<h2><?php echo _BLOCKSADMIN ?></h2>
+
+<div id="block-tabs">
+
+  <ul class="tabs-nav">
+    <li><a href="#block-list"><?php echo _BLOCKS_INSTALLEDLIST ?></a></li>
+    <li><a href="#block-new-file"><?php echo _ADDNEWBLOCK . ' ' . _BLOCKFILE?></a></li>
+    <li><a href="#block-new-html"><?php echo _ADDNEWBLOCK . ' (HTML)' ?></a></li>
+    <li><a href="#block-new-rss"><?php echo _ADDNEWBLOCK . ' ' . _RSSCONTENT ?></a></li>
+  </ul>
+
+  <div id="block-list" class="tabs-panel">
+    <h3 class="block-hidecaption"><?php echo _BLOCKS_INSTALLEDLIST ?></h3>
+    <?php echo blockslistall() ?>
+  </div>
+
+  <div id="block-new-file" class="tabs-panel">
+    <h3><?php echo _ADDNEWBLOCK . ' ' . _BLOCKFILE?></h3>
+    <?php echo blockaddform('file') ?>
+  </div>
+
+  <div id="block-new-html" class="tabs-panel">
+    <h3><?php echo _ADDNEWBLOCK . ' (HTML)' ?></h3>
+    <?php echo blockaddform('html') ?>
+  </div>
+
+  <div id="block-new-rss" class="tabs-panel">
+    <h3><?php echo _ADDNEWBLOCK . ' ' . _RSSCONTENT ?></h3>
+    <?php echo blockaddform('rss') ?>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+  $(document).ready(function(){
+    $("#block-tabs").tabs();
+    $("#block-tabs .block-hidecaption").hide();
+  });
+/* ]]> */
+</script>
+
+<?php
+/* Javascript & jquery for tabs */
+pmxHeader::add_tabs(false);
+/* pragmaMx CVS $Id: blocksadmin.html 6 2015-07-08 07:07:06Z PragmaMx $ */
+?>

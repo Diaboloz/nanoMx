@@ -1,0 +1,18 @@
+/**
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: default.gecko.css 6 2015-07-08 07:07:06Z PragmaMx $
+ *
+ * ACHTUNG WICHTIG !!
+ * Bitte ändern sie nicht diese Original Systemdatei!
+ * Um das Standard Stylesheet anzupassen, erstellen sie in diesem 
+ * Ordner eine zusätzliche css Datei die ihre Änderungen enthält.
+ * Der Dateiname muss mit "custom" beginnen und die Dateiendung 
+ * muss ".css" sein. 
+ * z.B.: custom.irgendetwas.css
+*/
+
+body {
+   overflow-y: scroll; /* vertikale Scrollbalken immer anzeigen */
+}

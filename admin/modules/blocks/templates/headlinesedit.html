@@ -1,0 +1,27 @@
+
+
+<h2><?php echo _HEADLINESADMIN ?></h2>
+
+<p class="option" align="center"><b><?php echo _EDITHEADLINE ?></b></p>
+
+<form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
+  <table class="full form">
+    <tr valign="top">
+      <td><?php echo _SITENAME ?>:</td>
+      <td><input type="text" name="xsitename" size="31" maxlength="30" value="<?php echo mxEntityQuotes($this->sitename) ?>" /></td>
+    </tr>
+
+    <tr>
+      <td><?php echo _RSSFILE ?>:</td>
+      <td><input type="text" name="headlinesurl" size="50" maxlength="200" value="<?php echo mxEntityQuotes($this->headlinesurl) ?>" /></td>
+    </tr>
+  </table>
+  <input type="hidden" name="hid" value="<?php echo $this->hid ?>" />
+  <input type="hidden" name="op" value="<?php echo  PMX_MODULE ?>/HeadlinesSave" />
+  <input type="submit" value="<?php echo _SAVECHANGES ?>" />
+</form>
+
+<?php
+/* pragmaMx CVS $Id: headlinesedit.html 6 2015-07-08 07:07:06Z PragmaMx $ */
+?>
+

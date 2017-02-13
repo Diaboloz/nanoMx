@@ -1,0 +1,88 @@
+<?php #mxDebugFuncVars($this->vars); 
+?>
+
+<textarea cols="<?php echo $this->cols ?>" rows="<?php echo $this->rows ?>" name="<?php echo $this->name ?>" id="wym-<?php echo $this->name ?>" class="wysiwygarea" style="overflow:auto;display:block;height:<?php echo $this->height ?>;width:<?php echo $this->width ?>;"><?php echo $this->value ?></textarea>
+
+	<script type="text/javascript" charset="utf-8">
+
+/* Use 3 options, one to set the html content,
+ * one to set the language, and one the set the classes
+ */
+
+$().ready(function() {
+  $('#wym-<?php echo $this->name ?>').wymeditor({
+  
+      html: '<p>Hello, World!<\/p>',
+      lang: '<?php echo $this->lang ?>',
+      stylesheet: 'styles.css',
+
+        skin: 'default',                //activate silver skin
+        postInit: function(wym) {
+
+            wym.hovertools();          //activate hovertools
+            wym.resizable();           //and resizable plugins
+        },
+
+        
+        //customize the tools menu with toolsItems option
+        //'name' is the name of the command which will be executed
+        //when the user clicks on the button
+        //'title' is the button's title (automagically localized)
+        //'css' is the button's class name
+        toolsItems: [
+        {'name': 'Bold', 'title': 'Strong', 'css': 'wym_tools_strong'}, 
+        {'name': 'Italic', 'title': 'Emphasis', 'css': 'wym_tools_emphasis'},
+        {'name': 'CreateLink', 'title': 'Link', 'css': 'wym_tools_link'},
+        {'name': 'Unlink', 'title': 'Unlink', 'css': 'wym_tools_unlink'},
+        {'name': 'InsertImage', 'title': 'Image', 'css': 'wym_tools_image'},
+        {'name': 'InsertOrderedList', 'title': 'Ordered_List', 'css': 'wym_tools_ordered_list'},
+        {'name': 'InsertUnorderedList', 'title': 'Unordered_List', 'css': 'wym_tools_unordered_list'},
+        {'name': 'InsertTable', 'title': 'Table', 'css': 'wym_tools_table'},
+        {'name': 'Paste', 'title': 'Paste_From_Word', 'css': 'wym_tools_paste'},
+        {'name': 'Undo', 'title': 'Undo', 'css': 'wym_tools_undo'},
+        {'name': 'Redo', 'title': 'Redo', 'css': 'wym_tools_redo'}
+    ]
+
+  
+  });
+});
+//
+//
+//		$().ready(function() {
+//			var opts = {
+//				cssClass : 'el-rte',
+//			  lang     : '<?php echo $this->lang ?>',
+//<?php if($this->height): ?>
+//				height   : <?php echo $this->height ?>,
+//<?php endif; ?>
+//<?php if($this->width): ?>
+//				width    : <?php echo $this->width ?>,
+//<?php endif; ?>
+//				toolbar  : 'maxi',
+//				cssfiles : ['<?php echo $this->editor_path ?>css/elrte-inner.css'],
+//				fmOpen : function(callback) {
+//					$('<div id="myelfinder" />').elfinder({
+//						url : 'includes/filemanager/elfinder/connectors/php/connector.php',
+//						lang : '<?php echo $this->lang ?>',
+//						dialog : { width : 900, modal : true, title : 'elFinder - file manager for web' },
+//						closeOnEditorCallback : true,
+//						editorCallback : callback
+//					})
+//				},
+//				absoluteURLs: false,
+//        allowSource: true
+//			}
+//
+//			$('#<?php echo $this->name ?>').elrte(opts);
+//		})
+//
+//
+	</script>
+
+<?php /* pragmaMx CVS $Id: full.template.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>
+
+<?php 
+/*
+*/
+
+ ?>

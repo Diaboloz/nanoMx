@@ -1,0 +1,51 @@
+<h2><?php echo _OPTIMIZINGDB ?></h2>
+<h3><?php echo _OPTIMIZATIONRESULTS ?>:</h3>
+
+<?php if($this->tableslist ): ?>
+<table class="list full">
+
+  <thead>
+    <tr>
+      <th><?php echo _TABLE ?></th>
+      <th><?php echo _SIZE ?></th>
+      <th><?php echo _SPACESAVED ?></th>
+      <th><?php echo _STATUS ?></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <?php foreach($this->tableslist as $table ) { ?>
+    <tr>
+      <td><?php echo $table['Name'] ?></td>
+      <td><?php echo $table['size'] ?></td>
+      <td><?php echo $table['gain'] ?></td>
+      <td><?php echo $table['status'] ?></td>
+    </tr>
+    <?php } // endforeach ?>
+  </tbody>
+
+  <tfoot>
+    <tr class="alternate-b">
+      <td colspan="2" class="align-right"><?php echo _TOTALSPACESAVED ?>:</td>
+      <td colspan="2"><strong><?php echo $this->total_gain ?>&nbsp;Kb</strong></td>
+    </tr>
+  </tfoot>
+
+</table>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+
+$(document).ready(function() {
+
+  $('table.list tbody tr:even').addClass('alternate');
+
+});
+
+/*]]>*/
+</script>
+<?php endif ?>
+
+
+
+<?php /* pragmaMx CVS $Id: optimize.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

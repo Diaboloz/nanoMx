@@ -1,0 +1,134 @@
+/**
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: default.lists.css 6 2015-07-08 07:07:06Z PragmaMx $
+  *
+ * ACHTUNG WICHTIG !!
+ * Bitte ändern sie nicht diese Original Systemdatei!
+ * Um das Standard Stylesheet anzupassen, erstellen sie in diesem 
+ * Ordner eine zusätzliche css Datei die ihre Änderungen enthält.
+ * Der Dateiname muss mit "custom" beginnen und die Dateiendung 
+ * muss ".css" sein. 
+ * z.B.: custom.irgendetwas.css
+*/
+
+div.middot {
+  background-image: url(../../images/dot.gif);
+  background-position: 0 .5em;
+  background-repeat: no-repeat;
+  line-height: 150%;
+  margin: 0 0 .3em 0;
+  padding: 0 0 0 1.2em; /* das ist der Ersatz fuer die veralteten Nuke-Listen in den Bloecken */
+  text-align: left;
+}
+
+dl {
+  margin: 0;
+  padding: 0;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dt, dd {
+  margin: .25em 0 .25em 0;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ol ol ul,     ol ul ul,     ol menu ul,     ol dir ul,
+ol ol menu,   ol ul menu,   ol menu menu,   ol dir menu,
+ol ol dir,    ol ul dir,    ol menu dir,    ol dir dir,
+ul ol ul,     ul ul ul,     ul menu ul,     ul dir ul,
+ul ol menu,   ul ul menu,   ul menu menu,   ul dir menu,
+ul ol dir,    ul ul dir,    ul menu dir,    ul dir dir,
+menu ol ul,   menu ul ul,   menu menu ul,   menu dir ul,
+menu ol menu, menu ul menu, menu menu menu, menu dir menu,
+menu ol dir,  menu ul dir,  menu menu dir,  menu dir dir,
+dir ol ul,    dir ul ul,    dir menu ul,    dir dir ul,
+dir ol menu,  dir ul menu,  dir menu menu,  dir dir menu,
+dir ol dir,   dir ul dir,   dir menu dir,   dir dir dir {
+  list-style-type: square; /* 3 deep (or more) unordered lists use a square */
+}
+
+ol ul,   ul ul,   menu ul,   dir ul,
+ol menu, ul menu, menu menu, dir menu,
+ol dir,  ul dir,  menu dir,  dir dir {
+  list-style-type: circle; /* 2 deep unordered lists use a circle */
+}
+
+ol, ul, menu, dir,
+ol.list, ul.list {
+  display: block;
+  line-height: 150%;
+  list-style-image: none;
+  margin: 0.5em 0 1em 0;
+  padding: 0;
+  text-align: left;
+}
+
+ul li,
+ol li,
+ul.list li,
+ol.list li {
+  display: list-item;
+  line-height: 150%;
+  list-style-position: outside;
+  margin: 0 0 0 2.5em;
+  padding: 0;
+}
+
+ul ul,   ul ol,   ul dir,   ul menu,   ul dl,
+ol ul,   ol ol,   ol dir,   ol menu,   ol dl,
+dir ul,  dir ol,  dir dir,  dir menu,  dir dl,
+menu ul, menu ol, menu dir, menu menu, menu dl,
+dl ul,   dl ol,   dl dir,   dl menu,   dl dl {
+  margin-bottom: 0;
+  /* nested lists have no top/bottom margins */
+  margin-top: 0;
+}
+
+ul, menu, dir {
+  list-style-type: disc;
+}
+
+ul.list {
+  list-style-image: url(../../images/dot.gif); /* das ist der Ersatz fuer die veralteten Nuke-Listen in den Bloecken */
+}
+
+ul.list li,
+ol.list li {
+  margin-left: 2em;
+}
+
+.infolist {
+  margin: 0;
+  padding: 0;
+}
+
+.infolist li {
+  border-bottom: 1px solid ___bordercolor___;
+  list-style: none;
+  margin: 0;
+  padding: .25em 0;
+}
+
+.infolist li strong {
+  display: block;
+  float: left;
+  font-size: 90%;
+  font-weight: bold;
+  white-space: nowrap;
+  width: 45%;
+}
+
+.pmx-rss-feeds {
+  background-image: url(../../images/rss.gif);
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  padding-left: 22px;
+}

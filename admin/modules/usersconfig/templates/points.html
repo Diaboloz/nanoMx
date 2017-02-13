@@ -1,0 +1,35 @@
+
+<table class="form full">
+
+  <tr valign="top">
+    <td><?php echo _UPOINTS_DOACTIVATE ?></td>
+    <td>
+    <input name="useuserpoints" value="1" size="20" type="radio"<?php echo ($this->useuserpoints) ? ' checked="checked"' : '' ?> /><?php echo _YES ?>
+    <input name="useuserpoints" value="0" size="20" type="radio"<?php echo ($this->useuserpoints) ? '' : ' checked="checked"' ?> /><?php echo _NO ?>
+    </td>
+  </tr>
+
+  <tr valign="top">
+    <td colspan="2"><?php echo _UPOINTS_DESCRIBE ?>
+    <div style="padding-left:2em;margin-top:1.5em;">
+    <table class="blind">
+    <?php $points = $this->pointsarray ?>
+    <?php foreach ($points as $part) : ?>
+    <tr valign="top">
+      <td><?php echo $part['label'] ?>:</td>
+      <td><input type="text" name="<?php echo $part['name'] ?>" value="<?php echo $part['value'] ?>" size="<?php echo $part['size'] ?>" /></td>
+    </tr>
+    <?php endforeach ?>
+    </table>
+    </div>
+    </td>
+  </tr>
+
+  <tr valign="top">
+    <td valign="top"><?php echo _UPOINTS_IGNOREUSERS ?></td>
+    <td><textarea cols="35" rows="3" name="excludedusers"><?php echo stripslashes($this->excludedusers) ?></textarea></td>
+  </tr>
+
+</table>
+
+<?php /* pragmaMx CVS $Id: points.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

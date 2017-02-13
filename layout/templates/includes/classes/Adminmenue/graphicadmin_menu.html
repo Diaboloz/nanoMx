@@ -1,0 +1,53 @@
+<?php
+/**
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: graphicadmin_menu.html 6 2015-07-08 07:07:06Z PragmaMx $
+ *
+ * Adminmenü mit CSS-Menü für alle Admins
+ */
+
+/* Javascript & jquery for tabs and tooltips */
+pmxHeader::add_jquery('superfish.js', 'ui/jquery.ui.tooltip.js');
+?>
+
+<div class="clearfix" id="graphicadmin" style="padding: .5em 0">
+  <ul class="tabs-nav sf-menu">
+  <?php foreach ($this->items as $key => $item) { 
+    if ($item['links']) {
+      $class = ($item['current']) ? ' class="current"' : ''; ?>
+    <li<?php echo $class ?>>
+  		<a href="#panel-<?php echo  $item['panelname'] ?>" title="<?php echo $item['description'] ?>" style="background-image: url(<?php echo $item['image'] ?>);" class="img"><?php echo $item['title'] ?></a>
+  		<ul>
+        <?php foreach ($item['links'] as $key => $subitem) { 
+          $class = ($subitem['current']) ? ' class="current"' : ''; ?>
+        <li<?php echo $class ?>>
+          <a href="<?php echo $subitem['url'] ?>" style="background-image: url(<?php echo $subitem['image'] ?>);"><?php echo $subitem['title'] ?></a>
+        </li>
+        <?php } //endforeach ?>
+  		</ul>
+    </li>
+  <?php } } ?>
+  </ul>
+</div>
+
+<div id="currentmodlinks" class="clearfix">
+<?php
+echo $this->ahref($this->currentitem['url'], $this->currentitem['title'], array('class' => 'to-admin', 'title' => sprintf(_CURMODULEADMIN, $this->currentitem['title']), 'style' => 'background-image: url(' . $this->currentitem['image'] . ');'));
+if ($this->module) {
+    echo $this->ahref('modules.php?name='.$this->module, '', array('class' => 'to-view', 'title' => _CURMODULEVIEW));
+}
+?>
+</div>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+  $('ul.sf-menu').superfish({
+    autoArrows: false,
+    disableHI: true
+  });
+  $(document).ready(function() {
+    $('#currentmodlinks a').tooltip();
+  });
+/* ]]> */
+</script>

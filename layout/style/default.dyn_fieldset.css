@@ -1,0 +1,57 @@
+/**
+ * This file is part of 
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: default.dyn_fieldset.css 6 2015-07-08 07:07:06Z PragmaMx $
+ *
+ * ACHTUNG WICHTIG !!
+ * Bitte ändern sie nicht diese Original Systemdatei!
+ * Um das Standard Stylesheet anzupassen, erstellen sie in diesem 
+ * Ordner eine zusätzliche css Datei die ihre Änderungen enthält.
+ * Der Dateiname muss mit "custom" beginnen und die Dateiendung 
+ * muss ".css" sein. 
+ * z.B.: custom.irgendetwas.css
+*/
+
+fieldset.collapsible {
+   margin-bottom: .5em;
+   margin-top: .5em;
+}
+
+fieldset.collapsible span.collapsed {
+   background-image: url(../../images/menu/square/node_plus.gif);
+}
+
+fieldset.collapsible span.collapsible {
+   background-position: 0 50%;
+   background-repeat: no-repeat;
+   cursor: pointer;
+   padding: 0 .5em 0 20px;
+}
+
+fieldset.collapsible span.expanded {
+   background-image: url(../../images/menu/square/node_minus.gif);
+}
+
+fieldset.collapsible.closed {
+   background-color: transparent;
+   background-image: none;
+   border-bottom: 1px solid transparent;
+   border-left: 1px solid transparent;
+   border-right: 1px solid transparent;
+   color: inherit;
+   margin-bottom: .5em;
+   margin-top: .5em;
+   padding-bottom: 0;
+   padding-top: 0;
+}
+
+.fieldset-cls_all,
+.fieldset-exp_all {
+   display: none;
+}
+
+.fieldset-cls_all.show,
+.fieldset-exp_all.show {
+   display: inline;
+}

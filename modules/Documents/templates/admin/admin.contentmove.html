@@ -1,0 +1,40 @@
+
+
+
+<p class="title"><?php echo $this->info2 ?></p>
+<!-- START: TABS NAV -->
+<div id="admincontent">
+
+	<?php echo $this->formOpen ?>
+	<?php echo $this->toolbar ?>
+	<script type="text/javascript">checkAll(<?php echo $this->count ?>);</script>
+	<div style="display:block;text-align:center" class="info"><?php echo _DOCS_MOVECONTENT ?></div><div style="display:block;text-align:center"><?php echo $this->selectfilter ?></div>
+	<table class="list" width="100%">
+	 <thead> 
+	 <tr> 
+	 <th width="15" align="center">#</th> 
+	 <th  width="35" >ID</th> 
+	 <th width="auto"><?php echo _TITLE ?></th> 
+	 </tr> 
+	 </thead> 
+
+	 <tbody> 
+<?php
+	$i=0;
+	foreach ($this->catlist as $id=>$content) {
+	?>
+		<tr class="<?php echo ($i/2==intval($i/2))?"alternate":"alternate-b"; ?>" >
+        <td class="align-center"><input type="checkbox" id="cb<?php echo $i ?>" checked="checked" name="cid[]" value="<?php echo $content['id'] ?>" onclick="isChecked(this.checked);" /></td> 
+		<td><?php echo $content['id'] ?></td>
+		<td > <?php echo $content['title'];?></td>
+		</tr>
+	<?php $i++; }  ?>
+	
+
+
+	 </tbody>
+	 </table>
+	<?php echo $this->formClose ?>
+
+</div>
+<?php /* pragmaMx CVS $Id: admin.contentmove.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

@@ -1,0 +1,34 @@
+
+<div class="postcontent" ><h2><?php echo $this->title ?></h2>
+<div class="tiny"><a href="modules.php?name=<?php echo $this->module_name ?>" ><?php echo _DOCS_START; ?></a></div><hr />
+
+</div>
+<div class="opentable"><b><?php echo _DOCS_SEARCHMASK ?></b>
+
+<form action="modules.php?name=<?php echo $this->module_name; ?>&amp;act=search" method="post" name="docsearch" class="search" >
+
+<input class="form" value="<?php echo $this->keywords ?>" maxlength="50" size="50" name="keywords" /><input type="submit" value="<?php echo _SEARCH ?>" name="<?php echo _SEARCH ?>" />
+</form><br /><div class="clear"></div>
+<p class="" ><?php echo _DOCS_SEARCHINFO ?></p> <hr />
+
+<?php 
+	if (count($this->nodes)>0) { ?>
+	<br /><br /><p class="stronger"><?php echo _DOCS_SEARCH_RESULTS_TEXT ?></p><br />
+
+	<?php } else { ?>
+	<br /><br /><p class="stronger"><?php echo _DOCS_SEARCH_NORESULTS_TEXT ?></p><br />
+	
+	<?php }
+		$books= $this->doc;
+		foreach($this->nodes as $key=>$value ) {
+		 $book=$books->getBookRoot($value['id']);
+		 $booklink="<a href=\"modules.php?name=$this->module_name&amp;act=page&amp;id=".$book['id']."\">".$book['title']."</a>";
+	     echo "<a class=\"stronger\" href=\"modules.php?name=$this->module_name&amp;act=page&amp;id=".$value['id']."&amp;highlight=".$this->keywords ."\" title=\"\" >".$value['title']."</a>".((is_array($book))?" ( ".$booklink." )":"")."<br />";
+		 if ($this->doc_cfg['cutlen']>0) echo "<div class=\"opentable2\">".pmx_cutString($value['text1'],$this->doc_cfg['cutlen'])."</div>";
+	   }
+ 
+    ?>
+
+</div>
+
+<?php /* pragmaMx CVS $Id: view.search.html 171 2016-06-29 11:59:03Z PragmaMx $ */ ?>

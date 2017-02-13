@@ -1,0 +1,43 @@
+
+<?php
+/* Javascript & jquery for tabs */
+pmxHeader::add_tabs();
+?>
+<h2><?php echo _SETBAN ?></h2>
+<div id="setban-tabs">
+  <ul class="tabs-nav">
+    <li><a href="#setban-ip"><?php echo _INFOHOWBAN ?></a></li>
+    <li><a href="#setban-name"><?php echo _INFOHOWBANNAME ?></a></li>
+    <li><a href="#setban-mail"><?php echo _INFOHOWBANMAIL ?></a></li>
+  </ul>
+  <div id="setban-ip" class="tabs-panel">
+    <?php $this->display('ip.html') ?>
+  </div>
+  <div id="setban-name" class="tabs-panel">
+    <?php $this->display('name.html') ?>
+  </div>
+  <div id="setban-mail" class="tabs-panel">
+    <?php $this->display('mail.html') ?>
+  </div>
+</div>
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+  $(document).ready(function() {
+    var tab_cookie_name = "tab_setbanconfig";
+    $('#setban-tabs').tabs({
+      active: ($.cookie(tab_cookie_name) || 0),
+      activate: function(event, ui) {
+        var newIndex = ui.newTab.parent().children().index(ui.newTab);
+        $.cookie(tab_cookie_name, newIndex, {
+          path: window.location.pathname,
+          expires: 7
+        });
+      }
+    });
+    $('#mod-tabs .mod-hidecaption').hide();
+  }); /* ]]> */
+</script>
+
+
+<?php /* pragmaMx CVS $Id: setban.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

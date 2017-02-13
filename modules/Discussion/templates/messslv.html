@@ -1,0 +1,53 @@
+<form action="<?php echo MXB_BM_MESSLV1 ?>" method="get" name="changeview">
+	<input type="hidden" name="name" value="<?php echo MXB_MODNAME ?>"/>
+	<input type="hidden" name="file" value="messslv">
+	<?php echo changeMSLVview() ?>
+	<h2><?php echo $this->miscaction ?>:&nbsp;<?php echo $this->resultnumber ?>&nbsp;<?php echo _TEXTSEARCHRESULTS ?></h2>
+<?php if ($this->resultnumber < 1): ?>
+	<?php echo mxbMessageScreen(_NORESULTS) ?>
+<?php else: ?>  				
+	<div class="forumbg">  
+  		<table class="table1">
+  			<tbody>
+	<?php foreach($this->tabtemp as $i => $entry): ?>
+    			<tr class="alternate-1">
+    <?php if ($entry['icon']): ?>
+        		<td class="alternate-1" align="center">
+        			<img src="<?php echo MXB_BASEMODIMG ?><?php echo $entry['icon'] ?>" alt="" />
+        		</td> 
+     <?php else: ?>   		
+        		<td class="alternate-1"><!-- --></td>
+   	<?php endif; ?>
+    				<td class="alternate-2">
+    					<a href="<?php echo MXB_BM_VIEWTHREAD1 ?>tid=<?php echo $entry['tid'] ?>#pid<?php echo $entry['pid'] ?>"><?php echo $entry['subject'] ?></a>
+     					<br/>
+     					<a href="<?php echo MXB_BM_FORUMDISPLAY1 ?>fid=<?php echo $entry['fid'] ?>"><em><?php echo $entry['forumname'] ?></em></a>
+     				</td>
+     				<td class="alternate-1"><?php echo $entry['textpost'] ?></td>		
+    <?php if ($entry['author'] == _TEXTGUEST): ?>
+        		<td class="alternate-2"><?php echo $entry['author'] ?></td>
+    <?php else: ?>
+        		<td class="alternate-2">
+        			<a href="<?php echo MXB_BM_MEMBER1 ?>action=viewpro&amp;member=<?php echo rawurlencode($entry['author']) ?>"><?php echo $entry['author'] ?></a>
+        		</td>
+    <?php endif; ?>
+    				<td class="alternate-1"><?php echo $entry['poston'] ?></td>
+     			</tr>
+	<?php endforeach; ?>     				
+				</tbody>
+   		</table>	
+		</div>
+	</div>
+<?php endif; ?>		
+</form>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+function qvsubmit(id) {
+    var element = getel(id);
+    if(element.value!=''){
+        document.changeview.submit();
+    }
+}
+/*]]>*/
+</script>

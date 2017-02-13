@@ -1,0 +1,66 @@
+<h2>Hooks verwalten</h2>
+
+<p><?php echo _HOOKS_DESCRIBE1 ?></p>
+<p class="important"><?php echo _HOOKS_DESCRIBE2 ?></p>
+
+<div id="hook-tabs">
+  <ul class="tabs-nav">
+  <?php foreach ($this->tabs as $id1 => $tab) { ?>
+    <li><a href="#tb<?php echo $id1 ?>"><?php echo $tab['title'] ?></a></li>
+  <?php } //endforeach ?>
+  </ul>
+  <?php foreach ($this->tabs as $id1 => $tab) { ?>
+    <form method="post" action="<?php echo adminUrl(PMX_MODULE) ?>">
+    <?php echo $this->formHidden('op', PMX_MODULE . '/save') ?>
+      <div id="tb<?php echo $id1 ?>" class="tabs-panel panel2">
+      <p class="align-right"><?php echo $this->formSubmit('', _SAVECHANGES)?></p>
+      <h3 class="hook-hidecaption"><?php echo $tab['title'] ?></h3>
+      <ul class="tabs-nav">
+      <?php foreach ($tab['data'] as $id2 => $tab2) {  ?>
+        <li><a href="#tb2<?php echo $id2 ?>"><?php echo $tab2['title'] ?></a></li>
+      <?php } //endforeach ?>
+      </ul>
+      <?php foreach ($tab['data'] as $id2 => $tab2) { ?>
+        <div id="tb2<?php echo $id2 ?>" class="tabs-panel">
+        <h4 class="hook-hidecaption"><?php echo $tab2['title'] ?></h4>
+        <?php foreach ($tab2['data'] as $hook => $files) { ?>
+          <div class="box clearfix" style="width: 100%">
+          <h4><?php echo $hook ?></h4>
+          <?php foreach ($files as $id2 => $modname) { ?>
+          <label for="<?php echo $id1.$id2 ?>">
+          <?php ($checked = (in_array($id2, $this->checked)) ? ' checked="checked"' : '') ?>
+            <input type="checkbox" value="1" name="id[<?php echo $id2 ?>]" id="<?php echo $id1.$id2 ?>"<?php echo $checked ?> />
+          <?php echo $modname ?>
+          </label>
+          <?php } //endforeach ?>
+          </div>
+        <?php } //endforeach ?>
+        </div>
+      <?php } //endforeach ?>
+      <p class="align-center"><?php echo $this->formSubmit('', _SAVECHANGES)?></p>
+      </div>
+    </form>
+  <?php } //endforeach ?>
+</div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+  $(document).ready(function(){
+    $("#hook-tabs").tabs();
+    $("#hook-tabs .panel2").tabs();
+    $("#hook-tabs .hook-hidecaption").hide();
+  });
+/* ]]> */
+</script>
+
+<?php ob_start() ?>
+<style type="text/css">
+  #hook-tabs label{float: left; display: block; padding: .5em; min-width: 15%; }
+</style>
+
+<?php 
+pmxHeader::add_style_code(ob_get_clean());
+/* Javascript & jquery for tabs */
+pmxHeader::add_tabs(false);
+/* pragmaMx CVS $Id: hookslist.html 6 2015-07-08 07:07:06Z PragmaMx $ */
+?>

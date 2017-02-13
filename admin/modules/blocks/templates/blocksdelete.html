@@ -1,0 +1,17 @@
+
+<h2><?php echo _BLOCKSADMIN ?></h2>
+
+<div class="warning">
+  <p><?php echo _ARESUREDELBLOCK ?><i> <?php echo $this->block['title'] ?></i>?</p>
+  <br />
+  <p>[ <?php echo implode(' | ', $this->links) ?> ]</p>
+</div>
+<br />
+
+<?php
+echo showpreview($this->block);
+echo block_editmenue ($this->block, _BLOCKACTIVATION, $this->menu);
+
+/* pragmaMx CVS $Id: blocksdelete.html 6 2015-07-08 07:07:06Z PragmaMx $ */
+?>
+

@@ -1,0 +1,18 @@
+
+<ul class="list">
+  <?php foreach($this->storieslist as $storie ): ?>
+    <li>
+      <?php echo $this->ahref("modules.php?name=$this->module_name&amp;file=article&amp;sid=$storie[id]", $storie['title']) ?>
+    </li>
+  <?php endforeach; ?>
+</ul>
+
+<?php if (mxModuleAllowed('Stories_Archive')): ?>
+<hr />
+
+<p class="align-right">
+  [ <?php echo $this->ahref('modules.php?name=Stories_Archive', _STORIEARCHIVE) ?> ]
+</p>
+<?php endif ?>
+
+<?php // $Id: block-vkp_News_Lastarticles.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

@@ -1,0 +1,22 @@
+
+<?php echo $this->image('images/tcake.gif', _BIRTHDAYHAPPY, array('class'=>'float-left')) ?>
+
+<?php echo _USERSBIRTHDAY ?>
+
+<br class="clear" />
+
+<?php if (!($this->blockheight == 0 || count($this->items) <= 5)): ?>
+<div style="height: <?php echo $this->blockheight ?>px; overflow: auto;">
+<?php endif; ?>
+
+<ul class="list">
+<?php foreach ($this->items as $key => $item) : ?>
+  <li><?php echo $item['uname'] ?>: <?php echo $item['userage'] ?> <?php echo _BIRTHDAYYEARS ?></li>
+<?php endforeach ?>
+</ul>
+
+<?php if (!($this->blockheight == 0 || count($this->items) <= 5)): ?>
+</div>
+<?php endif; ?>
+
+<?php // $Id: block-Birthday_2.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

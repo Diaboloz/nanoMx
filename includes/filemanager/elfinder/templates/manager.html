@@ -1,0 +1,16 @@
+
+<?php $id='finder-'.strval(rand()) ?>
+<script type="text/javascript" charset="utf-8">
+  /*<![CDATA[*/
+  $(document).ready(function() {
+    <?php $this->display('options.inc.js') ?>
+    $($('#<?php echo $id ?>')).elfinder(elfinder_options).elfinder('instance');
+  });
+  /*]]>*/
+</script>
+
+<div id="<?php echo $id ?>">
+  <p class="important"><?php echo _JSSHOULDBEACTIVE ?></p>
+</div>
+
+<?php /* pragmaMx CVS $Id: manager.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

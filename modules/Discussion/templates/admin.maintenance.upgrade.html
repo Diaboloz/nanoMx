@@ -1,0 +1,16 @@
+<div id="mxb-maintenance-upgrade" class="tabs-panel"> 
+	<p>
+		<?php echo _UPGRADE ?>
+	</p>
+	<form method="post" action="<?php echo MXB_BM_CP1 ?>action=upgrade">
+		<fieldset>
+			<textarea cols="50" rows="7" name="upgrade"></textarea>
+		</fieldset>
+		<p>
+			<?php echo _UPGRADENOTE ?>
+		</p>
+		<fieldset class="submit-buttons">
+			<input type="submit" class="button1" name="upgradesubmit" value="<?php echo _TEXTSUBMITCHANGES ?>" />
+		</fieldset>
+	</form>
+</div>

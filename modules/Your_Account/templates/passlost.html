@@ -1,0 +1,20 @@
+<div class="tabs-panel">
+  <?php echo $this->noproblem ?>
+  <form action="modules.php?name=Your_Account" method="post" class="mx-form mx-form-aligned">
+    <div class="control-group">
+        <label for="uname"><?php echo _NICKNAME ?></label>
+        <input type="text" name="uname" id="uname" size="30" maxlength="25" value="<?php echo mxPrepareToDisplay($this->uname) ?>" placeholder="<?php echo _NICKNAME ?>" />
+    </div>
+    <div class="control-group">
+        <label for="confirmcode"><?php echo $this->fieldcaption ?></label>
+        <input type="text" name="<?php echo $this->fieldname ?>" id="confirmcode" size="30" value="<?php echo mxPrepareToDisplay($this->code) ?>" />
+    </div>
+    <div class="controls">
+        <input type="hidden" name="name" value="Your_Account" />
+        <input type="hidden" name="op" value="mailpasswd" />
+        <button type="submit" class="mx-button mx-button-primary"><?php echo $this->sendpassword ?></button>
+    </div>
+  </form>
+</div>
+
+<?php // pragmaMx CVS $Id: passlost.html 6 2015-07-08 07:07:06Z PragmaMx $ äöüß ?>

@@ -1,0 +1,54 @@
+<?php
+/**
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ *
+ * pragmaMx is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * $Revision: 6 $
+ * $Author: PragmaMx $
+ * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ *
+ * based on: Centerblock mxTabs 1.1 for pragmaMx 0.1.10
+ * written by (c) 2008 Siggi Braunert, http://www.sb-websoft.com
+ */
+
+?>
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+  $(document).ready(function() {
+    $("#wraptabs-<?php echo $this->bid ?>").tabs({
+      cookie: {
+        name: 'tab_multiblock_<?php echo $this->bid ?>',
+        expires: 30
+      }
+    });
+  }); /* ]]> */
+</script>
+
+<div id="wraptabs-<?php echo $this->bid ?>">
+
+    <ul id="maintab<?php echo $this->bid ?>" class="tabs-nav">
+    <?php foreach($this->tabcontent as $tab) :?>
+         <li><a href="#tab-<?php echo $this->bid . '-' . $tab['bid'] ?>"><?php echo $tab['title'] ?></a></li>
+    <?php endforeach ?>
+    </ul>
+
+    <div class="tabs-panel">
+      <?php foreach($this->tabcontent as $tab) : ?>
+        <div id="tab-<?php echo $this->bid . '-' . $tab['bid'] ?>" class="tabcontent">
+          <?php echo $tab['content'] ?>
+        </div>
+        <?php endforeach ?>
+        <?php if (mxGetAdminPref('radminsuper')) : ?>
+        <div class="smaller align-right"><a href="<?php echo $this->admin_link ?>">[<?php echo str_replace(":", "", _ADMIN) ?>]</a></div>
+        <?php endif ?>
+    </div>
+
+</div>
+

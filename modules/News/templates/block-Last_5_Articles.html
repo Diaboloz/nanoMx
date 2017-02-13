@@ -1,0 +1,21 @@
+
+<ul class="list">
+  <?php foreach($this->storieslist as $storie ): ?>
+    <li>
+      <?php echo $this->ahref("modules.php?name=$this->module_name&amp;file=article&amp;sid=$storie[id]", $storie['title']) ?>
+      <br /><span class="tiny">
+      <?php if($storie['comments']): ?>
+      <em><?php echo $storie['comments'] ?></em> |
+      <?php endif; ?>
+      <em><?php echo $storie['counter'] ?></em>
+      </span>
+    </li>
+  <?php endforeach; ?>
+</ul>
+<hr />
+
+<p class="align-right">
+  [ <?php echo $this->ahref("modules.php?name=$this->module_name", _MORENEWS) ?> ]
+</p>
+
+<?php // $Id: block-Last_5_Articles.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

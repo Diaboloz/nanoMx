@@ -1,0 +1,92 @@
+/**
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: default.tooltip.css 6 2015-07-08 07:07:06Z PragmaMx $
+ *
+ * ACHTUNG WICHTIG !!
+ * Bitte ändern sie nicht diese Original Systemdatei!
+ * Um das Standard Stylesheet anzupassen, erstellen sie in diesem 
+ * Ordner eine zusätzliche css Datei die ihre Änderungen enthält.
+ * Der Dateiname muss mit "custom" beginnen und die Dateiendung 
+ * muss ".css" sein. 
+ * z.B.: custom.irgendetwas.css
+*/
+
+* html.ui-tooltip {
+   background-image: none; /* Fades and background-images don't work well together in IE6, drop the image */
+}
+
+body.ui-tooltip {
+   border-width: 2px;
+}
+
+input.tooltip-info {
+   background-image: url(../../images/info.gif);
+}
+
+input.tooltip-info,
+input.tooltip-question {
+   background-color: transparent !important;
+   background-position: center;
+   background-repeat: no-repeat;
+   border: none !important;
+   color: inherit;
+   cursor: help !important;
+   display: none; /* wird per javascript eingeblendet */
+   height: 16px;
+   margin: 0 !important;
+   padding: 0 !important;
+   vertical-align: top;
+   width: 20px;
+}
+
+input.tooltip-question {
+   background-image: url(../../images/question.gif);
+}
+
+.ui-tooltip {
+   background-color: ___alternate-0___;
+   border: 1px solid ___bordercolor-dark___;
+   /* 
+   box-shadow: 0 0 .5em ___bordercolor-dark___;
+   -moz-box-shadow: 0 0 .5em ___bordercolor-dark___;
+   -o-box-shadow: 0 0 .5em ___bordercolor-dark___;
+   -webkit-box-shadow: 0 0 .5em ___bordercolor-dark___;
+    */
+   color: inherit;
+   max-width: 40%;
+   padding: .5em;
+   position: absolute;
+   text-align: left;
+   z-index: 9999;
+}
+
+.ui-tooltip h3 {
+   border-bottom: 1px solid ___bordercolor-dark___;
+   margin: 0;
+   padding: .15em .5em;
+}
+
+#tooltip {
+   background-color: ___alternate-0___;
+   border: 1px solid ___bordercolor-dark___;
+   color: inherit;
+   padding: 0;
+   position: absolute;
+   text-align: left;
+   z-index: 3000;
+}
+
+#tooltip div {
+   padding: .25em .5em;
+}
+
+#tooltip h3 {
+   border-bottom: 1px solid ___bordercolor-dark___;
+   padding: .15em .5em;
+}
+
+#tooltip h3, #tooltip div {
+   margin: 0;
+}

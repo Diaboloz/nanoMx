@@ -1,0 +1,11 @@
+<form action="modules.php?name=Your_Account" method="post" class="mx-form mx-form-aligned">
+  <div class="tabs-panel"> 
+      <?php echo $this->content ?>
+  </div>
+    <input type="hidden" name="uid" value="<?php echo $this->uid ?>" />
+    <input type="hidden" name="op" value="savehome" />
+    <input type="submit" class="mx-button mx-button-primary" value="<?php echo _SAVECHANGES ?>" />
+</form>
+
+<?php // pragmaMx CVS $Id: edithome.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>
+

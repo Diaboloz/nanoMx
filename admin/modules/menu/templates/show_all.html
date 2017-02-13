@@ -1,0 +1,73 @@
+<?php
+/**
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ *
+ * pragmaMx is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * $Revision: 6 $
+ * $Author: PragmaMx $
+ * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ *
+ * Menumanager for pragmaMx, written by Siggi Braunert
+ * bugfixed by Joerg & Andi
+ **/
+?>
+
+<?php echo $this->message?>
+
+<?php if(count($this->menus)): ?>
+ <div>
+ <?php foreach($this->menus as $menu): ?>
+  <h3>
+    <?php echo $menu['title'] . (($menu['active']) ? '' : ' <i class="tiny">('._MX_MENU_NOTACTIVE.')</i>') ?>
+  </h3>
+ <div>
+  <div style="width: 33%" class="box float-right">
+    <ul style="padding: 0">
+     <li><a href="<?php echo adminUrl(PMX_MODULE, 'add_menu/edit/' . $menu['bid']) ?>"><b><?php echo _MX_MENU_EDIT ?></b></a></li>
+     <li><a href="<?php echo adminUrl('blocks', 'Edit', array('bid'=>$menu['bid'], 'menu'=>1)) ?>"><b><?php echo _MX_MENU_BLOCKSADMIN ?></b></a> (<?php echo ($menu['active'] != 1) ? _ACTIVATE : _DEACTIVATE ?> <?php echo _MX_MENU_FURTHERSETTINGS ?>)</li>
+     <li><a href="<?php echo adminUrl(PMX_MODULE, 'delete_menu/id,' . $menu['bid']) ?>"><b><?php echo _MX_MENU_DELETE ?></b></a></li>
+     <li><a href="<?php echo adminUrl(PMX_MODULE, 'add_item/' . $menu['bid']) ?>"><b><?php echo _MX_MENU_ADDITEM ?></b></a></li>
+    </ul>
+  </div>
+
+   <?php if(count($this->menu_items[$menu['bid']])>0): ?>
+   <?php $_items = $this->menu_items[$menu['bid']]?>
+    <div class="float-left" style="width: 60%">
+      <table cellspacing="0" class="list">
+      <tr>
+       <th><?php echo _MX_MENU_ITEM ?></th>
+       <th><?php echo _MX_MENU_ITEM_EXP_OPEN ?></th>
+       <th><?php echo _MX_MENU_TARGET ?></th>
+       <th colspan="2"><?php echo _MX_MENU_OPERATIONS ?></th>
+      </tr>
+      <?php foreach($_items as $row): ?>
+      <tr>
+       <td><a href="<?php echo $row['url'] ?>" title="<?php echo $row['description'] ?>"><?php echo $row['title'] ?></a></td>
+       <td><?php echo ($row['expanded']) ? _YES : '' ?>&nbsp;</td>
+       <td><?php echo $row['target'] ?>&nbsp;</td>
+       <td class="align-center"><a href="<?php echo adminUrl(PMX_MODULE, 'add_item/edit/'. $row['id']) ?>"><?php echo IMG_MXMENU_EDIT ?></a></td>
+
+       <?php if($row['url'] != 'modules.php?name='.$this->main_module): ?>
+         <td class="align-center"><a href="<?php echo adminUrl(PMX_MODULE, 'delete_item/id,'.$row['id']) ?>"><?php echo IMG_MXMENU_DELETE ?></a></td>
+       <?php else: ?>
+         <td class="align-center"><?php echo IMG_MXMENU_HOME ?></td>
+         <td>&nbsp;</td>
+        <?php endif;?>
+      </tr>
+      <?php endforeach ;?>
+      </table>
+    </div>
+   <?php else: ?>
+    <div class="important bigger stronger float-left" style="width: 50%"><?php echo _MX_MENU_ADDITEM_NOTDEF ?></div>
+   <?php endif;?>
+
+ </div><hr class="clear" />
+ <?php endforeach;?>
+ </div>
+<?php endif;?>

@@ -1,0 +1,150 @@
+/**
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: default.debugmode.css 6 2015-07-08 07:07:06Z PragmaMx $
+ *
+ * ACHTUNG WICHTIG !!
+ * Bitte ändern sie nicht diese Original Systemdatei!
+ * Um das Standard Stylesheet anzupassen, erstellen sie in diesem
+ * Ordner eine zusätzliche css Datei die ihre Änderungen enthält.
+ * Der Dateiname muss mit "custom" beginnen und die Dateiendung
+ * muss ".css" sein.
+ * z.B.: custom.irgendetwas.css
+ */
+
+body #pmx-debug-area {
+   background-color: ___bgcolor2___;
+   border-color: ___bordercolor___ ___bordercolor-dark___ ___bordercolor-dark___ ___bordercolor___;
+   border-style: solid;
+   border-width: 1px;
+   color: ___textcolor2___;
+   display: block;
+   font-size: 1em;
+   margin: 1em auto;
+   padding: 1em;
+   text-align: left;
+   width: 80%;
+}
+
+body #pmx-debug-area div {
+   background-color: ___alternate-0___;
+   border-color: ___bordercolor-dark___ ___bordercolor___ ___bordercolor___ ___bordercolor-dark___;
+   border-style: solid;
+   border-width: 1px;
+   color: ___textcolor2___;
+   font-size: .9em;
+   line-height: 1.2em;
+   max-height: 15em;
+   overflow: auto;
+   padding: .5em;
+}
+
+body #pmx-debug-area div ol,
+body #pmx-debug-area div ul {
+   margin: .5em .5em .5em 1.5em;
+}
+
+body #pmx-debug-area div ul li span {
+   font-style: italic;
+   white-space: pre;
+}
+
+body #pmx-debug-area div.dbgwarn {
+   background-color: #ffdddd;
+   color: #000000;
+}
+
+body #pmx-debug-area h3 {
+   border: none;
+   margin: .5em .5em .25em .5em;
+   padding: 0;
+}
+
+body #pmx-debug-area h4 {
+   border: none;
+   margin: 0 0 0 1em;
+   padding: 0;
+}
+
+body div #pmx-debug-area {
+   width: auto;
+}
+
+.dbg-error {
+   background-color: #ffdddd;
+   border: 2px solid #ff0000;
+   color: #000000;
+   margin: .25em;
+   padding: .35em;
+   text-align: left;
+}
+
+.dbg-frame {
+   background-color: #ff0000;
+   color: #ff0001;
+   cursor: crosshair;
+   position: fixed;
+   z-index: 9998;
+}
+
+.dbg-frame.dpob {
+   bottom: 0;
+   height: .3em;
+   left: 0;
+   width: 100%;
+}
+
+.dbg-frame.dpol {
+   height: 100%;
+   left: 0;
+   top: 0;
+   width: .5em;
+}
+
+.dbg-frame.dpor {
+   height: 100%;
+   right: 0;
+   top: 0;
+   width: .5em;
+}
+
+.dbg-frame.dpot {
+   height: .3em;
+   left: 0;
+   top: 0;
+   width: 100%;
+}
+
+.dbgmod {
+   background-image: url(../../images/debugmode_small.png);
+   background-position: 4px 50%;
+   background-repeat: no-repeat;
+   display: none;
+   left: 0;
+   position: fixed;
+   top: 0;
+   z-index: 9999;
+}
+
+.dbgmod.dbgmod-big {
+   background-color: #f04124;
+   border: .2em solid #de2d0f;
+   color: #FFFFFF;
+   cursor: pointer;
+   line-height: 30px;
+   margin: .4em .65em;
+   padding: 0 .5em 0 30px;
+   border-radius: 2px;
+}
+
+.dbgmod.dbgmod-min {
+   cursor: help;
+   height: 26px;
+   margin: .2em .45em;
+   width: 28px;
+}
+
+.dbgmod.dbgmod-min * {
+   display: none;
+}

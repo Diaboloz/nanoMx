@@ -1,0 +1,6 @@
+[01-Feb-2017 20:26:27 Europe/Berlin] PHP Fatal error:  Call to undefined function xbCodeStr() in /home/diabolo/public_html/nanomx/modules/Discussion/includes/functions.php on line 460
+[01-Feb-2017 21:33:48 Europe/Berlin] PHP Fatal error:  Call to a member function add() on null in /home/diabolo/public_html/nanomx/modules/Discussion/stats.php on line 24
+[01-Feb-2017 21:54:23 Europe/Berlin] PHP Fatal error:  Call to undefined function mxb_add_signatur() in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 341
+[01-Feb-2017 21:54:25 Europe/Berlin] PHP Fatal error:  Call to undefined function mxb_add_signatur() in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 341
+[01-Feb-2017 21:54:55 Europe/Berlin] PHP Fatal error:  Call to undefined function mxb_add_signatur() in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 341
+[01-Feb-2017 21:55:00 Europe/Berlin] PHP Fatal error:  Call to undefined function mxb_add_signatur() in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 341

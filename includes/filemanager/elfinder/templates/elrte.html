@@ -1,0 +1,19 @@
+
+<script type="text/javascript" charset="utf-8">
+  /*<![CDATA[*/
+  <?php $this->display('functions.inc.js') ?>
+
+  elrte_filemanager_callback = function (callback) {
+    <?php $this->display('options.inc.js') ?>
+    var elfinder_editor_options = {
+      getFileCallback: function(file) {
+        callback(elfinder2_cut_path(file));
+      }
+    };
+    $().extend(elfinder_options, elfinder_editor_options);
+    $('<div />').dialogelfinder(elfinder_options);
+  }
+  /*]]>*/
+</script>
+
+<?php /* pragmaMx CVS $Id: elrte.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

@@ -1,0 +1,22 @@
+
+.documents-startpage {
+	display:inline-block !important;
+	list-style-type:none;
+	margin:0px;
+	padding:5px;
+	vertical-align:top;
+}
+.documents-blocks {
+	display:inline-block !important;
+	list-style-type:none;
+	margin:0px;
+	padding:5px;
+	vertical-align:top;
+}
+/* Block News */
+.dmbn0 {
+}
+/* Block Startpage */
+.dsp0 {
+	
+}

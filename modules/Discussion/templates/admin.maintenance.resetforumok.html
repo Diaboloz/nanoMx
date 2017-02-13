@@ -1,0 +1,66 @@
+<div id="mxb-maintenance-reset" class="tabs-panel">  
+	<p>
+		<?php echo _TEXTRESETFORUMEXPLAIN ?>
+	</p>
+	<form method="post" action="<?php echo MXB_BM_CP31 ?>action=resetforum ">
+		<p>
+			<?php echo _TEXTRESETFORUMCHOOSE ?>
+		</p>
+		<fieldset>
+			<div>
+				<label>
+					<input type="checkbox" name="resetftime" value="yes"> 
+					<?php echo _TEXTRESETFORUMFTIME ?>
+				</label>
+			</div>
+			<div>
+				<label>
+					<input type="checkbox" name="resetmtime" value="yes"> 
+					<?php echo _TEXTRESETFORUMMTIME ?>
+				</label>
+			</div>
+			<div>
+				<label>
+					<input type="checkbox" name="resetforum" value="yes">
+					<?php echo _TEXTRESETFORUMFORUM ?>
+				</label>
+			</div>
+			<div>
+				<label>
+					<input type="checkbox" name="resetmember" value="yes">
+					<?php echo _TEXTRESETFORUMMEMBER ?>
+				</label>
+			</div>
+			<div>
+				<label>
+					<input type="checkbox" name="resetall" value="yes">
+					<?php echo _TEXTRESETFORUMALL ?>
+				</label>
+			</div>
+			<div>
+				<label>
+					<input type="checkbox" name="resetallok" value="yes">
+					<?php echo _TEXTRESETFORUMALLOK ?>
+				</label>
+			</div>						
+		</fieldset>
+		<fieldset class="submit-buttons">
+			<input type="submit" name="resetok" value="<?php echo _TEXTRESETFORUM ?>" />
+			&nbsp;&nbsp;
+			<input type="submit" name="resetcancel" value="<?php echo _NO ?>" />
+		</fieldset>
+	</form>
+</div>
+
+</div><!-- //mxb-maintenance -->
+  <script type="text/javascript">
+  /* <![CDATA[ */
+  $(document).ready(function() {
+    $('#mxb-maintenance').tabs({
+      cookie: {
+        name: 'tab_mxb_maintenance',
+        expires: 30
+      }
+    });
+  }); /* ]]> */
+	</script>

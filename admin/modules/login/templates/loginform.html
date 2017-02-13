@@ -1,0 +1,24 @@
+
+<?php if ($this->message) { ?>
+<div class="note"><?php echo $this->message ?></div>
+<?php } 
+echo $this->form('begin', array('id' => 'adminlogin', 'name' => 'adminlogin'));
+echo $this->form('element', $this->elements['op']);
+echo $this->form('element', $this->elements['check']);
+echo $this->form('element', $this->elements['sess']);
+echo $this->form('element', $this->elements['uri']);
+echo $this->form('block', 'begin', _ADMINLOGIN);
+echo $this->form('element', $this->elements['aid']);
+echo $this->form('element', $this->elements['pwd']);
+echo $this->form('element', $this->elements['submit']);
+echo $this->form('end');
+
+?>
+
+<script type='text/javascript'>
+//<![CDATA[
+  $("#adminlogin #aid").focus();
+/* ]]> */
+</script>
+
+<?php /* pragmaMx CVS $Id: loginform.html 6 2015-07-08 07:07:06Z PragmaMx $ äöüß */ ?>

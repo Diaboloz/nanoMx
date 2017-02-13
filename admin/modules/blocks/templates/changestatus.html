@@ -1,0 +1,26 @@
+
+
+<h2><?php echo _BLOCKACTIVATION ?></h2>
+
+<div class="important">
+
+  <h3><?php echo _WANT2ACTIVATE ?></h3>
+
+  <ul class="tabs-nav-secondary">
+  <?php foreach ($this->links as $item) : ?>
+    <li><?php echo $item ?></li>
+  <?php endforeach ?>
+  </ul>
+
+</div>
+
+<br />
+
+<?php
+
+echo showpreview($this->block);
+echo block_editmenue ($this->block, _BLOCKACTIVATION, $this->menu);
+
+/* pragmaMx CVS $Id: changestatus.html 6 2015-07-08 07:07:06Z PragmaMx $ */
+?>
+

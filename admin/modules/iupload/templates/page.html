@@ -1,0 +1,29 @@
+
+<a name="imgtopp" id="imgtopp"></a>
+
+<div id="upload-tabs">
+  <ul class="tabs-nav">
+    <?php foreach ($this->tabs as $key => $tab) : ?>
+    <li <?php echo (($tab['current']) ? ' class="current"' : '') ?>><a href="<?php echo $tab['link'] ?>"><?php echo $tab['caption'] ?></a></li>
+    <?php endforeach ?>
+  </ul>
+
+  <div class="tabs-panel">
+
+    <?php if ($this->messages): ?>
+    <ul class="note">
+      <li><?php echo implode('</li><li>', $this->messages) ?></li>
+    </ul><br />
+    <?php endif ?>
+
+    <?php if ($this->warnings): ?>
+    <ul class="warning">
+      <li><?php echo implode('</li><li>', $this->warnings) ?></li>
+    </ul><br />
+    <?php endif ?>
+
+    <?php echo $this->content ?>
+  </div>
+</div>
+
+<?php /* pragmaMx CVS $Id: page.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

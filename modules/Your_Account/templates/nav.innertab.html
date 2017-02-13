@@ -1,0 +1,55 @@
+<ul class="tabs-nav">
+<?php foreach ($this->item as $i => $value) {
+    $current = ($value['tabname'] == $this->innertab) ? ' class="current"' : '';
+     ?>
+    <li<?php echo $current ?>><a href="<?php echo $value['link'] ?>" onfocus="this.blur()"><?php echo $value['caption'] ?></a></li>
+<?php } ?>
+
+</ul>
+
+<?php 
+
+if($this->innertab != 'edituser') { 
+  return true;
+}
+
+/* Javascript & jquery for tabs */
+pmxHeader::add_tabs();
+
+?>
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+
+  $(document).ready(function() {
+    $('.ya-hidecaption').hide();
+
+    var tab_cookie_name = 'tab_ya_edituser';
+    var tab_cookie_id = parseInt($.cookie(tab_cookie_name)) || 0;
+    var tab_active = <?php echo(($this->activetab) ? ($this->activetab - 1) : 'tab_cookie_id') ?> || 0;
+
+    $('#ya-tabs').tabs({
+      active: tab_active,
+      activate: function(event, ui) {
+        var url = ui.newTab.children().attr('href');
+        if (url.indexOf('#')===0) {
+          var newIndex = ui.newTab.parent().children().index(ui.newTab);
+          $.cookie(tab_cookie_name, newIndex, {
+            path: window.location.pathname,
+            expires: 7
+          });
+        }
+        return true;
+      },
+      beforeLoad: function(event, ui) {
+        location.href = ui.tab.children().attr('href');
+        return false;
+      }
+    });
+  });
+
+  /* ]]> */
+</script>
+
+
+<?php // pragmaMx CVS $Id: nav.innertab.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

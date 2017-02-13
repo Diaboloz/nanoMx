@@ -1,0 +1,4 @@
+# php verhindern
+<filesmatch "\.php$">
+ deny from all
+</filesmatch>

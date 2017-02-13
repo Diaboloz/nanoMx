@@ -1,0 +1,418 @@
+/* ----------------------------- */
+/* ==Base (basic styles)         */
+/* ----------------------------- */
+/* switching to border-box model for all elements */
+html {
+  box-sizing: border-box; }
+
+* {
+  box-sizing: inherit; }
+
+html {
+  /* set base font-size to equiv "10px", which is adapted to rem unit */
+  font-size: 62.5%;
+  /* IE9-IE11 math fixing. See http://bit.ly/1g4X0bX */
+  /* thanks to @guardian, @victorbritopro and @eQRoeil */
+  font-size: calc(1em * 0.625); }
+
+body {
+  font-size: 1.6rem;
+  background-color: #fff;
+  color: #000;
+  font-family: sans-serif;
+  line-height: 1.5; }
+
+a {
+  color: #333; }
+  a:focus, a:hover, a:active {
+    color: #000; }
+
+ul,
+ol {
+  padding-left: 2em; }
+
+img {
+  vertical-align: middle; }
+
+blockquote,
+figure {
+  margin-left: 0;
+  margin-right: 0; }
+
+/* font-sizing for content */
+p,
+.p-like,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+td,
+th,
+label,
+textarea,
+caption,
+details,
+figure {
+  margin-top: 0.75em;
+  margin-bottom: 0;
+  line-height: 1.5; }
+
+h1, .h1-like {
+  font-size: 3.2rem; }
+
+h2, .h2-like {
+  font-size: 2.8rem; }
+
+h3, .h3-like {
+  font-size: 2.4rem; }
+
+h4, .h4-like {
+  font-size: 2rem; }
+
+h5, .h5-like {
+  font-size: 1.8rem; }
+
+h6, .h6-like {
+  font-size: 1.6rem; }
+
+/* alternate font-sizing */
+.smaller {
+  font-size: 0.6em; }
+
+.small {
+  font-size: 0.8em; }
+
+.big {
+  font-size: 1.2em; }
+
+.bigger {
+  font-size: 1.5em; }
+
+.biggest {
+  font-size: 2em; }
+
+code,
+pre,
+samp,
+kbd {
+  /* IE fix */
+  white-space: pre-line;
+  white-space: pre-wrap;
+  font-family: consolas, courier, monospace;
+  line-height: normal; }
+
+em,
+.italic,
+address,
+cite,
+i,
+var {
+  font-style: italic; }
+
+/* avoid top margins on first content element */
+p:first-child,
+.p-like:first-child,
+ul:first-child,
+ol:first-child,
+dl:first-child,
+blockquote:first-child,
+pre:first-child,
+h1:first-child,
+.h1-like:first-child,
+h2:first-child,
+.h2-like:first-child,
+h3:first-child,
+.h3-like:first-child,
+h4:first-child,
+.h4-like:first-child,
+h5:first-child,
+.h5-like:first-child,
+h6:first-child,
+.h6-like:first-child {
+  margin-top: 0; }
+
+/* avoid margins on nested elements */
+li p,
+li .p-like,
+li ul,
+li ol {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+/* max values */
+img,
+table,
+td,
+blockquote,
+code,
+pre,
+textarea,
+input,
+video,
+svg {
+  max-width: 100%; }
+
+img {
+  height: auto; }
+ /* ----------------------------- */
+/* ==Stylings (minor stylings)   */
+/* ----------------------------- */
+/* styling elements */
+code,
+kbd,
+mark {
+  border-radius: 2px; }
+
+kbd {
+  padding: 0 2px;
+  border: 1px solid #999; }
+
+code {
+  padding: 2px 4px;
+  background: rgba(0, 0, 0, 0.04);
+  color: #b11; }
+
+pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+  border-radius: 0; }
+
+mark {
+  padding: 2px 4px; }
+
+sup,
+sub {
+  vertical-align: 0; }
+
+sup {
+  bottom: 1ex; }
+
+sub {
+  top: 0.5ex; }
+
+blockquote {
+  position: relative;
+  padding-left: 3em;
+  min-height: 2em; }
+
+blockquote::before {
+  content: "\201C";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: georgia, serif;
+  font-size: 5em;
+  height: .4em;
+  line-height: .9;
+  color: rgba(0, 0, 0, 0.3); }
+
+blockquote > footer {
+  margin-top: .75em;
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.7); }
+  blockquote > footer::before {
+    content: "\2014 \0020"; }
+
+q {
+  font-style: normal; }
+
+q,
+.q {
+  quotes: "“\00a0" "\00a0”"; }
+  q:lang(fr),
+  .q:lang(fr) {
+    quotes: "«\00a0" "\00a0»"; }
+
+hr {
+  display: block;
+  clear: both;
+  height: 1px;
+  margin: 1em 0 2em;
+  padding: 0;
+  border: 0;
+  color: #ccc;
+  background-color: #ccc; }
+
+/* tables */
+caption {
+  padding: 1rem;
+  color: #555;
+  font-style: italic; }
+
+td,
+th {
+  padding: 0.3em 0.8em;
+  text-align: left; }
+
+/* ----------------------------- */
+/* ==Misc (skip links, hyphens)  */
+/* ----------------------------- */
+/* styling skip links */
+.skip-links {
+  position: absolute; }
+  .skip-links a {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0.5em;
+    background: black;
+    color: white;
+    text-decoration: none; }
+    .skip-links a:focus {
+      position: static;
+      overflow: visible;
+      clip: auto; }
+
+@media (max-width: 543px) {
+  /* you shall not pass */
+  div,
+  textarea,
+  table,
+  td,
+  th,
+  code,
+  pre,
+  samp {
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto; } }
+
+@media (max-width: 543px) {
+  .no-wrapping {
+    word-wrap: normal;
+    -webkit-hyphens: manual;
+        -ms-hyphens: manual;
+            hyphens: manual; } }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  img[src$=".svg"] {
+    width: 100%; } }
+	
+/* ----------------------------- */
+/* ==Global Layout               */
+/* ----------------------------- */
+/* module, gains superpower "BFC" Block Formating Context */
+.mod,
+.bfc {
+  overflow: hidden; }
+
+/* blocks that needs to be placed under floats */
+.clear {
+  clear: both; }
+
+/* blocks that must contain floats */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+  border-collapse: collapse; }
+
+/* simple blocks alignment */
+.left {
+  margin-right: auto; }
+
+.right {
+  margin-left: auto; }
+
+.center {
+  margin-left: auto;
+  margin-right: auto; }
+
+/* text and contents alignment */
+.txtleft {
+  text-align: left; }
+
+.txtright {
+  text-align: right; }
+
+.txtcenter {
+  text-align: center; }
+
+/* floating elements */
+.fl {
+  float: left; }
+
+img.fl {
+  margin-right: 1rem; }
+
+.fr {
+  float: right; }
+
+img.fr {
+  margin-left: 1rem; }
+
+img.fl,
+img.fr {
+  margin-bottom: 0.5rem; }
+
+/* inline-block */
+.inbl {
+  display: inline-block;
+  vertical-align: top; }
+  
+/* ---------------------------------- */
+/* ==Helpers                          */
+/* ---------------------------------- */
+/* State Helpers */
+/* ------------- */
+/* invisible for all */
+.is-hidden,
+[hidden] {
+  display: none; }
+
+/* hidden but not for an assistive technology like a screen reader, Yahoo! method */
+.visually-hidden {
+  position: absolute !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important; }
+
+.is-disabled,
+[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1); }
+
+ul.is-unstyled, ul.unstyled {
+  list-style: none;
+  padding-left: 0; }
+
+  /*      messages/alert
+  --------------------------------------*/
+.alert {
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.alert-warning,
+.alert-info,
+.alert-success,
+.alert-error {
+    color: white;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.alert-warning {
+    background: rgb(223, 117, 20);
+}
+.alert-info {
+         background: rgb(66, 184, 221);
+        }
+
+.alert-success {
+         background: rgb(28, 184, 65); /* this is a green */
+        }
+.alert-error {
+         background: rgb(202, 60, 60); /* this is a maroon */
+        }

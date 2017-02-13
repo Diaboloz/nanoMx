@@ -1,0 +1,60 @@
+<?php
+pmxHeader::add_jquery();
+
+$class_collapsible = ($this->collapsible) ? ' collapsible' : '';
+$description = ($this->check_deny) ? _PERMISSIONS_OPTION_DESCDENY : _PERMISSIONS_OPTION_DESC;
+
+?>
+
+<fieldset id="<?php echo $this->fieldname ?>_groups" class="inlineperms<?php echo $class_collapsible ?>">
+  <legend><span class="expanded<?php echo $class_collapsible ?>"><?php echo _PERMISSIONS_SELECTGROUPS ?></span></legend>
+  <div class="toggle">
+
+    <div class="tiny"><?php echo $description ?></div>
+
+    <div>
+      <span class="check"><?php echo _PERMISSIONS_OPTION_ON ?></span>
+      <span class="check"><?php echo _PERMISSIONS_OPTION_OFF ?></span>
+<?php if($this->check_deny): ?>
+      <span class="check"><?php echo _PERMISSIONS_OPTION_DENY ?></span>
+<?php endif; ?>
+      <label>&nbsp;</label>
+    </div>
+
+<?php foreach ($this->sysgroups as $key => $group) : ?>
+    <div class="clear-left">
+      <input type="radio" class="check" value="on" name="<?php echo $this->fieldname ?>[<?php echo $key ?>]"<?php echo (($group['stat'] == 'on') ? ' checked="checked"': '') ?> />
+      <input type="radio" class="check" value="off" name="<?php echo $this->fieldname ?>[<?php echo $key ?>]"<?php echo (($group['stat'] == 'off') ? ' checked="checked"': '') ?> />
+<?php if($this->check_deny): ?>
+      <input type="radio" class="check" value="deny" name="<?php echo $this->fieldname ?>[<?php echo $key ?>]"<?php echo (($group['stat'] == 'deny') ? ' checked="checked"': '') ?> />
+<?php endif; ?>
+      <label<?php echo (($key<1) ? '  style="font-style: italic"': '') ?>><?php echo $group['title'] ?></label>
+    </div>
+<?php endforeach ?>
+
+  </div>
+</fieldset>
+
+<?php if($this->collapsible): ?>
+<script type="text/javascript">
+/*<![CDATA[*/
+$(document).ready(function() {
+  var tarea = '#<?php echo $this->fieldname ?>_groups';
+
+  $(tarea + ' legend').click(function () {
+    $(tarea + ' div.toggle').slideToggle('normal');
+    $(tarea + ' span.collapsible').toggleClass('expanded');
+    $(tarea).toggleClass('closed');
+  });
+
+  $(tarea + ' div.toggle').hide();
+  $(tarea + ' span.collapsible').removeClass('expanded');
+  $(tarea + ' span.collapsible').addClass('collapsed');
+  $(tarea).addClass('closed');
+
+});
+/*]]>*/
+</script>
+<?php endif; ?>
+
+<?php // $Id: inline_permissions.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

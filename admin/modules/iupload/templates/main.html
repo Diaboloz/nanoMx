@@ -1,0 +1,114 @@
+    <p><?php echo _IUP_DESCRIPTION ?></p>
+
+<div id="iup-tabs">
+  <ul class="tabs-nav">
+<?php if ($this->allow_upload) { ?>
+    <li><a href="#iup-add"><?php echo _IUP_ADDNEWIM ?></a></li>
+<?php } // endif ?>
+    <li><a href="#iup-sel"><?php echo _IUP_SELECTIM ?></a></li>
+  </ul>
+
+<?php if ($this->allow_upload) { ?>
+  <div id="iup-add" class="tabs-panel">
+    <h3 class="hidecaption"><?php echo _IUP_ADDNEWIM ?></h3>
+    <form enctype="multipart/form-data" method="post" action="<?php echo adminUrl(PMX_MODULE, '', '', '#imgtopp') ?>">
+      <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/upload" />
+    <?php for($i = 0; $i <= 4; $i++) { ?>
+      <input name="imgfile[<?php echo $i ?>]" type="file" size="50" /><br />
+    <?php } //endfor ?>
+      <input value="<?php echo _IUP_ADD ?>" type="submit" />
+    </form>
+  </div>
+<?php } // endif ?>
+
+  <div id="iup-sel" class="tabs-panel">
+    <h3 class="hidecaption"><?php echo _IUP_SELECTIM ?></h3>
+    <p><?php echo sprintf(_IUP_THEREARE, (count($this->image_options)-1)) ?></p>
+    <form method="post" action="<?php echo adminUrl(PMX_MODULE, '', '', '#imgtopp') ?>" name="imgform">
+    <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/actions" />
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr align="center" valign="top">
+    <td>
+        <select name="imgview" id="imgview" size="18" onchange="showimage()">
+        <?php echo implode("\n", $this->image_options) ?>
+        </select>
+        <br />
+        <noscript>
+        <input type="submit" name="viewPic" value="<?php echo _IUP_VIEWIM ?>" onclick="showimage(); return false;" />
+        </noscript>
+
+    <?php if ($this->allow_modify) { ?>
+        <input type="submit" name="deletePic" value="<?php echo _IUP_DELETEC ?>" onclick="return confirmdelete();" />
+        <input type="hidden" name="deleteOK" value="0" />
+    <?php } // endif ?>
+
+    </td>
+    <td>
+        <input type="text" name="idimagepath" value="<?php echo $this->viewpath ?>" size="60" style="width: <?php echo $this->max_view_width ?>px; padding-left: 0.7em;" />
+        <br />
+        <div class="box" style="width: <?php echo $this->max_view_width ?>px; height: 30em; overflow: auto;">
+          <img src="<?php echo $this->image ?>" id="theimage" name="theimage" alt="preview" style="max-width: <?php echo $this->max_view_width ?>px; max-height: 30em; cursor: pointer;">
+        </div>
+    </td>
+    </tr></table>
+    </form>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+/*<![CDATA[*/
+
+  $(document).ready(function() {
+    var tab_cookie_name = "tabs_iup";
+    $('#iup-tabs').tabs({
+      active: ($.cookie(tab_cookie_name) || 0),
+      activate: function(event, ui) {
+        var newIndex = ui.newTab.parent().children().index(ui.newTab);
+        $.cookie(tab_cookie_name, newIndex, {
+          path: window.location.pathname,
+          expires: 7
+        });
+      }
+    });
+    $('#iup-tabs h3.hidecaption').hide();
+  });
+
+  $('img#theimage').click(function () {
+    $.prettyPhoto.open(document.images.theimage.src,'Preview',document.imgform.idimagepath.value);
+  });
+
+  function showimage() {
+    if (!document.images){
+      return;
+    }
+    var xi = document.imgform.imgview.selectedIndex;
+    var ximg = document.imgform.imgview.options[xi].value;
+    if (xi == -1 || ximg == 'None') {
+      document.images.theimage.src='images/pixel.gif';
+      document.imgform.idimagepath.value = " <?php echo _FILEURL ?>...";
+    } else {
+      document.images.theimage.src='<?php echo $this->upload_dir ?>/' + ximg;
+      document.imgform.idimagepath.value='<?php echo $this->upload_dir ?>/' + ximg;
+    }
+  }
+
+  function confirmdelete() {
+    var xi = document.imgform.imgview.selectedIndex;
+    var ximg = document.imgform.imgview.options[xi].value;
+    if (xi == -1 || ximg == 'None') {
+      return false;
+    }
+    var delcheck = confirm("<?php echo mxHtmlEntityDecode(_IUP_ARESUREIM) ?>");
+    if (delcheck) {
+      document.imgform.deleteOK.value = "1";
+    }
+    return delcheck;
+  }
+/*]]>*/
+</script>
+
+<?php 
+pmxHeader::add_lightbox(); 
+pmxHeader::add_tabs();
+
+/* pragmaMx CVS $Id: main.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

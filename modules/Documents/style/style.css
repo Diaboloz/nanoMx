@@ -1,0 +1,251 @@
+/**
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: style.css 6 2015-07-08 07:07:06Z PragmaMx $
+ */
+@import url(navigation.css);
+
+ul.mainpage {
+	width:auto;
+	height:auto;
+	display:inline-block;
+	padding:5px;
+	margin:0;
+}
+
+li.mainpage {
+	/*width:100%;
+	width:45%;*/
+	display:inline-block;
+	height:auto;
+	/*float:left;*/
+	list-style: none inside none;
+	margin:1px;
+	padding: 5px;
+	vertical-align:top;
+	}
+.documentsindex {
+	background-color:#CC3300;
+}
+
+.blogstory {
+    padding-bottom: 3px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 3px;
+    text-align: left;
+	border-top:solid 1px;
+	list-style: none inside none;
+}
+
+.blogstory-info {
+    font-size: 9px;
+    padding-bottom: 3px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 3px;
+    text-align: right;
+}
+
+.imgnew {
+	float:right;
+	margin-left:5px;
+	background-color:#fe1a00;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #d83526;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:10px;
+	font-weight:bold;
+	padding:1px 1px;
+	text-decoration:none;
+}
+
+.imgupdate {
+	float:right;
+	margin-left:5px;
+	background-color:#ffec64;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #ffec64;
+	display:inline-block;
+	color:#888;
+	font-family:Arial;
+	font-size:10px;
+	font-weight:bold;
+	padding:1px 1px;
+	text-decoration:none;
+}
+
+
+.contentnew {
+	float:right;
+	margin-left:5px;
+	background-color:#fe1a00;
+	color:#fff;
+	display:inline-block;
+	font-family:Arial;
+	font-size:6px;
+	font-weight:bold;
+	padding:0 3px 0 3px ;
+	text-decoration:none;
+}
+.contentupdate {
+	float:right;
+	margin-left:5px;
+	color:#000;
+	background-color:#ffec64;
+	display:inline-block;
+	font-family:Arial;
+	font-size:6px;
+	font-weight:bold;
+	padding:0 3px 0 3px ;
+	text-decoration:none;
+}
+
+.contentnew {
+	float:right;
+	margin-left:5px;
+	background-color:#CCFF66;
+	display:inline-block;
+	color:#fe1a00;
+	font-family:Arial;
+	font-size:0.5em;
+	font-weight:bold;
+	padding:0px 0px;
+	text-decoration:none;
+}
+
+.index {
+	margin: 0 0 15px 10px;
+	width:200px;
+	overflow:hidden;
+	/*background-color:#ddd;	*/
+}
+.indexcontent {
+	padding-left:5px;
+	overflow:hidden;
+}
+
+a.doculink {
+    text-decoration:none;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    cursor: help;
+}
+a.doculinkext {
+	background-image: url("../images/document.png");
+	background-repeat: no-repeat;
+    background-size: 11px auto;	
+	background-position: 0 1px;
+	padding-left: 16px;
+    text-decoration:none;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    cursor: help;
+}
+
+.float-right {
+	float:right;
+}
+
+.post {
+    /*border-bottom: 1px solid ;*/
+    margin-bottom: 1em;
+}
+.post-date {
+    background: none repeat scroll 0 0 ;
+    border-radius: 6px;
+    
+    float: left;
+    font-family: Georgia,serif;
+    margin-right: 12px;
+    padding: 3px 0 5px;
+    text-align: center;
+    text-shadow: 0 -1px 0 ;
+    width: 46px;
+}
+.post-date .post-day {
+    font-size: 1.8em;
+}
+.post-date .post-month {
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+.post-title a {
+    
+    font-weight: normal;
+    text-decoration: none;
+}
+.post-title a:hover {
+    
+}
+.post-title .divider {
+    border-bottom: 2px solid ;
+    display: block;
+    margin: -6px 0 10px 58px;
+    width: 40%;
+}
+.post-info {
+    
+    margin-bottom: 10px;
+}
+.post-info a {
+    background-color: rgba(0, 0, 0, 0);
+    
+    text-decoration: none;
+}
+.post-info a:hover {
+    text-decoration: none;
+}
+.post-meta a:hover {
+    
+    text-decoration: underline;
+}
+img.post-topicimage {
+    
+    border: 1px solid;
+    border-radius: 6px;
+    color: inherit;
+    float: right;
+    margin: 0 0 0.5em 1.5em;
+    padding: 3px;
+}
+.post-meta {
+    
+    border-radius: 4px;
+    box-shadow: 0 1px 1px  inset;
+   
+    font-size: 0.9em;
+    margin-bottom: 1em;
+    padding: 8px 10px;
+}
+.post-meta a {
+    
+}
+.post-notes {
+    
+    font-style: italic;
+    text-align: left;
+}
+.post-notes p.post-notes {
+    border: medium none;
+    font-weight: bolder;
+    margin-top: 0;
+    padding: 0;
+}
+.post-readmore {
+    
+    display: block;
+    text-decoration: none;
+}
+.post-readmore:hover {
+    text-decoration: none;
+}
+.post-body {
+    margin-bottom: 1em;
+}

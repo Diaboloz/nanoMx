@@ -1,0 +1,122 @@
+/**
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: navigation.css 6 2015-07-08 07:07:06Z PragmaMx $
+ */
+
+.treeview, .treeview ul { 
+	padding: 0;
+	margin: 0 0px;
+	list-style: none;
+}
+.treeview ul { 
+	
+	margin: 0 15px;
+	
+}
+
+.treeview ul {
+	
+	background-color: none !important;
+	margin-top: 4px;
+}
+
+.treeview ul > li {
+	padding: 0 ;
+	content:"";
+}
+
+.treeview .hitarea {
+	background: none; 
+	background-color: transparent !important;
+	height: 15px;
+	width: 15px;
+	margin-left: 0px;
+	float: left;
+	cursor: pointer;
+}
+
+.treeview ul ul >li{
+	margin-left:15px !important;
+	margin-right:1px;
+	padding-bottom:0px;
+}
+ul.sidemenu {
+	margin-right:1px;
+}
+
+ul.sidemenu > li:before ,ul.sidemenu ul > li:before{
+	content:"" !important;
+}
+
+/* fix for IE6 */
+* html .hitarea {
+	display: inline;
+	float:none;
+}
+treeview ul > li:before {
+    margin-left: -15px;
+}
+.treeview li { 
+	margin: 0;
+	padding: 3px 0pt 3px 15px;
+}
+
+.treeview a.selected {
+	background-color: none;
+	font-weight:bold;
+}
+
+.treeview ul li a.inactiv {
+	background-color: none;
+	font-style:italic;
+}
+div.expandable-hitarea {
+	background:url("../../../images/menu/square/node_plus.gif") no-repeat !important; 
+	background-position: 17px 5px;
+}
+div.collapsable-hitarea{
+	background:url("../../../images/menu/square/node_minus.gif") no-repeat !important; 
+	background-position: 17px 5px;
+}
+
+.treeview ul li.expandable  {
+	background:url("../../../images/menu/square/node_plus.gif") no-repeat; background-position: -17px 5px;background-color:none !important;
+	margin-left: -17px;
+	padding-bottom: 2px;
+}
+.treeview ul li.collapsable  {
+	background:url("../../../images/menu/square/node_minus.gif") no-repeat; background-position: -17px 5px; background-color:none !important;
+	margin-left: -17px;
+	padding-bottom: 2px;
+	
+}
+
+#treecontrol { margin: 1em 0; display: none; }
+
+.treeview .hover { color: red; cursor: pointer; }
+
+/*.treeview-red li { background-image: url(images/treeview-red-line.gif); }
+.treeview-red .hitarea, .treeview-red li.lastCollapsable, .treeview-red li.lastExpandable { background-image: url(images/treeview-red.gif); } 
+
+.treeview-black li { background-image: url(images/treeview-black-line.gif); }
+.treeview-black .hitarea, .treeview-black li.lastCollapsable, .treeview-black li.lastExpandable { background-image: url(images/treeview-black.gif); }  
+
+.treeview-gray li { background-image: none; }
+
+
+.treeview-famfamfam li { background-image: url(images/treeview-famfamfam-line.gif); }
+.treeview-famfamfam .hitarea, .treeview-famfamfam li.lastCollapsable, .treeview-famfamfam li.lastExpandable { background-image: url(images/treeview-famfamfam.gif); } 
+*/
+.treeview .placeholder {
+	background: url(images/ajax-loader.gif) 0 0 no-repeat;
+	height: 16px;
+	width: 16px;
+	display: block;
+}
+
+.filetree li { padding: 3px 0 2px 16px; }
+.filetree span.folder, .filetree span.file { padding: 1px 0 1px 16px; display: block; }
+.filetree span.folder { background: url(images/folder.gif) 0 0 no-repeat; }
+.filetree li.expandable span.folder { background: url(images/folder-closed.gif) 0 0 no-repeat; }
+.filetree span.file { background: url(images/file.gif) 0 0 no-repeat; }

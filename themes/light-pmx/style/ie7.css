@@ -1,0 +1,72 @@
+/**
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: ie7.css,v 1.1 2013-04-07 11:39:40 dia_bolo Exp $
+ */
+
+/* Internet Explorer 6 & 7 bug-fixes */
+* html .clearfix {
+   height: 1%; /* ... für IE5 + IE6/Win | hasLayout aktivieren */
+}
+
+* html body {
+   position: static; /* ... but not for IE5.x and IE6 */
+}
+
+body {
+   position: relative; /* Essential in IE7 for correct layout scaling ... */
+}
+
+pre {
+   word-wrap: break-word;
+}
+
+ul.menu .fadethis {
+   position: static;
+}
+
+.clearfix {
+   display: inline-block; /* ... especial for IE7 */
+}
+
+#main {
+   position: relative; /* helpful for several problems in older IE versions*/
+}
+
+.crap-browser-warning {
+   border: thin solid #ff0000;
+   padding: .5em;
+   text-align: center;
+}
+
+.crap-browser-warning,
+.crap-browser-warning *{
+   background-color: #ffffff;
+   color: #ff0000;
+}
+
+.dash.dash-2 #dashboard .block.first,
+.dash.dash-2 #dashboard .block.last {
+   width: 49%;
+}
+
+.dash.dash-3 #dashboard .block.first,
+.dash.dash-3 #dashboard .block.last {
+   width: 32.33%;
+}
+
+.dash.dash-4 #dashboard .block.first,
+.dash.dash-4 #dashboard .block.last {
+   width: 24%;
+}
+
+.dash.dash-5 #dashboard .block.first,
+.dash.dash-5 #dashboard .block.last {
+   width: 19%;
+}
+
+.dash.dash-6 #dashboard .block.first,
+.dash.dash-6 #dashboard .block.last {
+   width: 15.66%;
+}
+

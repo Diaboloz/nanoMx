@@ -1,0 +1,75 @@
+
+<ul class="tabs-nav-secondary">
+<?php foreach ($this->filterlink as $link) : ?>
+  <li><?php echo $link ?></li>
+<?php endforeach ?>
+</ul>
+
+<?php if(!$this->countblocks): ?>
+<p class="note align-center clear"><?php echo _BLOCKNOBLOCKS ?></p>
+<?php return;
+endif;
+
+$class = '';
+
+$colspan = ($this->multilingual) ? 7 : 6;
+
+?>
+
+<form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
+  <input type="hidden" name="op" value="<?php echo  PMX_MODULE ?>/ListWeigth" />
+
+  <table class="full list clear">
+  <?php foreach ($this->blocks as $pos => $thatblockpos) : ?>
+
+    <tr>
+      <th colspan="<?php echo $colspan ?>" class="bigger"><?php echo _POSITION ?>: <i><?php echo $pos ?></i></th>
+    </tr>
+
+    <tr>
+      <th><?php echo _BLOCKORDER ?></th>
+      <th><?php echo _BLOCKTITLE ?></th>
+      <th><?php echo _TYPE . ' &gt; ' . _BLK_MODULE . ' &gt; ' . _FILENAME ?></th>
+      <th><?php echo _STATUS ?></th>
+      <th><?php echo _VIEW ?></th>
+      <?php if($this->multilingual): ?>
+      <th><?php echo _LANGUAGE ?></th>
+      <?php endif; ?>
+      <th><?php echo _FUNCTIONS ?></th>
+    </tr>
+    <?php foreach ($thatblockpos as $weight => $block) : ?>
+      <?php $class = ($class == '') ? ' class="alternate-a"' : ''; ?>
+      <?php $errclass = ($block->errfile) ? ' class="warning" style="margin:0" title="' . _BLOCKFILEMISSED . '"' : ''; ?>
+    <tr<?php echo $class ?>>
+      <td><input type="text" name="weight[<?php echo $block->bid ?>]" value="<?php echo ($weight + 1) ?>" size="3" maxlength="3" /></td>
+      <td><?php echo $block->title ?></td>
+      <td><?php echo $block->type ?></td>
+      <td><?php echo (($block->active) ? _ACTIVE : '<i>' . _INACTIVE . '</i>') ?></td>
+      <td><?php echo $block->who_view ?></td>
+      <?php if($this->multilingual): ?>
+      <td><?php echo $block->blanguage ?></td>
+      <?php endif; ?>
+      <td class="nowrap">
+        <div <?php echo $errclass ?>>
+        <?php foreach ($block->functions as $key => $item) : ?>
+          <?php echo $item ?>
+        <?php endforeach ?>
+        </div>
+      </td>
+    </tr>
+    <?php endforeach ?>
+  <?php endforeach ?>
+
+    <tr>
+      <td colspan="<?php echo $colspan ?>"><input type="submit" value="<?php echo _BLOCKSAVEORDER ?>" /></td>
+    </tr>
+  </table>
+</form>
+
+<p class="align-center"><a href="<?php echo adminUrl(PMX_MODULE, 'fixweight') ?>" class="button"><?php echo _FIXBLOCKS ?></a> <a href="<?php echo adminUrl('reset', 'cache/blocks') ?>" class="button"><?php echo _BLOCKDELCACHE ?></a></p>
+
+<?php
+/* Javascript & jquery for tabs */
+pmxHeader::add_tabs(false);
+/* pragmaMx CVS $Id: blockslistall.html 6 2015-07-08 07:07:06Z PragmaMx $ */
+?>

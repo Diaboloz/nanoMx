@@ -1,0 +1,19 @@
+<?php echo '<?xml version="1.0" encoding="UTF-8"?>' ?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<?php foreach ($this->items as $item) { ?>
+	<url>
+		<loc><?php echo $item['loc'] ?></loc>
+		<lastmod><?php echo $item['lastmod'] ?></lastmod>
+<?php if($item['changefreq']) { ?>
+		<changefreq><?php echo $item['changefreq'] ?></changefreq>
+<?php } ?>
+		<priority><?php echo $item['priority'] ?></priority>
+	</url>
+<?php } ?>
+
+</urlset>
+<?php // pragmaMx CVS $Id: sitemap.xml 6 2015-07-08 07:07:06Z PragmaMx $ ?>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Light Theme for nanoMx</title>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <link rel="stylesheet" type="text/css" href="style/style.css" />
+   <link rel="stylesheet" type="text/css" href="style/_theme.light-pmx.gecko.css" />
+	<!-- START more_header -->
+	<!-- END more_header -->
+</head>
+
+<body class="bodymain">
+	<div id="wrapper">
+		<header id="header">
+			<div id="mainheader" class="clearfix">
+				<div class="logo">
+                	<a id="logo" class="mlm" href="./">{PAGE_TITLE}</a>
+                </div>
+                <nav id="mainnav" class="mx-menu mx-menu-horizontal">
+					<!-- START headmenue -->
+					<ul class="mx-menu-list">
+						<li class="mx-menu-item"><a class="mx-menu-link" href="#">Homepage</a></li><!-- Active page (highlighted) -->
+						<li class="mx-menu-item mx-menu-has-children mx-menu-allow-hover">
+							<a class="mx-menu-link" href="#">About</a>						
+							<ul class="mx-menu-children">
+								<li class="mx-menu-item"><a class="mx-menu-link" href="#">About</a></li>
+								<li class="mx-menu-item"><a class="mx-menu-link" href="#">Services</a></li>
+								<li class="mx-menu-item"><a class="mx-menu-link" href="#">Products</a></li>
+								<li class="last mx-menu-item"><a class="mx-menu-link last" href="#">Contact</a></li>
+							</ul>
+						</li>
+						<li class="mx-menu-item active"><a class="mx-menu-link" href="#">Services</a></li>
+						<li class="mx-menu-item"><a class="mx-menu-link" href="#">Products</a></li>
+						<li class="last mx-menu-item"><a class="mx-menu-link last" href="#">Contact</a></li>
+					</ul>
+					<!-- END headmenue -->
+				</nav>
+			</div>
+		</header>     
+		<div id="main" class="clearfix">
+			<div id="mainbar" class="pam">
+				<!-- START siteservice -->
+				<!-- END siteservice -->
+				<!-- START debugservice -->
+				<div class="siteservice debugservice">
+					{DEBUGSERVICE}
+				</div>
+				<!-- END debugservice -->			
+				<!-- START blocks_center_top_loop -->
+				<!-- START block_center_top -->
+				<div id="__BLOCK_ID__" class="block mbs pas">
+					<h3 class="block-title">{BLOCK_TITLE}</h3>
+					{BLOCK_CONTENT}
+				</div>
+				<!-- END block_center_top -->
+				<!-- END blocks_center_top_loop -->
+				<!-- START script_output -->
+				<!-- START opentable -->
+				{OPENCLOSE_TABLE}
+				<!-- END opentable -->
+				<!-- START opentable2 -->
+				{OPENCLOSE_TABLE_2}
+				<!-- END opentable2 -->
+				<!-- START opentableal -->
+				{OPENCLOSE_TABLE_AL}
+				<!-- END opentableal -->
+				<!-- START themeindex -->
+				<article class="entry">
+					<header>
+						<h3 class="entry-title">{$title}</h3>
+						<div class="entry-meta">
+							{$posted_day} {$posted_month} {$posted_year}&nbsp;|&nbsp;{$infoline_index}
+						</div>
+					</header>
+					<div class="entry-summary">
+						{$content}
+						{$readmore}
+					</div>
+				</article>
+				<!-- END themeindex -->
+				<!-- START themearticle -->
+					<header>
+						<h1 class="article-title">{$title}</h1>
+						<p>{$posted_day} {$posted_month} {$posted_year} | {$infoline_article}</p>
+					</header>
+					<div class="article-content">
+						{$content}
+					</div>
+					<footer>
+						{$notes}
+						<p class="article-meta">{$tags}</p>
+					</footer>
+				<!-- END themearticle -->
+				<!-- END script_output -->
+				<!-- START blocks_center_down_loop -->
+				<!-- START block_center_down -->
+				<div id="__BLOCK_ID__">
+					<h3 class="block-title">{BLOCK_TITLE}</h3>
+					{BLOCK_CONTENT}
+				</div>
+				<!-- END block_center_down -->
+				<!-- END blocks_center_down_loop -->								
+			</div>
+			<!-- START blocks_left_container -->
+			<aside id="sidebar-left">
+				<div id="sidebar-left-inside" class="blocks">
+					<!-- START blocks_left_loop -->
+					<!-- START block_left -->
+					<div id="__BLOCK_ID__">
+						<h3>{BLOCK_TITLE}</h3>
+						<div class="block-content">{BLOCK_CONTENT}</div>
+					</div>
+					<!-- END block_left -->
+					<!-- END blocks_left_loop -->
+				</div>
+			</aside>
+			<!-- END blocks_left_container -->
+			<!-- START blocks_right_container -->
+			<aside id="sidebar-right" class="pam tiny-hidden">
+				<!-- START blocks_right_loop -->
+				<!-- START block_right -->
+				<div id="__BLOCK_ID__" class="mbm">
+					<h3 class="h5-like"><span>{BLOCK_TITLE}</span></h3>
+					<div class="block-content pas">{BLOCK_CONTENT}</div>
+				</div>
+				<!-- END block_right -->
+				<!-- END blocks_right_loop -->
+			</aside>
+			<!-- END blocks_right_container -->
+		</div>
+		<footer id="footer" class="pts">			    
+			<p class="small mas">&copy;&nbsp;{CURRENTYEAR} <a href="./">{$sitename}</a></p>
+			<a class="back-to-top" href="#topheader">{_SCROLLTOTHETOP}</a>
+		</footer>
+	</div>
+</body>
+</html>

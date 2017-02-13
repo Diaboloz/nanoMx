@@ -1,0 +1,48 @@
+
+<?php if($this->items){ ?>
+<table class="list full">
+  <thead>
+  	<tr>
+      <th><?php echo _VERCHECK_08 ?></th>
+      <th><?php echo _VERCHECK_11 ?></th>
+      <th><?php echo _VERCHECK_09 ?></th>
+      <th><?php echo _VERCHECK_10 ?></th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach ($this->items as $file => $row) { ?>
+    <tr>
+      <td><?php echo $file ?></td>
+      <td><span class="nowrap <?php echo $row['class'] ?>"><?php echo $row['msg'] ?></span></td>
+      <td><?php echo $row['version'] ?></td>
+      <td><span class="<?php echo $row['class'] ?>"><?php echo $row['soll'] ?></span></td>
+    </tr>
+  <?php } //endforeach ?>
+  </tbody>
+</table>
+
+<p class="tiny align-right" style="padding-top:6em">
+  <?php echo $this->checkfile ?>
+</p>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+  $(document).ready(function() {
+    $('table.list tbody tr:even').addClass('alternate');
+  });
+/*]]>*/
+</script>
+
+<?php ob_start() ?>
+<style type="text/css">
+  .vcred{color:red;}
+  .vcgreen{color:green;}
+  .vcblue{color:blue;}
+</style>
+
+<?php 
+    pmxHeader::add_style_code(ob_get_clean());
+} //endif items 
+
+// $Id: results.html 6 2015-07-08 07:07:06Z PragmaMx $ 
+?>

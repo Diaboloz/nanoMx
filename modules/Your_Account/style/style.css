@@ -1,0 +1,175 @@
+@charset "utf-8";
+/* $Id: style.css 6 2015-07-08 07:07:06Z PragmaMx $ */
+
+/* User info */
+#pmx-content .adminlink {
+   float: right;
+}
+
+div[style] > input[type=file][name=upload] {
+   font-family: sans-serif; /* Das ist das vom Javascript generierte Upload-Feld, manche Themes (z.B. Arclite) spielen da mit den Werten rum und verhindern die Anzeige.. */
+}
+
+dl.userdata dt {
+   clear: left; /* commented backslash hack for mac-ie5 \*/
+}
+
+#pmx-content .infobox {
+   float: left;
+   overflow: hidden;
+   width: 49.999%;
+}
+
+#pmx-content .ya-avatarlist {
+   overflow: hidden; /* floatbox ie */
+}
+
+#pmx-content .ya-avatarlist a {
+   display: block;
+   float: left;
+   height: 80px;
+   margin-bottom: 2em;
+   text-align: center;
+   width: 16.6%;
+}
+
+#pmx-content .ya-avatarlist a img {
+   max-height: 90px;
+   max-width: 80px;
+}
+
+#pmx-content h3.bordercolor {
+   border-bottom-style: solid;
+   border-bottom-width: 1px;
+}
+
+#prof-account-delete a {
+   background-image: url(../images/cross.png);
+}
+
+#prof-logout a {
+   background-image: url(../images/door_out.png);
+}
+
+#prof-logout a,
+#prof-account-delete a {
+   background-position: left;
+   background-repeat: no-repeat;
+   padding: .3em 0 .3em 22px;
+}
+
+#prof-logout,
+#prof-account-delete {
+   text-align: right;
+}
+
+#prof-view .view-broad{
+   float: left;
+   width: 74%;
+}
+
+#prof-view .view-narrow{
+   float: right;
+   overflow: hidden;
+   text-align: center;
+   width: 25%;
+}
+
+#prof-view .view-table{
+   width: 99%;
+}
+
+#prof-view .view-table th{
+   width: 30%;
+}
+
+#upichoice dd{
+   float: left;
+   margin: 0.25em 0;
+   padding: 0;
+   width: 74%;
+}
+
+#upichoice dd.left{
+   width: 25%;
+}
+
+#upichoice dt {
+   clear: left; /* manche Themes spielen da mit den Werten rum.. */
+   float: none;
+   padding-top: .5em;
+   text-align: left;
+   text-decoration: none;
+   width: auto;
+}
+
+#upichoice dt input {
+   margin-right: .5em;
+}
+
+#upichoice dt input.current{
+   margin-right: 1em;
+}
+
+
+/* nano */
+
+#ya-tabs {
+  margin-top: 1em;
+}
+
+.tabs-nav li.current a, .tabs-nav li.tabs-active a, .tabs-nav li.active a {
+    border-top: 2px solid #5ca8db;
+}
+
+
+.resume {
+    font: 13px/27px 'Montserrat', sans-serif;
+    background: #434b51;
+    color: #fff;
+    text-transform: uppercase;
+    padding-left: 10px;
+}
+
+
+img.userpic {
+  border: 1px solid #CCC;
+  padding: 2px;
+}
+
+
+.profil-photo p {
+    display: inline-block;
+    padding: 0px 5px;
+    background-color: #EEE;
+    border-left: 4px solid #5ca8db;
+}
+
+
+.mod-Your_Account ul  {
+  list-style: none;
+}
+
+.profil-items h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #fff;
+    display: inline-block;
+    padding: 0px 5px;
+    margin-right: 12px;
+    margin: 0 1em .5em 0;
+    background-color: #53b7f9;
+    border-left: 2px solid #5ca8db;
+}
+.profil-items li {
+ margin-bottom: 0;
+ font-size: .9em;
+ list-style: none;
+}
+
+.profil-items div {
+    display: inline-block;
+    letter-spacing: -1px;
+    color: #4A4A4A;
+    font-family: "Open Sans",Arial,Helvetica,Sans-Serif;
+}

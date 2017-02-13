@@ -1,0 +1,14 @@
+
+<?php 
+    $months = implode('","', $this->months);
+?>
+
+<script type="text/javascript">
+//<![CDATA[
+  var monthNames = new Array("<?php echo $months ?>");
+  var now = new Date();
+  document.write(now.getDate() + ". " + monthNames[now.getMonth()] + " " + now.getYear());
+//]]>
+</script>
+
+<?php // $Id: themeshowdate.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

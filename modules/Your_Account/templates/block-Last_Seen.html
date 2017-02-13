@@ -1,0 +1,35 @@
+<?php // $Id: block-Last_Seen.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>
+
+<?php if ($this->blockheight != 0): ?>
+<div style="height: 100px; overflow: auto;">
+<?php endif; ?>
+
+<ul class="list">
+
+<?php for ($x = 0; $x < $this->counter; $x++): ?>
+  <li>
+    <?php echo mxCreateUserprofileLink($this->username[$x]) ?>:
+    <?php if ($this->oneday[$x]): ?>
+      <?php echo $this->day[$x] ?>&nbsp;<?php echo _LASTSEENDAYS ?>
+    <?php else: ?>
+      <?php if ($this->day[$x] > 0): ?>
+        <?php echo $this->day[$x] ?>&nbsp;<?php echo _LASTSEENDAY . (($this->hour[$x] == 0 && $this->minute[$x] == 0) ? '' : ',') ?>
+      <?php endif; ?>
+      <?php if ($this->hour[$x] > 0): ?>
+        <?php echo $this->hour[$x] ?>&nbsp;<?php echo (($this->hour[$x] > 1) ? _LASTSEENHOURS : _LASTSEENHOUR) . (($this->minute[$x] == 0) ? '' : ',') ?>
+      <?php endif; ?>
+      <?php if ($this->minute[$x] > 0): ?>
+        <?php echo $this->minute[$x] ?>&nbsp;<?php echo (($this->minute[$x] > 1) ? _LASTSEENMINUTES : _LASTSEENMINUTE) ?>
+      <?php else: ?>
+        <?php echo $this->second[$x] ?>&nbsp;<?php echo _LASTSEENSECONDS ?>
+      <?php endif; ?>
+    <?php endif; ?>
+    <?php echo _LASTSEENAGO ?>
+  </li>
+<?php endfor; ?>
+
+</ul>
+
+<?php if ($this->blockheight != 0): ?>
+</div>
+<?php endif; ?>

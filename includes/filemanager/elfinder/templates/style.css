@@ -1,0 +1,15 @@
+/* pragmaMx CVS $Id: style.css 6 2015-07-08 07:07:06Z PragmaMx $ */
+
+div.elfinder-toolbar .elfinder-button,
+div.elfinder-toolbar .elfinder-button form input,
+div.elfinder-workzone .elfinder-navbar-dir,
+div.elfinder-workzone .elfinder-cwd-view-icons div.elfinder-cwd-file,
+div.elfinder-workzone .elfinder-cwd-view-list table tr td {
+    cursor: pointer;
+    text-align: left;
+}
+
+div.elfinder-toolbar .elfinder-button.ui-state-disabled,
+div.elfinder-toolbar .elfinder-button.ui-state-disabled form input {
+    cursor: default;
+}

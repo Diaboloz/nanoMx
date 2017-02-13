@@ -1,0 +1,37 @@
+<?php /* pragmaMx CVS $Id: style.css 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>
+
+.imgnew {
+	float:right;
+	margin-left:5px;
+	background-color:#fe1a00;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #d83526;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:11px;
+	font-weight:bold;
+	padding:1px 1px;
+	text-decoration:none;
+}
+
+.imgupdate {
+	float:right;
+	margin-left:5px;
+	background-color:#ffec64;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	color:#333333;
+	font-family:Arial;
+	font-size:11px;
+	font-weight:bold;
+	padding:1px 1px;
+	text-decoration:none;
+}
+
+

@@ -1,0 +1,24 @@
+<div id="mxb-members" class="tabs-panel">  
+	<form method="post" action="<?php echo MXB_BM_CP1 ?>action=members&members=search">
+		<fieldset>
+			<dl>
+				<dt><?php echo _TEXTSRCHUSR ?></dt>
+				<dd><input type="text" name="srchmem"></dd>
+				<dt><?php echo _TEXTWITHSTATUS ?></dt>
+				<dd>
+				<select name="srchstatus">
+					<option value="0" selected="selected"><?php echo _ANYSTATUS ?></option>
+					<option value="Administrator"><?php echo _TEXTADMIN ?></option>
+					<option value="Super Moderator"><?php echo _TEXTSUPERMOD ?></option>
+					<option value="Moderator"><?php echo _TEXTMOD ?></option>
+					<option value="Member"><?php echo _TEXTMEM ?></option>
+					<option value="Banned"><?php echo _TEXTBANNED ?></option>
+				</select>
+				</dd>
+			</dl>
+		</fieldset>
+		<fieldset class="submit-buttons">
+			<input type="submit" class="button1" value="<?php echo _TEXTGO ?>" />
+		</fieldset>
+	</form>
+</div>

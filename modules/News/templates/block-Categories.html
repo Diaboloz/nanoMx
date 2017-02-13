@@ -1,0 +1,12 @@
+
+<ul class="list">
+<?php foreach ($this->items as $item) : ?>
+  <?php if($item['link']): ?>
+  <li><?php echo $this->ahref($item['link'], $item['title']) ?></li>
+  <?php else: ?>
+  <li class="current"><?php echo $item['title'] ?></li>
+  <?php endif; ?>
+<?php endforeach ?>
+</ul>
+
+<?php // $Id: block-Categories.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

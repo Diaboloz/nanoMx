@@ -1,0 +1,27 @@
+
+<ul class="birthdayblock">
+<?php foreach ($this->items as $key => $item) : ?>
+  <li><?php echo $item ?></li>
+<?php endforeach ?>
+</ul>
+
+<?php
+ob_start();
+?>
+<style type="text/css">
+ul.birthdayblock li{
+  background-image:url(<?php echo PMX_MODULES_PATH . $this->module_name ?>/images/cake.png);
+  background-position:left center;
+  background-repeat:no-repeat;
+  list-style-image:none;
+  list-style-type:none;
+  line-height:23px;
+  margin:0;
+  padding:0 0 0 23px;
+}
+</style>
+
+<?php
+pmxHeader::add_style_code(ob_get_clean());
+
+ // $Id: block-Birthday-next.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

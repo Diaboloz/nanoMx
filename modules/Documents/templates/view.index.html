@@ -1,0 +1,33 @@
+
+<?php if ($this->doc_cfg['view_title']==1) { echo ' <h2 class="title">'.  $this->title .'</h2>'; } ?>
+<?php if (MX_IS_ADMIN) echo '<p class="align-right tiny">'. $this->adminlink ." </p>"; ?>
+<?php if ($this->doc_cfg['breadcrump']==1) { ?>
+	<div class="tiny"><a href="modules.php?name=<?php echo $this->module_name ?>" ><?php echo _DOCS_START; ?></a>
+	<?php   foreach($this->breadcrump as $dummy=>$key) {
+				echo " &raquo <a href=\"modules.php?name=".$this->module_name."&amp;act=page&amp;id=".$key['id']."\">".$key['title']."</a>";
+			  } 
+		  ?>
+	</div>
+	<?php } ?>
+
+<h2><?php echo $this->node['title']; ?></h2>
+<div class="opentable"><?php echo $this->node['text1']; ?></div>
+
+<?php if (count($this->liste)>0 && $this->doc_cfg['viewindex']==1) { 
+
+		$level=0;
+		$n=($this->doc_cfg['pageindex']==1)?0:1;
+		$baselevel=$level;
+?>
+	<div class="menu" >
+			
+	<div class="bigger"><a href="modules.php?name=<?php echo $this->module_name ?>&amp;act=page&amp;id=<?php echo $this->bookid ?>"><?php echo _DOCS_INDEX; ?></a></div>
+	
+	
+	<?php  echo $this->ullist;	?>	
+	</div>
+<?php  } ?>
+
+
+
+<?php /* pragmaMx CVS $Id: view.index.html 171 2016-06-29 11:59:03Z PragmaMx $ */ ?>

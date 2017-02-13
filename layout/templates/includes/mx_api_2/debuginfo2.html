@@ -1,0 +1,24 @@
+
+<!-- START pmx_debug_info -->
+<div id="pmx-debug-area">
+  <h2><?php echo _DEBUG_INFO ?></h2>
+
+  <?php if ($this->notices): ?>
+  <h3><?php echo _DEBUG_NOTICES ?>:</h3>
+  <div class="dbgwarn"><?php echo $this->notices ?></div>
+  <?php endif ?>
+
+  <?php if($this->request): ?>
+  <h3><?php echo _DEBUG_REQUEST ?>:</h3>
+  <div><?php echo $this->request ?></div>
+  <?php endif; ?>
+
+  <?php if($this->queries): ?>
+  <h3><?php echo _DEBUG_QUERIES ?>:</h3>
+  <div><?php echo $this->queries ?></div>
+  <?php endif; ?>
+
+</div>
+<!-- END pmx_debug_info -->
+
+<?php // $Id: debuginfo2.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

@@ -1,0 +1,31 @@
+<?php
+/**
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ *
+ * pragmaMx is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * $Revision: 6 $
+ * $Author: PragmaMx $
+ * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ *
+ * Menumanager for pragmaMx, written by Siggi Braunert
+ * bugfixed by Joerg & Andi
+ **/
+?>
+<p><?php echo $this->intro ?></p>
+<?php echo $this->message ?>
+<form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
+ <div class="form-item">
+  <span style="font-weight:bold;"><?php echo _TITLE ?>:</span><span class="required" title="<?php echo _MX_MENU_INPUTREQUIRED_NOTE ?>"> *</span>
+  <br />
+  <input maxlength="60" name="add_menu_form[title]" size="60" value="<?php echo $this->title ?>" type="text" />
+  <p class="tiny"><?php echo _MX_MENU_ADDMENU_NAME_DESCR ?></p>
+ </div>
+ <input type="submit" name="add_menu_form[submit]" value="<?php echo _SAVE ?>" />
+ <input type="hidden" name="add_menu_form[id]" value="<?php echo $this->id ?>" />
+</form>

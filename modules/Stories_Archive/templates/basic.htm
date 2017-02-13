@@ -1,0 +1,75 @@
+
+<?php OpenTable() ?>
+<h2 class="title"><?php echo $this->title ?></h2>
+
+<?php if ($this->pageview ): ?>
+  <div class="align-right">
+    <?php echo $this->pageview ?>
+    </div>
+<?php endif; /*pageview*/ ?>
+
+<?php if ($this->story_list ): ?>
+
+  <table border="0" width="100%" cellpadding="3" cellspacing="0">
+    <?php foreach ($this->story_list  as $row): ?>
+    <tr valign="top">
+        <td width="10%" class="nowrap"><br /><?php echo mx_strftime(_SHORTDATESTRING, $row['tstamp']) ?>&nbsp;&nbsp;</td>
+        <td><br /><b><?php echo $row['title'] ?></b><br />
+        <?php echo $row['hometext'] ?>
+        </td>
+    </tr>
+    <?php endforeach ?>
+  </table>
+
+  <?php if ($this->pageview ): ?>
+  <br />
+  <div class="align-right">
+    <?php echo $this->pageview ?>
+  </div>
+  <?php endif; /*pageview*/ ?>
+
+  <?php endif; /*story_list*/ ?>
+
+  <?php if ($this->month_list ): ?>
+  <br /><hr noshade="noshade" size="1" />
+    <p><?php echo _SELECTMONTH2VIEW ?></p>
+  <?php foreach($this->month_list  as $year => $data): ?>
+  <div style="float: left; width: 14em">
+    <h3><a href="<?php echo $data['link'] ?>"><?php echo $year ?></a></h3>
+    <ul>
+      <?php foreach($data['months'] as $month): ?>
+      <li class="nowrap">
+      <?php if($month['count']): ?>
+        <a href="<?php echo $month['link'] ?>"><?php echo $month['name'] ?></a>
+      <?php else: ?>
+        <?php echo $month['name'] ?>
+      <?php endif; ?>
+      <span class="tiny">(<?php echo $month['count'] ?>)</span></li>
+      <?php endforeach ?>
+    </ul>
+  </div>
+  <?php endforeach ?>
+  <br class="clear" />
+<?php endif; /* month_list */?>
+
+<?php if(mxModuleAllowed('Search') && mxModuleAllowed('News')): ?>
+  <hr noshade="noshade" size="1" />
+    <form action="modules.php?name=Search" method="post">
+      <input type="hidden" name="name" value="Search" />
+      <input type="hidden" name="m" value="News" />
+      <p align="center"><label for="query"><?php echo _SEARCHARTICLE ?></label>
+      <input type="text" name="q" size="30" />
+      <input type="submit" value="<?php echo _SEARCH ?>" />
+      </p>
+    </form>
+<?php endif ?>
+
+<br />
+<p align="center">[ 
+<?php if(!$this->is_home): ?>
+  <a href="modules.php?name=<?php echo $this->module_name ?>"><?php echo _ARCHIVESINDEX ?></a> | 
+<?php endif ?>
+<a href="modules.php?name=<?php echo $this->module_name ?>&amp;show_all=yes"><?php echo _SHOWALLSTORIES ?></a>
+]</p>
+
+<?php CloseTable() ?>

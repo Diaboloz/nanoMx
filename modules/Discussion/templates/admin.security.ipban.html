@@ -1,0 +1,36 @@
+<div id="mxb-security-ipban" class="tabs-panel">
+	<form method="post" action="<?php echo MXB_BM_CP1 ?>action=security">
+		<table class="full list">
+			<thead>
+				<tr>
+					<th><?php echo _TEXTIP ?>:</th>
+					<th><?php echo _TEXTADDED ?></th>
+					<th><?php echo _TEXTDELETEQUES ?></th>				
+				</tr>
+			</thead>
+			<tbody>	
+			<?php foreach ($this->iplist as $ip) : ?>
+    		<tr<?php echo $ip['class'] ?>>
+    			<td><?php echo $ip['theip'] ?></td>
+					<td><?php echo $ip['ipdate'] ?></td>
+					<td><input type="checkbox" name="delete<?php echo $ip['id'] ?>" value="<?php echo $ip['id'] ?>" /></td>
+    		</tr>
+    	<?php endforeach ?>
+    	</tbody>
+    </table>
+		<fieldset>
+			<dl class="altbg2">
+				<dt><label><?php echo _TEXTNEWIP ?></label></dt>
+					<dd><input type="text" name="newip1" size="3" maxlength="3" />.<input type="text" name="newip2" size="3" maxlength="3" />.<input type="text" name="newip3" size="3" maxlength="3" />.<input type="text" name="newip4" size="3" maxlength="3" /></dd>
+			</dl>
+		</fieldset>
+		<p class="align-center">
+			<input type="submit" name="ipbansubmit" value="<?php echo _TEXTSUBMITCHANGES ?>" />
+		</p>
+	</form>
+	<p class="note align-center">
+		<?php echo _CURRENTIP ?> <strong><?php echo $this->onlineip ?></strong><?php echo $this->warning ?>
+		<br />
+		<?php echo _MULTIPNOTE ?>
+	</p>  
+</div>

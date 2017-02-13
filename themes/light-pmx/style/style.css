@@ -1,0 +1,271 @@
+/**
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: style.css,v 1.7 2014-01-28 16:47:47 tora60 Exp $
+ */
+
+body {
+  font-family: "Open Sans",Arial,Helvetica,Sans-Serif;
+  background-color: rgb(47, 49, 58);;
+  color: #414141;
+}
+
+a {
+    color: #656d78;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: #0078e7;
+    transition: all 200ms ease-in 0s;
+}
+
+/*  Layout 
+---------------------------------------------------------------------------------------- */
+#wrapper {
+    background-color: #f7f8f8;
+    width: 1240px;
+    margin: 0 auto;
+}
+
+
+/*	Header 
+---------------------------------------------------------------------------------------- */
+#mainheader {
+  padding:0 15px;
+}
+
+#header {
+    background: #262932;
+}
+
+a#logo {
+  background: url("../images/logo.png") no-repeat 0;
+  display: block;
+  height: 120px;
+  text-indent: -9999px;
+  width: 320px;
+}
+
+/* Navigation 
+------------------------------------------------------------------------------------------*/
+#header #mainnav {
+    background: rgba(255, 255, 255, .04);
+   /* background: rgba(0, 0, 0, 0.02);*/
+}
+
+#header .mx-menu-list > li {
+    border-right: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+#header .mx-menu-list > li a {
+    color: #b0b6c8;
+}
+
+#header .mx-menu-list > li.active > a {
+    color: #4095C9 !important;
+    background: #262932;
+    border-top: 3px solid #4095C9;
+}
+
+#header .mx-menu-list > li a:hover {
+    background: #262932;
+    color: #4095C9 !important;
+}
+
+
+#header .mx-menu li ul {
+    padding: 10px 0;
+	background-color: #4095C9;
+}
+
+#header .mx-menu li ul li {
+    padding: 0 0;
+    width: 180px;
+
+}
+
+#header .mx-menu > li ul li a {
+    color: #fff;
+}
+
+#header .mx-menu li ul li a {
+    padding: 5px 20px 5px 15px;
+    margin: 0 10px;
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    color: #EEEEEE;
+}
+#header .mx-menu  li ul li a:hover {
+	background-color: #4095C9;
+    border-color: #C8EAFF;
+	color: #FFFFFF !important;
+}
+
+/*	Main 
+----------------------------------------------------------------------------------------*/
+#main {
+
+}
+
+
+#main h3.block-title {
+  color: #3B96E2;
+  font-weight: normal;
+  text-shadow: 0 1px 0 #ffffff;
+  text-transform: uppercase;
+}
+
+
+
+#sidebar a {
+  background-color: transparent;
+  color: #666666;
+}
+
+#sidebar a:hover {
+  background-color: transparent;
+  color: #cccccc;
+}
+
+#sidebar-right {
+  background: #FCFCFC;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+#sidebar-right h3 {
+  background: #859B31;
+    border-radius: 3px;
+  line-height: 1.4;
+  font-family: 'Raleway',sans-serif;
+  color: #fafafa;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+#mainbar .block {
+  background-color: #fcfcfc;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+
+/* themearticle (.article) */
+ 
+
+ 
+/* themeindex */
+.post h3 a {
+  color: #333;
+  font-weight: normal;
+  text-decoration: none; }
+
+.post-info {
+  color: #AAA;
+  text-decoration: none; }
+
+.post-readmore {
+  color: #666;
+  text-decoration: none; }
+ 
+/*  Footer
+----------------------------------------------------------------------------------------*/
+#footer {
+  background-color: rgb(47, 49, 58);
+  color: #888;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); }
+ 
+  #footer a {
+    color: #999;
+    text-decoration: none; }
+ 
+    #footer a:hover {
+      color: #BDBDBD;
+      text-decoration: none; }
+ 
+ 
+/* scrollup */
+.scrollup {
+    background: #666;
+    color: #fff;
+    border-radius: 40px;
+    bottom: 20px;
+    display: none;
+    height: 40px;
+    position: fixed;
+    right: 20px;
+    text-indent: -9999px;
+    width: 40px;
+    transition: all 0.7s ease-in-out 0s;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2em;
+    right: 0px;
+    text-decoration: none;
+    background-color: rgba(135, 135, 135, 0.50);
+    font-size: 1.1em;
+    padding: 1em;
+    display: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+#footer .back-to-top a {
+    color: #fff;
+    text-shadow:none;
+}
+
+.back-to-top:hover {    
+    background-color: rgba(135, 135, 135, 0.20);
+}
+
+
+  /*  Responsive 
+---------------------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  /* here go rules for big resources and big screens like: background-images, font-faces, etc. */
+
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  /* Style adjustments for retina devices */
+
+}
+
+/* ---------------------------------- */
+
+/* ==Responsive large / medium / tiny */
+
+/* ---------------------------------- */
+
+@media (min-width: 1280px) {
+  /* layouts for large screens */
+
+  }
+
+@media (max-width: 768px) {
+  /* layouts for small screens */
+   #mainheader a#logo {
+  background: url("../images/logo-small.jpg") no-repeat 0 0;
+  height: 78px;
+  width: 240px;
+}
+
+}
+
+@media (max-width: 480px) {
+  /* layouts for tiny screens */
+ #mainheader a#logo {
+  background: url("../images/logo-tiny.jpg") no-repeat 0 0;
+  height: 52px;
+  width: 160px;
+}
+
+}

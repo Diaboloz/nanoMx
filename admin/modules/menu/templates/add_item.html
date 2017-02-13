@@ -1,0 +1,171 @@
+<?php
+/**
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ *
+ * pragmaMx is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * $Revision: 6 $
+ * $Author: PragmaMx $
+ * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ *
+ * Menumanager for pragmaMx, written by Siggi Braunert
+ * bugfixed by Joerg & Andi
+ **/
+
+pmxHeader::add_jquery('ui/jquery.ui.tooltip.js');
+ob_start();
+
+?>
+<style type="text/css">
+.infotext {
+  display:block;
+}
+
+.form-item{
+  margin:.75em 0;
+}
+
+.form-item label{
+  font-weight:bold;
+}
+
+option.sel-main-block{
+  font-weight:bold;
+  font-style:italic;
+  margin-top:1em;
+}
+</style>
+<?php pmxHeader::add_style_code(ob_get_clean());?>
+
+<?php echo $this->message ?>
+
+<noscript class="warning"><?php echo _JSSHOULDBEACTIVE ?></noscript>
+
+<form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
+
+  <div class="form-item">
+   <label><?php echo _MX_MENU_MODULE_IMPORT ?>:</label>
+   <br />
+   <select id="add-item-import-module">
+    <option value="">&nbsp;</option>
+   <?php foreach ($this->modules as $mod) : ?>
+    <option value="<?php echo $mod['link'] ?>" <?php echo (($mod['link']==$this->row['url']) ? ' selected="selected" class="current"' : '') ?>><?php echo $mod['custom_title'] ?></option>
+   <?php endforeach ?>
+   </select>&nbsp;<input type="reset" value="<?php echo _FORMRESET ?>" />
+  </div>
+
+   <div class="form-item">
+    <label><span style="font-weight:bold;"><?php echo _TITLE ?>:</span><span class="required" title="<?php echo _MX_MENU_INPUTREQUIRED_NOTE ?>"> *</span></label>
+    <br />
+    <input maxlength="128" name="add_item_form[title]" size="60" value="<?php echo $this->row['title'] ?>" type="text" />
+	<input type="button" class="tooltip-info" title="<?php echo _MX_MENU_ADDITEM_NAME_DESCR ?>" />
+	<p class="tiny infotext"><?php echo _MX_MENU_ADDITEM_NAME_DESCR ?></p>
+   </div>
+
+  <div class="form-item">
+   <label><?php echo _MX_MENU_PATH ?>:</label>
+   <br />
+   <input maxlength="255" name="add_item_form[url]" size="60" value="<?php echo $this->row['url'] ?>" type="text" />
+   <input type="button" class="tooltip-info" title="<?php echo _MX_MENU_ADDITEM_PATH_DESCR ?>" />
+   <p class="tiny infotext"><?php echo _MX_MENU_ADDITEM_PATH_DESCR ?></p>
+  </div>
+
+  <div class="form-item">
+   <label><?php echo _DESCRIPTION ?>:</label>
+   <br />
+   <input maxlength="200" name="add_item_form[description]" size="60" value="<?php echo $this->row['description'] ?>" type="text" />
+   <input type="button" class="tooltip-info" title="<?php echo _MX_MENU_ADDITEM_TITLE_DESCR ?>" />
+   <p class="tiny infotext"><?php echo _MX_MENU_ADDITEM_TITLE_DESCR ?></p>
+  </div>
+
+  <div class="form-item">
+   <label><?php echo _MX_MENU_ADDITEM_ASSOCIATEDMENU ?>:</label>
+   <br />
+   <?php if(count($this->menus)>0) :?>
+   <select name="add_item_form[bid]">
+    <?php foreach($this->menus as $menu) :?>
+    <option value="<?php echo $menu['bid'].":0";?>"<?php echo ($this->row['bid'] == $menu['bid'] && empty($this->row['pid'])) ? ' selected="selected" class="current sel-main-block"' : ' class="sel-main-block"' ;?>><?php echo $menu['title'] ?></option>
+     <?php if(!empty($this->submenus[$menu['bid']])) :?>
+      <?php foreach($this->submenus[$menu['bid']] as $submenu) :?>
+       <?php if ($submenu['id'] != $this->row['id']) :?>
+        <option value="<?php echo $menu['bid'].":".$submenu['id'] ?>"<?php echo ($this->row['pid'] == $submenu['id']) ? ' selected="selected" class="current"' : '' ;?>>&nbsp;<?php echo mxTranslate($submenu['title']) ?></option>
+       <?php endif;?>
+      <?php endforeach;?>
+     <?php endif;?>
+    <?php endforeach;?>
+   </select>
+   <?php endif;?>
+  </div>
+
+  <div class="form-item">
+   <label><?php echo _MX_MENU_ADDITEM_WEIGHT ?>:</label>
+   <br />
+   <select disabled="disabled" name="add_item_form[weight]"></select>
+  </div>
+
+  <div class="form-item">
+   <input name="add_item_form[expanded]" value="0" type="hidden" />
+   <input name="add_item_form[expanded]" value="1" type="checkbox"<?php echo $this->row['expanded'] ?> /> <?php echo _MX_MENU_ITEM_EXP_OPEN ?>
+   <input type="button" class="tooltip-info" title="<?php echo _MX_MENU_ITEM_EXP_DESCR ?>" />
+   <p class="tiny infotext"><?php echo _MX_MENU_ITEM_EXP_DESCR ?></p>
+  </div>
+
+  <div class="form-item">
+   <label><?php echo _MX_MENU_TARGET2 ?>:</label>
+   <br />
+   <input maxlength="10" name="add_item_form[target]" size="10" value="<?php echo $this->row['target'] ?>" type="text" />
+   <input type="button" class="tooltip-info" title="<?php echo _MX_MENU_ADDITEM_TARGET_DESCR ?>" />
+   <p class="tiny infotext"><?php echo _MX_MENU_ADDITEM_TARGET_DESCR ?></p>
+  </div>
+
+  <input type="hidden" value="<?php echo $this->row['pid'] ?>" name="add_item_form[pid]" />
+  <input type="hidden" value="<?php echo $this->token ?>" name="add_item_form[token]" />
+  <input type="hidden" value="<?php echo $this->row['id'] ?>" name="add_item_form[id]" />
+  <input name="add_item_form[submit]" value="<?php echo _SAVE ?>" type="submit">
+</form>
+
+<script type="text/javascript">
+  /*<![CDATA[*/
+  $(document).ready(function() {
+    $('.tooltip-info').show();
+    $('.infotext, noscript').hide();
+    $('.tooltip-info').tooltip({
+      position: {
+        offset: '0 0'
+      }
+    })
+  });
+  $('#add-item-import-module').change(function() {
+    var xy = $('#add-item-import-module :selected');
+    if (xy.val()) {
+      $("input[name='add_item_form[url]']").val(xy.val());
+      $("input[name='add_item_form[title]']").val(xy.text())
+    }
+  });
+  $(document).ready(function() {
+    var selsrc = $("select[name='add_item_form[bid]']");
+    var seltgt = $("select[name='add_item_form[weight]']");
+    selsrc.change(function() {
+      var menu_id = selsrc.val();
+      if (menu_id == "---") {
+        seltgt.attr("disabled", "disabled");
+        seltgt.html("")
+      } else {
+        $.post("<?php echo str_replace('&amp;', '&', adminUrl(PMX_MODULE, '', 'ajax=weightselect', '', '&')) ?>", {
+          id: menu_id,
+          cur: <?php echo $this->row['weight'] ?>
+        }, function(html) {
+          var returnvalue = html;
+          seltgt.html(returnvalue)
+        }, "html");
+        seltgt.removeAttr("disabled");
+      }
+    });
+    selsrc.change()
+  });/*]]>*/
+</script>

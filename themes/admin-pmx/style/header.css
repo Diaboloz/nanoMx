@@ -1,0 +1,83 @@
+/* Header */
+/* ------------------------------- */
+.navbar {
+    background: linear-gradient(to bottom, #383838, #2F2F2F) repeat scroll 0 0 #333333;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0) inset;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 0; }
+ 
+/* logo */
+.navbar-brand {
+    padding: 12px 0 0 20px;
+    height: 60px;
+    width: 260px; }
+ 
+/* project */
+#project > *:first-child {
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-shadow: 0 0 1px #000;
+    text-transform: uppercase;
+    padding-top: 12px;
+    text-align: left; }
+ 
+#project > span { display: block; }
+ 
+#project-name {
+    color: #799D24;
+    cursor: pointer;
+    padding: 0;
+    white-space: nowrap; }
+ 
+/* header-nav */
+.navbar-nav > li {
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+    border-right: 1px solid rgba(255, 255, 255, 0.05); }
+ 
+.navbar .nav > li:first-child { border-left: none; }
+ 
+.navbar .nav > li:last-child { border-right: none; }
+ 
+.navbar .nav > li > a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    text-shadow: 0 1px 0 #000000;
+    height: 60px;
+    outline: 0;
+    padding: 20px 15px 10px;
+    transition: background 0.1s linear 0s; }
+ 
+.nav > li > a:hover,
+.nav > li > a:focus {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #FFF; }
+ 
+.nav .open > a, 
+.nav .open > a:hover, 
+.nav .open > a:focus {
+    background-color: rgba(0, 0, 0, 0.2); /* fix color */}
+
+/* debug */
+#hddebug {
+    color: #CC3333;}
+ 
+    #hddebug.critical {
+        background-color:#CC3333;
+        color: #FFF;
+        font-size: 20px;}
+
+#pmx-debug-area {
+    -moz-box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #FFFFFF;
+    border: 2px solid red;
+    height: auto;
+    padding: 15px;
+    width: 100%;
+    font-size: 12px;
+}

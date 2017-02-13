@@ -1,0 +1,242 @@
+<?php
+
+/* Javascript & jquery for tabs u. lightbox */
+pmxHeader::add_jquery('ajaxupload.js');;
+pmxHeader::add_lightbox();
+
+// pmxHeader::add_style('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');;
+$avatars_list = $this->userpic->get_available_avatars();
+/* hochgeladenes Bild vorhanden? egal ob in DB eingetragen oder nicht... */
+$uploadedpic = strval($this->userpic->exist());
+
+$defaultpic = 'images/pixel.gif';
+$avatar = '';
+$checked = ' checked="checked" class="current"';
+
+$choice = array('avatar' => '', 'uploaded' => '', 'nopic' => '');
+switch ($this->userpic->gettype()) {
+    case 'avatar':
+        $avatar = $this->user_avatar;
+        $choice['avatar'] = $checked;
+        break;
+    case 'uploaded':
+        /* http://valums.com/ajax-upload/ */
+        $choice['uploaded'] = $checked;
+        break;
+    case 'nopic':
+    default:
+        $choice['nopic'] = $checked;
+}
+
+
+$tmp = array('&nbsp;' => '');
+$avatars_list = $tmp + $avatars_list;
+foreach($avatars_list as $key => $value) {
+    switch (true) {
+        case $avatar == $value:
+        case $avatar == $key:
+            $avatar = $value; // immer den vollen Pfad verwenden
+            $option[] = '<option value="' . $value . '" selected="selected" class="current">' . $key . '</option>';
+            break;
+        default:
+            $option[] = '<option value="' . $value . '">' . $key . '</option>';
+    }
+}
+$avOptions = implode("\n", $option);
+unset($option);
+
+/* für den dynamischen Uploadbutton */
+$dyna = strlen(_UPIC_JS_UPLOADING) + 4;
+
+/*
+Javascript Bidgrösse ermitteln:
+http://entwickler-forum.de/showthread.php?t=52328
+http://www.zerbit.de/artikel/bild_masse_mit_javascript_auslesen.aspx
+
+popupImg = new Image();
+popupImg.src = 'http://localhost/pragmamx/pmx-dev_0_1_11/media/userpics/6593_normal.jpg';
+alert(popupImg.height);
+
+'width_small' => 100,
+'height_small' => 80,
+'width_normal' => 170,
+'height_normal' => 220,
+'width_full' => 640,
+'height_full' => 480,
+
+
+*/
+?>
+
+<?php ob_start() ?>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+
+    //var choice = $('input[name="upic-choice"]');
+
+<?php if($this->pic_allowed_avatar): ?>
+    $('#foto-avatar').change(function() {
+      var opt = $('#foto-avatar option:selected').val();
+      if (opt) {
+        $('#avatar-img').attr('src', opt);
+        $('#upic-choice-serverstored').attr('checked', true);
+      } else {
+        $('#avatar-img').attr('src', '<?php echo $defaultpic ?>');
+        $('#upic-choice-serverstored').attr('checked', false);
+      }
+    });
+<?php endif; /* $this->pic_allowed_avatar */ ?>
+
+<?php if($this->pic_allowed_upload): ?>
+    /* ajax upload 1 */
+    var button = $('#upic-upload-button'),
+      interval;
+    new AjaxUpload(button, {
+      action: 'modules.php?name=Your_Account&file=upicajaxupload',
+      name: 'upload',
+
+      onSubmit: function(file, ext) {
+
+        if (! (ext && /^(<?php echo implode('|', $this->userpic->endings) ?>)$/.test(ext.toLowerCase()))) {
+          // extension is not allowed
+          alert('<?php echo addslashes(mxHtmlEntityDecode(_UPIC_JS_INVALIDEXTENSION)) ?> .' + ext);
+          // cancel upload
+          return false;
+        }
+
+        // change button text, when user selects file
+        button.text('<?php echo addslashes(_UPIC_JS_UPLOADING) ?>');
+
+        // If you want to allow uploading only 1 file at time,
+        // you can disable upload button
+        this.disable();
+
+        // Uploding -> Uploading. -> Uploading...
+        interval = window.setInterval(function() {
+          var text = button.text();
+          if (text.length < <?php echo $dyna ?>) {
+            button.text(text + '.');
+          } else {
+            button.text('<?php echo addslashes(_UPIC_JS_UPLOADING) ?>');
+          }
+        },
+        200);
+      },
+      onComplete: function(file, response) {
+        button.text('<?php echo addslashes(_UPIC_JS_UPLOAD) ?>');
+
+        window.clearInterval(interval);
+
+        // enable upload button
+        this.enable();
+
+        $('#upic-upload-response').html(response);
+        $('#upic-choice-uploaded').attr('checked', true);
+
+        if (response.indexOf("<img ") == -1){
+          $('#upic-upload-delete').hide();
+        }else{
+          $('#upic-upload-delete').show();
+        }
+      }
+    });
+
+    $('#upic-upload-delete').click(function() {
+        var tabs = $('#ya-tabs').tabs();
+        var ts = tabs.tabs('option', 'active'); // => 0
+        /* nur im Tab "Benutzerbild" (#2) ausführen, wegen Problemen beim drücken der Enter taste im Formular */
+        if (ts != 2) { return true; }
+        if (!confirm('<?php echo addslashes(_UPIC_SUREDELETE) ?>')) { return false; }
+        $.get('modules.php?name=Your_Account&file=upicajaxupload&uid=<?php echo $this->uid ?>&delete', function(text){
+          if ('<?php echo addslashes(_UPIC_DELETED) ?>' == text) {
+            $('#upic-upload-response').html(text);
+            $('#upic-upload-delete').hide();
+            $('#upic-choice-uploaded').attr('checked', false);
+            $('#upic-choice-nopic').attr('checked', true);
+          } else {
+            alert(text);
+          }
+        });        
+        return false;
+    });
+
+    $('#upic-upload, #upic-upload-response').show();
+<?php if($uploadedpic): ?>
+    $('#upic-upload-delete').show();
+<?php endif; /* $uploadedpic */ ?>
+<?php endif; /* $this->pic_allowed_upload */ ?>
+
+
+    $('noscript').hide();
+
+  });
+
+  function avatarlist() {
+    window.open('modules.php?name=Your_Account&op=avatarlist', 'avatarlist', 'width=640, height=480, left=10, top=10, scrollbars=yes, resizable=yes, toolbar=no, location=no, status=no, menubar=no');
+    return false;
+  }
+
+</script>
+<?php pmxHeader::add_script_code(ob_get_clean()) ?>
+
+
+<p class="bgcolor2 bigger ya-hidecaption"><b><?php echo _UPIC_PIC ?></b></p>
+
+<dl id="upichoice">
+
+<?php if($this->pic_allowed_avatar): ?>
+<dt><label><input type="radio" name="upic-choice" id="upic-choice-serverstored" value="serverstored"<?php echo $choice['avatar'] ?> /><?php echo _AVATAR ?></label></dt>
+<dd class="left">
+  <img alt="avatar" src="<?php echo (($avatar) ? $avatar : $defaultpic) ?>" id="avatar-img" />
+</dd>
+<dd>
+  <select id="foto-avatar" name="foto-avatar"><?php echo $avOptions ?></select>
+  &nbsp;&nbsp;[&nbsp;<a rel="nofollow" href="modules.php?name=Your_Account&amp;op=avatarlist" onclick="return avatarlist();" style="cursor: pointer;" target="_blank"><?php echo _LIST ?></a>&nbsp;]
+</dd>
+<hr />
+<?php endif; ?>
+
+<?php if($this->pic_allowed_upload): ?>
+<dt class="clear bot">
+  <label>
+    <input type="radio" name="upic-choice" id="upic-choice-uploaded" value="uploaded"<?php echo $choice['uploaded'] ?> /><?php echo _UPIC_UPLOADPIC ?>
+  </label>
+</dt>
+<dd class="left tiny">
+  <span id="upic-upload-response" class="hide">
+    <img alt="uploaded" src="<?php echo (($uploadedpic) ? $uploadedpic : $defaultpic) ?>"/>
+  </span><br />
+  <button id="upic-upload-delete" class="hide mx-button"><?php echo _UPIC_DELETEIMG ?></button>
+<?php if($uploadedpic): ?>
+  <noscript><a href="modules.php?name=Your_Account&amp;op=deluserpic&amp;uid=<?php echo $this->uid ?>" class="button"><?php echo _UPIC_DELETEIMG ?></a></noscript>
+<?php endif; ?>
+</dd>
+<dd>
+  <noscript class="important"><?php echo _JSSHOULDBEACTIVE ?></noscript>
+  <div id="upic-upload" class="hide">
+  <p><?php echo _UPIC_UPLOADPIC_DESC ?></p>
+  <?php if($this->picnotes): ?>
+  <p><?php echo _UPIC_UPLOADPIC_NOTES ?></p>  <ul>
+  <?php foreach ($this->picnotes as $note) : ?>
+    <li><?php echo $note ?></li>
+  <?php endforeach ?>
+  </ul>
+  <?php endif; ?>
+  <button id="upic-upload-button" class="mx-button"><?php echo _UPIC_JS_UPLOAD ?></button>
+  </div>
+</dd>
+<hr />
+<?php endif; ?>
+
+<dt class="clear bot">
+  <label>
+    <input type="radio" name="upic-choice" id="upic-choice-nopic" value="nopic"<?php echo $choice['nopic'] ?> />
+    <?php echo _UPIC_HAVENO ?>
+  </label>
+</dt>
+
+</dl>
+
+<div class="clear"></div>
+
+<?php // pragmaMx CVS $Id: edituser.photo.html 6 2015-07-08 07:07:06Z PragmaMx $ äöüß ?>

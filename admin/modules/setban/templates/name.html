@@ -1,0 +1,14 @@
+<form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
+  <?php echo _INFOHOWBANNAMEHELP ?>
+    <?php echo $this->formTextarea('ip_ban', $this->ban_name, array('cols'=>60, 'rows'=>8)) ?>
+    <p><em><?php echo _CUTWITHCOMMATA ?></em></p>
+    <p>
+      <?php echo $this->formCheckbox('ip_auto', $this->ban_auto) ?>
+      <?php echo _AUTOBAN ?>
+    </p>
+    <?php echo $this->formHidden('op', PMX_MODULE . '/save') ?>
+    <?php echo $this->formHidden('ip_type', 'ban_name') ?>
+    <?php echo $this->formSubmit('submit', _SAVECHANGES) ?>
+</form>
+
+<?php /* pragmaMx CVS $Id: name.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

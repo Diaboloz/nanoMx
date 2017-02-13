@@ -1,0 +1,52 @@
+<?php
+
+/*
+Options:
+$jScroller.add(
+ [Container DIV class with .],
+ [Content DIV class with .],
+ [Direction: "up", "down", "left" or "right"],
+ [Speed from 1 is default, 2 is faster],
+ [Optional: Start and Stop Scroller on Mouseover / Mouseout]
+);
+*/
+
+pmxHeader::add_jquery('jquery.migrate.js', 'jscroller.js');
+
+ob_start();
+?>
+<style type="text/css">
+.scroll-container.scroll-id<?php echo $this->divname ?> {
+  overflow: auto;
+  position: relative;
+  width: <?php echo $this->width ?>;
+  height: <?php echo $this->height ?>;
+}
+.scroll-container.scroll-id<?php echo $this->divname ?>.scroll-up .scroll-content,
+.scroll-container.scroll-id<?php echo $this->divname ?>.scroll-down .scroll-content {
+  width: 100%;
+}
+</style>
+
+<?php
+$style = ob_get_clean();
+pmxHeader::add_style_code($style);
+?>
+
+<div class="scroll-container scroll-id<?php echo $this->divname ?> scroll-<?php echo $this->direction ?>">
+ <div class="scroll-content">
+  <?php echo $this->content ?>
+ </div>
+</div>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+ $(document).ready(function(){
+  $jScroller.add(".scroll-container.scroll-id<?php echo $this->divname ?>", ".scroll-container.scroll-id<?php echo $this->divname ?> .scroll-content", "<?php echo $this->direction ?>", <?php echo $this->speed ?>, <?php echo $this->mousestop ?>);
+  $jScroller.cache.init = <?php echo $this->focusstop ?>;
+  $jScroller.start();
+ });
+/*]]>*/
+</script>
+
+<?php // $Id: scrollcontent.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

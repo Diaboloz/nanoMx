@@ -1,0 +1,25 @@
+[30-Jan-2017 00:18:19 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 483
+[30-Jan-2017 00:19:59 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[30-Jan-2017 00:28:14 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[30-Jan-2017 09:05:29 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 483
+[30-Jan-2017 09:06:00 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[30-Jan-2017 09:06:27 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[30-Jan-2017 09:06:28 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[30-Jan-2017 09:18:30 Europe/Berlin] PHP Parse error:  syntax error, unexpected end of file in /home/diabolo/public_html/nanomx/modules/Userinfo/view.php on line 385
+[30-Jan-2017 09:56:39 Europe/Berlin] PHP Fatal error:  Call to undefined method stdClass::show() in /home/diabolo/public_html/nanomx/modules/Userinfo/view.php on line 382
+[30-Jan-2017 10:21:43 Europe/Berlin] PHP Parse error:  syntax error, unexpected '*' in /home/diabolo/public_html/nanomx/modules/Userinfo/view.php on line 257
+[30-Jan-2017 16:11:02 Europe/Berlin] PHP Parse error:  syntax error, unexpected '}' in /home/diabolo/public_html/nanomx/modules/Your_Account/templates/profile.html on line 4

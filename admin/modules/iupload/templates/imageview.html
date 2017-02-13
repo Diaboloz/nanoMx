@@ -1,0 +1,10 @@
+<em><?php echo $this->imagename ?> </em> <?php echo _IUP_SUCCESFULLIM ?><br />
+<?php if ($this->pretty): ?>
+  <a rel="pretty" href="<?php echo $this->image ?>" target="_blank">
+    <img src="<?php echo $this->image ?>" alt="preview" style="max-width:<?php echo $this->max_view_width ?>px;max-height:15em;margin-top:1em">
+  </a>
+<?php else: ?>
+  <img src="<?php echo $this->image ?>" alt="preview" style="margin-top:1em">
+<?php endif ?>
+
+<?php /* pragmaMx CVS $Id: imageview.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

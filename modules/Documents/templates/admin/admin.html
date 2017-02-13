@@ -1,0 +1,122 @@
+
+
+<p class="title"><?php echo $this->info2 ?></p>
+<?php echo $this->mod_err ?>
+<!-- START: TABS NAV -->
+<div id="admincontent">
+
+	<?php echo $this->formOpen ?>
+	<?php echo $this->toolbar ?>
+	
+	<div class="block"><?php echo $this->error ?></div>
+	<table class="list" width="100%">
+	 <thead> 
+	 <tr> 
+	 <th width="15" align="center"><input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count($this->catlist) ?>);" /></th> 
+	 <th  width="35" >ID</th> 
+	 <th  colspan="2"><?php echo _DOCS_POSITION ?></th> 
+	 <th width="30%"><?php echo _TITLE ?></th> 
+	 <th ><?php echo _DOCS_CREATED ?></th> 
+	 <th ><?php echo _DOCS_PUBLISH ?></th> 
+	 <th ><?php echo _DOCS_OWNER ?></th> 
+	 <th ><?php echo _LANGUAGE ?></th> 
+	 <th ><?php echo _CONTENT ?></th> 
+	 <th ><?php echo _DOCS_ACTION ?></th> 
+	 </tr> 
+	 </thead> 
+
+	 <tbody> 
+<?php
+	$i=0;
+	foreach ($this->catlist as $id=>$content) {
+	?>
+		<tr class="<?php echo ($i/2==intval($i/2))?"alternate":"alternate-b"; ?>" >
+        <td class="align-center"><input type="checkbox" id="cb<?php echo $i ?>" name="cid[]" value="<?php echo $content['id'] ?>" onclick="isChecked(this.checked);" /></td> 
+		<td><?php echo $content['id'] ?></td>
+		<td><?php echo (($content['lower']==1)?"<a href=\"admin.php?op=".$this->module_name."&amp;act=bookmovedn&amp;id=".$content['id']."\" title=\""._DOCS_MOVEDN."\" ><img src=\"images/adminform/down.png\" alt=\"\" style=\"width:15px;height:10px;\" /></a>":""); ?> </td>
+		<td><?php echo (($content['upper']==1)?"<a href=\"admin.php?op=".$this->module_name."&amp;act=bookmoveup&amp;id=".$content['id']."\" title=\""._DOCS_MOVEUP."\" ><img src=\"images/adminform/up.png\" alt=\"\" style=\"width:15px;height:10px;\" /></a>":""); ?></td>
+		<!-- td > <?php echo str_repeat("&nbsp;&nbsp;&nbsp;",$content['level'])."<a href=\"admin.php?op=".$this->module_name."&amp;act=content&amp;book=".$content['id']."\" >".$content['title']." </a>" ;?></td -->
+		<td ><div style="margin-left: <?php echo intval(($content['level']-1)*8); ?>px;"><a href="admin.php?op=<?php echo $this->module_name; ?>&amp;act=content&amp;book=<?php echo $content['id']; ?>"  ><?php echo $content['title']; ?></a></div></td>
+
+		<td><?php echo mx_strftime(_DATESTRING,$content['date_created']) ?> </td>
+		
+		<td class="align-center" ><?php echo "<a href=\"admin.php?op=".$this->module_name."&amp;act=book".
+					(($content['publish']==1)?"unpublish":"publish").
+					"&amp;id=".$content['id']."\" title=\"".(($content['publish']==1)?_DOCS_UNPUBLISHED:_DOCS_PUBLISHED)."\" >
+					<img src=\"modules/".$this->module_name."/style/images/".
+					(($content['publish']==1)?"accept.png":"delete.png")."\" width=\"16\" height=\"16\"  /></a>"; ?> </td>
+		<td><?php echo $content['owner_name'] ?></td>
+		<td><?php echo $content['language'] ?></td>
+		<td><?php echo $content['childs'] ?></td>
+		<td  class="align-center" >
+			<?php  echo "<a href=\"modules.php?name=".$this->module_name."&amp;act=page&amp;id=".$content['id']."&amp;iframe=true&amp;width=80%&amp;height=90%\" rel=\"pretty\" title=\""._PREVIEW."\" ><img src=\"images/adminform/preview.png\" width=\"16\" height=\"16\" alt=\""._PREVIEW."\" /></a>" ?>
+			
+			<?php  echo "<a href=\"admin.php?op=".$this->module_name."&amp;act=getlog&amp;id=".$content['id']."&amp;iframe=true&amp;width=80%&amp;height=90%\" title=\""._DOCS_VIEW_LOG."\" rel=\"pretty\"><img src=\"images/adminform/page.png\" width=\"16\" height=\"16\" alt=\""._DOCS_HISTORY."\" /></a>" ?>
+		
+		</td>
+		</tr>
+	<?php $i++; }  ?>
+	
+
+
+	 </tbody>
+	 </table>
+
+<?php if (count($this->newcontent)) { ?>
+
+<h4><?php echo _DOCS_NEW_DOCUMENTS ?></h4>	
+
+<table class="list" width="100%">
+	 <thead> 
+	 <tr> 
+	 <th  width="35" >ID</th>  
+	 <th width="30%"><?php echo _TITLE ?></th> 
+	 <th ><?php echo _DOCS_CREATED ?></th> 
+	 <th ><?php echo _DOCS_SECTION ?></th> 
+	 <th ><?php echo _DOCS_PUBLISH ?></th> 
+	 <th ><?php echo _DOCS_OWNER ?></th> 
+	 <th ><?php echo _DOCS_ACTION ?></th> 
+	 </tr> 
+	 </thead> 
+
+	 <tbody> 
+	 
+<?php   /* newsliste   */
+	$document = $this->cat;
+	$i=0;
+	foreach ($this->newcontent as $id=>$content) {
+	?>
+		<tr>
+		<td><?php echo $content['id'] ?></td>
+		<td ><a href="admin.php?op=<?php echo $this->module_name."&amp;act=contentedit&amp;id=".$content['id'] ?>" ><?php echo $content['title'];?></a></td>
+		<td><?php echo mx_strftime(_DATESTRING,$content['date_created']) ?> </td>
+		<?php $bookbr=$document->getBreadcrump($content['id']);  ?>
+		<td ><a href="admin.php?op=<?php echo $this->module_name."&amp;act=content&amp;book=".$bookbr[0]['id'] ?>" ><?php echo $bookbr[0]['title'];?></a></td>
+		
+		<td class="align-center" ><?php echo "<a href=\"admin.php?op=".$this->module_name."&amp;act=book".
+					(($content['publish']==1)?"unpublish":"publish").
+					"&amp;id=".$content['id']."\" title=\"".(($content['publish']==1)?_DOCS_UNPUBLISHED:_DOCS_PUBLISHED)."\" >
+					<img src=\"modules/".$this->module_name."/style/images/".
+					(($content['publish']==1)?"accept.png":"delete.png")."\" width=\"16\" height=\"16\"  /></a>"; ?> </td>
+		<td><?php echo $content['owner_name'] ?></td>
+		<td  class="align-center" >
+			<?php  echo "<a href=\"modules.php?name=".$this->module_name."&amp;act=page&amp;id=".$content['id']."&amp;iframe=true&amp;width=80%&amp;height=90%\" rel=\"pretty\" title=\""._PREVIEW."\" ><img src=\"images/adminform/preview.png\" width=\"16\" height=\"16\" alt=\""._PREVIEW."\" /></a>" ?>
+			<?php  echo "<a href=\"admin.php?op=".$this->module_name."&amp;act=getlog&amp;id=".$content['id']."&amp;iframe=true&amp;width=80%&amp;height=90%\" rel=\"pretty\"title=\""._DOCS_VIEW_LOG."\" rel=\"pretty\"><img src=\"images/adminform/page.png\" width=\"16\" height=\"16\" alt=\""._DOCS_HISTORY."\" /></a>" ?>
+			
+			<?php  echo "<a href=\"admin.php?op=".$this->module_name."&amp;act=contentdeletedirect&amp;id=".$content['id']."\" title=\"" . _DELETE . "\" ><img src=\"images/adminform/delete.png\" width=\"16\" height=\"16\" alt=\""._DELETE."\" /></a>" ?>
+		</td>
+		</tr>
+
+	<?php $i++; }  ?>
+	 
+	 </tbody></table>
+<?php } ?>
+	<?php echo $this->formClose ?>
+</div>
+<!-- END: TABS NAV -->
+
+
+
+	<!-- div class="align-center tiny"><?php echo $this->credits ?> -->
+
+<?php /* pragmaMx CVS $Id: admin.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

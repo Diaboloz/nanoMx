@@ -1,0 +1,91 @@
+<p class="note"><?php echo _VERCHECK_DESCRIBE ?></p>
+
+<form action="<?php echo adminUrl(PMX_MODULE, 'unnecessary') ?>" method="post" id="verdelfiles">
+  <table class="full list">
+
+  <?php foreach ($this->items as $type => $values) { ?>
+    <thead>
+      <tr>
+        <th style="width: 1em"><?php echo $this->formCheckbox('check_all_files', 0, array('title'=>_VERCHECK_SELECTALL)) ?></th>
+        <th><?php echo $this->lang[$type] ?></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <?php foreach ($values as $item) { 
+        $id = 'id-' . $type . '[' . $item['id'] . ']';
+        $sel = intval(in_array($item['file'], $this->preselected));
+      ?>
+      <tr>
+        <td><?php echo $this->formCheckbox($id, $sel) ?></td>
+        <td><?php echo $item['shortfile'] ?></td>
+      </tr>
+      <?php } ?>
+    </tbody>
+    <?php } // types ?>
+
+    <tfoot>
+      <tr>
+        <th title="<?php echo _VERCHECK_SELECTALL ?>"><?php echo $this->formCheckbox('check_all_files', 0, array('title'=>_VERCHECK_SELECTALL)) ?></th>
+        <th colspan="5"></th>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="align-center">
+    <?php echo $this->formSubmit('delsome', _VERCHECK_DELSOME) ?> &nbsp;
+    <?php echo $this->formSubmit('delall', _VERCHECK_DELALL) ?>
+  </div>
+
+  <?php echo $this->formHidden('op', PMX_MODULE . '/unnecessary') ?>
+</form>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+
+$(document).ready(function() {
+
+  var tcheckall = 'form#verdelfiles input[name="check_all_files"]';
+  var checklist = $(tcheckall).parents('table').find(':checkbox[name^="id-"]');
+
+  $(tcheckall).click(function() {
+    var vari = ($(this).prop('checked')) ? true : false;
+    checklist.prop('checked', vari)
+    $(tcheckall).prop('checked', (is_checked() == checklist.size()));
+  });
+
+  checklist.click(function() {
+    $(tcheckall).prop('checked', (is_checked() == checklist.size()));
+  });
+
+  var chx = false;
+  $('form#verdelfiles input[name="delsome"]').click(function() {
+    if (is_checked()) {
+      chx = confirm("<?php echo _VERCHECK_SUREDELSOME ?>");
+    }
+  });
+  $('form#verdelfiles input[name="delall"]').click(function() {
+    chx = confirm("<?php echo _VERCHECK_SUREDELALL ?>");
+  });
+  $('form#verdelfiles').submit(function() {
+    return chx; // wird nur true, wenn einer der Buttons gedrückt wurde
+  });
+
+  var is_checked = function() {
+    cnt = 0;
+    $.each(checklist, function(index, item) {
+      if ($(this).prop('checked')) {
+        cnt++;
+      }
+    });
+    return cnt;
+  }
+
+  $('table.list tbody tr:even').addClass('alternate');
+
+});
+
+/*]]>*/
+</script>
+
+<?php /* pragmaMx CVS $Id: unnecessary.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

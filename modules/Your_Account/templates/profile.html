@@ -1,0 +1,24 @@
+<section id="profil">
+
+<?php if($this->nav): ?>
+  <?php echo $this->nav ?>
+  <div class="profil-content">
+<?php endif; ?>
+    
+<?php if($this->message): ?>
+    <div class="note"><?php echo $this->message ?></div>
+<?php endif; ?>
+    
+<?php if($this->innertab): ?>
+    <div id="ya-tabs">
+      <?php echo $this->innernav . $this->content ?>
+    </div><!--  ya-tabs beenden -->
+<?php else: ?>
+  <?php echo $this->content ?>
+<?php endif; ?>
+
+<?php if($this->nav): ?>
+  </div><!--  profil-content -->
+<?php endif; ?>
+
+</section>

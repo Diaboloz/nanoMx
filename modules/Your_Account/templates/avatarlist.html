@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title><?php echo _AVAILABLEAVATARS; ?></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="<?php echo _DOC_LANGUAGE ?>" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="stylesheet" type="text/css" href="layout/style/style.css.php?t=<?php echo MX_THEME ?>" />
+  <link rel="stylesheet" type="text/css" href="themes/<?php echo MX_THEME ?>/style/style.css" />
+  <link rel="stylesheet" type="text/css" href="modules/Your_Account/style/style.css" />
+<script src="<?php echo PMX_JAVASCRIPT_PATH ?>jquery/jquery.js" type="text/javascript"></script>
+<script src="<?php echo PMX_JAVASCRIPT_PATH ?>jquery/jquery.imagefit.js" type="text/javascript"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+  $(document).ready(function(){
+    $('#pmx-content').imagefit();
+  });
+
+  function set_avatar(avatar) {
+    window.opener.$("#foto-avatar").val('<?php echo $this->imagepath ?>/' + avatar); 
+    window.opener.$("#foto-avatar").change(); 
+  }
+/* ]]> */
+</script>
+</head>
+
+<body class="allone popup">
+  <div id="pmx-content">
+    <h2><?php echo _AVAILABLEAVATARS; ?>:</h2>
+    <div class="ya-avatarlist box">
+      <?php foreach ($this->filelist as $varname => $src) : ?>
+      <a href="javascript:set_avatar('<?php echo $varname ?>')"><img src="<?php echo $src ?>" alt="" title="<?php echo $varname ?>" border="0" /></a>
+      <?php endforeach; ?>
+    </div>
+    <br />
+  </div>
+</body>
+</html>
+<?php // pragmaMx CVS $Id: avatarlist.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

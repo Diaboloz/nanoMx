@@ -1,0 +1,46 @@
+<?php
+/**
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: headitems.html,v 1.3 2013-03-14 21:48:44 dia_bolo Exp $
+ */
+?>
+<?php if($this->adminentries['items']){ ?>
+    <li class="btn btn-inverse dropdown">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
+            <i class="icon-white icon-info-sign"></i>
+            <span class="text"><?php echo $this->adminentries['title'] ?></span> 
+            <span class="badge badge-info"><?php echo $this->adminentries['count'] ?></span> 
+            <span class="caret"></span>
+        </a>		
+		<ul class="dropdown-menu">
+    <?php foreach ($this->adminentries['items'] as $link => $text) { ?>
+			<li>
+        <?php echo $this->ahref($link, $text) ?>
+			</li>
+    <?php } //endforeach ?>
+		</ul>
+	</li>
+<?php } //endif adminentries ?>
+
+
+              
+<?php if($this->langentries !== false){ ?>
+<li class="dropdown">
+		<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
+		    <i style="background-image: url('<?php echo $this->langentries['image'] ?>');display: inline-block;height: 12px;line-height: 12px;margin-top: 4px;vertical-align: text-top;width: 18px;"></i> 
+		    <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+    <?php foreach ($this->langentries['items'] as $item) { ?>
+			<li>
+				<a href="<?php echo $item['link'] ?>" title="<?php echo $item['title'] ?>"><i style="background-image: url('<?php echo $item['image'] ?>');display: inline-block;height: 12px;line-height: 12px;margin-top: 1px;vertical-align: text-top;width: 18px;"></i> <?php echo $item['text'] ?></a>
+			</li>
+    <?php } //endforeach ?>
+		</ul>
+</li>
+<?php } //endif adminentries ?>
+
+<li class="hidden-xs"><a href="http://www.pragmamx.org/doku.php" title="" target="_blank"><i class="fa fa-info-circle"></i> <?php echo $this->headentries['doku'] ?></a></li>
+<li class="hidden-xs"><a href="admin.php?op=reset/cache" title=""><i class="fa fa-refresh"></i> <?php echo $this->headentries['cache'] ?></a></li>                
+<li class="hidden-xs"><a href="admin.php?op=versioncheck" title=""><i class="fa fa-certificate"></i> <?php echo $this->headentries['version'] ?></a></li>

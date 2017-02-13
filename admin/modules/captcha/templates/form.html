@@ -1,0 +1,216 @@
+
+<h2><?php echo _CAPTCHATITLE ?></h2>
+
+<?php if ($this->check !== true) { ?>
+<div class="warning">
+    <h4><?php echo _CAPTCHAERR ?></h4>
+    <p class="content"><?php echo $this->check ?></p>
+</div>
+<?php  } ?>
+
+<div id="captcha-tabs">
+  <ul class="tabs-nav">
+    <li><a href="#captcha-1"><?php echo _CAPTCHASETTINGS ?></a></li>
+    <li><a href="#captcha-2"><?php echo _CAPTCHASETTINGS2 ?></a></li>
+  </ul>
+  <form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
+    <div id="captcha-1" class="tabs-panel">
+      <h3 class="hidecaption"><?php echo _CAPTCHASETTINGS ?></h3>
+      <table class="full form">
+      <tr>
+        <td colspan="2">
+          <b><?php echo _CAPTCHASAMPLE ?>:</b>&nbsp;&nbsp;
+          <?php echo $this->captcha_object->image() ?>&nbsp;&nbsp;
+          <?php echo $this->captcha_object->reloadbutton() ?>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><hr /></td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHAIMAGEWIDTH ?>:</td>
+        <td><input type="text" name="imagewidth" size="12" value="<?php echo $this->imagewidth ?>" /></td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHAIMAGEHEIGHT ?>:</td>
+        <td><input type="text" name="imageheight" size="12" value="<?php echo $this->imageheight ?>" /></td>
+      </tr>
+      <tr>
+        <td width="41%"><?php echo _CAPTCHAPASSPHRASELENGHT ?>:</td>
+        <td width="59%"><input type="text" name="passphraselenght" size="12" value="<?php echo $this->passphraselenght ?>" /></td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHACHARSTOUSE ?>:</td>
+        <td><textarea name="charstouse" cols="30" rows="2"><?php echo chunk_split($this->charstouse, 25) ?></textarea></td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHACHARCASESEN ?></td>
+        <td>
+          <input type="radio" value="1"<?php echo ($this->casesensitive) ? ' checked="checked"' : '' ?> name="casesensitive" /><?php echo _YES ?>
+          <input type="radio" value="0"<?php echo ($this->casesensitive) ? '' : ' checked="checked"' ?> name="casesensitive" /><?php echo _NO ?>
+        </td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHAFONTSIZE ?>:</td>
+        <td><input type="text" name="fontsize" size="12" value="<?php echo $this->fontsize ?>" /></td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHARANDOMCOLOR ?></td>
+        <td>
+          <input type="radio" value="1"<?php echo ($this->useRandomColors) ? ' checked="checked"' : '' ?> name="useRandomColors" /><?php echo _YES ?>
+          <input type="radio" value="0"<?php echo ($this->useRandomColors) ? '' : ' checked="checked"' ?> name="useRandomColors" /><?php echo _NO ?>
+        </td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHAANGLE ?>:</td>
+        <td><input type="text" name="angle" size="12" value="<?php echo $this->angle ?>" /></td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHAFILTER ?></td>
+        <td>
+          <input type="radio" value="1"<?php echo ($this->filter) ? ' checked="checked"' : '' ?> name="filter" /><?php echo _YES ?>
+          <input type="radio" value="0"<?php echo ($this->filter) ? '' : ' checked="checked"' ?> name="filter" /><?php echo _NO ?>
+        </td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHAFILTERTYPE ?></td>
+        <td><select name="filtertype" size="1">
+            <option <?php echo ($this->filtertype == 'Wavy') ? ' selected="selected" class="current"' : '' ?> value="Wavy">Wavy</option>
+            <option <?php echo ($this->filtertype == 'Bubbly') ? ' selected="selected" class="current"' : '' ?> value="Bubbly">Bubbly</option>
+            <option <?php echo ($this->filtertype == 'Breaktype') ? ' selected="selected" class="current"' : '' ?> value="Breaktype">Breaktype</option>
+          </select></td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHABGINTENSITY ?>:</td>
+        <td><input type="text" name="bgintensity" size="12" value="<?php echo $this->bgintensity ?>" /></td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHABGFONTTYPE ?>:</td>
+        <td><input type="text" name="bgfonttype" size="12" value="<?php echo $this->bgfonttype ?>" /></td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHAADDHORLINES ?></td>
+        <td>
+          <input type="radio" value="1"<?php echo ($this->addhorizontallines) ? ' checked="checked"' : '' ?> name="addhorizontallines" /><?php echo _YES ?>
+          <input type="radio" value="0"<?php echo ($this->addhorizontallines) ? '' : ' checked="checked"' ?> name="addhorizontallines" /><?php echo _NO ?>
+        </td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHASCRATCHES ?></td>
+        <td>
+          <input type="radio" value="1"<?php echo ($this->scratches) ? ' checked="checked"' : '' ?> name="scratches" /><?php echo _YES ?>
+          <input type="radio" value="0"<?php echo ($this->scratches) ? '' : ' checked="checked"' ?> name="scratches" /><?php echo _NO ?>
+        </td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHASCRATCHAMOUNT ?>:</td>
+        <td><input type="text" name="scratchamount" size="12" value="<?php echo $this->scratchamount ?>" /></td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHAADDAGRID ?></td>
+        <td>
+          <input type="radio" value="1"<?php echo ($this->addagrid) ? ' checked="checked"' : '' ?> name="addagrid" /><?php echo _YES ?>
+          <input type="radio" value="0"<?php echo ($this->addagrid) ? '' : ' checked="checked"' ?> name="addagrid" /><?php echo _NO ?>
+        </td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHAMINSIZE ?>:</td>
+        <td><input type="text" name="minsize" size="12" value="<?php echo $this->minsize ?>" /></td>
+      </tr>
+      </table>
+    </div>
+
+    <div id="captcha-2" class="tabs-panel">
+      <h3 class="hidecaption"><?php echo _CAPTCHASETTINGS2 ?></h3>
+      <table class="form">
+      <tr>
+        <td><?php echo _CAPTCHASESSION ?></td>
+        <td>
+          <input type="radio" value="1"<?php echo ($this->captchasession) ? ' checked="checked"' : '' ?> name="captchasession" /><?php echo _YES ?>
+          <input type="radio" value="0"<?php echo ($this->captchasession) ? '' : ' checked="checked"' ?> name="captchasession" /><?php echo _NO ?>
+        </td>
+      </tr>
+      <tr>
+        <td><?php echo _CAPTCHAUSERON ?></td>
+        <td>
+          <input type="radio" value="1"<?php echo ($this->captchauseron) ? ' checked="checked"' : '' ?> name="captchauseron" /><?php echo _YES ?>
+          <input type="radio" value="0"<?php echo ($this->captchauseron) ? '' : ' checked="checked"' ?> name="captchauseron" /><?php echo _NO ?>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><hr /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><?php echo _CAPTCHAMODSET ?></td>
+      </tr>
+      <tr>
+        <td style="padding-left: 2em"><?php echo _CAPTCHACOMMENTSON ?></td>
+        <td>
+          <input type="radio" value="1"<?php echo ($this->commentson) ? ' checked="checked"' : '' ?> name="commentson" /><?php echo _YES ?>
+          <input type="radio" value="0"<?php echo ($this->commentson) ? '' : ' checked="checked"' ?> name="commentson" /><?php echo _NO ?>
+        </td>
+      </tr>
+      <?php foreach ($this->hookvars as $hook) {
+          if (!$hook['hidden'])  { ?>
+      <tr>
+        <td style="padding-left: 2em"><?php echo $hook['caption'] ?></td>
+        <td>
+          <input type="radio" value="1"<?php echo ($hook['varname']) ? ' checked="checked"' : '' ?> name="<?php echo $hook['varname'] ?>" /><?php echo _YES ?>
+          <input type="radio" value="0"<?php echo ($hook['varname']) ? '' : ' checked="checked"' ?> name="<?php echo $hook['varname'] ?>" /><?php echo _NO ?>
+        </td>
+      </tr>
+      <?php } } //endforeach ?>
+      <?php 
+      $i = 0;
+      foreach ($this->hookvars as $hook) {
+          if ($hook['hidden'])  {
+            $i++;
+            if($i === 1){ ?>
+      <tr>
+        <td colspan="2"><?php echo _CAPTCHAMODHAVEOWN ?></td>
+      </tr>
+      <?php } //endif $i === 1 ?>
+      <tr>
+        <td colspan="2" style="padding-left: 2em"><a href="<?php echo $hook['adminlink'] ?>"><?php echo $hook['caption'] ?></a></td>
+      </tr>
+      <?php } } //endforeach ?>
+      </table>
+    </div>
+
+    <div class="align-center">
+      <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" />
+      <input type="submit" value="<?php echo _CAPTCHASAVESETTINGS ?>" />
+      <div class="box">
+        <input type="hidden" name="do_html_opt_reset" value="0" />
+        <input type="checkbox" name="do_html_opt_reset" value="1" />&nbsp;<?php echo _CAPTCHASETRESET ?>
+      </div>
+    </div>
+
+
+
+  </form>
+</div>
+
+
+<script type="text/javascript">
+/*<![CDATA[*/
+  $(document).ready(function() {
+    var tab_cookie_name = "tabs_captcha";
+    $('#captcha-tabs').tabs({
+      active: ($.cookie(tab_cookie_name) || 0),
+      activate: function(event, ui) {
+        var newIndex = ui.newTab.parent().children().index(ui.newTab);
+        $.cookie(tab_cookie_name, newIndex, {
+          path: window.location.pathname,
+          expires: 7
+        });
+      }
+    });
+    $('#captcha-tabs h3.hidecaption').hide();
+  });
+/*]]>*/
+</script>
+
+<?php 
+pmxHeader::add_tabs();
+/* pragmaMx CVS $Id: form.html 194 2016-07-25 13:10:19Z PragmaMx $ */ ?>

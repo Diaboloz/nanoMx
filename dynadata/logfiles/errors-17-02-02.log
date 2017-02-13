@@ -1,0 +1,4 @@
+[02-Feb-2017 18:34:49 Europe/Berlin] PHP Parse error:  syntax error, unexpected end of file in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 560
+[02-Feb-2017 18:54:52 Europe/Berlin] PHP Fatal error:  Call to a member function add() on null in /home/diabolo/public_html/nanomx/modules/Discussion/stats.php on line 24
+[02-Feb-2017 23:00:02 Europe/Berlin] PHP Fatal error:  Call to undefined function xbCodeStr() in /home/diabolo/public_html/nanomx/modules/Discussion/includes/functions.php on line 460
+[02-Feb-2017 23:00:04 Europe/Berlin] PHP Fatal error:  Call to undefined function xbCodeStr() in /home/diabolo/public_html/nanomx/modules/Discussion/includes/functions.php on line 460

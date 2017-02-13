@@ -1,0 +1,87 @@
+<form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
+  <table class="full form">
+
+    <tr>
+      <td><?php echo _BLOCKTITLE ?>:</td>
+      <td><input type="text" name="title" size="30" maxlength="60" /></td>
+    </tr>
+    <?php switch($this->mode):
+
+    case 'file': ?>
+    <tr>
+      <td><?php echo _FILENAME ?>:</td>
+      <td><?php echo getblockfileselect() ?></td>
+    </tr><?php break;
+
+    case 'rss': ?>
+    <tr>
+      <td><?php echo _RSSFILE ?>:</td>
+      <td><?php echo getheadlineselect() ?></td>
+    </tr><?php break;
+
+    case 'html': default:?>
+    <tr>
+      <td colspan="2"><?php echo _CONTENT ?>:<br />
+      <?php echo $this->formWysiwyg('b_content', $this->content, array('height'=>'250')) ?></td>
+    </tr>
+    <?php break;
+    endswitch;?>
+
+    <tr>
+      <td><?php echo _POSITION ?>:</td>
+      <td><?php echo getPositionSelect('l') ?></td>
+    </tr>
+
+    <tr>
+      <td><?php echo _WEIGHT ?>:</td>
+      <td><input type="text" name="weight" size="3" maxlength="3" value="0" /></td>
+    </tr><?php if($this->multilingual): ?>
+
+    <tr>
+      <td><?php echo _LANGUAGE ?>:</td>
+      <td><?php echo mxLanguageSelect('blanguage', '', 'language', true) ?></td>
+    </tr><?php endif; ?>
+
+    <tr>
+      <td><?php echo _ACTIVATE2 ?></td>
+      <td><?php echo getActiveSelect(1) ?></td>
+    </tr>
+
+    <tr>
+      <td><?php echo _VIEWPRIV ?></td>
+      <td><?php echo getViewSelect(0) ?></td>
+    </tr>
+
+    <tr>
+      <td><!-- <?php echo _VIEWPRIV ?> --></td>
+      <td><?php echo $this->groupselect ?></td>
+    </tr>
+    <?php switch($this->mode):
+
+    case 'rss': ?>
+    <tr>
+      <td><?php echo _REFRESHTIME ?>:</td>
+      <td><?php echo getRefreshSelect(3600, 0) ?></td>
+    </tr><?php break;
+
+    case 'file': ?>
+    <tr>
+      <td><?php echo _CACHING ?>:</td>
+      <td>
+        <?php echo getRefreshSelect(0, 1) ?>
+        <p class="note tiny"><?php echo _BLOCKCACHEMSG ?></p>
+      </td>
+    </tr><?php break;
+    endswitch;?>
+
+  </table>
+  <?php if(!$this->multilingual): ?>
+  <input type="hidden" name="blanguage" value="" />
+  <?php endif ?>
+  <input type="hidden" name="op" value="<?php echo  PMX_MODULE ?>/Add" />
+  <input type="submit" value="<?php echo _CREATEBLOCK ?>" />
+</form>
+
+<?php
+/* pragmaMx CVS $Id: blockaddform.html 6 2015-07-08 07:07:06Z PragmaMx $ */
+?>

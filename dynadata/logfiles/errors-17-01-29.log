@@ -1,0 +1,2430 @@
+[29-Jan-2017 00:00:12 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:00:12 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:00:16 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:00:16 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:00:17 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 00:00:17 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:00:17 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:00:17 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:00:20 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:00:20 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:00:20 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:00:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 00:00:22 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:00:22 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:00:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:00:34 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:00:34 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:00:34 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:03:01 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:03:01 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:03:34 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:03:34 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:03:37 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:03:37 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:03:40 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:03:40 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:03:45 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:03:45 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:03:48 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:03:48 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:03:48 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:03:53 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:03:53 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:03:58 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:03:58 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:04:01 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:04:01 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:04:06 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:04:06 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:09:55 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:09:55 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:09:57 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:09:57 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:10:03 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:10:03 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:10:07 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:10:07 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:10:22 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:10:22 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:10:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 00:10:23 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:10:23 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:10:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:10:43 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:10:43 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:10:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:10:45 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:10:45 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:10:45 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:10:52 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:10:52 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:10:52 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:11:10 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:11:10 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:11:10 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:11:11 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:11:11 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:11:11 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:11:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 00:11:36 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:11:36 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:11:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:11:40 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:11:40 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:11:40 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:11:45 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 00:11:45 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:11:45 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:11:45 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:11:49 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:11:49 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:11:57 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:11:57 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:11:59 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:11:59 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 00:11:59 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:12:13 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:12:13 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:12:25 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:12:25 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:12:26 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 00:12:26 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:12:26 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:12:26 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:12:27 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:12:27 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:12:31 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 00:12:47 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 00:13:19 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:13:19 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:13:29 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:13:29 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:13:33 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 00:13:33 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:13:33 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:13:33 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:13:43 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:13:43 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:13:47 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:13:47 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:13:49 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:13:49 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:14:26 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:14:26 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:14:38 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:14:38 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:14:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 00:14:39 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:14:39 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:14:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:16:07 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:16:07 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:16:21 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:16:21 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:16:22 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:16:22 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:16:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 00:16:24 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:16:24 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:16:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 00:16:25 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:16:25 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:16:26 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:16:26 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:18:19 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:18:19 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 00:18:34 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 00:18:34 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 03:35:51 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 03:35:51 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 04:23:35 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 04:23:35 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 04:23:41 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 04:23:41 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 04:24:10 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 04:24:10 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 04:24:12 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 04:24:12 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 04:24:14 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 04:24:14 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 04:24:16 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 04:24:16 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 04:24:18 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 04:24:18 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 04:24:20 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 04:24:20 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 04:24:36 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 04:24:36 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 09:28:40 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 09:28:40 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 10:58:29 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 10:58:29 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 10:58:36 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 10:58:36 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 10:58:53 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 10:58:53 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 10:58:59 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 10:58:59 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:02:14 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:02:14 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:02:22 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:02:22 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:02:24 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:02:24 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:02:27 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:02:27 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:02:29 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:02:29 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:02:30 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:02:30 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:02:31 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:02:31 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:02:31 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:02:31 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:02:33 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:02:33 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:02:41 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:02:41 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:02:47 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:02:47 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:03:09 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:03:09 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:08:05 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:08:05 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:08:07 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:08:07 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:08:07 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:08:07 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:08:16 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:08:16 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:13:03 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:13:03 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[29-Jan-2017 11:14:49 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:15:52 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:15:54 Europe/Berlin] PHP Run-time notice:
+  Constant _DAYS already defined
+  in /home/diabolo/public_html/nanomx/modules/Discussion/language/lang-french.php on line 492
+[29-Jan-2017 11:16:37 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:16:37 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:16:40 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:16:45 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:16:47 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:16:47 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:30:49 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 11:30:49 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 11:30:57 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 11:30:58 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 11:33:33 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 11:33:37 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 11:34:24 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 11:38:08 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 11:38:19 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 11:38:47 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 11:38:53 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 11:40:30 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:40:30 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:42:49 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:42:49 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:42:53 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:42:53 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:43:14 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:43:14 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:43:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:43:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:44:03 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 11:44:18 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:44:18 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:44:43 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 11:45:40 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 11:48:28 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:48:28 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:48:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:48:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:48:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:48:54 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:48:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:48:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:49:13 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 11:50:34 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:50:34 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:50:45 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:51:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:51:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:53:08 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:53:10 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:53:10 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:57:53 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:57:53 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:58:08 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 11:58:08 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 11:58:33 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 11:58:33 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 11:59:13 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 11:59:13 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 11:59:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:59:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:59:32 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:59:32 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:59:34 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 11:59:57 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 11:59:57 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:00:12 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:00:14 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 12:00:14 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:00:33 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: userinfo
+  in /home/diabolo/public_html/nanomx/modules/Discussion/core/user.add.php on line 32
+[29-Jan-2017 12:00:33 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.edit.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:00:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:00:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 12:00:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:00:52 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:00:59 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: userinfo
+  in /home/diabolo/public_html/nanomx/modules/Discussion/core/user.add.php on line 32
+[29-Jan-2017 12:00:59 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.edit.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:01:02 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:01:05 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:01:06 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 12:01:06 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:01:19 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 12:01:23 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 12:01:23 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 12:01:35 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[29-Jan-2017 12:01:35 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:01:42 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:01:49 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:01:50 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:01:53 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:01:55 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:01:57 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[29-Jan-2017 12:01:57 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:04:16 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 12:04:16 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 12:04:42 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 12:04:42 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 12:04:54 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 12:04:54 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 12:06:08 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 12:06:08 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 12:06:16 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 12:06:16 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:06:47 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 12:06:47 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:06:53 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 12:07:38 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[29-Jan-2017 12:07:38 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: userinfo
+  in /home/diabolo/public_html/nanomx/modules/Discussion/core/user.visitmenu.php on line 24
+[29-Jan-2017 12:07:38 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.visitmenu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:07:49 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: userinfo
+  in /home/diabolo/public_html/nanomx/modules/Discussion/core/user.visitmenu.php on line 24
+[29-Jan-2017 12:07:49 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.visitmenu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:08:01 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: userinfo
+  in /home/diabolo/public_html/nanomx/modules/Discussion/core/user.visitmenu.php on line 24
+[29-Jan-2017 12:08:01 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.visitmenu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:08:02 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[29-Jan-2017 12:08:02 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: userinfo
+  in /home/diabolo/public_html/nanomx/modules/Discussion/core/user.visitmenu.php on line 24
+[29-Jan-2017 12:08:02 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.visitmenu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:08:07 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[29-Jan-2017 12:08:07 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: userinfo
+  in /home/diabolo/public_html/nanomx/modules/Discussion/core/user.visitmenu.php on line 24
+[29-Jan-2017 12:08:07 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.visitmenu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:08:10 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[29-Jan-2017 12:08:10 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: userinfo
+  in /home/diabolo/public_html/nanomx/modules/Discussion/core/user.visitmenu.php on line 24
+[29-Jan-2017 12:08:10 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.visitmenu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:08:19 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[29-Jan-2017 12:08:19 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:08:34 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 12:08:34 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:08:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:08:46 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[29-Jan-2017 12:08:46 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: userinfo
+  in /home/diabolo/public_html/nanomx/modules/Discussion/core/user.visitmenu.php on line 24
+[29-Jan-2017 12:08:46 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.visitmenu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 12:08:55 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 12:10:56 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 12:10:56 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 12:11:15 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 12:11:15 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 12:36:44 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[29-Jan-2017 12:36:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:07:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:07:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:08:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:08:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:08:38 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:08:38 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:08:50 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:08:50 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:15:01 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:15:01 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:18:18 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:18:18 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:23:18 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:23:18 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:24:03 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:24:03 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:24:54 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 13:26:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:26:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:26:53 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:26:55 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:26:55 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:27:33 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 13:27:37 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 13:27:48 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 13:27:56 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 13:27:57 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 13:28:00 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:28:00 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:29:28 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:29:28 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:29:34 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:29:34 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:29:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:29:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:29:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:29:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:29:41 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:29:41 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:29:57 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:29:57 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:30:06 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:30:06 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 13:32:09 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:32:09 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:32:13 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:32:13 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:32:15 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 13:32:18 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 13:32:20 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:32:20 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:32:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:32:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:32:43 Europe/Berlin] PHP Parse error:  syntax error, unexpected '<' in /home/diabolo/public_html/nanomx/modules/Userinfo/view.php on line 367
+[29-Jan-2017 13:32:44 Europe/Berlin] PHP Parse error:  syntax error, unexpected '<' in /home/diabolo/public_html/nanomx/modules/Userinfo/view.php on line 367
+[29-Jan-2017 13:32:51 Europe/Berlin] PHP Parse error:  syntax error, unexpected '<' in /home/diabolo/public_html/nanomx/modules/Userinfo/view.php on line 367
+[29-Jan-2017 13:33:09 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:33:09 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:33:33 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:33:33 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:33:50 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:33:50 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:34:53 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:34:53 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:34:54 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:34:54 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:38:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 13:38:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:38:55 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[29-Jan-2017 13:38:55 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: userinfo
+  in /home/diabolo/public_html/nanomx/modules/Discussion/core/user.visitmenu.php on line 24
+[29-Jan-2017 13:38:55 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.visitmenu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 13:39:05 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:39:05 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 13:39:51 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:39:51 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 13:40:33 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:40:33 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 13:41:11 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:41:11 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 13:41:20 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:41:20 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 13:41:31 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:43:27 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:43:51 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:44:30 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:44:49 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:45:13 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:48:25 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:48:25 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 13:50:07 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:50:07 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 13:50:32 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:50:32 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 13:58:16 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 13:58:16 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 14:00:08 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 14:00:08 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 14:00:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 14:00:58 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 14:00:58 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 14:01:31 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 14:01:50 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 14:01:50 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 14:02:53 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 14:02:53 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 14:04:33 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 14:04:33 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 14:05:06 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 14:05:06 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 14:09:47 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 14:09:47 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 14:09:59 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 14:09:59 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 14:11:38 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 14:14:53 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 14:15:25 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 14:19:37 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 14:19:37 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 14:19:48 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 17:33:12 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 17:33:12 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 17:33:31 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:33:31 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:36:29 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:36:30 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:36:30 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:40:52 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'user_regtime' (T_STRING), expecting ',' or ';' in /home/diabolo/public_html/nanomx/modules/Userinfo/view.php on line 271
+[29-Jan-2017 17:41:17 Europe/Berlin] PHP Parse error:  syntax error, unexpected '' . '' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/diabolo/public_html/nanomx/modules/Userinfo/view.php on line 271
+[29-Jan-2017 17:41:51 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:41:51 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:42:40 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:42:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:42:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:42:52 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 17:42:59 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:42:59 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:50:45 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:50:45 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:52:04 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:52:04 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:53:42 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:53:42 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:54:48 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:54:48 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:55:19 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:55:19 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:56:46 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:56:46 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:56:47 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:56:57 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:56:58 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:57:02 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:57:02 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:57:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:57:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:57:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:58:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:58:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:58:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:58:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 17:58:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 17:59:58 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 18:01:06 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:01:06 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:01:12 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:01:12 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:01:18 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 18:01:18 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 18:01:28 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:01:28 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:01:58 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 18:03:16 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:03:16 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:03:22 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 18:03:50 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:03:50 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:03:57 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 18:03:57 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 18:04:45 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:04:45 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:05:01 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 18:05:01 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 18:08:17 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:08:17 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:08:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:08:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:09:49 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:09:51 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:09:51 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:09:58 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:09:58 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:12:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:12:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:12:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:12:25 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:12:27 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:12:27 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:12:29 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:12:30 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:12:30 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:13:14 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:13:33 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:13:33 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:16:25 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:16:27 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:16:28 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:16:41 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 18:16:43 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 18:17:07 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 18:17:32 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 18:22:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:22:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:22:40 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:22:55 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: userinfo
+  in /home/diabolo/public_html/nanomx/modules/Discussion/core/user.add.php on line 32
+[29-Jan-2017 18:22:55 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.edit.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:22:58 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:23:00 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:23:00 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:23:05 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:23:09 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:23:10 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:23:11 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:23:14 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:23:14 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:25:09 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:25:09 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:25:35 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:25:35 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:25:51 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:25:51 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:28:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:28:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:30:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:30:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:30:27 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:30:27 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:31:35 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:31:35 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:31:38 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:31:38 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:32:54 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:32:54 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:32:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:32:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:33:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:34:19 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: userinfo
+  in /home/diabolo/public_html/nanomx/modules/Discussion/core/user.add.php on line 32
+[29-Jan-2017 18:34:19 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.edit.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:34:21 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:34:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:34:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:38:25 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:38:25 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:39:32 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:39:32 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:41:50 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:41:50 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:41:51 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:41:51 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:42:23 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 18:42:25 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 18:42:27 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 18:42:31 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:42:31 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:42:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:42:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:43:19 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:43:19 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:43:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:43:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:44:37 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:44:37 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:44:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:44:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:44:40 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:44:40 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:44:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:44:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:44:57 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:44:57 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:45:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:45:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:46:11 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:46:11 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:46:27 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:46:27 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:47:10 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:47:10 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:47:11 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:47:11 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:47:42 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:47:42 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:47:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:47:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:56:30 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:56:30 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 18:56:31 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 18:56:31 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:01:58 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:01:58 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:02:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:02:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:02:53 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:02:53 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:06:28 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 19:06:28 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 19:06:39 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 19:06:39 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 19:06:39 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 19:06:39 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 19:07:15 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 19:07:15 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 19:07:57 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 19:07:57 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 19:08:27 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 19:08:28 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 19:08:31 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 19:08:44 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 19:08:44 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 19:09:08 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 19:09:08 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 19:10:19 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 19:10:19 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 19:11:01 Europe/Berlin] PHP Run-time notice:
+  Use of undefined constant _YA_MALE - assumed '_YA_MALE'
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 315
+[29-Jan-2017 19:11:01 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 487
+[29-Jan-2017 19:13:00 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:13:03 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:13:03 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:13:06 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:13:14 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:13:19 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/member.php on line 185
+[29-Jan-2017 19:13:19 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:13:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:13:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:13:29 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 19:13:34 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:13:34 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:20:35 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:20:35 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:21:48 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:21:48 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:41:38 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:41:38 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:45:42 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/diabolo/public_html/nanomx/modules/Your_Account/index.php on line 175
+[29-Jan-2017 19:46:07 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in /home/diabolo/public_html/nanomx/modules/Your_Account/index.php on line 175
+[29-Jan-2017 19:46:08 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in /home/diabolo/public_html/nanomx/modules/Your_Account/index.php on line 175
+[29-Jan-2017 19:46:27 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: uinfo
+  in /home/diabolo/public_html/nanomx/modules/Your_Account/index.php on line 175
+[29-Jan-2017 19:46:27 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:46:27 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:47:16 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:47:18 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: uinfo
+  in /home/diabolo/public_html/nanomx/modules/Your_Account/index.php on line 175
+[29-Jan-2017 19:47:18 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:47:18 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:47:20 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: uinfo
+  in /home/diabolo/public_html/nanomx/modules/Your_Account/index.php on line 175
+[29-Jan-2017 19:47:20 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:47:20 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:47:40 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:47:40 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:47:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:47:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:47:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:51:42 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:51:42 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:52:04 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:52:04 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:53:58 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:53:58 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:55:28 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:55:28 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:56:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:56:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:58:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:58:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:58:32 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:58:32 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:58:41 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:58:41 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 19:59:55 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 19:59:55 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:00:16 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:00:16 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:01:37 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:01:37 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:01:37 Europe/Berlin] PHP Parse error:  syntax error, unexpected end of file in /home/diabolo/public_html/nanomx/modules/Your_Account/templates/profile.html on line 80
+[29-Jan-2017 20:02:00 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:02:00 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:02:59 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:03:00 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:03:00 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:03:02 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:03:03 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:03:03 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:07:13 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:07:13 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:09:01 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:09:01 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:09:10 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:09:10 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:09:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:09:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:10:14 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 20:10:14 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 20:10:16 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 20:10:19 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:10:19 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:10:21 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:10:21 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:10:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:10:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:10:54 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:10:54 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:10:57 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:11:12 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:11:12 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:11:14 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:11:19 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:11:19 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:11:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:11:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:12:10 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:12:10 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:15:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:15:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:15:41 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:15:41 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:18:20 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:18:20 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:18:22 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:19:24 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:20:29 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:20:31 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:20:31 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:20:33 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:21:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:23:15 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:23:28 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:23:28 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:23:29 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:24:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:25:12 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:25:12 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:25:16 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:26:00 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:26:43 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:26:46 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:28:28 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:28:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:28:36 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:28:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:28:47 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:28:47 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:28:54 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:28:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:28:56 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:29:04 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:29:06 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:29:06 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:29:13 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:30:39 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:30:41 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:30:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:30:44 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:30:55 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:30:55 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:30:57 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:31:42 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:33:40 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:33:54 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:34:06 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.userpoints.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[29-Jan-2017 20:34:06 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Discussion/core/user.navbar.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 144
+[29-Jan-2017 20:35:04 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 20:35:04 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 20:35:09 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 20:35:17 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 22:17:51 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[29-Jan-2017 22:20:34 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: queryg
+  in /home/diabolo/public_html/nanomx/modules/Discussion/index.php on line 82
+[29-Jan-2017 22:39:24 Europe/Berlin] PHP Run-time notice:
+  Trying to get property of non-object
+  in /home/diabolo/public_html/nanomx/modules/Discussion/viewthread.php on line 483

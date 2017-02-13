@@ -1,0 +1,24 @@
+<?php if ($this->as_table): ?>
+    <?php $width = floor(100 / count($this->entries)) ?>
+
+<div class="footmsg">
+    <?php foreach($this->entries as $entry): ?>
+    <div style="width: <?php echo $width ?>%; float: left;">
+    <div style="padding: 0 .25em;">
+    <?php echo $entry ?>
+    </div></div>
+    <?php endforeach ?>
+    <div style="clear: left"></div>
+</div>
+
+<?php else: ?>
+
+<div class="footmsg">
+<?php foreach($this->entries as $entry): ?>
+    <p><?php echo $entry ?></p>
+<?php endforeach ?>
+</div>
+
+<?php endif ?>
+
+<?php // $Id: footmsg.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

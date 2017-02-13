@@ -1,0 +1,10 @@
+<form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
+  <?php echo _INFOHOWBANMAILHELP ?>
+  <?php echo $this->formTextarea('ip_ban', $this->ban_mail, array('cols'=>60, 'rows'=>8)) ?>
+    <p><em><?php echo _CUTWITHCOMMATA ?></em></p>
+  <?php echo $this->formHidden('op', PMX_MODULE . '/save') ?>
+    <?php echo $this->formHidden('ip_type', 'ban_mail') ?>
+    <?php echo $this->formSubmit('submit', _SAVECHANGES) ?>
+</form>
+
+<?php /* pragmaMx CVS $Id: mail.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

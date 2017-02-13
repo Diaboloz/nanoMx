@@ -1,0 +1,44 @@
+<?php
+/**
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: graphicadmin_notabs.html 6 2015-07-08 07:07:06Z PragmaMx $
+ *
+ * Adminmenü ohne Tabs z.B. für eingeschränkte Admins
+ */
+
+/* Javascript & jquery for tooltips */
+pmxHeader::add_jquery('ui/jquery.ui.tooltip.js');
+?>
+
+<div align="center" id="graphicadmin" class="oldstyle clearfix">
+
+  <div class="tabs-panel" id="panel">
+    <div>
+    <?php foreach ($this->items as $key => $item) { if($item['links']) { ?>
+      <?php foreach ($item['links'] as $xlink) { 
+        $current = ($xlink['current']) ? ' current' : '';
+        ?>
+        <a href="<?php echo $xlink['url'] ?>" class="item<?php echo $current ?>" style="background-image: url(<?php echo $xlink['image'] ?>);"><?php echo $xlink['title'] ?></a>
+      <?php } ?>
+    <?php }} ?>
+    </div>
+  </div>
+</div>
+
+<div id="currentmodlinks" class="clearfix">
+<?php
+echo $this->ahref($this->currentitem['url'], $this->currentitem['title'], array('class' => 'to-admin', 'title' => sprintf(_CURMODULEADMIN, $this->currentitem['title']), 'style' => 'background-image: url(' . $this->currentitem['image'] . ');'));
+if ($this->module) {
+    echo $this->ahref('modules.php?name='.$this->module, '', array('class' => 'to-view', 'title' => _CURMODULEVIEW));
+}
+?>
+</div>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+  $(document).ready(function() {
+    $('#currentmodlinks a').tooltip();
+  });
+/* ]]> */
+</script>

@@ -1,0 +1,82 @@
+<!-- not for evolution -->
+<?php ; ?>
+
+<!--// START CONTENT: <?php echo basename(__FILE__) ?> output -->
+
+<p class="title"><?php echo imgModul()."  "._DOCUMENTS_TITLE ?></p>
+<!-- START: TABS NAV -->
+<div id="admincontent">
+
+	<?php echo $this->formOpen ?>
+	<?php echo $this->toolbar ?>
+	<div style="display:inline;"><?php echo _DOCU." ".$this->selectfilter ?></div>
+	<div style="display:inline-block; text-align:right; width:50%; float:right">
+				<button type="submit" value="firstpage" name="toolbarsubmit" onclick="javascript:hideMainMenu();" <?php if ($this->prepage==0) echo "disabled=\"disabled\"";  ?> >|&lt;</button> 
+				<button type="submit" value="prepage" name="toolbarsubmit" onclick="javascript:hideMainMenu();"   <?php if ($this->prepage==0) echo "disabled=\"disabled\"";  ?> >&lt;</button> 
+				<?php echo _PAGE." ".$this->pagestart." / ".$this->pagecount." "; ?>
+				<button type="submit" value="nextpage" name="toolbarsubmit" onclick="javascript:hideMainMenu();" <?php if ($this->nextpage==0) echo "disabled=\"disabled\"";  ?> >&gt;</button>
+				<button type="submit" value="lastpage" name="toolbarsubmit" onclick="javascript:hideMainMenu();" <?php if ($this->nextpage>($this->pagecount) or $this->nextpage==0) echo "disabled=\"disabled\"";  ?> >&gt;|</button> 
+				&nbsp;&nbsp;
+				<?php echo _DOCS_PAGECOUNT ?>
+
+				<select class="form" size="1" name="pagelimit" onchange="document.adminForm.submit();">
+					<option value="10" <?php echo (($this->pagelimit==10)?"selected=\"selected\"":""); ?> >10</option>
+					<option value="25" <?php echo (($this->pagelimit==25)?"selected=\"selected\"":""); ?> >25</option>
+					<option value="50" <?php echo (($this->pagelimit==50)?"selected=\"selected\"":""); ?> >50</option>
+					<option value="100" <?php echo (($this->pagelimit==100)?"selected=\"selected\"":""); ?> >100</option>
+				</select>
+				
+				<input type="hidden" name="page" value="<?php echo $this->pagestart ?>" />
+				<input type="hidden" name="pagecount" value="<?php echo $this->pagecount ?>" />
+	</div>
+	
+	
+	<table class="list" width="100%">
+	 <thead> 
+	 <tr> 
+	 <th width="15" align="center"><input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count($this->catlist) ?>);" /></th> 
+	 <th  width="35" >ID</th> 
+	 <th width="40%"><?php echo _TITLE ?></th> 
+	 <th ><?php echo _DOCS_CREATED ?></th> 
+	 <th  colspan="2"><?php echo _DOCS_POSITION ?></th> 
+	 <!--th >up</th --> 
+	 <th ><?php echo _DOCS_PUBLISH ?></th> 
+	 <th ><?php echo _DOCS_ACCESS ?></th> 
+	 <th ><?php echo _DOCS_OWNER ?></th> 
+	 </tr> 
+	 </thead> 
+
+	 <tbody> 
+<?php
+	$i=0;
+	foreach ($this->catlist as $id=>$content) {
+	?>
+		<tr class="<?php echo ($i/2==intval($i/2))?"alternate":"alternate-b"; ?>" >
+        <td class="align-center"><input type="checkbox" id="cb<?php echo $i ?>" name="cid[]" value="<?php echo $content['id'] ?>" onclick="isChecked(this.checked);" /></td> 
+		<td><?php echo $content['id'] ?></td>
+		<td > <?php echo str_repeat("&nbsp;&nbsp;",$content['level']-1)."&raquo;<a href=\"admin.php?op=".$this->module_name."&amp;act=contentedit&amp;id=".$content['id']."\" >".$content['title']." </a>" ;?></td>
+		<!--td><?php echo $content['parent_id'] ?></td>
+		<td><?php echo $content['level'] ?></td -->
+		<td><?php echo mx_strftime(_DATESTRING,$content['date_created']) ?></td>
+		
+		<td><?php echo (($content['lower']==1)?"<a href=\"admin.php?op=".$this->module_name."&amp;act=contentmovedn&amp;id=".$content['id']."\" title=\""._DOCS_MOVEDN."\" ><img src=\"images/adminform/down.png\" alt=\"\" style=\"width:15px;height:10px;\" /></a>":""); ?></td>
+		<td><?php echo (($content['upper']==1)?"<a href=\"admin.php?op=".$this->module_name."&amp;act=contentmoveup&amp;id=".$content['id']."\" title=\""._DOCS_MOVEUP."\" ><img src=\"images/adminform/up.png\" alt=\"\" style=\"width:15px;height:10px;\" /></a>":""); ?></td>
+		<td class="align-center" ><?php echo "<a href=\"admin.php?op=".$this->module_name."&amp;act=content".(($content['publish']==1)?"unpublish":"publish")."&amp;id=".$content['id']."\" title=\"".(($content['publish']==1)?_DOCS_UNPUBLISHED:_DOCS_PUBLISHED)."\" ><img src=\"modules/".$this->module_name."/style/images/".(($content['publish']==1)?"accept.png":"delete.png")."\" width=\"16\" height=\"16\"  /></a>" ?></td>
+		<td><?php echo $content['access'] ?></td>
+		<td><?php echo $content['owner_id'] ?></td>
+		</tr>
+	<?php $i++; }  ?>
+	
+
+
+	 </tbody>
+	 </table>
+	<?php echo $this->formClose ?>
+	<?php echo count($this->catlist)."/".$this->count ?>
+
+</div>
+<div class="tiny">
+
+</div>
+<!--// END CONTENT: <?php echo basename(__FILE__) ?> output -->
+<?php /* pragmaMx CVS $Id: admin.categories.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

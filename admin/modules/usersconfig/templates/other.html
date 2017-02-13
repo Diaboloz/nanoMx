@@ -1,0 +1,37 @@
+
+<table class="form full">
+  <tr valign="top">
+    <td><label for="passlost_codeoption"><?php echo _PASSLOSTOPTION ?></label></td>
+    <td>
+      <input type="radio" name="passlost_codeoption" <?php echo ($this->passlost_codeoption == 1) ? ' checked="checked" class="current"' : '' ?> value="1" /> <?php echo _PASSLOSTOPTION_A ?><br />
+      <input type="radio" name="passlost_codeoption" <?php echo ($this->passlost_codeoption == 0) ? ' checked="checked" class="current"' : '' ?> value="0" /> <?php echo _PASSLOSTOPTION_B ?>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><?php echo _LOGINSTARTPAGE ?></td>
+    <td><input name="yastartpage" value="<?php echo $this->yastartpage ?>" size="50" type="text" /></td>
+  </tr>
+  <tr valign="top">
+    <td><?php echo _CHANGETHEMEN ?></td>
+    <td>
+    <input name="allowchangetheme" value="1" size="20" type="radio"<?php echo ($this->allowchangetheme) ? ' checked="checked"' : '' ?> /><?php echo _YES ?>
+    <input name="allowchangetheme" value="0" size="20" type="radio"<?php echo ($this->allowchangetheme) ? '' : ' checked="checked"' ?> /><?php echo _NO ?>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><?php echo _SHOWUSERGROUP ?></td>
+    <td>
+    <input name="showusergroup" value="0" size="20" type="radio"<?php echo ($this->showusergroup == 0) ? ' checked="checked"' : '' ?> /><?php echo _MVADMIN ?><br />
+    <input name="showusergroup" value="1" size="20" type="radio"<?php echo ($this->showusergroup == 1) ? ' checked="checked"' : '' ?> /><?php echo _MVSELF ?><br />
+    <input name="showusergroup" value="2" size="20" type="radio"<?php echo ($this->showusergroup == 2) ? ' checked="checked"' : '' ?> /><?php echo _MVUSERS ?><br />
+    <input name="showusergroup" value="3" size="20" type="radio"<?php echo ($this->showusergroup == 3) ? ' checked="checked"' : '' ?> /><?php echo _MVALL ?><br />
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><?php echo _ADMIN_POPTIME ?>:<br /><span class="tiny"><?php echo _ADMIN_NOREFS ?></span></td>
+    <td><?php echo _ADMIN_POPTIME1 ?><input type="text" name="pm_poptime" value="<?php echo $this->pm_poptime ?>" size="5" /> <?php echo _ADMIN_POPTIME2 ?></td>
+  </tr>
+
+</table>
+
+<?php /* pragmaMx CVS $Id: other.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

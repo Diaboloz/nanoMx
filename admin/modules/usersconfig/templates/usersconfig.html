@@ -1,0 +1,65 @@
+<?php
+/* Javascript & jquery for tabs */
+pmxHeader::add_tabs();
+?>
+
+<div id="ya-tabs">
+
+<ul class="tabs-nav">
+  <li><a href="#ya-register"><?php echo _UTAB_OPTIONS ?></a></li>
+  <li><a href="#ya-photo"><?php echo _UTAB_USERPIC ?></a></li>
+<?php if ($this->tab_welcome): ?>
+  <li><a href="#ya-welcome"><?php echo _UTAB_WELCOMEMSG ?></a></li>
+<?php endif ?>
+  <li><a href="#ya-points"><?php echo _UTAB_USERPOINTS ?></a></li>
+  <li><a href="#ya-other"><?php echo _UTAB_OTHERS ?></a></li>
+</ul>
+
+<form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
+  <div id="ya-register" class="tabs-panel">
+    <?php echo($this->tab_register) ?>
+  </div>
+
+  <div id="ya-photo" class="tabs-panel">
+    <?php echo($this->tab_photo) ?>
+  </div>
+
+<?php if ($this->tab_welcome): ?>
+  <div id="ya-welcome" class="tabs-panel">
+    <?php echo($this->tab_welcome) ?>
+  </div>
+<?php endif ?>
+
+  <div id="ya-points" class="tabs-panel">
+    <?php echo($this->tab_points) ?>
+  </div>
+
+  <div id="ya-other" class="tabs-panel">
+    <?php echo($this->tab_other) ?>
+  </div>
+
+  <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" />
+  <input type="submit" value="<?php echo _UCSAVECHANGES ?>" />
+</form>
+
+</div>
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+  $(document).ready(function() {
+    var tab_cookie_name = 'tab_usersconfig';
+    $("#ya-tabs").tabs({
+      active: ($.cookie(tab_cookie_name) || 0),
+      activate: function(event, ui) {
+        var newIndex = ui.newTab.parent().children().index(ui.newTab);
+        $.cookie(tab_cookie_name, newIndex, {
+          path: window.location.pathname,
+          expires: 7
+        });
+      }
+    });
+    $(".ya-hidecaption").hide();
+  }); /* ]]> */
+</script>
+
+<?php /* pragmaMx CVS $Id: usersconfig.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

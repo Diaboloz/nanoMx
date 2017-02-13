@@ -1,0 +1,88 @@
+<?php
+/**
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: graphicadmin.html 6 2015-07-08 07:07:06Z PragmaMx $
+ *
+ * Adminmenü mit Tabs für System Admins
+ */
+
+/* Javascript & jquery for tabs and tooltips */
+pmxHeader::add_tabs(false);
+pmxHeader::add_jquery('ui/jquery.ui.effect.js', 'ui/jquery.ui.effect-fade.js', 'ui/jquery.ui.tooltip.js');
+?>
+
+<div align="center" id="graphicadmin" class="clearfix">
+
+  <ul class="tabs-nav">
+  <?php foreach ($this->items as $key => $item) {
+    if ($item['links']) { ?>
+    <li>
+      <a href="#panel<?php echo $key ?>" title="<?php echo $item['description'] ?>" onfocus="this.blur()" style="background-image: url(<?php echo $item['image'] ?>);" class="img"><?php echo $item['title'] ?></a>
+    </li>
+  <?php }
+  }?>
+  </ul>
+
+<?php 
+foreach ($this->items as $key => $item) {
+  if ($item['links']) { 
+    $cnt = count($item['links']);
+  ?>
+  <div class="tabs-panel" id="panel<?php echo $key ?>">
+    <?php
+    // der leere <div> Tag wird fuer den IE benoetigt, weil sonst der
+    // Rahmen von tabs-panel nicht korrekt dargestellt wird
+    ?>
+    <div>
+      <h3 title="<?php echo $item['description'] ?>" class="grahidecaption"><?php echo $item['title'] ?></h3>
+        <?php
+        foreach ($item['links'] as $xlink) {
+            if ($cnt > 1 && $xlink['module']=='main') {
+                continue;
+            }
+            $current = ($xlink['current']) ? ' current' : '';
+            ?>
+        <a href="<?php echo $xlink['url'] ?>" class="item<?php echo $current ?>" style="background-image: url(<?php echo $xlink['image'] ?>);"><?php echo $xlink['title'] ?></a>
+        <?php }?>
+      <div class="clear"></div>
+    </div>
+  </div>
+<?php }
+}?>
+</div>
+
+<div id="currentmodlinks" class="clearfix">
+<?php
+echo $this->ahref($this->currentitem['url'], $this->currentitem['title'], array('class' => 'to-admin', 'title' => sprintf(_CURMODULEADMIN, $this->currentitem['title']), 'style' => 'background-image: url(' . $this->currentitem['image'] . ');'));
+if ($this->module) {
+    echo $this->ahref('modules.php?name='.$this->module, '', array('class' => 'to-view', 'title' => _CURMODULEVIEW));
+}
+?>
+</div>
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+  $(document).ready(function() {
+    var adminurl = '<?php echo adminUrl() ?>';
+    var currenttab = '<?php echo intval($this->currenttab) ?>';
+
+    $('#graphicadmin .grahidecaption').hide();
+
+    $('#graphicadmin').tabs({
+      event: "mouseover",
+      show: { effect: "fade", duration: 300 },
+      hide: { effect: "fade", duration: 200 },
+      collapsible: false,
+      active: parseInt(currenttab),
+    });
+
+    $('#graphicadmin .tabs-nav-sys a').click(function(){
+      window.location = adminurl;
+      return;
+    });
+    
+    $('#currentmodlinks a').tooltip();
+
+  }); /* ]]> */
+</script>

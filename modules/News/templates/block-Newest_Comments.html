@@ -1,0 +1,12 @@
+
+<ul class="list">
+<?php foreach ($this->items as $sid => $comment) : ?>
+<li><?php echo $this->ahref('modules.php?name=' . $this->module_name . '&amp;file=article&amp;sid=' . $sid, $comment) ?></li>
+<?php endforeach ?>
+</ul>
+
+<?php if(!$this->scrolling): ?>
+<p class="align-center"><?php echo $this->ahref('modules.php?name=' . $this->module_name, _MORENEWS) ?></p>
+<?php endif; ?>
+
+<?php // $Id: block-Newest_Comments.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

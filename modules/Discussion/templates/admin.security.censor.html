@@ -1,0 +1,42 @@
+<div id="mxb-security-censor" class="tabs-panel">  
+	<form method="post" action="<?php echo MXB_BM_CP1 ?>action=security">
+		<table class="full list">
+		    <thead>
+    			<tr>
+					<th><?php echo _TEXTCENSORFIND ?></th>
+					<th><?php echo _TEXTCENSORREPLACE ?></th>
+    				<th><?php echo _TEXTDELETEQUES ?></th>					
+				</tr>	
+			</thead>
+			<tbody>
+					<?php foreach ($this->censorlist as $censor) : ?>
+    					<tr<?php echo $censor['class'] ?>>
+							<td><input type="text" name="find<?php echo $censor['id'] ?>" value="<?php echo $censor['find'] ?>" /></td>
+							<td><input type="text" name="replace<?php echo $censor['id'] ?>" value="<?php echo $censor['replace1'] ?>" /></td>
+    						<td><input type="checkbox" name="delete<?php echo $censor['id'] ?>" value="<?php echo $censor['id'] ?>" /></td>							
+    					</tr>
+    				<?php endforeach ?>			
+						<tr>
+							<td><strong><?php echo _TEXTNEWCODE ?></strong>&nbsp;&nbsp;<input type="text" name="newfind" /></td>
+							<td colspan="2"><input type="text" name="newreplace" /></td>
+						</tr>
+			</tbody>
+		</table>
+		<p class="align-center">
+			<input type="submit" name="censorsubmit" value="<?php echo _TEXTSUBMITCHANGES ?>" />
+		</p>
+	</form>
+</div>
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+  $(document).ready(function() {
+    $('#mxb-security-settings').tabs({
+      cookie: {
+        name: 'tab_mxb_security',
+        expires: 30
+      }
+    });
+  }); /* ]]> */
+</script>
+</div><!-- //#mxb-security-settings -->

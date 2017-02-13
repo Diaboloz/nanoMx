@@ -1,0 +1,29 @@
+<?php
+/**
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: loginform.html,v 1.2 2014-01-14 21:15:48 tora60 Exp $
+ */
+?>
+
+    <li id="theme-login">
+          
+          <a id="theme-login-trigger" href="#"><i class="fa fa-user"></i> <?php echo _THEME_LOGIN ?> <span>▼</span></a>
+          
+      <div id="theme-login-content">
+      	<form name="login" id="login" action="modules.php?name=Your_Account" method="post">
+      		<?php echo mxGetUserLoginCheckField() ?>
+          <fieldset id="theme-login-inputs">
+          	<input type="text" id="login-uname" name="uname" title="<?php echo _THEME_LOGINNICK ?>" placeholder="<?php echo _THEME_LOGINNICK ?>" required />  
+            <input type="password" id="login-pass" name="pass" title="<?php echo _THEME_LOGINPASS ?>" placeholder="<?php echo _THEME_LOGINPASS ?>" required />
+          </fieldset>
+          <fieldset id="actions">
+            <input type="submit" id="login-submit" name="submit" value="ok" />
+            <p class="mts"><a href="modules.php?name=Your_Account&amp;op=pass_lost" id="anext" name="anext"><i class="fa fa-long-arrow-right"></i> <?php echo _GPASSWORDLOST ?></a></p>
+          </fieldset>
+        </form>
+      </div>                     
+    </li>
+    <li id="signup">
+      <a href="modules.php?name=User_Registration" title="<?php echo _THEME_REGISTER ?>"><?php echo _THEME_REGISTER ?></a>
+    </li>

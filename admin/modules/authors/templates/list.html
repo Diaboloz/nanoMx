@@ -1,0 +1,37 @@
+<?php
+$img_delete = mxCreateImage("images/delete.gif", _DELETE, array('title' => _DELETE));
+$img_edit = mxCreateImage("images/edit.gif", _EDIT, array('title' => _EDIT));
+$img_quest = mxCreateImage("images/question.gif", 'info', array('title' => _GODNOTDEL, 'style' => 'cursor: help; margin: auto 1em'));
+?>
+
+<table class="full list">
+  <thead>
+    <tr>
+      <th><?php echo _NICKNAME ?></th>
+      <th><?php echo _NAME ?></th>
+      <th><?php echo _UALOGIN ?></th>
+      <th colspan="2"><?php echo _FUNCTIONS ?></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <?php
+    $class = '';
+    foreach ($this->rows as $row) {
+        $uname = ($row['uname'] && $row['user_stat'] == 1) ? $row['uname'] : '&nbsp;';
+        $admdel = ($row['isgod']) ? _MAINACCOUNT . $img_quest : '<a href="' . adminUrl(PMX_MODULE, 'delete', 'aid=' . $row['aid']) . '">' . $img_delete . '</a>';
+        $class = ($class) ? '' : ' class="alternate-a"';
+    ?>
+    <tr <?php echo $class ?>>
+      <td><?php echo $row['aid'] ?></td>
+      <td><?php echo $row['name'] ?></td>
+      <td><?php echo $uname ?>&nbsp;</td>
+      <td><a href="<?php echo adminUrl(PMX_MODULE, 'edit', 'aid=' . $row['aid']) ?>"><?php echo $img_edit ?></a></td>
+      <td><?php echo $admdel ?></td>
+    </tr>
+    <?php } ?>
+  </tbody>
+</table>
+<br />
+
+<?php // $Id: list.html 6 2015-07-08 07:07:06Z PragmaMx $ äöüß ?>

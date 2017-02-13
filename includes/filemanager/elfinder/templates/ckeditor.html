@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->lang ?>" lang="<?php echo $this->lang ?>" dir="<?php echo $this->langdirection ?>">
+<head>
+<title><?php echo $this->title ?></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<?php echo $this->head; $id='finder-'.strval(rand()) ?>
+
+<script type="text/javascript" charset="utf-8" src="<?php echo PMX_BASE_PATH . PMX_SYSTEM_PATH . 'filemanager/' . $this->manager ?>/manager/js/i18n/elfinder.<?php echo $this->lang ?>.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+  /*<![CDATA[*/
+  $(document).ready(function() {
+    <?php $this->display('functions.inc.js'); $this->display('options.inc.js') ?>
+    var funcNum = <?php echo ((isset($_GET['CKEditorFuncNum'])) ? intval($_GET['CKEditorFuncNum']) : 0) ?>;
+    <?php /* Höhe - body.margin - finder.border - toolbar - statusbar */ ?>
+    var w_height = ((window.innerHeight) ? window.innerHeight : $(document).height()) - 20 - 2 - 36 - 22;
+    var elfinder_editor_options = {
+      getFileCallback: function (file) {
+        window.opener.CKEDITOR.tools.callFunction (funcNum, elfinder2_cut_path(file));
+        window.close();
+      },
+      height: w_height,
+    };
+    $().extend(elfinder_options, elfinder_editor_options);
+    $($('#<?php echo $id ?>')).elfinder(elfinder_options).elfinder('instance');
+  });
+  /*]]>*/
+</script>
+
+</head>
+
+<body class="bodyallone" style="margin:10px;padding:0;text-align:left;">
+  <div id="<?php echo $id ?>"></div>
+</body>
+</html>
+
+<?php /* pragmaMx CVS $Id: ckeditor.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

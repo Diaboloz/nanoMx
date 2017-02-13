@@ -1,0 +1,24 @@
+
+<textarea cols="<?php echo $this->cols ?>" rows="<?php echo $this->rows ?>" name="<?php echo $this->name ?>" id="wysid_<?php echo $this->name ?>" class="wysiwygarea" style="overflow:auto;display:block;"><?php echo $this->value ?></textarea>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+CKEDITOR.replace('wysid_<?php echo $this->name ?>', {
+<?php /* dazu gehörige Konfigurationsdatei */ ?>
+  customConfig : '../config.js.php',
+  toolbar : 'normal',
+<?php /* Abmessungen des Editorfensters */ ?>
+  width: '<?php echo $this->width ?>',
+  height: '<?php echo $this->height ?>',
+<?php /* bestimmte Plugins immer sperren */ ?>
+  removePlugins: '<?php echo (($this->pagebreak) ? '' : 'pagebreak,') ?>save,newpage,iframe',
+<?php /* Load the interface language. */ ?>
+  language: '<?php echo $this->lang ?>',
+  contentsLanguage: '<?php echo $this->lang ?>',
+  contentsLangDirection: '<?php echo $this->langdirection ?>'
+});
+/*]]>*/
+</script>
+
+
+<?php /* pragmaMx CVS $Id: normal.template.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

@@ -1,0 +1,49 @@
+/**
+ * jScroller2 1.0 - CSS Script for jScroller2
+ *
+ * http://jscroller2.markusbordihn.de/
+ *
+ * Copyright (c) 2008 Markus Bordihn (markusbordihn.de)
+ * Dual licensed under the MIT (MIT-LICENSE.txt)
+ * and GPL (GPL-LICENSE.txt) licenses.
+ *
+ * pragmaMx CVS $Id: jscroller.css 6 2015-07-08 07:07:06Z PragmaMx $
+ */
+
+.jscroller2_up,
+.jscroller2_down,
+.jscroller2_left,
+.jscroller2_right {
+   margin: 0;
+   padding: 0;
+}
+
+.jscroller2_left,
+.jscroller_right,
+.jscroller2_left_endless,
+.jscroller2_right_endless {
+   white-space: nowrap;
+}
+
+/* Scroller Box */
+#scroller_container {
+ position: relative;
+ width: 300px;
+ height: 60px;
+ overflow: hidden;
+}
+
+#scroller {
+// Additional Styles
+}
+
+/* Scoller Box */
+
+/* At the end of the CSS File */
+
+/* CSS Hack Safari */
+#dummy {;# }
+
+#scroller_container {
+ overflow: auto;
+}

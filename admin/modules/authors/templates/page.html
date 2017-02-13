@@ -1,0 +1,37 @@
+
+<?php OpenTable() ?>
+
+<h2><?php echo _AUTHORSADMIN ?></h2>
+<br />
+
+<?php if($this->messages): ?>
+<div class="important">
+  <ul><li><?php echo implode('</li><li>', $this->messages) ?></li></ul>
+</div>
+<?php endif; ?>
+
+<?php if($this->errors): ?>
+<div class="error">
+  <ul><li><?php echo implode('</li><li>', $this->errors) ?></li></ul>
+</div>
+<?php endif; ?>
+
+<ul class="tabs-nav">
+<?php foreach ($this->tabs as $caption => $link) : ?>
+  <?php if($link): ?>
+    <li><a href="<?php echo $link ?>"><?php echo $caption ?></a></li>
+  <?php else: ?>
+    <li class="current"><a><?php echo $caption ?></a></li>
+  <?php endif; ?>
+<?php endforeach ?>
+</ul>
+
+<div class="tabs-panel">
+<br>
+<?php echo $this->content ?>
+</div>
+
+<?php CloseTable() ?>
+
+
+<?php // pragmaMx CVS $Id: page.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

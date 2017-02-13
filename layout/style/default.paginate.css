@@ -1,0 +1,84 @@
+/**
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: default.paginate.css,v 1.6 2014-02-27 00:29:44 tora60 Exp $
+  *
+ * ACHTUNG WICHTIG !!
+ * Bitte ändern sie nicht diese Original Systemdatei!
+ * Um das Standard Stylesheet anzupassen, erstellen sie in diesem 
+ * Ordner eine zusätzliche css Datei die ihre Änderungen enthält.
+ * Der Dateiname muss mit "custom" beginnen und die Dateiendung 
+ * muss ".css" sein. 
+ * z.B.: custom.irgendetwas.css
+*/
+
+.pagination {
+   display: block;
+   margin: .3em;
+   padding: .3em;
+   line-height: 200%;
+}
+
+.pagination .counter {
+   background-color: ___bgcolor2___;
+   border: 1px solid ___bordercolor-dark___;
+   color: inherit;
+   margin-right: .4em;
+   padding: .15em .5em .15em .5em;
+}
+
+.pagination .current,
+.pagination a.current:hover {
+   background-color: ___bgcolor2___;
+   border: 1px solid ___bordercolor-dark___;
+   color: inherit;
+   font-weight: bold;
+}
+
+.pagination .points {
+   margin-left: -.4em;
+   margin-right: -.2em;
+}
+
+.pagination a .arrows {
+   font-size: 117.55%; /* wieder auf 100% stellen */
+   margin-left: -.4em;
+   margin-right: -.4em;
+}
+
+.pagination a span {
+   margin-left: -.2em;
+   margin-right: 0;
+}
+
+.pagination a span,
+.pagination a .arrows,
+.pagination .points {
+   background-color: transparent;
+   border: 1px none;
+   color: inherit;
+}
+
+.pagination a,
+.pagination span {
+   margin-right: .2em;
+   padding: .15em .5em .15em .5em;
+   text-decoration: none;
+   white-space: nowrap;
+}
+
+.pagination a,
+.pagination span,
+.pagination a.disabled:hover {
+   background-color: ___bgcolor3___;
+   border: 1px solid ___bordercolor___;
+   color: inherit;
+}
+
+.pagination a:hover,
+.pagination a:active {
+   background-color: ___bgcolor1___;
+   border: 1px solid ___bordercolor-dark___;
+   color: inherit;
+}

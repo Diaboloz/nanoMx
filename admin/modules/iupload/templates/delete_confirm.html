@@ -1,0 +1,16 @@
+<div class="align-center">
+  <p><b><?php echo _IUP_ARESUREIM ?> <em><?php echo $this->imagename ?></em>?</b></p>
+  <form method="post" action="<?php echo adminUrl(PMX_MODULE, '', '', '#imgtopp') ?>" name="imgform">
+    <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/actions" />
+    <input type="submit" name="deletePic" value="<?php echo _YES ?>" />
+    <input type="submit" value="<?php echo _NO ?>" />
+    <input type="hidden" name="deleteOK" value="1" />
+    <input type="hidden" name="imgview" value="<?php echo $this->imagename ?>" />
+  </form><br />
+  <a rel="pretty" href="<?php echo $this->image ?>" target="_blank">
+    <img src="<?php echo $this->image ?>" alt="preview" style="max-width:<?php echo $this->max_view_width ?>px;max-height:15em;margin-top:1em">
+  </a>
+  <br />
+</div>
+
+<?php /* pragmaMx CVS $Id: delete_confirm.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

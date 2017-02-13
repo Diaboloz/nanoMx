@@ -1,0 +1,49 @@
+<div class="tabs-panel">
+  <?php if ($this->message) { ?>
+    <div class="alert alert-warning"><?php echo $this->message ?></div>
+  <?php } ?>
+
+  <form action="modules.php?name=Your_Account" method="post" name="userlogin" id="userlogin" class="mx-form mx-form-aligned">
+    <!--<p><?php echo _COOKIEWARNING ?></p>-->
+
+  <?php if ($this->pp_link) {
+      pmxHeader::add_lightbox();
+      if (strpos($this->pp_link, '?') !== false) {
+          $this->pp_link .= '&amp;iframe=true&amp;width=100%&amp;height=100%';
+      } else {
+          $this->pp_link .= '?iframe=true&amp;width=100%&amp;height=100%';
+      }
+       ?>
+      <!--<p class="align-right">
+        <a href="<?php echo $this->pp_link ?>" rel="prettyPhoto[iframes]" target="_blank">&raquo; <?php echo _LEGALPP ?></a>
+      </p>-->
+  <?php } ?>
+
+		<div class="control-group">
+            <label for="uname"><?php echo _NICKNAME ?></label>
+            <input type="text" name="uname" id="uname" maxlength="25" placeholder="<?php echo _NICKNAME ?>" />
+    </div>
+
+       
+ 		<div class="control-group">
+            <label for="pass"><?php echo _PASSWORD ?></label>
+            <input type="password" name="pass" id="pass" size="30" placeholder="<?php echo _PASSWORD ?>" />    
+    </div>
+
+        
+    <div class="controls">
+		<?php if(1===2){ // det gibbets noch nit... ?>
+			<input type="checkbox" value="1" name="rememberme" <?php echo(($this->rememberme) ? 'checked="checked"' : '') ?> /> <?php echo _REMEMBERLOGIN ?>
+		<?php } //endif ?>
+			<button type="submit" class="mx-button mx-button-primary"><?php echo _LOGIN ?></button>
+    		<?php echo mxGetUserLoginCheckField() ?>
+    </div>
+  </form>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+  document.userlogin.uname.focus();
+//]]>
+</script>
+
+<?php // pragmaMx CVS $Id: loginout.html 6 2015-07-08 07:07:06Z PragmaMx $ äöüß ?>

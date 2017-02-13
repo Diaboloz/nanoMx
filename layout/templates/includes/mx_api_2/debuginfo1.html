@@ -1,0 +1,24 @@
+<?php
+/* in Entwicklungsumgebungen die Hinweise nicht anzeigen... */
+if ($_SERVER['SERVER_NAME'] == 'localhost' ||  $_SERVER['SERVER_ADDR'] == '127.0.0.1') {
+  pmxHeader::add_style_code('.message-debug,.debugservice{display: none;}');
+  return;
+}
+?>
+
+<div class="dbgmod dbgmod-big" title="<?php echo _MSGDEBUGMODE ?>">
+  <span><?php echo _MSGDEBUGMODE ?></span>
+</div>
+
+<?php if ($this->view_all) : ?>
+<div class="dbg-frame dpob" title="<?php echo _MSGDEBUGMODE ?>"></div>
+<div class="dbg-frame dpot" title="<?php echo _MSGDEBUGMODE ?>"></div>
+<div class="dbg-frame dpol" title="<?php echo _MSGDEBUGMODE ?>"></div>
+<div class="dbg-frame dpor" title="<?php echo _MSGDEBUGMODE ?>"></div>
+<?php endif; ?>
+
+<?php
+  pmxHeader::add_jquery();
+  pmxHeader::add_script(PMX_JAVASCRIPT_PATH . 'debugmode.js');
+
+// $Id: debuginfo1.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

@@ -1,0 +1,20 @@
+<h2><?php echo mxPrepareToDisplay($this->uname) ?></h2>
+<div class="control-group">
+	<label for="email"><?php echo _UREALEMAIL ?></label>
+	<input type="text" name="email" id="email" value="<?php echo mxEntityQuotes($this->email) ?>" size="50" maxlength="255" />
+	<span class="mx-form-message-inline"><?php echo _REQUIRED ?></span>
+	<p class="small"><?php echo _EMAILNOTPUBLIC ?></p>
+</div>
+<div class="control-group">
+	<label for="password"><?php echo _PASSWORD ?></label>
+    <input type="password" name="pass" id="password" size="22" class="password-checker-input" />
+    <input type="password" name="vpass" size="22" class="password-checker-input" />
+   	<p class="small"><?php echo _TYPENEWPASSWORD ?></p>
+ </div>
+
+<?php
+pmx_html_passwordchecker();
+
+/* pragmaMx CVS $Id: edituser.access.html 6 2015-07-08 07:07:06Z PragmaMx $ */
+
+?>

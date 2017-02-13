@@ -1,0 +1,25 @@
+
+<script type="text/javascript" charset="utf-8">
+  /*<![CDATA[*/
+  pmxfilemanager = function ($id, $change) {
+    <?php $this->display('functions.inc.js'); $this->display('options.inc.js') ?>
+    var elfinder_editor_options = {
+      getFileCallback: function (file) {
+        var field = $('#' + $id);
+        field.val(elfinder2_cut_path(file))
+        if ($change != null) {
+          field.change();
+        }
+      }
+    };
+    $().extend(elfinder_options, elfinder_editor_options);
+    $('<div />').dialogelfinder(elfinder_options);
+  }
+  /*]]>*/
+</script>
+
+<?php /* pragmaMx CVS $Id: dialog.html 6 2015-07-08 07:07:06Z PragmaMx $ 
+
+Info: http://elrte.org/redmine/boards/2/topics/204
+
+*/ ?>

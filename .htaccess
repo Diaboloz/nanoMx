@@ -1,0 +1,193 @@
+# pragmaMx - Web Content Management System
+# Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+# $Revision: 6 $
+# $Author: PragmaMx $
+# $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+
+AddDefaultCharset utf-8
+
+#AddType x-mapp-php5 .php
+#AddHandler x-mapp-php5 .php
+
+#AddHandler php-fastcgi .php .php4 .php3
+
+# rename this file to .htaccess, and you will get nice and clean urls.
+
+# Depends on your configuration, you must set RewrteBase to
+# switch on Mod_rewrite. See for this the online docs:
+# http://httpd.apache.org/docs/mod/mod_rewrite.html
+
+
+# falls nicht funktioniert, dann die nächste Zeile wieder auskommentieren!
+# (Am Anfang der nächsten Zeile ein "#" einfügen... )
+#Options +FollowSymLinks
+
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType image/jpeg "access 1 year"
+ExpiresByType image/gif "access 1 year"
+ExpiresByType image/png "access 1 year"
+ExpiresByType text/css "access 1 month"
+ExpiresByType application/pdf "access 1 month"
+ExpiresByType text/x-javascript "access 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresDefault "access 2 days"
+</IfModule>
+## EXPIRES CACHING ##
+
+# Rewrite Engine aktivieren
+RewriteEngine on
+
+# eventuell existierendes utf-8 Problem fixen
+#SetEnv PMX_REWRITE_DECODE_UTF8 off
+
+# evtl. bei Bedarf Rewrite Basisordner definieren
+# falls nicht funktioniert, dann die nächste Zeile wieder einkommentieren, vorher allerdings den Pfad anpassen!!!
+RewriteBase /www
+
+# individuelle Rewrite-Regeln:
+RewriteRule ^home\.html$ index.php [L]
+
+
+# ##########################################################################
+#
+# Individuelle Rewrite-Regeln fuer Standardmodule
+#
+# ##########################################################################
+
+# Documents
+RewriteRule ^Documents-Alphaindex-(.*?)(-.*)?\.html$ mod.php?name=Documents&act=alphaindex&char=$1&_MORE_=$2 [L]
+RewriteRule ^Documents-Search-(.*)?\.html$ mod.php?name=Documents&act=search&keywords=$1 [L]
+RewriteRule ^Documents-.*-Page-.*-([0-9]+)-highlight-(.*)?\.html$ mod.php?name=Documents&act=page&id=$1&highlight=$2 [L]
+RewriteRule ^Documents-.*-Page-.*-([0-9]+)?\.html$ mod.php?name=Documents&act=page&id=$1 [L]
+RewriteRule ^Documents-.*-Contents-Id-([0-9]+)\.html$ mod.php?name=Documents&act=index&id=$1 [L]
+RewriteRule ^Documents-.*-Edit-([0-9]+)\.html$ mod.php?name=Documents&act=pageedit&id=$1 [L]
+RewriteRule ^Documents-.*-New-([0-9]+)\.html$ mod.php?name=Documents&act=pagenew&id=$1 [L]
+RewriteRule ^Documents-.*-Print-.*-([0-9]+)\.html$ mod.php?name=Documents&act=pageprint&id=$1 [L]
+RewriteRule ^Documents-.*-Friend-.*-([0-9]+)\.html$ mod.php?name=Documents&act=sendfriend&id=$1 [L]
+RewriteRule ^Documents-.*-([0-9]+)-highlight-(.*)?\.html$ mod.php?name=Documents&act=page&id=$1&highlight=$2 [L]
+RewriteRule ^Documents-.*-([0-9]+)?\.html$ mod.php?name=Documents&act=page&id=$1 [L]
+RewriteRule ^Documents-Newest-Pages(.*)?\.html$ mod.php?name=Documents&act=newestpages&_MORE_=$1 [L]
+
+# Downloads
+RewriteRule ^Downloads-.*-category-([0-9]+)(-.*)?\.html$ mod.php?name=Downloads&cid=$1&_MORE_=$2 [L]
+RewriteRule ^Downloads-.*-view-([0-9]+)(-.*)?\.html$ mod.php?name=Downloads&op=view&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Downloads-.*-get-([0-9]+)(-.*)?\.html$ mod.php?name=Downloads&op=getit&lid=$1&noJpC=YES$2 [L]
+RewriteRule ^Downloads-.*-report-([0-9]+)(-.*)?\.html$ mod.php?name=Downloads&op=reportbroken&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Downloads-.*-modify-([0-9]+)(-.*)?\.html$ mod.php?name=Downloads&op=modifyrequest&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Downloads-.*-rating-([0-9]+)(-.*)?\.html$ mod.php?name=Downloads&op=rating&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Downloads-.*-outsiderating-([0-9]+)(-.*)?\.html$ mod.php?name=Downloads&op=outsiderating&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Downloads-.*-ratingdetails-([0-9]+)(-.*)?\.html$ mod.php?name=Downloads&op=viewratingdetails&lid=$1&_MORE_=$2 [L]
+
+# News  ( Achtung, muss vor eigentlichen News stehen!! )
+RewriteRule ^News-category-[^0-9]*-([0-9]+)(-.*)?\.html$ mod.php?name=News&file=categories&catid=$1&_MORE_=$2 [L]
+RewriteRule ^News-topic-[^0-9]*-([0-9]+)(-.*)?\.html$ mod.php?name=News&topic=$1&_MORE_=$2 [L]
+RewriteRule ^News-.*-item-([0-9]+)(-.*)?\.html$ mod.php?name=News&file=article&sid=$1&_MORE_=$2 [L]
+
+# Links
+RewriteRule ^Web_Links-.*-category-([0-9]+)(-.*)?\.html$ mod.php?name=Web_Links&cid=$1&_MORE_=$2 [L]
+RewriteRule ^Web_Links-.*-view-([0-9]+)(-.*)?\.html$ mod.php?name=Web_Links&op=view&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Web_Links-.*-visit-([0-9]+)(-.*)?\.html$ mod.php?name=Web_Links&op=visit&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Web_Links-.*-rating-([0-9]+)(-.*)?\.html$ mod.php?name=Web_Links&op=rating&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Web_Links-.*-outsiderating-([0-9]+)(-.*)?\.html$ mod.php?name=Web_Links&op=outsiderating&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Web_Links-.*-report-([0-9]+)(-.*)?\.html$ mod.php?name=Web_Links&op=reportbroken&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Web_Links-.*-modify-([0-9]+)(-.*)?\.html$ mod.php?name=Web_Links&op=modifyrequest&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Web_Links-.*-rating-([0-9]+)(-.*)?\.html$ mod.php?name=Web_Links&op=rating&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Web_Links-.*-outsiderating-([0-9]+)(-.*)?\.html$ mod.php?name=Web_Links&op=outsiderating&lid=$1&_MORE_=$2 [L]
+RewriteRule ^Web_Links-.*-ratingdetails-([0-9]+)(-.*)?\.html$ mod.php?name=Web_Links&op=viewratingdetails&lid=$1&_MORE_=$2 [L]
+
+# Surveys
+RewriteRule ^Surveys-results-[^0-9]*-([0-9]+)(-.*)?\.html$ mod.php?name=Surveys&op=results&pollID=$1&_MORE_=$2 [L]
+RewriteRule ^Surveys-title-[^0-9]*-([0-9]+)(-.*)?\.html$ mod.php?name=Surveys&pollID=$1&_MORE_=$2 [L]
+
+# Sections
+RewriteRule ^Sections-.*-category-([0-9]+)(-.*)?\.html$ mod.php?name=Sections&secid=$1&_MORE_=$2 [L]
+RewriteRule ^Sections-.*-article-([0-9]+)(-.*)?\.html$ mod.php?name=Sections&artid=$1&_MORE_=$2 [L]
+
+# Reviews
+RewriteRule ^Reviews-.*-show-([0-9]+)(-.*)?\.html$ mod.php?name=Reviews&rop=showcontent&id=$1&_MORE_=$2 [L]
+RewriteRule ^Reviews-.*-addcomment-([0-9]+)(-.*)?\.html$ mod.php?name=Reviews&rop=postcomment&id=$1&_MORE_=$2 [L]
+RewriteRule ^Reviews-.*-send-([0-9]+)(-.*)?\.html$ mod.php?name=Reviews&rop=premail_review&id=$1&_MORE_=$2 [L]
+
+# My_eGallery
+RewriteRule ^My_eGallery-.*-category-([0-9]+)(-.*)?\.html$ mod.php?name=My_eGallery&do=showgall&gid=$1&_MORE_=$2 [L]
+RewriteRule ^My_eGallery-.*-picture-([0-9]+)(-.*)?\.html$ mod.php?name=My_eGallery&do=showpic&pid=$1&_MORE_=$2 [L]
+RewriteRule ^My_eGallery-upload.html$ mod.php?name=My_eGallery&do=upload [L]
+RewriteRule ^My_eGallery-top10.html$ mod.php?name=My_eGallery&do=top [L]
+
+# FAQ
+RewriteRule ^FAQ-.*-category-([0-9]+)(-.*)?\.html$ mod.php?name=FAQ&cat=$1&_MORE_=$2 [L]
+
+# Content
+RewriteRule ^Content-.*-category-([0-9]+)(-.*)?\.html$ mod.php?name=Content&cid=$1&_MORE_=$2 [L]
+RewriteRule ^Content-.*-item-([0-9]+)(-.*)?\.html$ mod.php?name=Content&pid=$1&_MORE_=$2 [L]
+
+# Enzyclopedia
+RewriteRule ^Encyclopedia-title-[^0-9]*-([0-9]+)(-.*)?\.html$ mod.php?name=Encyclopedia&op=list_content&eid=$1&_MORE_=$2 [L]
+RewriteRule ^Encyclopedia-list-[^0-9]*-([0-9]+)(-.*)?\.html$ mod.php?name=Encyclopedia&op=terms&eid=$1&_MORE_=$2 [L]
+RewriteRule ^Encyclopedia-.*-item-([0-9]+)(-.*)?\.html$ mod.php?name=Encyclopedia&op=content&tid=$1&_MORE_=$2 [L]
+
+# individuelle Rewriteregel fuer mxContest
+RewriteRule ^Contest-category-[^0-9]*-([0-9]+)(-.*)?\.html$ mod.php?name=Contest&cid=$1&_MORE_=$2 [L]
+RewriteRule ^Contest-title-[^0-9]*-([0-9]+)(-.*)?\.html$ mod.php?name=Contest&pid=$1&_MORE_=$2 [L]
+RewriteRule ^Contest-picture-[^0-9]*-([0-9]+)(-.*)?\.html$ mod.php?name=Contest&pa=contest_pic_show&pid=$1&_MORE_=$2 [L]
+RewriteRule ^Contest-rules-.*-cat-([0-9]+)(-.*)?\.html$ mod.php?name=Contest&pa=contest_rules&cid=$1&_MORE_=$2 [L]
+RewriteRule ^Contest-rules-.*-con-([0-9]+)(-.*)?\.html$ mod.php?name=Contest&pa=contest_show_rules&con=$1&_MORE_=$2 [L]
+RewriteRule ^Contest-results\.html$ mod.php?name=Contest&pa=list_results [L]
+RewriteRule ^Contest-statistics\.html$ mod.php?name=Contest&pa=statistics [L]
+RewriteRule ^Contest-mostviewed\.html$ mod.php?name=Contest&pa=mostviewed [L]
+RewriteRule ^Contest-mostpoints\.html$ mod.php?name=Contest&pa=mostpoints [L]
+
+# mxBoard
+RewriteRule ^eBoard-forum-.*-view-([0-9]+)(-.*)?\.html$ mod.php?name=eBoard&file=forumdisplay&fid=$1&_MORE_=$2 [L]
+RewriteRule ^eBoard-thread-.*-view-([0-9]+)(-.*)?\.html$ mod.php?name=eBoard&file=viewthread&tid=$1&_MORE_=$2 [L]
+RewriteRule ^eBoard-forum-.*-newthread-([0-9]+)(-.*)?\.html$ mod.php?name=eBoard&file=post.newtopic&fid=$1&_MORE_=$2 [L]
+RewriteRule ^eBoard-thread-.*-edit-([0-9]+)(-.*)?\.html$ mod.php?name=eBoard&file=post.edit&tid=$1&_MORE_=$2 [L]
+RewriteRule ^eBoard-thread-.*-reply-([0-9]+)(-.*)?\.html$ mod.php?name=eBoard&file=post.reply&tid=$1&_MORE_=$2 [L]
+RewriteRule ^eBoard-member-view-([^/]+)?\.html$ mod.php?name=eBoard&file=member&action=viewpro&member=$1 [L]
+RewriteRule ^eBoard-member-online\.html$ mod.php?name=eBoard&file=misc&action=online [L]
+RewriteRule ^eBoard-memberlist\.html$ mod.php?name=eBoard&file=memberslist [L]
+RewriteRule ^eBoard-search\.html$ mod.php?name=eBoard&file=search [L]
+RewriteRule ^eBoard-faq\.html$ mod.php?name=eBoard&file=misc&action=faq [L]
+RewriteRule ^eBoard-newposts\.html$ mod.php?name=eBoard&file=messslv [L]
+RewriteRule ^eBoard-postoftheday-([0-9]+)(-.*)?\.html$ mod.php?name=eBoard&file=messslv&view=$1 [L]
+RewriteRule ^eBoard-statistics\.html$ mod.php?name=eBoard&file=stats [L]
+RewriteRule ^eBoard-boardruless\.html$ mod.php?name=eBoard&file=bbrules [L]
+RewriteRule ^eBoard-memberlist-numberofposts-([^/]+)?\.html$ mod.php?name=eBoard&file=memberslist&order=postnum&_MORE_=$1 [L]
+RewriteRule ^eBoard-memberlist-user\.html$ mod.php?name=eBoard&file=memberslist&order=username [L]
+
+# mxSchedule
+RewriteRule ^Schedule-show-.*-event-([0-9]+)(-.*)?\.html$ mod.php?name=Schedule&act=show&eid=$1&_MORE_=$2 [L]
+RewriteRule ^Schedule-.*-section-([0-9]+)(-.*)?\.html$ mod.php?name=Schedule&secid=$1&_MORE_=$2 [L]
+RewriteRule ^Schedule-.*-category-([0-9]+)(-.*)?\.html$ mod.php?name=Schedule&cat=$1&_MORE_=$2 [L]
+
+# SiriusGallery
+RewriteRule ^SiriusGallery-.*-category-([0-9]+)(-.*)?\.html$ mod.php?name=SiriusGallery&cat=$1&_MORE_=$2 [L]
+RewriteRule ^SiriusGallery-.*-picture-([0-9]+)(-.*)?\.html$ mod.php?name=SiriusGallery&act=detail&pic=$1&_MORE_=$2 [L]
+RewriteRule ^SiriusGallery-.*-zoom-([0-9]+)(-.*)?\.html$ mod.php?name=SiriusGallery&act=fullsize&pic=$1&_MORE_=$2 [L]
+RewriteRule ^SiriusGallery-.*-load-([0-9]+)(-.*)?\.html$ mod.php?name=SiriusGallery&act=getimage&pic=$1&_MORE_=$2 [L]
+RewriteRule ^SiriusGallery-.*-voting-([0-9]+)(-.*)?\.html$ mod.php?name=SiriusGallery&act=vote&pic=$1&_MORE_=$2 [L]
+RewriteRule ^SiriusGallery-Top-Pictures\.html$ mod.php?name=SiriusGallery&act=top [L]
+RewriteRule ^SiriusGallery-Newest-Pictures\.html$ mod.php?name=SiriusGallery&act=newest [L]
+RewriteRule ^SiriusGallery-Most-Viewed\.html$ mod.php?name=SiriusGallery&act=mostviewed [L]
+RewriteRule ^SiriusGallery-Random-Pictures\.html$ mod.php?name=SiriusGallery&act=random [L]
+RewriteRule ^SiriusGallery-.*-download-([0-9]+)(-.*)?\.html$ mod.php?name=SiriusGallery&act=download&size=2&pic=$1&_MORE_=$2 [L]
+
+# Rezepte
+RewriteRule ^Rezeptkategorie-([0-9]+)(-.*)?\.html$ mod.php?name=recipes&cid=$1&_MORE_=$2 [L]
+RewriteRule ^Rezept-([0-9]+)(-.*)?\.html$ mod.php?name=recipes&recipe=$1&_MORE_=$2 [L]
+
+# ##############################################################################
+# URL's automatisch generieren fuer alles was ueber die modules.php laeuft
+# 
+# diese Regeln nicht verändern!!!
+#
+# ##############################################################################
+
+
+RewriteRule ^([^-]+)-([^/]+)\.html$ mod.php?$1&________________________$2 [L]
+RewriteRule ^([^-/]+)\.html$ mod.php?name=$1 [L]
+

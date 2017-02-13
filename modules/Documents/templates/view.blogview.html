@@ -1,0 +1,47 @@
+
+<a name="contenthome" ></a>
+
+<div class="title" >
+	<h2><?php echo $this->title ?></h2>
+	<p class="align-right tiny"><?php echo $this->adminlink ?></p>
+</div><hr />
+<?php if ($this->doc_cfg['viewsearch']==1) { ?> 
+	<div class="align-right">
+	<form action="modules.php?name=<?php echo $this->module_name; ?>&amp;act=search" method="post" name="docsearch" >
+	
+	<input class="form" value="" maxlength="50" size="15" name="keywords" /><input type="submit" value="<?php echo _SEARCH ?>" name="<?php echo _SEARCH ?>" />
+	</form><br /></div>
+	
+ <?php     } ?>
+<div class="opentable" style="height:auto;">
+<?php echo $this->text; 
+$books= $this->doc; ?>
+<div class="title align-center">
+<?php  if ($this->doc_cfg['alphaindex']==1) echo $this->alphaindex; ?>
+</div>
+
+	<div class="opentable">
+		<?php
+			echo "<h3>"._DOCS_NEWCONTENT."</h3><ul class=\"mainpage\">";
+				foreach ($this->bloglist as $cats)
+				{
+					$icon=($cats['link']== NULL)?"":((is_file($cats['link']))?"<img src=\"".$cats['link']."\" style=\"max-width:48px;max-height:48px;margin-right:5px;\" />":"");
+				  
+					echo "<li class=\"mainpage\" style=\"width: ".$this->width ."%\"><div class=\"blogstory\">";
+					$book=$books->getBookRoot($cats['id']);
+					$bookstitle=$book['title'];
+					echo "<p><span class=\"tiny\"><a href=\"modules.php?name=$this->module_name&amp;act=page&amp;id=".$book['id']."\">".$bookstitle."</a></span>";
+					echo "<span class=\"blogstory-info\" style=\"float:right;\">"._DOCS_CREATED." ". _DOCS_FROM ." : ".$cats['owner_name']." ".mx_strftime(_XDATESTRING,$cats['date_created'])."</span></p>";
+					echo "<h4><a href=\"modules.php?name=$this->module_name&amp;act=page&amp;id=".$cats['id']."\">".$cats['title']."</a></h4>";
+					?>
+					<?php echo ($this->doc_cfg['cuttext']==0)?pmx_cutString($cats['text1'],$this->doc_cfg['cutlen'],false):$cats['text1']; ?></div></li>
+				<?php }	?>
+				
+	</ul></div>
+	<div class="align-right">
+		<a class="button" href="#contenthome"  title="<?php echo _HOME ?>" ><img src="images/up.gif" alt="up" /></a>
+	</div>
+</div>
+<div class="clear"></div>
+
+<?php /* pragmaMx CVS $Id: view.blogview.html 171 2016-06-29 11:59:03Z PragmaMx $ */ ?>

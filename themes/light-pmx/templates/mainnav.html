@@ -1,0 +1,45 @@
+<?php
+/**
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: theme.nav.html,v 1.1 2013-04-07 18:36:22 dia_bolo Exp $
+ */
+
+if ($this->level===0) {
+?>
+
+    <ul  class="mx-menu-list">
+      <?php foreach ($this->items as $key => $item) : ?>
+        <li <?php echo $item['class'] ?>>
+          <a <?php echo $item['href'] . $item['title']?> class="mx-menu-link"><?php echo $item['caption'] ?></a>
+          <?php echo $item['subtree'] ?>
+        </li>
+      <?php endforeach ?>
+    </ul>
+
+
+<?php if($this->js_end): ?>
+<script type="text/javascript">
+/*<![CDATA[*/
+<?php echo $this->js_end ?>
+
+/*]]>*/
+</script>
+<?php endif; ?>
+
+<?php
+} else {
+?>
+
+<ul class="mx-menu-children">
+  <?php foreach ($this->items as $key => $item) : ?>
+    <li class="mx-menu-item">
+      <a <?php echo $item['href'] . $item['title'] ?> class="mx-menu-link"><?php echo $item['caption'] ?></a>
+      <?php echo $item['subtree'] ?>
+    </li>
+  <?php endforeach ?>
+</ul>
+
+<?php
+}
+?>

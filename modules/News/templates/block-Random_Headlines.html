@@ -1,0 +1,14 @@
+
+<?php echo $this->ahref($this->link, $this->image($this->topicimage, $this->topictext, array('class'=>'align-center'))) ?>
+
+<?php if($this->topicdesc){ ?>
+<p><?php echo $this->topicdesc ?></p>
+<?php } //endif ?>
+
+<ul class="list">
+  <?php foreach($this->stories as $story ): ?>
+  <li><?php echo $this->ahref($story['link'], $story['title']) ?></li>
+  <?php endforeach; ?>
+</ul>
+
+<?php // $Id: block-Random_Headlines.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

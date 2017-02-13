@@ -1,0 +1,29 @@
+
+<h2>pragmaMx&nbsp;<?php echo PMX_VERSION ?> <?php echo _VERCHECK_00 ?></h2>
+
+<ul class="tabs-nav clear-right">
+  <li<?php echo (($this->filter=='edited')    ? ' class="current"' : '') ?>><?php echo $this->ahref(adminUrl(PMX_MODULE, 'edited'),    _VERCHECK_EDITED) ?></li>
+  <li<?php echo (($this->filter=='conflicts') ? ' class="current"' : '') ?>><?php echo $this->ahref(adminUrl(PMX_MODULE, 'conflicts'), _VERCHECK_VCONFL) ?></li>
+  <li<?php echo (($this->filter=='missed')    ? ' class="current"' : '') ?>><?php echo $this->ahref(adminUrl(PMX_MODULE, 'missed'),    _VERCHECK_MISSED) ?></li>
+  <li<?php echo (($this->filter=='allfiles')  ? ' class="current"' : '') ?>><?php echo $this->ahref(adminUrl(PMX_MODULE, 'allfiles'),  _VERCHECK_ALLFIL) ?></li>
+  <li<?php echo (($this->filter=='unnecessary')    ? ' class="current"' : '') ?>><?php echo $this->ahref(adminUrl(PMX_MODULE, 'unnecessary'),    _VERCHECK_UNNECESSARY) ?></li>
+</ul>
+
+<div class="tabs-panel">
+
+<?php if($this->errormessage){ ?>
+<ul class="warning">
+  <li><?php echo implode('</li><li>', $this->errormessage) ?></li>
+</ul>
+<?php } //endif ?>
+
+<?php if($this->message){ ?>
+<div class="success">
+  <p><?php echo implode('</p><p>', $this->message) ?></p>
+</div>
+<?php } //endif ?>
+
+<?php echo $this->content ?>
+</div>
+
+<?php // $Id: main.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

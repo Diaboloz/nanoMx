@@ -1,0 +1,423 @@
+[27-Jan-2017 23:37:41 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:37:41 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:38:00 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:38:00 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:38:04 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:38:04 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:38:54 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:38:54 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:38:58 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:38:58 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:39:01 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:39:01 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:39:02 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:39:02 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:39:08 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:39:08 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/blocks/block-AdminMenu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/theme.functions.php on line 522
+[27-Jan-2017 23:41:07 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:41:07 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:41:11 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:41:14 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:41:14 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:41:18 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:41:18 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:41:21 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:41:21 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:41:47 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:42:28 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:42:30 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:42:33 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:42:39 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:42:39 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:42:44 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:42:44 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:43:06 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:43:06 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:43:08 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:43:08 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:43:25 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:43:25 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:43:31 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:43:40 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:43:41 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:44:09 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:44:09 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:44:14 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:44:14 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:44:16 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:44:18 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:44:24 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:44:26 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:44:27 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:46:27 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:46:27 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:46:29 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:46:29 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:46:32 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:47:24 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:47:26 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:51:09 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:51:10 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:51:11 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:51:26 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:51:26 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:51:28 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:52:37 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:59:00 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:59:13 Europe/Berlin] PHP Run-time notice:
+  Undefined variable: agent
+  in /home/diabolo/public_html/nanomx/header.php on line 128
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/FAQ/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/FAQ/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/FAQ/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Web_Links/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Web_Links/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Web_Links/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/rss/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/rss/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/rss/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/legal/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/legal/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/legal/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Siteupdate/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Siteupdate/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Siteupdate/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Content/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Content/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Content/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Banners/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Banners/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Banners/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Feedback/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Feedback/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Feedback/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Web_News/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Web_News/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Web_News/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Reviews/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Reviews/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Reviews/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Newsletter/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Newsletter/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Newsletter/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Guestbook/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Guestbook/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Guestbook/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Sections/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Sections/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Sections/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/My_eGallery/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/My_eGallery/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/My_eGallery/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Downloads/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Downloads/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Downloads/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Ephemerids/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Ephemerids/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Ephemerids/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Surveys/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Surveys/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Surveys/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Impressum/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Impressum/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Impressum/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/UserGuest/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/UserGuest/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/UserGuest/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Encyclopedia/core/admin.menu.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Encyclopedia/core/admin.menu.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Encyclopedia/core/admin.menu.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Web_Links/core/admin.newentries.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Web_Links/core/admin.newentries.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Web_Links/core/admin.newentries.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(/home/diabolo/public_html/nanomx/modules/Downloads/core/admin.newentries.php): failed to open stream: No such file or directory
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time warning:
+  include(): Failed opening '/home/diabolo/public_html/nanomx/modules/Downloads/core/admin.newentries.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear')
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 107
+[27-Jan-2017 23:59:23 Europe/Berlin] pragmaMx notice:
+  Invalid hook-file: modules/Downloads/core/admin.newentries.php
+  in /home/diabolo/public_html/nanomx/includes/classes/Hook.php on line 110
+[27-Jan-2017 23:59:23 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:59:26 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:59:26 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:59:30 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:59:30 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8
+[27-Jan-2017 23:59:33 Europe/Berlin] PHP Run-time notice:
+  Undefined index: uid
+  in /home/diabolo/public_html/nanomx/includes/classes/Userpic.php on line 520
+[27-Jan-2017 23:59:33 Europe/Berlin] PHP Run-time notice:
+  Undefined index: items
+  in /home/diabolo/public_html/nanomx/themes/admin-pmx/templates/header.links.html on line 8

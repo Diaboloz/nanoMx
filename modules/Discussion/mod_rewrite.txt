@@ -1,0 +1,23 @@
+
+Bitte in die .htacces einfügen.
+please , insert in .htaccess
+
+
+
+# mxBoard
+RewriteRule ^mxBoard-forum-.*-view-([0-9]+)(-.*)?\.html$ mod.php?name=mxBoard&file=forumdisplay&fid=$1&_MORE_=$2 [L]
+RewriteRule ^mxBoard-thread-.*-view-([0-9]+)(-.*)?\.html$ mod.php?name=mxBoard&file=viewthread&tid=$1&_MORE_=$2 [L]
+RewriteRule ^mxBoard-forum-.*-newthread-([0-9]+)(-.*)?\.html$ mod.php?name=mxBoard&file=post.newtopic&fid=$1&_MORE_=$2 [L]
+RewriteRule ^mxBoard-thread-.*-edit-([0-9]+)(-.*)?\.html$ mod.php?name=mxBoard&file=post.edit&tid=$1&_MORE_=$2 [L]
+RewriteRule ^mxBoard-thread-.*-reply-([0-9]+)(-.*)?\.html$ mod.php?name=mxBoard&file=post.reply&tid=$1&_MORE_=$2 [L]
+RewriteRule ^mxBoard-member-view-([^/]+)?\.html$ mod.php?name=mxBoard&file=member&action=viewpro&member=$1 [L]
+RewriteRule ^mxBoard-member-online\.html$ mod.php?name=mxBoard&file=misc&action=online [L]
+RewriteRule ^mxBoard-memberlist\.html$ mod.php?name=mxBoard&file=memberslist [L]
+RewriteRule ^mxBoard-search\.html$ mod.php?name=mxBoard&file=search [L]
+RewriteRule ^mxBoard-faq\.html$ mod.php?name=mxBoard&file=misc&action=faq [L]
+RewriteRule ^mxBoard-newposts\.html$ mod.php?name=mxBoard&file=messslv [L]
+RewriteRule ^mxBoard-postoftheday-([0-9]+)(-.*)?\.html$ mod.php?name=mxBoard&file=messslv&view=$1 [L]
+RewriteRule ^mxBoard-statistics\.html$ mod.php?name=mxBoard&file=stats [L]
+RewriteRule ^mxBoard-boardruless\.html$ mod.php?name=mxBoard&file=bbrules [L]
+RewriteRule ^mxBoard-memberlist-numberofposts-([^/]+)?\.html$ mod.php?name=mxBoard&file=memberslist&order=postnum&_MORE_=$1 [L]
+RewriteRule ^mxBoard-memberlist-user\.html$ mod.php?name=mxBoard&file=memberslist&order=username [L]

@@ -1,0 +1,121 @@
+
+<a name="contenthome" ></a>
+
+<div class="title" ><h2><?php echo $this->title ?></h2>
+<p class="align-right tiny"><?php echo $this->adminlink ?></p>
+</div><hr />
+<?php if ($this->doc_cfg['viewsearch']==1) { ?> 
+	<div class="align-right">
+	<form action="modules.php?name=<?php echo $this->module_name; ?>&amp;act=search" method="post" name="docsearch" >
+	
+	<input class="form" value="" maxlength="50" size="15" name="keywords" /><input type="submit" value="<?php echo _SEARCH ?>" name="<?php echo _SEARCH ?>" />
+	</form><br /></div>
+	
+ <?php     } ?>
+<div class="postcontent" style="height:auto;">
+<?php echo $this->text; ?>
+		<div class="" ><ul class="mainpage" >
+	
+			<?php
+		    $books= $this->doc;
+			$level=1;
+			$i=1;
+			foreach ($this->liste as $cats)
+		 	{
+				
+				$cats['text2']=($cats['text2']=="")?$cats['text1']:$cats['text2'];
+				if (!($cats['id']==$this->node['id'] or $this->maxlevel<($cats['level']-1))) {
+					  $link="";
+					  $link="modules.php?name=".$this->module_name."&amp;act=page&amp;id=".$cats['id'];
+					  $icon=($cats['link']== NULL)?"":((is_file($cats['link']))?"<img src=\"".$cats['link']."\" style=\"max-width:48px;max-height:48px;margin-right:5px;\" />":"");
+						switch (true) {
+								case $cats['level']==1: 
+								echo ($level>1)?str_repeat("</li></ul></li>",($level-1)):"";?>
+								<li class="mainpage" style="width:<?php echo $this->width ?>%"><div class="title" >
+									<a href="modules.php?name=<?php echo $this->module_name; ?>&amp;act=page&amp;id=<?php echo $cats['id']; ?>" >
+									<?php echo $icon.$cats['title'] ?></a>
+								<?php if ($this->doc_cfg['viewindexnew']==1) { 
+									echo ($books->isChanged($this->doc_cfg['newscount'],$cats))?"<div class=\"imgupdate\">". _DOCS_UPDATE ."</div>":""; ?>
+									<?php echo ($books->isNew($this->doc_cfg['newscount'],$cats))?"<div class=\"imgnew\">". _DOCS_PAGE_NEW."</div>":""; 
+									} ?>
+									</div>
+								<hr />
+								<div class="postcontent"><?php echo ($this->doc_cfg['cuttext']==0)?pmx_cutString($cats['text2'],$this->doc_cfg['cutlen'],$link):$cats['text2']; ?></div>
+								<?php if ($this->maxlevel>=$cats['level']) {  ?>
+									<h5 class="index"><a href="modules.php?name=<?php echo $this->module_name; ?>&amp;act=index&amp;id=<?php echo $cats['id']; ?>"><?php echo _DOCS_INDEX; ?></a>&nbsp;</h5> 
+									<?php } $level=1; ?>
+									</li>
+									<?php
+							break;
+							case $cats['level']>$level: ?>
+								<?php echo "<ul class=\"list indexlevel". $cats['level']."\" style=\"padding:0;margin-left:10px;\">
+								<li class=\"indexlevel". $cats['level']."\" style=\"margin:0 0 0 15px;padding:0;\">"; ?>
+								<?php $level=$cats['level'];
+							break;
+							case $cats['level']==$level: ?>
+								<?php echo "</li><li class=\"indexlevel". $cats['level']."\" style=\"margin:0 0 0 15px;padding:0;\">"; ?>
+								<?php $level=$cats['level'];
+							break;
+							case $cats['level']<$level:
+								echo str_repeat( "</li></ul>",$level-$cats['level'])."<li class=\"indexlevel". $cats['level']."\" style=\"margin:0 0 0 15px;padding:0;\">";
+								$level=$cats['level'];
+							break;
+						}  
+						if ($level>1) {?>
+							
+								<a class="indexlevel<?php echo $cats['level']; ?>" href="<?php echo $link; ?>" ><?php echo $cats['title'] ?></a>
+				 
+						<?php 	
+						} 
+				 }
+				
+			}	echo str_repeat("</li></ul>",($level-1));
+			 ?>	
+	
+	</ul></div>	
+</div>
+<hr />
+<?php if($this->doc_cfg['viewchanges']==1 and $this->lastchangecount >0){ ?>
+	<div class="box post-content">
+		<?php
+			echo "<h3>"._DOCS_LASTCHANGES."</h3>";
+				foreach ($this->lastchange as $cats)
+				{
+					$booklink="";
+					$book=$books->getBookRoot($cats['id']);
+					if ($cats['leftID']>1) {
+					   $booklink=($book['id']>0)?"[<a href=\"modules.php?name=$this->module_name&amp;act=page&amp;id=".$book['id']."\">".$book['title']."</a>]":"";
+					} else {
+						continue;
+					}
+					?>
+					<p>
+				<?php echo $booklink." <a href=\"modules.php?name=".$this->module_name."&amp;act=page&amp;id=".$cats['id']."\" >".$cats['title']."</a> - ".$cats['edit_uname']." ".mx_strftime(_XDATESTRING,$cats['date_edit']); ?>
+					</p>
+				<?php }
+		?>
+		<a class="button" href="modules.php?name=<?php echo $this->module_name ?>&amp;act=newestpages" title="<?php echo _DOCS_LASTCHANGES ?>" ><?php echo _DOCS_READMORE ?></a>
+	</div>
+<?php } ?>
+
+<?php if($this->doc_cfg['viewnews']==1 and $this->newscount >0 ){ ?>
+	<div class="box post-content">
+		<?php
+			echo "<h3>"._DOCS_NEWCONTENT."</h3>";
+				foreach ($this->news as $cats)
+				{
+					$book=$books->getBookRoot($cats['id']);
+					   $booklink=($book['id'])?"[<a href=\"modules.php?name=$this->module_name&amp;act=page&amp;id=".$book['id']."\">".$book['title']."</a>]":"";
+					?>
+					<p>
+				<?php echo $booklink." <a href=\"modules.php?name=".$this->module_name."&amp;act=page&amp;id=".$cats['id']."\" >".$cats['title']."</a> - ".$cats['owner_name']." ".mx_strftime(_XDATESTRING,$cats['date_created']); ?>
+					</p>
+				<?php }
+		?>
+	</div>
+<?php } ?>
+	<div class="align-right">
+		<a class="button" href="#contenthome"  title="<?php echo _HOME ?>" ><img src="images/up.gif" alt="up" /></a>
+	</div>
+
+<?php /* pragmaMx CVS $Id: view.overview.html 171 2016-06-29 11:59:03Z PragmaMx $ */ ?>

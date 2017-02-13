@@ -1,0 +1,71 @@
+<?php ; ?>
+
+<!--// START CONTENT: <?php echo basename(__FILE__) ?> output -->
+
+
+<!-- START: TABS NAV -->
+<div id="admincontent">
+
+	<h2><?php echo "Themes" ?></h2>	
+	<?php echo $this->formOpen ?>
+	<?php echo $this->toolbar ?>
+	
+	<?php echo _TT_INFOTEXT ?>
+	<br />
+	<table class="list" width="100%">
+	 <thead> 
+	 <tr> 
+	 <th width="210px"><?php echo _TT_THEME_PREVIEW ?></th> 
+	 <th ><?php echo _TT_THEMENAME ?></th> 
+	 <th ><?php echo _TT_THEME_INFO ?></th> 
+	 <th style="text-align:center"><?php echo _TTFUNCTION ?></th> 
+	 
+	 <th style="text-align:center"><?php echo _TT_ADMINTHEME ?></th> 
+	 <th style="text-align:center"><?php echo _TT_THEME_ACTIVE ?></th> 
+	 </tr>
+	 </thead> 
+
+	 <tbody> 
+	<?php
+	$i=0;
+	$stylearray=array("max-width"=>"100px","border"=>"none","margin"=>"0");
+	foreach ($this->themes as $themename=>$content) {
+	
+		/* links definieren */
+		$adminactivate="<a href=\"admin.php?op=themes&act=admindefault&theme=".$themename."\" title=\""._TT_ACTIVATE."\">".mxCreateImage("images/activate.gif",_TT_ACTIVATE)."</a>";
+		$standardactivate="<a href=\"admin.php?op=themes&act=setdefault&theme=".$themename."\" title=\""._TT_ACTIVATE."\">".mxCreateImage("images/activate.gif",_TT_ACTIVATE)."</a>";
+		$mobileactivate="<a href=\"admin.php?op=themes&act=setmobile&theme=".$themename."\" title=\""._TT_ACTIVATE."\">".mxCreateImage("images/admin/phone.png",_TT_ACTIVATE)."</a>";
+		$standard=mxCreateImage("images/admin/favorites.png");
+		$standardmobile=mxCreateImage("images/admin/favorites_phone.png");
+		$adminlink="<a href=\"admin.php?op=themes&act=admin&theme=".$themename."\" title=\""._ADMINISTRATION."\">".mxCreateImage("images/admin/editor.png",_ADMINISTRATION)."</a>";
+	?>	
+		<tr class="<?php echo ($i/2==intval($i/2))?"alternate":"alternate-b"; ?>" >
+        <td><a name="<?php echo $themename ?>" />
+		<?php echo ($content['thumbnail']==false)?"":"<a href=\"".$content['preview']."\" rel='pretty[themes]' title=\"".$themename."\"/>".mxCreateImage($content['thumbnail'],"".$themename."",$stylearray)."</a>"; ?></td>
+		<td><?php echo $themename ?></td>
+		<td><?php echo $content['info']; ?></td>
+		<td style="text-align:center">
+			<?php echo (($content['admintheme']==true)?"":"<a title=\""._TT_THEME_PREVIEW." : ".$themename."\" href=\"modules.php?name=Themetest&themeselect=".$themename."&iframe=true&width=80%&height=90%\" rel=\"pretty\">".mxCreateImage("images/view.gif",$themename)."</a>"); ?>
+			<?php echo (($content['admin']==true)?$adminlink:""); ?>
+			</td>
+		
+		<td style="text-align:center"><?php echo ($this->xconfig['admintheme']==$themename)?$standard:(($content['admintheme']==true)?$adminactivate:""); ?></td>
+		<td style="text-align:center"><?php echo ($this->xconfig['defaulttheme']==$themename)?$standard:(($content['admintheme']==true)?"":$standardactivate); ?>
+		<?php echo ($this->xconfig['mobiletheme']==$themename)?$standardmobile:(($content['admintheme']==true)?"":$mobileactivate); ?></td>
+		
+		</tr>
+	<?php $i++; }  ?>
+	
+
+
+	 </tbody>
+	 </table>
+	<?php echo $this->formClose ;	?>
+	
+
+</div>
+<div class="tiny">
+
+</div>
+<!--// END CONTENT: <?php echo basename(__FILE__) ?> output -->
+<?php /* pragmaMx CVS $Id: admin.html 216 2016-09-20 13:29:30Z PragmaMx $ */ ?>

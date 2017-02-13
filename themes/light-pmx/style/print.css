@@ -1,0 +1,53 @@
+/**
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: print.css,v 1.3 2014-01-28 16:47:47 tora60 Exp $
+ */
+ 
+@media print{
+
+  body,#main{
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 10pt;
+    height: auto !important;
+  }
+
+  #topheader,   
+  #header,
+  #navigation,
+  #sidebar-left,
+  #sidebar-right,
+  #bottom,
+  #footer {
+    display: none !important;
+  }
+
+  .page{
+    height: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  #mainbar{
+    height: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: auto !important;
+  }
+
+  #main,
+  #main-inside,
+  #sidebar,
+  #sidebar-left-inside,
+  #sidebar-right-inside,
+  .legend,
+  blockquote,
+  body,
+  dd,
+  html{
+    min-height: 0 !important;
+  }
+
+}

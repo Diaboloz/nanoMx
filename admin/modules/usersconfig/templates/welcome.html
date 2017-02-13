@@ -1,0 +1,30 @@
+
+<table class="form full">
+  <tr valign="top">
+    <td><?php echo _SENDNEWMESS ?></td>
+    <td>
+      <input name="sendnewusermsg" value="1" size="20" type="radio"<?php echo ($this->sendnewusermsg) ? ' checked="checked"' : '' ?> /><?php echo _YES ?>
+      <input name="sendnewusermsg" value="0" size="20" type="radio"<?php echo ($this->sendnewusermsg) ? '' : ' checked="checked"' ?> /><?php echo _NO ?>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td colspan="2"><span class="tiny"><?php echo _NEWMESSMESS ?></span></td>
+  </tr>
+  <tr valign="top">
+    <td><?php echo _MSGADMIN ?></td>
+    <td><select name="msgadminid"><?php echo $this->select_pm_users ?></select></td>
+  </tr>
+  <tr valign="top">
+    <td><?php echo _MSGLANG ?>:</td>
+    <td><select name="msgdefaultlang"><?php echo $this->select_pm_language ?></select></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top"><?php echo _MSGICON ?>:</td>
+    <td nowrap="nowrap">
+      <?php echo $this->showsmilies ?>
+      <div class="tiny nowrap">(<?php echo $this->showsmilies_folder ?>)</div>
+    </td>
+  </tr>
+</table>
+
+<?php /* pragmaMx CVS $Id: welcome.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

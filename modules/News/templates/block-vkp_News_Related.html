@@ -1,0 +1,16 @@
+
+<ul class="list">
+<?php foreach ($this->relatedlist as $url => $text) { ?>
+  <li><?php echo $this->ahref($url, $text) ?></li>
+<?php } //endforeach ?>
+</ul>
+
+<?php if($this->mostread){ ?>
+<h5><?php echo $this->mostread['caption'] ?></h5>
+<ul class="list">
+  <li><?php echo $this->ahref($this->mostread['url'], $this->mostread['text']) ?></li>
+</ul>
+<?php } //endif ?>
+
+
+<?php // $Id: block-vkp_News_Related.html 6 2015-07-08 07:07:06Z PragmaMx $ ?>

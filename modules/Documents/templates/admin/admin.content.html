@@ -1,0 +1,96 @@
+<!-- not for evolution -->
+<?php ; ?>
+
+<!--// START CONTENT: <?php echo basename(__FILE__) ?> output -->
+
+<p class="title"><?php echo imgModul()."  "._DOCUMENTS_TITLE ?></p>
+<!-- START: TABS NAV -->
+<div id="admincontent">
+
+	<?php echo $this->formOpen ?>
+	<?php echo $this->toolbar ?>
+	<div style="display:inline;"><?php echo _DOCU." ".$this->selectfilter ?>   </div>
+	<div style="display:inline;"><?php echo _BROWSE." ".$this->selectfilter2 ?>   </div>
+	<div style="display:inline-block; text-align:right; width:50%; float:right">
+				<button type="submit" value="firstpage" name="toolbarsubmit" onclick="javascript:hideMainMenu();" <?php if ($this->prepage==0) echo "disabled=\"disabled\"";  ?> >|&lt;</button> 
+				<button type="submit" value="prepage" name="toolbarsubmit" onclick="javascript:hideMainMenu();"   <?php if ($this->prepage==0) echo "disabled=\"disabled\"";  ?> >&lt;</button> 
+				<?php echo _PAGE ?>
+				<input type="text" tabindex="1" value="<?php echo $this->pagestart ?>" name="page" size="3" maxlength="5" /> 
+				<button type="submit" value="gotopage" tabindex="0" name="toolbarsubmit" onclick="javascript:hideMainMenu();" > ... </button> <?php echo "/ ".$this->pagecount." "; ?>
+				<button type="submit" value="nextpage" tabindex="2" name="toolbarsubmit" onclick="javascript:hideMainMenu();" <?php if ($this->nextpage==0) echo "disabled=\"disabled\"";  ?> >&gt;</button>
+				<button type="submit" value="lastpage" tabindex="3" name="toolbarsubmit" onclick="javascript:hideMainMenu();" <?php if ($this->nextpage>($this->pagecount) or $this->nextpage==0) echo "disabled=\"disabled\"";  ?> >&gt;|</button> 
+				&nbsp;&nbsp;
+				<?php echo _DOCS_PAGECOUNT ?>
+
+				<select class="form" size="1" name="pagelimit" onchange="document[adminForm].submit();">
+					<option value="10" <?php echo (($this->pagelimit==10)?"selected=\"selected\"":""); ?> >10</option>
+					<option value="25" <?php echo (($this->pagelimit==25)?"selected=\"selected\"":""); ?> >25</option>
+					<option value="50" <?php echo (($this->pagelimit==50)?"selected=\"selected\"":""); ?> >50</option>
+					<option value="100" <?php echo (($this->pagelimit==100)?"selected=\"selected\"":""); ?> >100</option>
+				</select>
+				
+				<!--input type="hidden" name="page" value="<?php echo $this->pagestart ?>" / -->
+				<input type="hidden" name="pagecount" value="<?php echo $this->pagecount ?>" />
+	</div>
+	
+	<table class="list" width="100%">
+	 <thead> 
+	 <tr> 
+	 <th width="15" align="center"><input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count($this->catlist) ?>);" /></th> 
+	 <th  width="35" >ID</th> 
+	 <th  colspan="2"><?php echo _DOCS_POSITION ?></th> 
+	 <th width="40%"><?php echo _TITLE ?></th> 
+	 <th ><?php echo _DOCS_CREATED ?></th> 
+	 <th ><?php echo _DOCS_FROM ?></th> 
+	 <th ><?php echo _DOCS_CHANGED ?></th> 
+	 <th ><?php echo _DOCS_FROM ?></th> 
+	 <!--th >up</th --> 
+	 <th ><?php echo _DOCS_STARTPAGE ?></th> 
+	 <th ><?php echo _DOCS_PUBLISH ?></th> 
+	 <th ><?php echo _DOCS_ACCESS ?></th> 
+	 <th ><?php echo _DOCS_ACTION ?></th> 
+	 </tr></thead> 
+
+	 <tbody> 
+<?php
+	$i=0;
+	foreach ($this->catlist as $id=>$content) {
+	?>
+		<tr class="<?php echo ($i/2==intval($i/2))?"alternate":"alternate-b"; ?>" >
+        <td class="align-center"><input type="checkbox" id="cb<?php echo $i ?>" name="cid[]" value="<?php echo $content['id'] ?>" onclick="isChecked(this.checked);" /></td> 
+		<td><?php echo $content['id'] ?></td>
+		<td><?php echo (($content['lower']==1)?"<a href=\"admin.php?op=".$this->module_name."&amp;act=contentmovedn&amp;id=".$content['id']."\" title=\""._DOCS_MOVEDN."\" ><img src=\"images/adminform/down.png\" alt=\"\" style=\"width:15px;height:10px;\" /></a>":""); ?></td>
+		<td><?php echo (($content['upper']==1)?"<a href=\"admin.php?op=".$this->module_name."&amp;act=contentmoveup&amp;id=".$content['id']."\" title=\""._DOCS_MOVEUP."\" ><img src=\"images/adminform/up.png\" alt=\"\" style=\"width:15px;height:10px;\" /></a>":""); ?></td>
+		<!-- td > <?php echo str_repeat("&nbsp;&nbsp;&nbsp;",$content['level']-1)."<a href=\"admin.php?op=".$this->module_name."&amp;act=contentedit&amp;id=".$content['id']."\" >".$content['title']." </a>" ;?></td -->
+		<td ><div style="margin-left: <?php echo intval(($content['level']-1)*8); ?>px;"><a href="admin.php?op=<?php echo $this->module_name; ?>&amp;act=contentedit&amp;id=<?php echo $content['id']; ?>"  ><?php echo $content['title']; ?></div></a></td>
+		
+		<!--td><?php echo $content['parent_id'] ?></td>
+		<td><?php echo $content['level'] ?></td -->
+		<td><?php echo mx_strftime(_SHORTDATESTRING,$content['date_created']) ?></td>
+		<td><?php echo ($content['owner_name']=="")?$this->module_name:mxCreateUserprofileLink($content['owner_name']); ?></td>
+		<td><?php echo mx_strftime(_SHORTDATESTRING,$content['date_edit']) ?></td>
+		<td><?php echo ($content['edit_uname']=="")?"": mxCreateUserprofileLink($content['edit_uname']); ?></td>
+		
+		<td class="align-center" ><?php echo "<a href=\"admin.php?op=".$this->module_name."&amp;act=".(($content['position']>0)?"unsetstartpage":"setstartpage")."&amp;id=".$content['id']."\" title=\"".(($content['position']>0)?_DOCS_STARTPAGE_OFF:_DOCS_STARTPAGE_ON)."\" ><img src=\"images/rating/".(($content['position']>0)?"star-on.png":"star-off.png")."\" width=\"16\" height=\"16\"  /></a>" ?></td>
+		<td class="align-center" ><?php echo "<a href=\"admin.php?op=".$this->module_name."&amp;act=content".(($content['publish']==1)?"unpublish":"publish")."&amp;id=".$content['id']."\" title=\"".(($content['publish']==1)?_DOCS_UNPUBLISHED:_DOCS_PUBLISHED)."\" ><img src=\"modules/".$this->module_name."/style/images/".(($content['publish']==1)?"accept.png":"delete.png")."\" width=\"16\" height=\"16\"  /></a>" ?></td>
+		<td><?php echo $content['views'] ?></td>
+		<td  class="align-center" >
+			<?php  echo "<a href=\"modules.php?name=".$this->module_name."&amp;act=page&amp;id=".$content['id']."&amp;iframe=true&amp;width=80%&amp;height=90%\" rel=\"pretty\" title=\""._PREVIEW."\" ><img src=\"images/adminform/preview.png\" width=\"16\" height=\"16\" alt=\""._PREVIEW."\" /></a>" ?>
+			<?php  echo "<a href=\"admin.php?op=".$this->module_name."&amp;act=getlog&amp;id=".$content['id']."&amp;iframe=true&amp;width=80%&amp;height=90%\" title=\""._DOCS_VIEW_LOG."\" rel=\"pretty\"><img src=\"images/adminform/page.png\" width=\"16\" height=\"16\" alt=\""._DOCS_HISTORY."\" /></a>" ?>
+		
+		</td>
+		</tr>
+	<?php $i++; }  ?>
+	
+
+
+	 </tbody>
+	 </table>
+	<?php echo $this->formClose ?>
+
+</div>
+<div class="tiny">
+
+</div>
+<!--// END CONTENT: <?php echo basename(__FILE__) ?> output -->
+<?php /* pragmaMx CVS $Id: admin.content.html 147 2016-05-06 08:27:20Z PragmaMx $ */ ?>
