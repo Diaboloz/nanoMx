@@ -1,0 +1,324 @@
+﻿Changelog for nanoMx
+
+
+- Remove unused/unnecessary modules 
+- Remove unnecessary meta tags 
+-Frontend: Remove old default.css replace by mxcssframework (mixing purecss & knacss) 
+-Backend: Add bootstrap css framework par admin panel & specific admin template 
+-Rcode Your_account (html/css) 
+-Rcode eBoard (hml/css) based upon phpbb 
+-New default template (html5/css3) 
+-Tableless 
+-Remove unecessary prettyphoto in userpic class
+
+_____________________________________________
+01.10.2016 / 2.3.0. Release pragmaMx
+
+- System : Code PHP7-ready
+- System : mysql komplett entfernt
+- System : verschiedene Adminmodule umgestellt und optimiert
+- System : Adminform ergänzt und Fehler bereinigt
+- System : HTML5-Code korrigiert
+- System : Captcha-Anzeige gefixt
+- System : verschiedene CSS-Definitionen optimiert und angepasst
+- System : Admin-Themes angepasst
+- System : Bug #1633 Fehler in der Suchfunktion gefixt
+- System : Bug #1637 gefixt -mainfile.php mbstring.internal_encoding is deprecated 
+- System : Bug #1634: Benutzernamen lassen sich nicht sperren - gefixt
+- System : Cookieinformation gefixt und erweitert
+- System : Sprachdateien gefixt
+- System : Session-System optimiert
+- System : Datenbank-API erweitert
+- System : SPAW-Editor aus dem Core entfernt(nicht PHP7-tauglich)
+- System : Editor tinyMCE dem Core hinzugefügt (V4.2.5)
+- System : prettyPhoto speichert seine Einstellungen jetzt in der DB
+- System : API - Funktionen aufgeräumt, alte Konstanten entfernt
+- System : tinyMCE-Editor dem Paket hinzu gefügt
+- System : Update upload.class auf 0.33
+- Setup  : Bugfix - fehlende Schreibberechtigungen des Rootverzeichnisses wurde nicht richtig angezeigt
+- Setup  : db-Anbindung komplett umgestellt
+- Setup  : verschiedene Funktionen angepasst
+- SETUP  : Ausgabe für Neuistallation geändert
+- Module : alle Paket-Module auf PHP7 umgestellt
+- Module : Documents - HTML-Fehler gefixt, HTML optimiert
+- Module : Ephemerids - neues Backend
+- Module : Legal komplett neu - Texte werden nicht mehr mitgeliefert
+- Module : Legal - Backend hinzu  
+- Admin  : Anzeige jQuery-Version im Dashbord neu
+- Admin  : Setban - neues Backend
+- Admin  : Hinweis in den Einstellungen zum Standard-Theme hinzu
+
+_____________________________________________
+01.05.2016 / 2.2.5. Bugfixes
+
+- Setup  : DB-Connect-Optionen angepasst 
+- Setup  : Überprüfung benötigter Schreibberechtigungen hinzu
+- Setup  : Beim Erstellen des God-Admin wurde die Userzuordnung gefixt
+- System : interne Blockfunktionen angepasst
+- System : verschiedene Konstanten angepasst
+- System : fehler in Sprachdateien gefixt
+- System : header - Ausgaben für Chrome-Browser gefixt
+- System : Settings - HTML-Tags aktualisiert
+- System : für Textarea - get_max_uploadsize() überarbeitet
+- System : Captcha-Settings gefixt #1631- leere Eingabefelder in Formular bringen das System zum Absturz
+- System : Theme "admin-pmx" - Anzeige gefixt
+- System : Filebrowser und Editor-System angepasst
+- System : Cookie-Hinweis hinzugefügt
+- Module : Web_Links - Adminbereich, automatisches Löschen defekter Links hinzu
+- Module : Newsletter - im Adminbereich Ausgabe gefixt
+- Module : Documents, fehler beim Kopieren eines Artikels behoben
+- Module : Documents, Erstellungsdatum editierbar - Zeitabhängige Artikel nun möglich
+
+___________________________________________
+12.08.2015 / 2.2.4. Release
+- System : Datenanbindung nochmals optimiert
+- System : Session-Funktionen optimiert
+- System : verschiedene Dateien bereinigt
+- System : Versionskontrolle angepasst
+- Setup  : verschiedene kleinere Fehler gefixt
+- Setup  : God-Admin-Erstellung - Fehler mit fehlender Session gefixt
+- Setup  : fehlen DB-Eintrag für Hooks hinzugefügt
+- System : Textarea- fehler bei fehlender congig gefixt
+- System : Headerdaten bereinigt und neu organisiert
+- System : API- mxPrepareToDisplay() Funktion optimiert
+- System : Header - metatag "viewport" hinzu
+- System : neues default-jQuery-Theme hinzu
+- Admin  : logfiles - zusätzlichen Button für "alles löschen" hinzu
+- Admin  : Login gefixt
+- Module : News - article.php - HTML bereinigt
+- Module : FAQ - jQuery-Slider wieder hinzugefügt
+- Module : Documents - für Verlinkung HTML angepasst
+- Module : Banner - Block-Fehler bei abgeschaltetem Modul gefixt
+- Module : Ency - Bugid:1626 - Sprach wird nicht in DB gespeichert gefixt
+- Module : Impressum - Ausgabe nun über mxPrepareToDisplay() 
+- Blocks : block-language - HTML gefixt
+- System : verschiedene Dateien optimiert und Nuke-Code gelöscht
+
+
+___________________________________________
+01.05.2015 / 2.2.3. Bugfix 
+- System : Datenanbindung erweitert. Auswahl zwischen mysql, mysqli, pdo
+- System : Funktionen Datenanbindung erweitert
+- System : Auswahl, ob Session in Datenbank oder Datei gespeichert werden soll
+- Admin  : Settings ergänzt
+- Setup  : Auswahl Datenanbindung hinzu
+- System : Debug um STOP-Funktion erweitert
+- System : AdminForm korrigiert und erweitert
+- Modul  : Ststistik korrigiert
+- Modul  : Documents - HTML-Fehler bereinigt - http://www.pragmamx.org/Forum-topic-34459-start-msg215004.html#msg215004
+
+___________________________________________
+20.03.15 / 2.2.2. Release
+- System : Datenbanksystem überarbeitet
+- System : Online-Zähler gefixt
+- System : Class Adminform korrigiert/erweitert
+- System : Fehler in SessionSystem gefixt
+- System : DB-Optimize Template gefixt
+- System : Mobile-Theme-Umschaltung angepasst
+- Admin  : Modules Who gefixt 
+
+___________________________________________
+14.01.2015  / 2.2.1. BETA
+- Modul  : Statistics - Bug: keine Zählung - gefixt
+- Admin  : Optimize - Template berichtigt
+- Admin  : Settings - Template berichtigt
+- Modul  : NEWS - Standardeinstellung Kommentare auf EIN zurückgestellt
+- Modul  : NEWS - vkp-Blocks berichtigt
+- Setup  : Sonderzeichenkonvertierung überarbeitet
+- Modul  : Yout_Account - defaultkonfiguration ausgelagert
+- Modul  : Documents - Datenanbindug gefixt
+- System : AdminForm erweitert um radiogroup
+- System : Chaptcha - Salt optimiert
+
+ 
+___________________________________________
+26.12.2014/ 2.2.0 BETA
+
+- Setup  : neue Datenbankanbindung
+- Setup  : umstellung auf PDO
+- Setup  : bugfix - Fehler bei php <5.3 - Setup startet nicht
+- Setup  : first.config.php angepasst und die Standardeinstellungen korrigiert
+- System : Blocks in DB mit Konfiguration speicherbar
+- System : Nuke-Komaptibilität aufgegeben, Dateien entfernt 
+- System : Umstellung auf PDO-Datenbankanbindung
+- System : neue Klasse für Datenbankanbindung
+- Admin  : Einstellungen aufgeräumt, neu sortiert und auf AdminForm umgestellt. 
+- Modul  : Content - Fehler bei Suche gefixt
+- Modul  : News-Modul - Fehler bei Druckausgabe gefixt
+___________________________________________
+01.11.2014/ 2.1.2 Bugfix Release
+
+- Grundsystem, neue ckEditor Version 4.4.5.
+- System: Erkennung von mobilen Geräten hinzu
+- System: Blockausgabe optimiert
+- AdminForm : Radiobutton gefixt
+- AdminForm : Filebrowser gefixt (http://www.pragmamx.org/Forum-topic-34463.html)
+- Modul: Web_links - Sprachkonstanten ergänzt
+- Modul: Documents - HTML-fehler gefixt
+- Modul: RSS - an Änderung Adminform(s.o.) angepasst
+- Modul: YourAccount : Fehler bei Passwortwechsel korrigiert
+- Admin: Themesverwaltung optimiert
+- Admin: separates Theme für mobile Geräte auswählbar
+- Admin: Fehler bei Useränderung korrigiert
+- Admin: Fehler beim Admin-Logout korrigiert
+- Setup: Version angepasst 
+- jQuery: Fehler im Datepicker korrigiert dd.mm.yy
+
+___________________________________________
+24.08.2014 / 2.1 Final Release
+
+- Grundsystem : Header-Response-Code kann nun angegeben werden
+- Klasse Header: an geänderte SEO-Konfiguration angepasst
+- Modul Rss : Fehler bei der Anzeige der Nachrichten gefixt
+- Modul RSS : CSS-Fehler bei Anzeige gefixt
+- Modul Documents : verschiedene HTML-Fehler gefixt 
+- Modul Documents : verschiedene Hooks hinzu
+- Setup : Korrigiert
+- versch. Dateien, HTML-Ausgabe optimiert und korrigiert
+- versch. Sprachdateien korrigiert und ergänzt
+___________________________________________
+01.06.2014 / 2.0 beta (sp04)
+
+- Grundsystem API, mxCheckEmail optimiert
+- Grundsystem, Demomodus komplett entfernt
+- Grundsystem, evtl. fehlende Server Variable SERVER_ADDR korrigiert
+- Grundsystem, neue elFinder Version 2.1-595cc96
+- Grundsystem, neue jQuery-Version 1.11.1
+- Grundsystem, utf-8 Konfiguration verbessert
+- Klasse AdminForm, Javascript Fehler korrigiert, wenn keine checklist aktiv
+- Klasse AdminForm, neuer Feldtyp "special" in add() Methode
+- Klasse Config, neue Methode get_defaults(), um Standardeinstellungen einzulesen, die im Unterordner Config abgelegt sind
+- Klasse Menü, Fehler beim automatischen Erstellen des templates behoben, zu bug-id: 1608
+- Klasse Menü, Pfad-Fehler aus letzter Änderung korrigiert
+- Klasse Template, kleine Korrekturen
+- Modul Documents, Fehler beim Upload von Dateien für lokale Server gefixt
+- Modul Documents, versch. optimierungen
+- Modul Surveys, Datum für erste Umfrage korrigiert
+- Modul rss, komplett neues Modul für rss-Feeds
+- Theme admin-pmx, unnötige Links im Kopfmenü auskommentiert
+- neues Admin Modul zur SEO-Konfiguration
+- neues Admin Modul, zur Themesverwaltung
+- neues Admin Modul, zur Verwaltung der Hooks
+- setup, Umgebungstest auf zip und pdo Erweiterung erweitert (optional)
+- setup, an geänderte SEO-Konfiguration angepasst, für Verwendung der Config-Klasse erweitert
+- setup, versch. Optimierungen um das Setup zu beschleunigen, unnötigen Kram entfernt
+- versch. Dateien, Anpassung an neue Themesverwaltung
+- versch. Dateien, Anpassung an neues rss-feed Modul
+- versch. Dateien, HTML-Ausgabe optimiert und korrigiert
+- versch. Dateien, an geänderte SEO-Konfiguration angepasst
+- versch. Sprachdateien korrigiert und ergänzt
+
+___________________________________________
+19.03.2014 / 2.0 beta (sp03)
+
+- Admin Modul authors, undef. Konstanten bei deinstallierten Modulen korrigiert, bug-id: 1597
+- Admin Modul logfiler, Pagination und Ajax-Anzeige eingebracht
+- Admin Modul optimize-db, Anzeige optimiert
+- Admin Modul referers, Anzeige optimiert und Sicherheitsabfrage beim löschen integriert
+- Admin Modul securelog, generalüberholt, zu bug-id: 1583
+- Admin Modul versioncheck, für unnötige Dateien erweitert, zu bug-id: 1571
+- Admin Modul versioncheck, Versionsinformationen werden gecached um die Ausgabe zu beschleunigen
+- block-AdminNews, unsinnige Links entfernt, zu bug-id: 1589
+- globales Stylesheet, kleine Optimierungen
+- Grundsystem API, neue Funktion mxCheckEmailBanned(), zu bug-id: 1591
+- Grundsystem API, neue Funktion pmx_html_passwordchecker()
+- Grundsystem API, stringmarker() korrigiert, zu bug-id: 1582
+- Grundsystem Captcha, kleine Optimierungen
+- Grundsystem Captcha, Konfiguration modularisiert, zu bug-id: 1446
+- Grundsystem mod_rewrite, neue Anzeigeseite für geänderte Artikel (Documents) hinzu
+- Grundsystem, Hook Funktionen vereinheitlicht, verbessert und erweitert
+- Grundsystem, jQuery, neuere und hübschere Version des Colorpickers eingebracht
+- Grundsystem, neue elFinder Version 2.1-9179bc7
+- Grundsystem, neue Version 5.2.7 des php mailers, ohne e-modifier Problem
+- Grundsystem, versch. Cache Einstellungen optimiert
+- Klasse Adminform, add > filebrowse korrigiert
+- Klasse Adminform, neue Version des Colorpickers eingebaut,
+- Klasse Adminform, Parameter $ffieldlen wurde nicht überall beachtet
+- Klasse Book, Modulname falsch zugewiesen, gefixt, bug-id: 1603
+- Klasse Book, Neues Dokument erstellen - optimiert
+- Klasse Exif, update Datumsumwandlung
+- Klasse Menü, Funktion get_block_instance() an Adminmenü angepasst
+- Klasse Template, Funktion find_language_template() optimiert
+- Klasse Template, neues Form-Plugin Colorpicker
+- Modul Documents, Update Importfunktion
+- Modul Encyclopedia, bugfix Speichern Text, bug-id: 1611
+- Modul Impressum, Adminlink im Frontend hinzu
+- Modul Impressum, Ausgabe komplett auf Template umgestellt
+- Modul Impressum, Verlinkung Systeminfos korrigiert und Links/Anzeige angepasst
+- Modul News, fehlerträchtige Verbindung zum Umfragen Modul vereinfacht
+- Modul Reviews, Fehler dass editierte Reviews als neu gespeichert werden behoben, bug-id: 1605
+- Modul Reviews, kleine Korrekturen, zu bug-id: 1602 u. 1605
+- Modul Search, komplett neu bzw. generalüberholt
+- Modul Statistics, besser modularisiert, per Hook
+- Modul Umfragen, komplett überarbeitet und verbessert
+- Modul Your_Account, richtig auf Template Klasse umgestellt
+- Module Sections und Encyclopedia, zusätzliches Datumsfeld für Suche
+- Neu, DEMO Leer Modul
+- rss-Feed (backend.php), Fehler in moduleerror() korrigiert
+- Seo-Sitemap (google-Sitemap) per Hooks modularisiert
+- Setup, alle Tabellen expliziet auf MyISAM Speicherengine stellen, bug-id: 1610
+- Setup, das löchen der griechischen Sprachdateien rausgenommen
+- Setup, Tabelle _sys_config als Systemtabelle deklariert
+- versch. Dateien, Pfad zur pragmaMx Doku korrigiert
+- versch. Dateien, php 5.4 Kompatibilität verbessert (e-modifier)
+- versch. Datenbanktabellen, Feldgrössen an IP v6 angepasst, bug-id: 1601
+- versch. Module, an geändertes Suchmodul angepasst
+- versch. Module, Fehler bei utf-8 Zeichen im Suchstring gefixt, bug-id: 1582
+- versch. Module, Mailadressen zusätzlich prüfen ob gesperrt ist, bug-id: 1591
+- versch. Sprachdateien korrigiert, auch zu bug-id: 1600
+- versch. Sprachdateien, Sprachkonstanten verschoben für bessere Modularität, bug-id: 1604
+- versch. Themes, Headmenü auf 'myCommunity' geändert, zu bug-id: 1607
+- versch. Themes, kleine Korrekturen
+- Wysiwyg Editor, ckEditor als Standard eingestellt
+- Wysiwyg Editor, elfinder in tinyMce Editor gangbar gemacht
+- Wysiwyg Editor, neue Version des ckEditors mit neuen Plugins
+- Wysiwyg Editor, tinyMce Editor gangbar gemacht und an Version 4.x angepasst
+
+___________________________________________
+14.02.2014 / 2.0 beta (sp02)
+- neue jQuery Version 1.11
+- Modul Impressum, kleine Korrekturen für Versionsüberwachung
+- Setup, weitere Korrekturen für mySql Strict Mode
+- Grundsystem CK-Editor, neue Version 4.3.2 mit neuen Plugins
+- Modul Documents, Konfiguration Defaultwerte wurden nicht richtig eingestellt, gefixt
+- Modul Encyclopedia, Crosslinker, Verlinkung gefixt, bug-id: 1599
+- Modul Encyclopedia, Verwendung der Sprachauswahl korrigiert, zu bug-id: 1596
+- theme admin-zio, Link zur Admihauptseite eingebracht
+- Module Encyclopedia und,Reviews, Alphabetauswahl besser an Mehrsprachigkeit angepasst, bug-id: 1587
+- Grundsystem Sprachdateien, zusätzliche Konstante _SPECIALCHARS_ONLY, zum definieren, ob die Sprache nicht den ASCII Zeichensatz enthält, z.B. Griechisch
+- Grundsystem, neue Option dass Login nur für einen PC/Browser gültig ist, an Einstellung für Sicherheitscookies gekoppelt
+- Modul Newsletter, Problem, dass vor abschicken des Formulars die email-Adresse gelöscht wird behoben
+- Blockadministration, Korrektur für News-Blockfile
+- Grundsystem, Scrollfunktion mxScrollContent() optimiert
+- versch. Sprachdateien korrigiert und ergänzt
+- Modul Content, Ausgabebereiche in CSS-Klassen geteilt
+- Theme admin-pmx, HTML-5 Elemente entfernt, damit das theme auch in IE-8 noch funktioniert
+- Block Sozial Netzwerk mehrsprachig ergänzt, bug-id: 1592
+- Modul Documents, Keywordanzeige gefixt
+- Modul Documents, Edit-Modus im Frontend angepasst
+- Modul Documents, Sonderzeichen-Fehler im Alphaindex behoben
+
+___________________________________________
+02.02.2014 / 2.0 beta (sp01)
+- Systemvoraussetzungen, Speicherlimit auf 32Mb gesetzt
+- Setup, Korrekturen für mySql Strict Mode
+- block-AdminNews, links geändert, zu bug-id: 1589
+- kleine Korrekturen in versch. Sprachdateien
+- globales Stylesheet, kleine Optimierungen
+- Moduladministration, Link zur jeweiligen Moduladministration in die Liste eingebaut
+- Benutzerlogin, logischen Fehler in Loginfunktion korrigiert
+- Documents Modul, versch. Bugfixe
+- Theme default-pmx, Stylesheet validiert und formatiert
+- Setup, Fehlermeldung wegen timezone korrigiert
+- Benutzerkonfiguration, Standardwert minpass auf 8
+- neue elFinder Version 2.1-f85a2bd
+
+___________________________________________
+28.01.2014 / 2.0 beta
+- erste Ausgabe
+
+
+
+
+______________________
+$Id: changes_2x.txt 243 2016-09-30 07:39:28Z PragmaMx $
