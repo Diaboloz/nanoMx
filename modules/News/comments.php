@@ -136,23 +136,18 @@ function replyPreview($errormessage = '')
     $pagetitle = _COMMENTREPLY . ': ' . $data['subject'];
     include('header.php');
     title(_COMREPLYPRE);
-    OpenTable();
     echo '
-      <ol style="margin:0; padding: 0; list-style: none;">
+      <ol style="list-style: none;" class="man pan">
         ' . commentview($data) . '
       </ol>';
-    CloseTable();
-    echo '<br />';
     if ($errormessage) {
-        openTableAl();
-        echo $errormessage;
-        closeTableAl();
-        echo '<br />';
+        echo '
+            <div class="alert alert-warning">
+                ' . $errormessage .' 
+            </div>';
     }
     title(_COMMENTREPLY . ': ' . $data['subject']);
-    OpenTable();
     commentform($data);
-    CloseTable();
     include('footer.php');
 }
 
@@ -171,7 +166,8 @@ function commentform($data)
 
     $captcha_object = load_class('Captcha', 'commentson');
 
-    echo '<form action="modules.php?name=' . $module_name . '&amp;file=article&amp;sid=' . $data['sid'] . '#comments" method="post" name="commentform">';
+    echo '
+        <form action="modules.php?name=' . $module_name . '&amp;file=article&amp;sid=' . $data['sid'] . '#comments" method="post" name="commentform" class="mx-form">';
     if (!$comments_use_subject) {
         echo '<input type="hidden" name="subject" value="" />';
     }
@@ -179,29 +175,51 @@ function commentform($data)
         echo '<input type="hidden" name="postername" value="' . htmlspecialchars($data['postername']) . '" />';
     }
 
-    echo '<table cellspacing="0" cellpadding="3" width="100%">';
+    echo '
+        <table class="w100">';
     if ($comments_use_subject) {
-        echo '<tr valign="top"><td><b>' . _SUBJECT . ':</b></td><td><input type="text" name="subject" size="50" maxlength="85" value="' . mxEntityQuotes($data['subject']) . '" /></td></tr>';
+        echo '
+            <tr>
+                <td>' . _SUBJECT . ':</td>
+                <td>
+                    <input type="text" name="subject" size="50" maxlength="85" value="' . mxEntityQuotes($data['subject']) . '" />
+                </td>
+            </tr>';
     }
 
-    echo "<tr valign=\"top\">
-    <td colspan=\"2\"><b>" . _UCOMMENT . ":</b>
-    <br />" . $editor->getHtml() . "</td></tr>";
+    echo "
+        <tr>
+            <td>" . $editor->getHtml() . "</td>
+        </tr>";
 
     if (!MX_IS_USER && $anonpost) {
-        echo '<tr valign="top"><td width="40%"><b>' . _YOURNAME . ':</b></td><td><input type="text" name="postername" value="' . mxEntityQuotes($data['postername']) . '" size="30" maxlength="25" /></td></tr>';
+        echo '
+        <tr>
+            <td>' . _YOURNAME . ':</td>
+            <td>
+                <input type="text" name="postername" value="' . mxEntityQuotes($data['postername']) . '" size="30" maxlength="25" />
+            </td>
+        </tr>';
     }
 
     if ($captcha_object->get_active()) {
-        echo '<tr valign="top"><td colspan="2">' . $captcha_object->image() . '</td></tr>';
-        echo '<tr valign="top"><td width="40%">' . $captcha_object->caption() . " </td><td>" . $captcha_object->inputfield() . "</td></tr>";
+        echo '
+            <tr>
+                <td>' . $captcha_object->image() . '</td>
+            </tr>
+            <tr>
+                <td>' . $captcha_object->caption() . " </td>
+                <td>" . $captcha_object->inputfield() . "</td>
+            </tr>";
     }
     echo '
-    <tr valign="top"><td colspan="2">
-    <input type="submit" name="op" value="' . _PREVIEW . '" />
-    <input type="submit" name="op" value="' . _OK . '" />';
+            <tr>
+                <td>
+                    <input type="submit" name="op" value="' . _PREVIEW . '" class="mx-button" />
+                    <input type="submit" name="op" value="' . _OK . '" class="mx-button mx-button-primary" />';
     if ($captcha_object->get_active()) {
-        echo "&nbsp;" . $captcha_object->reloadbutton() . "&nbsp;";
+        echo "
+            &nbsp;" . $captcha_object->reloadbutton() . "&nbsp;";
     }
     if ($wysiwyg) {
         echo '<input type="hidden" name="posttype" value="html" />';
@@ -214,10 +232,10 @@ function commentform($data)
     }
     echo '</td></tr>
     </table>
-    <input type="hidden" name="uid" value="' . $data['uid'] . '" /><br />
-    <input type="hidden" name="sid" value="' . $data['sid'] . '" /><br />
-    <input type="hidden" name="name" value="' . $module_name . '" /><br />
-    <input type="hidden" name="file" value="comments" /><br />
+        <input type="hidden" name="uid" value="' . $data['uid'] . '" /><br />
+        <input type="hidden" name="sid" value="' . $data['sid'] . '" /><br />
+        <input type="hidden" name="name" value="' . $module_name . '" /><br />
+        <input type="hidden" name="file" value="comments" /><br />
     </form>';
 }
 
