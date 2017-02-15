@@ -6,7 +6,5 @@ Disallow: /includes/
 Disallow: /language/
 Disallow: /modules/
 Disallow: /themes/
-Disallow: /upgrade/
-Disallow: /themecache/
 Disallow: /dynadata/
 Disallow: /setup/
