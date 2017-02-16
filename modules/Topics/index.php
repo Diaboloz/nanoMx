@@ -38,7 +38,7 @@ $tid = (empty($_REQUEST['tid'])) ? 0 : (int)$_REQUEST['tid'];
 if (empty($tid)) {
     $qry1 = "SELECT topicid, topicimage, topictext, Count(${prefix}_stories.sid) AS sidcount, Sum(${prefix}_stories.counter) AS allreads
 	        FROM ${prefix}_topics
-					LEFT JOIN ${prefix}_stories ON ${prefix}_topics.topicid = ${prefix}_stories.topic
+			LEFT JOIN ${prefix}_stories ON ${prefix}_topics.topicid = ${prefix}_stories.topic
 	        $qrylang1
 	        GROUP BY topicid, topicimage, topictext
 	        HAVING Count(${prefix}_stories.sid) > 0
@@ -73,10 +73,10 @@ if (($result1)) {
                     $topics["stories"] .= "<li><span class=\"content\">" . $storydate . "<a href=\"modules.php?name=News&amp;file=article&amp;sid=" . $story["sid"] . "\">" . $storytitle . "</a> </span>" . $cattitle . "</li>\n";
                 }
             } else {
-                $topics["stories"] = _TOPICS_NOSTORIES . " (SQL-Error)";
+                $topics['stories'] = _TOPICS_NOSTORIES . " (SQL-Error)";
             }
         } else {
-            $topics["stories"] = _TOPICS_NOSTORIES;
+            $topics['stories'] = _TOPICS_NOSTORIES;
             continue;
         }
         $topicimage = '';
@@ -86,43 +86,65 @@ if (($result1)) {
         if ($headlinecount == 0) {
             $useMxMiddlebox = 0;
             $topicimage = (empty($topicimage)) ? '<br /><br /><br />' : mxCreateImage($topicimage, _TOPICS_CLICKTO, 0, 'hspace="5" vspace="5"');
-            $out[$i] = '<div><a href="modules.php?name=News&amp;topic=' . $topics['topicid'] . '" title="' . _TOPICS_CLICKTO . '"><span class="title">' . $topics['topictext'] . '</span><br />';
-            $out[$i] .= $topicimage . '</a></div><br />';
-            $out[$i] .= '<span class="tiny">';
-            $out[$i] .= _TOPICS_ALLNEWS . ':&nbsp;<b>' . $topics['sidcount'] . '</b>&nbsp; ';
-            $out[$i] .= _TOPICS_ALLREADS . ':&nbsp;<b>' . $topics['allreads'] . '</b>';
-            $out[$i] .= '</span>';
+            $out[$i] = '
+				<div>
+					<a href="modules.php?name=News&amp;topic=' . $topics['topicid'] . '" title="' . _TOPICS_CLICKTO . '"><span class="title">' . $topics['topictext'] . '</span>
+						<br />
+						' . $topicimage . '
+					</a>
+				</div>
+				<br />
+				<span class="tiny">
+					' . _TOPICS_ALLNEWS . ':&nbsp;<b>' . $topics['sidcount'] . '</b>&nbsp;
+					' . _TOPICS_ALLREADS . ':&nbsp;<b>' . $topics['allreads'] . '</b>
+				</span>';
         } else if ($topicimageRight || !$showimage) {
             $topicimage = (empty($topicimage)) ? '' : mxCreateImage($topicimage, (($topics['sidcount'] > 1) ? _TOPICS_CLICKTO : ''), 0, 'align="right" hspace="5" vspace="5"');
-            $out[$i] = '<table width="100%" border="0" cellspacing="0" cellpadding="2">';
+            $out[$i] = '
+				<table>';
             if (!$useMxMiddlebox) $out[$i] .= '<tr><td colspan="3"><font class="title">' . $topics['topictext'] . '</font></td></tr>';
-            $out[$i] .= '<tr valign="top">';
-            $out[$i] .= '<td width="90%"><font class="tiny">';
-            $out[$i] .= _TOPICS_ALLNEWS . ':&nbsp;<b>' . $topics['sidcount'] . '</b>&nbsp;&nbsp;';
-            $out[$i] .= _TOPICS_ALLREADS . ':&nbsp;<b>' . $topics['allreads'] . '</b>';
-            $out[$i] .= '</font></td>';
-            $out[$i] .= '<td width="10%" align="right" nowrap="nowrap">' . (($topics['sidcount'] > 1) ? '<a href="modules.php?name=News&amp;topic=' . $topics['topicid'] . '" title="' . _TOPICS_CLICKTO . '">' . _TOPICS_READMORE . '</a>' : '') . '</td>';
-            $out[$i] .= '</tr>';
-            $out[$i] .= '<tr valign="top">';
-            $out[$i] .= '<td colspan="2">' . (($topics['sidcount'] > 1) ? '<a href="modules.php?name=News&amp;topic=' . $topics['topicid'] . '">' . $topicimage . '</a>' : $topicimage) . '<ul ' . $liststyle . '>' . $topics['stories'] . '</ul></td>';
-            $out[$i] .= '</tr>';
-            $out[$i] .= '</table>';
+            $out[$i] .= '
+				<tr>
+					<td>
+						<font class="tiny">
+							' . _TOPICS_ALLNEWS . ':&nbsp;<b>' . $topics['sidcount'] . '</b>&nbsp;&nbsp;
+							' . _TOPICS_ALLREADS . ':&nbsp;<b>' . $topics['allreads'] . '</b>
+						</font>
+					</td>
+					<td>
+						' . (($topics['sidcount'] > 1) ? '<a href="modules.php?name=News&amp;topic=' . $topics['topicid'] . '" title="' . _TOPICS_CLICKTO . '">' . _TOPICS_READMORE . '</a>' : '') . '
+					</td>
+				</tr>
+				<tr>
+					<td>
+						' . (($topics['sidcount'] > 1) ? '<a href="modules.php?name=News&amp;topic=' . $topics['topicid'] . '">' . $topicimage . '</a>' : $topicimage) . '<ul ' . $liststyle . '>' . $topics['stories'] . '</ul>
+					</td>
+				</tr>
+			</table>';
         } else {
             $topicimage = (empty($topicimage)) ? '<br /><br />' : mxCreateImage($topicimage, (($topics['sidcount'] > 1) ? _TOPICS_CLICKTO : ''), 0, 'hspace="5" vspace="5"');
-            $out[$i] = '<table width="100%" border="0" cellspacing="0" cellpadding="2">';
+            $out[$i] = '
+				<table>';
             if (!$useMxMiddlebox) $out[$i] .= '<tr><td colspan="3"><span class="title">' . $topics['topictext'] . '</span></td></tr>';
-            $out[$i] .= '<tr><td colspan="2" width="90%">';
-            $out[$i] .= '<span class="tiny">';
-            $out[$i] .= _TOPICS_ALLNEWS . ':&nbsp;<b>' . $topics['sidcount'] . '</b>&nbsp; ';
-            $out[$i] .= _TOPICS_ALLREADS . ':&nbsp;<b>' . $topics['allreads'] . '</b>';
-            $out[$i] .= '</span></td>';
-            $out[$i] .= '<td width="10%" align="right" nowrap="nowrap">' . (($topics['sidcount'] > 1) ? '<a href="modules.php?name=News&amp;topic=' . $topics['topicid'] . '" title="' . _TOPICS_CLICKTO . '">' . _TOPICS_READMORE . '</a>' : '') . '</td>';
-            $out[$i] .= '</tr>';
-            $out[$i] .= '<tr valign="top">';
-            $out[$i] .= '<td width="10%">' . (($topics['sidcount'] > 1) ? '<a href="modules.php?name=News&amp;topic=' . $topics['topicid'] . '">' . $topicimage . '</a>' : $topicimage) . '</td>';
-            $out[$i] .= '<td width="90%" colspan="2"><ul ' . $liststyle . '>' . $topics['stories'] . '</ul></td>';
-            $out[$i] .= '</tr>';
-            $out[$i] .= '</table>';
+            $out[$i] .= '
+				<tr>
+					<td>
+						<span class="tiny">
+							' .  _TOPICS_ALLNEWS . ':&nbsp;<b>' . $topics['sidcount'] . '</b>&nbsp;
+							' . _TOPICS_ALLREADS . ':&nbsp;<b>' . $topics['allreads'] . '</b>
+						</span>
+					</td>
+					<td>' . (($topics['sidcount'] > 1) ? '<a href="modules.php?name=News&amp;topic=' . $topics['topicid'] . '" title="' . _TOPICS_CLICKTO . '">' . _TOPICS_READMORE . '</a>' : '') . '</td>
+				</tr>
+				<tr>
+					<td>
+						' . (($topics['sidcount'] > 1) ? '<a href="modules.php?name=News&amp;topic=' . $topics['topicid'] . '">' . $topicimage . '</a>' : $topicimage) . '
+					</td>
+					<td>
+						<ul ' . $liststyle . '>' . $topics['stories'] . '</ul>
+					</td>
+				</tr>
+			</table>';
         }
         $thetitle[$i] = $topics["topictext"];
         $i++;
@@ -143,11 +165,14 @@ if (empty($out) || isset($topicerr)) {
         </div>';
 } else {
     $tdwidth = (int)(100 / $columnscount);
-    echo "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n<tr valign=\"top\">\n";
+    echo '
+		<table>
+			<tr>';
     $tdcount = 0;
     for($i = 0; $i < count($out); $i++) {
         $tdcount++;
-        echo "<td width=\"" . $tdwidth . "%\">\n";
+        echo '
+			<td width="' . $tdwidth . '%\">';
         if ($useMxMiddlebox) {
             $block['title'] = $thetitle[$i];
             $block['content'] = $out[$i];
@@ -157,33 +182,38 @@ if (empty($out) || isset($topicerr)) {
         } else {
             echo $out[$i];
         }
-        echo "</td>";
+        echo '
+			</td>';
         if (!(($i + 1) % $columnscount)) {
-            echo "</tr>\n<tr valign=\"top\">";
+            echo '
+				</tr>
+				<tr>';
             $tdcount = 0;
         }
     }
     $colspan = $columnscount - $tdcount;
     if ($colspan && $colspan < $columnscount) {
-        echo "<td colspan=\"$colspan\">&nbsp;</td>\n";
+        echo '
+			<td colspan="' . $colspan . '">&nbsp;</td>';
     } else {
-        echo "<td>&nbsp;</td>\n";
+        echo '
+			<td>&nbsp;</td>';
     }
-    echo "</tr></table>\n";
+    echo '
+		</tr>
+	</table>';
 }
 
 if (mxModuleAllowed('Search') && mxModuleAllowed('News')) {
-    echo "<br />\n";
-    OpenTable();
-    echo "<div align=\"center\">"
-     . "<form action=\"modules.php?name=Search\" method=\"get\">"
-     . "<span class=\"content\">" . _TOPICS_SEARCH . "&nbsp;&nbsp;"
-     . "<input type=\"hidden\" name=\"name\" value=\"Search\" />"
-     . "<input type=\"hidden\" name=\"m\" value=\"News\" />"
-     . "<input type=\"text\" name=\"q\" size=\"30\" />&nbsp;&nbsp;"
-     . "<input type=\"submit\" value=\"" . _SEARCH . "\" />"
-     . "</span></form></div>\n";
-    CloseTable();
+    echo '
+		<form action="modules.php?name=Search" method="get">
+			<span class="content">' . _TOPICS_SEARCH . '&nbsp;&nbsp;
+				<input type="hidden" name="name" value="Search" />
+				<input type="hidden" name="m" value="News" />
+				<input type="text" name="q" size="30" />&nbsp;&nbsp;
+				<input type="submit" value="' . _SEARCH . '" />
+			</span>
+		</form>';
 }
 
 include 'footer.php';
