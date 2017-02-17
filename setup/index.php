@@ -108,14 +108,15 @@ switch ($_REQUEST["op"]) {
             </div>';
         } else {
 			
-			$msg = '<div style="text-align:center;"><h2 style="text-align:center;font-size:1.5em;">Welcome - Wilkommen - Bienvenue - Velkommen - Merhaba</h2></div><br /><ul>';
+			$msg = '<div style="text-align:center;"><h2 style="text-align:center;font-size:1.5em;">Welcome - Wilkommen - Bienvenue - Velkommen - Merhaba</h2></div><ul>';
 			if (!@file_exists(FILE_CONFIG_ROOT)) {	
-				$msg .='<ul>
-				<li><b>pragma<span style="color:#799d24;">M</span>x </b>seems not to be installed correctly, or you\'re running pragmaMx for the first time. <br />&nbsp;</li>
-				<li><b>pragma<span style="color:#799d24;">M</span>x </b>scheint nicht korrekt installiert zu sein oder Sie starten pragmaMx zum erstem Mal. <br />&nbsp;</li>
-				<li><b>pragma<span style="color:#799d24;">M</span>x </b>semble ne pas &ecirc;tre install&eacute; correctement, ou vous ex&eacute;cutez pragmaMx pour la premi&egrave;re fois. <br />&nbsp;</li>
-				<li><b>pragma<span style="color:#799d24;">M</span>x </b>düzgün kurulmam&#305;&#351; veya ilk defa pragmaMx &#231;al&#305;&#351;t&#305;r&#305;yorsunuz. <br />&nbsp;</li>
-				</ul><br>';		
+				$msg .='
+        <ul>
+				  <li>nanoMx seems not to be installed correctly, or you\'re running pragmaMx for the first time. <br />&nbsp;</li>
+				  <li>nanoMx scheint nicht korrekt installiert zu sein oder Sie starten pragmaMx zum erstem Mal. <br />&nbsp;</li>
+				  <li>nanoMx semble ne pas &ecirc;tre install&eacute; correctement, ou vous ex&eacute;cutez pragmaMx pour la premi&egrave;re fois. <br />&nbsp;</li>
+				  <li>nanoMx düzgün kurulmam&#305;&#351; veya ilk defa pragmaMx &#231;al&#305;&#351;t&#305;r&#305;yorsunuz. <br />&nbsp;</li>
+				</ul>';		
 			}
             $goto = 'index.php?op=check';
             $langlist = mxGetAllLanguages($goto, 'language');

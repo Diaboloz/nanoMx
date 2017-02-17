@@ -21,7 +21,6 @@ div#inline-1 h3 {
 .wrap {
   background-color: #ffffff;
   border: 10px solid #424242;
-  border-radius: 10px;
   box-shadow: #000000 0 0 10px 0;
   color: inherit;
   margin-bottom: 30px;
@@ -29,27 +28,25 @@ div#inline-1 h3 {
   padding: 20px;
 }
 
-div.header {
-  border-bottom: 3px solid #8fab28;
+header {
+  border-bottom: 3px solid #6cb0e9;
   display: block;
   margin-bottom: 25px;
   padding-bottom: 20px;
   position: relative;
 }
 
-div.header a#logo {
+header a#logo {
   background: url("../images/logo.png") no-repeat 0 0;
   display: block;
-  height: 66px;
+  height: 74px;
   margin-left: 10px;
   text-indent: -9999px;
-  width: 491px;
+  width: 320px;
 }
 
-div.header h1 {
+header h1 {
   background-color: #424242;
-  border-radius: 6px;
-  box-shadow: #000000 1px 1px 3px;
   color: #cecece;
   font-size: 20px;
   font-weight: normal;
@@ -82,7 +79,7 @@ div.section h2 {
   padding-right: 0;
 }
 
-div.footer {
+footer {
   background-color: #424242;
   color: inherit;
   display: block;
@@ -90,12 +87,11 @@ div.footer {
   padding-top: 15px;
 }
 
-div.footer p {
+footer p {
   background-color: transparent;
   color: #aaaaaa;
   font-size: 12px;
   margin: 0 0 0 20px;
-  text-shadow: 0 -1px 0 #000000;
 }
 
 /*---------------------------------------------------------------

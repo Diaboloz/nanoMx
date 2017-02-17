@@ -401,11 +401,11 @@ class admin_chmods{
             'includes/classes/Captcha/settings.php',
             'includes/prettyPhoto/config.php',
 			'modules/Your_Account/config.php',
-            'modules/Downloads/d_config.php',
-            'modules/Guestbook/include/config.inc.php',
-            'modules/My_eGallery/settings.php',
-            'modules/UserGuest/settings.php',
-            'modules/Web_Links/l_config.php',
+            /*'modules/Downloads/d_config.php',*/
+            /*'modules/Guestbook/include/config.inc.php',*/
+            /*'modules/My_eGallery/settings.php',*/
+            /*'modules/UserGuest/settings.php',*/
+            /*'modules/Web_Links/l_config.php',*/
             
             );
 
