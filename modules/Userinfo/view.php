@@ -262,29 +262,31 @@ function viewuserinfo($uinfo)
 
         <?php if ($istheuser) {
             echo '       
-                <p><a href="modules.php?name=Your_Account&amp;op=logout">' . _LOGOUTEXIT . ' -></a></p>';
+                <p><a href="modules.php?name=Your_Account&amp;op=logout" class="mx-button">' . _LOGOUTEXIT . '</a></p>';
         }?>
         </div>
-    </div>
-    <div class="mx-u-10 mx-u-md-10-24">
-    	
+    </div>    	
     <?php
+    if (!empty($uinfo['bio']) OR !empty($uinfo['user_sig'])) {
+        echo '
+         <div class="mx-u-10 mx-u-md-10-24">';
+    }
+
     	if (!empty($uinfo['bio'])) {
     	 	echo '
-    	 		<h4 class="resume">' . _EXTRAINFO . '</h4>';
-            echo '
+    	 		<h4 class="resume">' . _EXTRAINFO . '</h4>
             	<p class="pls prs"> '. mxNL2BR(mxPrepareToDisplay($uinfo['bio'])) .'</p>';
         }?>
-        <h3>
      <?php
     	 if (!empty($uinfo['user_sig'])) {
     	 	echo '
-    	 		<h4 class="resume">' . _SIGNATURE . ':</h4>';
-            echo '
+    	 		<h4 class="resume">' . _SIGNATURE . ':</h4>
             	<p class="pls prs">' . $uinfo['user_sig'] . '</p>';
-        }?> 
-        </h3>      
-    </div>
+        }
+     if (!empty($uinfo['bio']) OR !empty($uinfo['user_sig'])) {
+        echo '
+         </div>';
+    } ?>      
     <div class="mx-u-8 mx-u-md-8-24">
         <ul class="profil-items">
         <?php foreach ($items as $item) { ?>
@@ -301,7 +303,7 @@ function viewuserinfo($uinfo)
         if ($admin) {
             echo '
             	<hr />
-                <p class="txtcenter big">[&nbsp;<a href="' . adminUrl('users', 'modify', 'chng_uid=' . $uinfo["uid"]) . '">' . _YA_EDITUSER . '</a>&nbsp;]</p>';
+                <p class="txtcenter"><a href="' . adminUrl('users', 'modify', 'chng_uid=' . $uinfo["uid"]) . '" class="mx-button button-small">' . _YA_EDITUSER . '</a></p>';
         } ?>
     </div>
 </div>
@@ -349,28 +351,28 @@ function viewuserinfo($uinfo)
         $view2 = sql_num_rows($result2);
 
         if ($view1 || $view2) {
-            echo '<br />';
             echo '
-				<table width="100%" border="0" cellspacing="0" cellpadding="5">
-					<tr>';
+                <div class="mx-g">';
             if ($view2) {
-                echo '
-						<td valign="top"><b>' . _LAST10SUBMISSIONS . ' ' . $uinfo['uname'] . ':</b>
-							<ul>';
+                echo '  
+                    <div class="mx-u-1-2 pam">
+						<h4>' . _LAST10SUBMISSIONS . ' ' . $uinfo['uname'] . '</h4>
+						<ul>';
                 while (list($sid, $title) = sql_fetch_row($result2)) {
                     echo '
-						<li>
-							<a href="modules.php?name=News&amp;file=article&amp;sid=' . $sid . '">' . $title . '</a>
-						</li>';
+						  <li>
+						      	<a href="modules.php?name=News&amp;file=article&amp;sid=' . $sid . '">' . $title . '</a>
+						  </li>';
                 }
                 echo '
-							</ul>
-						</td>';
+						</ul>
+					</div>';
             }
             if ($view1) {
                 echo '
-					<td valign="top"><b>' . _LAST10COMMENTS . ' ' . $uinfo['uname'] . ':</b>
-				<ul>';
+                    <div class="mx-u-1-2 pam">
+					   <h4>' . _LAST10COMMENTS . ' ' . $uinfo['uname'] . '</h4>
+				        <ul>';
                 while (list($tid, $sid, $subject, $comment) = sql_fetch_row($result1)) {
                     $subject = strip_tags($subject);
                     $subject = (empty($subject)) ? mxCutString(strip_tags($comment), 50) : $subject;
@@ -380,12 +382,11 @@ function viewuserinfo($uinfo)
                     }
                 }
                 echo '
-					</ul>
-				</td>';
+					   </ul>
+				    </div>';
             }
             echo '
-				</tr>
-			</table>';
+			     </div>';
         }
     }
 
