@@ -298,7 +298,7 @@ function viewuserinfo($uinfo)
         </ul>
         <?php if ($istheuser) {
             echo '       
-                <p class="small fr">* ' . _YA_ONLYYOUSEE . '!</p>';
+                <p class="small txtright">* ' . _YA_ONLYYOUSEE . '!</p>';
         }
         if ($admin) {
             echo '
