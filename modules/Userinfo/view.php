@@ -262,8 +262,12 @@ function viewuserinfo($uinfo)
 
         <?php if ($istheuser) {
             echo '       
-                <p><a href="modules.php?name=Your_Account&amp;op=logout" class="mx-button">' . _LOGOUTEXIT . '</a></p>';
-        }?>
+                <p><a href="modules.php?name=Your_Account&amp;op=logout" class="mx-button mx-button-primary">' . _LOGOUTEXIT . '</a></p>';
+        }
+             if ($admin) {
+            echo '
+                <p><a href="' . adminUrl('users', 'modify', 'chng_uid=' . $uinfo["uid"]) . '" class="mx-button mx-button-primary">' . _YA_EDITUSER . '</a></p>';
+        } ?>
         </div>
     </div>    	
     <?php
@@ -298,13 +302,9 @@ function viewuserinfo($uinfo)
         </ul>
         <?php if ($istheuser) {
             echo '       
-                <p class="small txtright">* ' . _YA_ONLYYOUSEE . '!</p>';
-        }
-        if ($admin) {
-            echo '
-            	<hr />
-                <p class="txtcenter"><a href="' . adminUrl('users', 'modify', 'chng_uid=' . $uinfo["uid"]) . '" class="mx-button button-small">' . _YA_EDITUSER . '</a></p>';
+                <p class="small fr">* ' . _YA_ONLYYOUSEE . '!</p>';
         } ?>
+
     </div>
 </div>
 </div>
