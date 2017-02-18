@@ -260,6 +260,15 @@ function viewuserinfo($uinfo)
             <div class="clear"></div>
         <?php } ?>
 
+                    <div class="social clearfix">
+                        <ul>
+                            <li><a href=""><?php echo mxCreateImage("modules/Your_Account/images/facebook.png", '' , 0, 'title="facebook"'); ?></a></li>
+                            <li><a href=""><?php echo mxCreateImage("modules/Your_Account/images/twitter.png", '' , 0, 'title="twitter"'); ?></a></li>
+                            <li><a href=""><?php echo mxCreateImage("modules/Your_Account/images/linkedin.png", '' , 0, 'title="linkedin"'); ?></a></li>
+                            <li><a href=""><?php echo mxCreateImage("modules/Your_Account/images/google-plus.png", '' , 0, 'title="google-plus"'); ?></a></li>
+                            <li><a href=""><?php echo mxCreateImage("modules/Your_Account/images/rss.png", '' , 0, 'title="rss"'); ?></a></li>
+                        </ul>
+                    </div>
         <?php if ($istheuser) {
             echo '       
                 <p><a href="modules.php?name=Your_Account&amp;op=logout" class="mx-button mx-button-primary">' . _LOGOUTEXIT . '</a></p>';

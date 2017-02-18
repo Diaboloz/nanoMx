@@ -153,6 +153,19 @@ img.userpic {
 	font-weight: normal;
 }
 
+.social ul {
+    margin-left: 1em;
+}
+
+.social ul li {
+    display: inline-block;
+    width: 18%;
+    margin: 0 2% 2% 0;
+    float: left;
+}
+.social img {
+    max-width: 100%;
+}
 
 .mod-Your_Account ul  {
   list-style: none;
