@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>mxBoard - Vor der Installation</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+/*<![CDATA[*/
+  div.c1 {text-align: left}
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" href="../../../../layout/style/style.css.php" type="text/css" />
+</head>
+
+<body class="allone">
+  <table cellpadding="2" cellspacing="2" border="0" width="95%" align="center">
+    <tbody>
+      <tr>
+        <td valign="top"><img src="../../images/mxboard_logo.png" alt="pragmaMx Modul" width="265"
+        height="63" border="0" /><br /></td>
+
+        <td valign="top" align="right"><strong><big>mxBoard Manual</big></strong><br />
+        <br /></td>
+      </tr>
+    </tbody>
+  </table><br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <strong><big>1.1 Vor der Installation</big></strong><br />
+  <br />
+  Hier sind einige Punkte aufgeführt, auf die vor der Installation geachtet werden muß:<br />
+  <br />
+  <br />
+  <strong><em>Kompatibilität und Installationsvoraussetzungen:</em></strong><br />
+
+  <ol>
+    <li>Das mxBoard ist ausschließlich für <strong>pragmaMx</strong> 1.12 und höher entwickelt
+    worden. Es wird <strong>KEIN SUPPORT FÜR ANDERE CMS</strong> betrieben. Sollten Sie das
+    mxBoard also auf einem anderen CMS nutzen wollen, so müssen Sie es dort selbst
+    implementieren.</li>
+
+    <li>Das Forum wurde auf den PHP-Versionen 5.2.x - 5.3.1 getestet. Bei anderen PHP-Versionen
+    kann keine Aussage über die volle Funktionstüchtigkeit gemacht werden.</li>
+
+    <li>Um alle Funktionen nutzen zu können, sollte auf dem System das Verschicken von Emails via
+    PHP gestattet sein (die meinsten Provider erlauben dies, es gibt jedoch auch einige, die das
+    bewußt unterbinden). Sollte dieser Service nicht unterstützt werden, so funktioniert die
+    gesamte Benachrichtigungsfunktion des Forums per Email nicht. Dies ist kein Funktionsfehler des
+    mxBoard-Modules!<br /></li>
+
+    <li>Zur Installation sind Administratorrechte auf dem pragmaMx-System erforderlich.</li>
+
+    <li>Es muß Zugriff auf die SQL-Datenbank bestehen.</li>
+  </ol><br />
+  <strong><em>Das Hochladen der Dateien:</em></strong><br />
+
+  <ol>
+    <li>Den Inhalt des "html"-Ordners in das pragmaMx-Rootverzeichnis kopieren.</li>
+
+    <li>Dateirechte für die folgenden Dateien per <strong>chmod ändern auf 664 bzw 666</strong>
+    (bei Providern wie Puretech, Strato und co. kann ggf auch 777 erforderlich sein!):
+    <strong>settings.php</strong></li>
+  </ol><br />
+  <strong><em>Was bei einem Upgrade des XForums auf das mxBoard zu beachten
+  ist:</em></strong><br />
+
+  <ol>
+    <li>Das XForum-Modul muß noch bis zum Abschluß der Installation vorhanden sein da die
+    "settings.php" aus diesem Verzeichnis für das Update benötigt wird.</li>
+
+    <li>In der "settings.php" MUSS unter "Volle Seiten URL:" der richtige Webpfad zum
+    pragmaMx-System stehen (die URL, unter der das pragmaMx-System direkt zu erreichen ist). Sollte
+    hier eine Domain stehen, die einfach nur weitergeleitet wird z.B. auf eine feste IP, so ist vor
+    Beginn des Upgrades hier bitte die IP-Adresse des Forums einzutragen (Pfad zum
+    pragmaMx-Rootverzeichnis, endend MIT einem "/").<br /></li>
+
+    <li><strong>UNBEDINGT EIN BACKUP DER DATENBANK VOR DEM UPDATE ANLEGEN!</strong> Das mxBoard
+    ändert die gesamte Datenbankstruktur des alten XForums. Dies lief bis jetzt immer ohne
+    jegliche Probleme, doch wir wollen vermeiden, das Ihre Datenbank das erste Problem ist und alle
+    Daten verloren sind! Daher bietet das Install-Script während der Installation auch die
+    Möglichkeit an, die "BackupDB"-Funktion aus dem Admin-Menü zu starten und somit die gesamte
+    pragmaMx-DB zu sichern. Warum die ganze DB? Ganz einfach: läuft etwas schief, muß man nicht
+    aufwendig nur die Forums-DB, ersetzen sondern spielt einfach das ganze pragmaMx-System neu ein.
+    Das ist i.d.R. auch unkomplizierter als einzelne Tabellen zu ersetzen. Obwohl es mit der
+    BackupDB-Funktion aus dem Admin-Menü noch keine Probleme gegeben hat, empfiehlt es sich
+    trotzdem, noch ein zusätzliches Backup der DB mit phpMyAdmin oder ähnlichen Programmen zu
+    machen (einfach zur Sicherheit).</li>
+
+    <li>Alle Links auf das alte Forum (modules.php?name=XForum), die sich auf Ihrer Seite befinden
+    müssen in "modules.php?name=mxBoard" geändert werden. Bitte übersehen Sie das nicht, weil
+    sonst Ihre Benutzer keinen Zugriff mehr auf das Forum haben. Denn das XForum kann mit der neuen
+    Datenbank des mxBoards nicht mehr arbeiten.<br /></li>
+  </ol><br />
+  <strong><em>Weitere Informationen:</em><br /></strong><br />
+  Standardmäßig ist der Modul-Name nicht auf "mxBoard" festgelegt, der Ordner kann beliebig
+  umbenannt werden. Das hat den Vorteil, daß mehrere Foren total unabhängig voneinander laufen
+  können und so auch für unterschiedliche Benutzergruppen freischaltbar sind. Sollten Sie den
+  Modul-Namen geändert haben, müssen sie dieses auch in dem Forum-Centerblock machen, so Sie
+  diesen für dieses Modul nutzen möchten.<br />
+  <br />
+  <br />
+  <br />
+
+  <div class="c1">
+    &lt;<a href="../index_de.html">letzte Seite</a>&gt; &lt;<a href="install_de.html">nächste
+    Seite - 1.2 Installation</a>&gt;<br />
+    <br />
+  </div><br />
+  <br />
+  <br />
+  <br />
+  <br />
+</body>
+</html>

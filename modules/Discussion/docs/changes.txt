@@ -1,0 +1,139 @@
+mxBoard/mxBoard Changelog
+------------------------
+mxBoard 2.1 / 01.05.2015 
+
+- Anpassung komplett an pragmaMx 2.2. ff.
+- an globales Stylesheet angepasst
+- neues Theme 'default' hinzu, welches sich komplett an das pmx-Theme anpasst
+- sql-Anbindung komplett über pmx
+
+mxBoard 1.2 / 12.10.2011 - RC 01
+
+- Anpassung komplett an pragmaMx 1.12
+- an globales Stylesheet angepasst
+- Captchas eingebaut, bug-id: 534
+- Benutzerbildfunktionen von pragmaMx 1.12 verwenden
+- Userprofil komplett in YA Modul integriert
+- besser an PHP 5.3 angepasst und PHP strict mode verbessert
+- Adminname wird im Profil nicht mehr verwendet
+- Umstellung auf XHTML
+- neuer Centerblock im pragmaMx Design
+- Setup, vollständig erneuert
+- redundante Profildaten wie z.B. ICQ entfernt
+- Link auf Userprofil wird auf Gültigkeit geprüft
+- Aufruf von bbrules mit theme-Parameter
+- Aufruf von popsmilies.php mit Theme-Parameter
+- bbCode Interpretation per CSS verbessert, bug-id: 418
+- Blöcke überarbeitet, zu bug-id: 1312 / 1313
+- Buddy-Popup vergrössert
+- Credits korrigiert
+- doppelte Sprachkonstanten entfernt, bug-id: 1095
+- falschen Variablentyp in Sprachkonstante behoben, bug-id: 1315
+- fehlende Datumsformatierung in Regdate gefixt, bug_id: 427,
+- Fehlermeldung von getimagesize in Funktion mxbGetImage() behoben
+- Link zu Doku korrigiert
+- neue Standardwerte
+- New modern bb_icon by radium & famfamfam
+- php u. html Code etwas übersichtlicher gestaltet
+- Problem mit HTML-Option und Code behoben, bug-id: 739
+- Probleme bei eingeschaltetem gzip behoben
+- Sprachdateien, einige Korrekturen durchgeführt
+- türkische Buttons optimiert (navruz)
+- versch. Änderungen damit Demomodus besser beachtet wird
+- versch. Konstanten u. Variablen einheitlicher benannt
+
+
+
+mxBoard 1.1 / 14.04.2007
+
+- versch. Auswahlfelder in Formularen optimiert
+- Bug beim verlinken von allen Topis und Foren gefixt, bug_id: 273
+- Seitennavigation optimiert und title-Attribute zugefügt
+- Fehler bei Benachrichtigung gefixt, wenn ungültige Daten des Mailempfängers vorhanden.
+- Useradministration, Auswahlfeld für Userstatus optimiert, dass nur noch die wirklich möglichen Optionen angezeigt werden
+- versch. alte Nuke Funktionen durch pragmaMx Funktionen ersetzt
+- Problem mit mehrfach angezeigter Seitennavigation in Foreanansicht gefixt, bug-id: 268 (http://www.pragmamx.org/Forum-topic-17813.html)
+- Seitennavigation in Thread und Forenansicht optimiert und title-Attribute zugefügt
+- Problem mit verlorenen Posts bei deaktivierten Useraccounts gefixt, bug-id: 311 (http://www.pragmamx.org/forum-topic-19127.0.html)
+- Problem mit Leerzeichen in Administratornamen gefixt, bug-id: 361 (http://www.pragmamx.org/forum-topic-19188.0.html) 
+- undef. Variable gefixt, bug-id: 284
+- Option, um Onlineanzeige auf Forum zu beschränken, eingeführt, bug-id: 267 (http://www.pragmamx.org/Forum-topic-17807.html)
+- kleinere Korrekturen in den Sprachdateien und teilweise besser eingedeutscht
+- versch. kleine Fehler in Dokumentation behoben und Links angepasst
+- mod_rewrite Funktion umgebaut, so dass die Autoumschreibung vom pragmaMx verwendet wird
+
+
+mxBoard 1.0 / 23.07.2006
+- nicht mehr zu phpNuke kompatibel
+- Sicherheitsproblem mit User-Access Liste gefixt
+- Probleme mit Zugriffsrechten bei privaten Foren gefixt
+- Forenadministration komplett überarbeitet, dabei:
+  - Foren und Subforen können jetzt auch in andere Ebenen verschoben werden
+  - scheinbar verlorene Foren werden automatisch wieder sichbar gemacht
+  - Angabe der Reihenfolgen verbessert
+  - löschen von Foren verbessert
+  - bessere Gliederung der Eingabefelder
+- Das "Moderatoren-Handling" und Berechtigungen überarbeitet
+- Online-Anzeige wird vom Portal übernommen
+- Themeverwaltung komplett überarbeitet
+- Smiliesverwaltung komplett überarbeitet
+- bbCode Funktionen komplett ausgetauscht und verbessert
+- dabei Zitatfunktion um Username und Datum erweitert
+- smilie und bbCode Anzeige in Postings optimiert, Fehleingaben werden besser behandelt
+- komplett neue Grafiken mehrsprachig in 6 versch. Farbsets, by Henne
+- komplett neue Themes in frischem Design, by Henne
+- Themes auf Templatebasis, kompatibel zu theme-Engine
+- komplett neues Smilieset in modernerem Design
+- etliche HTML-Fehler gefixt, Forum ist fast valide
+- etliche PHP-Syntaxfehler gefixt (nicht alle, aber fast)
+- Spracheinstellung optimiert
+- versch. Fehler in den Vorschau-Anzeigen gefixt
+- die Eingabeformulare weiter vereinheitlicht und optimiert
+- gröbere Patzer und kleine Fehler in den Sprachdateien korrigiert
+- komplett neue französische Sprachdatei, thx. Diabolo, deutsche Sprachdateien besser "eingedeutscht"
+- beim Schreiben von Beiträgen, gehen bei Fehlermeldungen die bisherigen Eingaben nicht mehr verloren
+- Boardregeln, auch als normale Seite anzeigbar
+- Threadsortierung in der Forenübersicht optimiert, verlinkte threads werden korrekt einsortiert
+- Fehlerhafte Löschfunktion von Beiträgen gefixt
+- korrekte Footeranzeige bei versch. Statusmeldungen und Statusmeldungen insgesamt verbessert
+- verlorene Posts werden nicht mehr angezeigt, wenn Forums-ID ungültig
+- beim Ändern des Standardthemes, werden alle Userthemes zurückgesetzt
+- zählen der User-Posts gefixt
+- Prioritäten werden beim editieren korrekt vorselektiert
+- Quickjumper verlinkt auch in Kategorien
+- Quickjumper in Session komprimiert
+- topped und linked Anzeige mit Grafiken
+- Usertheme wird beim Neuerstellen des Users nicht mehr gespeichert
+- versch. unsinnige Umleitungen nach Formulareingaben geändert
+- Signaturvorschau im Userprofil
+- etliche mxBoard-spezifische Funktionen durch die entsprechenden pragmaMx Funktionen ersetzt
+- keine Anzeige und Benachrichtigung mehr, von gelöschten oder deaktivierten Usern
+- vorherige Posts auch in Vorschau anzeigen
+- Fehlermeldung bei Datenbankproblemen wegen falschen Settings zugefügt
+- Begrenzung für Suchresultate eingebaut
+
+
+mxBoard 1.1.b / 2.4.2006
+- Sicherheitsproblem mit User-Access Liste gefixt
+
+
+mxBoard 1.1.a / 9.4.2005
+- Kompatibilität mit PHP5 verbessert
+- Problem mit fehlenden oder falschen Posticons gefixt
+- Bildgrösse und Titel bei PostSmilies und anderen Images zugefügt (nur vkpMx)
+- fehlende smiliesliste in versch. Ansichten gefixt
+- Copyrighthinweis verkleinert
+- Problem mit unabsichtlicher Deaktivierung des Boards gefixt
+- Spracheinstellung für anonyme Besucher wird vom System übernommen
+- kleinere Datenbankoptimierungen
+- versch. Probleme mit Smilies und bbCode gefixt
+- versch. Fixes gegen 'theoretische' Sicherheitslöcher
+- versch. undefinierte Variablen gefixt
+- PHP Short Open Tags entfernt
+- Behandlung der mxBoard-Tabellennamen verbessert
+- Verwendung der normalen sql_layer.php für Datenbankabfragen
+- kleiner Fehler im Defaulttheme gefixt
+- kleine Fehlerbereinigungen in der PHP-Syntax
+- versch. kleine Optimierungen in der HTML-Ausgabe
+- versch. Grundeinstellungen bei Installation geändert
+- Fehler dass Optionen beim Ändern des Posts verloren gehen, gfixt

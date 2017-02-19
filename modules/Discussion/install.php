@@ -3,9 +3,9 @@
  * mxBoard, pragmaMx Module
  * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
  *
- * $Author: tora60 $
- * $Revision: 1.36 $
- * $Date: 2011-10-13 17:37:27 $
+ * $Author: PragmaMx $
+ * $Revision: 179 $
+ * $Date: 2016-07-05 15:00:35 +0200 (mar. 05 juil. 2016) $
  *
  * based on eBoard v1.1, rewrite and modified by
  * vkpMx-Developer-Team (http://www.maax-design.de)
@@ -23,9 +23,9 @@ defined('mxMainFileLoaded') or die('access denied');
 
 /* check ob die verwendete pragmaMx Version korrekt ist */
 (defined('PMX_VERSION') && version_compare(PMX_VERSION, '1.12', '>=')) or
-die('Sorry, pragmaMx-Version >= 1.12 is required for mxBoard.');
+die('Sorry, pragmaMx-Version >= 2.0 is required for mxBoard.');
 
-/* nur Sysadmins dürfen das */
+/* nur Sysadmins dÃ¼rfen das */
 (mxGetAdminPref('radminsuper')) or
 die ("<h1>Access Denied</h1> You must be administrator of your system to install this module.");
 
@@ -70,7 +70,7 @@ class mxbInstall {
                 $tables = setupGetTables();
                 include(dirname(__FILE__) . DS . 'core' . DS . 'install.tabledef.php');
 
-                $this->_delfiles(); // unnötige Dateien löschen
+                $this->_delfiles(); // unnÃ¶tige Dateien lÃ¶schen
                 $basemessages = ob_get_clean();
 
                 $template = load_class('Template');
@@ -106,7 +106,6 @@ class mxbInstall {
                 }
 
                 switch (true) {
-
                     case !self::$_config['tablepre']:
                         // settings.php fehlt, Neuinstallation
                         $pmxprefix = $GLOBALS['prefix'] . '_';
@@ -188,7 +187,7 @@ class mxbInstall {
     {
         $themes = self::get_themes();
 
-        $options = '';
+        $options = '<option value="default">default</option>';
         foreach ($themes as $value) {
             $sel = ($value[0] == self::$_config['XFtheme']) ? ' selected="selected" class="current"' : ''; // Standard vorselektieren
             $options .= '<option value="' . $value[0] . '"' . $sel . '>' . str_replace('_', ' ', $value[0]) . '</option>';
@@ -216,8 +215,8 @@ class mxbInstall {
     public static function get_themes()
     {
         $defaults = array(/* alle Themes */
-            array('default', '#ffffff', '#dededf', '#eeeeee', '#333399', '#9999ff', '#9999ff', '#ffffff', '#eeeeee', '#dcdcde', '#000000', '#000000', '1', '97%', '6', 'Verdana', '12px', 'sans-serif', '10px', 'grau', '', '', '', 'red', 'blue'),
-            array('mxboard_html_layout_grau', '#FFFFFF', '#E1E1E1', '#CCCCCC', '#666666', '#FFFFFF', '#999999', '#FFFFFF', '#CCCCCC', '#F8F8F8', '#666666', '#666666', '1', '100%', '6', 'Verdana', '12', 'sans-serif', '9', 'grau', '', '', '', 'red', 'blue'),
+            array('standard', '#ffffff', '#dededf', '#eeeeee', '#333399', '#9999ff', '#9999ff', '#ffffff', '#eeeeee', '#dcdcde', '#000000', '#000000', '1', '97%', '6', 'Verdana', '12px', 'sans-serif', '10px', 'grau', '', '', '', 'red', 'blue'),
+           /* array('mxboard_html_layout_grau', '#FFFFFF', '#E1E1E1', '#CCCCCC', '#666666', '#FFFFFF', '#999999', '#FFFFFF', '#CCCCCC', '#F8F8F8', '#666666', '#666666', '1', '100%', '6', 'Verdana', '12', 'sans-serif', '9', 'grau', '', '', '', 'red', 'blue'),
             array('mxboard_html_layout_schwarz', '#333333', '#666666', '#999999', '#E9E9E9', '#333333', '#000000', '#E9E9E9', '#666666', '#999999', '#E9E9E9', '#E9E9E9', '1', '100%', '6', 'Verdana', '12', 'sans-serif', '9', 'schwarz', '', '', '', 'red', 'blue'),
             array('mxboard_html_layout_rot', '#FFFFFF', '#FF7800', '#CC0000', '#FF7800', '#FFFFFF', '#500404', '#FFFFFF', '#FF7800', '#FF7800', '#FFFFFF', '#FFFFFF', '1px', '100%', '6', 'Verdana', '12px', 'sans-serif', '9px', 'rot', '', '', '', 'red', 'blue'),
             array('mxboard_html_layout_gruen', '#FFFFFF', '#8DBE24', '#73A949', '#FFFFFF', '#FFFFFF', '#AEA651', '#FFFFFF', '#73A949', '#8DBE24', '#FFFFFF', '#FFFFFF', '1', '100%', '6', 'Verdana', '12px', 'sans-serif', '9px', 'gruen', '', '', '', 'red', 'blue'),
@@ -228,6 +227,7 @@ class mxbInstall {
             array('coursapied', '#ffffff', '#dededf', '#eeeeee', '#333399', '#9999ff', '#9999ff', '#ffffff', '#eeeeee', '#dcdcde', '#000000', '#000000', '1', '97%', '6', 'Verdana', '12px', 'sans-serif', '10px', 'blau', '', '', '', 'red', 'blue'),
             array('moderngray', '#ffffff', '#f0f0f0', '#fbfbfb', '#6633cc', '#2a2f79', '#2a2f79', '#ffffff', '#f0f0f0', '#dededf', '#000000', '#000000', '1', '97%', '4', 'Arial', '12px', 'sans-serif', '10px', 'blau', '', '', '', 'red', 'blue'),
             array('woodlike', '#f6f7eb', '#e1e4ce', '#f6f7eb', '#000000', '#b1b78b', '#d9dcc2', '#000000', '#b1b78b', '#e1e4ce', '#000000', '#000000', '1', '97%', '4', 'Arial', '12px', 'Verdana', '10px', 'gruen', '', '', '', 'red', 'blue'),
+			*/
             );
         return $defaults;
     }
@@ -317,7 +317,7 @@ class mxbInstall {
 
     private function _delfiles()
     {
-        $files = array(/* unnötige Dateien */
+        $files = array(/* unnÃ¶tige Dateien */
             'defaulttheme.php',
             'footer.php',
             'functions.php',
