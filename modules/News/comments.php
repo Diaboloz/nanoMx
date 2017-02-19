@@ -167,7 +167,7 @@ function commentform($data)
     $captcha_object = load_class('Captcha', 'commentson');
 
     echo '
-        <form action="modules.php?name=' . $module_name . '&amp;file=article&amp;sid=' . $data['sid'] . '#comments" method="post" name="commentform" class="mx-form">';
+        <form action="modules.php?name=' . $module_name . '&amp;file=article&amp;sid=' . $data['sid'] . '#comments" method="post" name="commentform" class="mx-form mx-form-aligned">';
     if (!$comments_use_subject) {
         echo '<input type="hidden" name="subject" value="" />';
     }
@@ -175,67 +175,57 @@ function commentform($data)
         echo '<input type="hidden" name="postername" value="' . htmlspecialchars($data['postername']) . '" />';
     }
 
-    echo '
-        <table class="w100">';
     if ($comments_use_subject) {
         echo '
-            <tr>
-                <td>' . _SUBJECT . ':</td>
-                <td>
-                    <input type="text" name="subject" size="50" maxlength="85" value="' . mxEntityQuotes($data['subject']) . '" />
-                </td>
-            </tr>';
+            <div class="control-group">
+                <label for="subjet">' . _SUBJECT . '</label>
+                <input type="text" id="subject" name="subject" size="50" maxlength="85" value="' . mxEntityQuotes($data['subject']) . '" />
+            </div>';
     }
 
-    echo "
-        <tr>
-            <td>" . $editor->getHtml() . "</td>
-        </tr>";
+    echo $editor->getHtml();
 
     if (!MX_IS_USER && $anonpost) {
         echo '
-        <tr>
-            <td>' . _YOURNAME . ':</td>
-            <td>
-                <input type="text" name="postername" value="' . mxEntityQuotes($data['postername']) . '" size="30" maxlength="25" />
-            </td>
-        </tr>';
+
+        <div class="control-group mtm">
+                <label for="postername">' . _YOURNAME . '</label>
+                <input type="text" id="postername" name="postername" value="' . mxEntityQuotes($data['postername']) . '" size="30" maxlength="25" />
+        </div>';
     }
 
     if ($captcha_object->get_active()) {
         echo '
-            <tr>
-                <td>' . $captcha_object->image() . '</td>
-            </tr>
-            <tr>
-                <td>' . $captcha_object->caption() . " </td>
-                <td>" . $captcha_object->inputfield() . "</td>
-            </tr>";
+        <div class="controls">
+            ' . $captcha_object->image() . '
+        </div>
+        <div class="control-group">
+                <label>' . $captcha_object->caption() . '</label>
+                ' . $captcha_object->inputfield() . '
+                <span class="mx-form-message-inline">' . $captcha_object->reloadbutton() . '</span>
+        </div>';
     }
     echo '
-            <tr>
-                <td>
-                    <input type="submit" name="op" value="' . _PREVIEW . '" class="mx-button" />
-                    <input type="submit" name="op" value="' . _OK . '" class="mx-button mx-button-primary" />';
-    if ($captcha_object->get_active()) {
-        echo "
-            &nbsp;" . $captcha_object->reloadbutton() . "&nbsp;";
-    }
+        <div class="controls">
+            <input type="submit" name="op" value="' . _PREVIEW . '" class="mx-button" />
+            <input type="submit" name="op" value="' . _OK . '" class="mx-button mx-button-primary" />
+        </div>';
+                  
     if ($wysiwyg) {
         echo '<input type="hidden" name="posttype" value="html" />';
     } else {
-        echo '<select name="posttype">';
-        echo '<option value="exttrans"' . (($data['posttype'] == "exttrans") ? ' selected="selected" class="current"' : '') . '>' . _EXTRANS;
-        echo '<option value="html"' . (($data['posttype'] == "html") ? ' selected="selected" class="current"' : '') . '>' . _HTMLFORMATED;
-        echo '<option value="plaintext"' . (($data['posttype'] == "plaintext") ? ' selected="selected" class="current"' : '') . '>' . _PLAINTEXT;
-        echo '</select>';
+        echo '
+            <select name="posttype">
+               <option value="exttrans"' . (($data['posttype'] == "exttrans") ? ' selected="selected" class="current"' : '') . '>' . _EXTRANS . '
+               <option value="html"' . (($data['posttype'] == "html") ? ' selected="selected" class="current"' : '') . '>' . _HTMLFORMATED . '
+               <option value="plaintext"' . (($data['posttype'] == "plaintext") ? ' selected="selected" class="current"' : '') . '>' . _PLAINTEXT . '
+            </select>';
     }
-    echo '</td></tr>
-    </table>
-        <input type="hidden" name="uid" value="' . $data['uid'] . '" /><br />
-        <input type="hidden" name="sid" value="' . $data['sid'] . '" /><br />
-        <input type="hidden" name="name" value="' . $module_name . '" /><br />
-        <input type="hidden" name="file" value="comments" /><br />
+    echo '
+        <input type="hidden" name="uid" value="' . $data['uid'] . '" />
+        <input type="hidden" name="sid" value="' . $data['sid'] . '" />
+        <input type="hidden" name="name" value="' . $module_name . '" />
+        <input type="hidden" name="file" value="comments" />
     </form>';
 }
 
