@@ -39,7 +39,7 @@ if (MX_IS_ADMIN && defined('MX_HOME_FILE') && file_exists('setup/index.php')) {
         $content = '
           <p class="warning">
             Si vous pouvez lire ce message alors vous avez installé nanoMx corectement, félicitations ;-). <br />
-            Par contre reste le programme d\'installation, <strong>' . _SETUPWARNING1 . '</strong> pour des raions de sécurité.<br />
+            Par contre reste le programme d\'installation, <strong>' . _SETUPWARNING1 . '</strong> pour des raisons de sécurité.<br />
             ' . sprintf(_SETUPWARNING2, $idx) . '
             <br />
             Cette boite de dialogue disparaitera une fois le répertoire /setup/ supprimé.

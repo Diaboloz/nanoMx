@@ -279,8 +279,8 @@ function setup_NewsBlocks()
 {
     return array(/* Pfad.Dateiname => Blocktitel */
       //  'block-vkp_News_Lastarticles.php' => 'Last Articles',
-        'block-vkp_News_Login.php' => 'Login',
-        'block-vkp_News_Options.php' => 'Options',
+      //  'block-vkp_News_Login.php' => 'Login',
+      //  'block-vkp_News_Options.php' => 'Options',
      // 'block-vkp_News_Poll.php' => 'Survey',
      // 'block-vkp_News_Rating.php' => 'Article Rating',
      // 'block-vkp_News_Related.php' => 'Related Links',

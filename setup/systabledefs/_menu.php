@@ -73,13 +73,16 @@ if (!$ismenu) {
     list($maxblock) = sql_fetch_row($menresult);
     $maxblock++;
 
-    $sqlqry[] = "INSERT IGNORE INTO `${prefix}_blocks` (`bid`, `bkey`, `title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `view`) VALUES ($maxblock , '', 'header-nav', '', '', 'r', 3, 1, 0, 0, '', 'block-Menu.php', 1)";
+    $sqlqry[] = "INSERT IGNORE INTO `${prefix}_blocks` (`bid`, `bkey`, `title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `view`) VALUES ($maxblock , '', 'header-nav', '', '', 'c', 2, 1, 0, 0, '', 'block-Menu.php', 1)";
 
     $i = 0;
     $sqlqry[] = "INSERT IGNORE INTO `${prefix}_menu` (`bid`, `pid`, `title`, `description`, `url`, `weight`) VALUES
-        ($maxblock , 0, 'Home', 'return to home', './', " . $i++ . "),
+        ($maxblock , 0, 'Home', 'Go to home', './', " . $i++ . "),
         ($maxblock , 0, 'News', 'All news', 'modules.php?name=News', " . $i++ . "),
-        ($maxblock , 0, 'Account', 'Your account', 'modules.php?name=Your_Account', " . $i++ . ")       
+        ($maxblock , 2, 'Topics', 'Topics', 'modules.php?name=Topics', " . $i++ . "),
+        ($maxblock , 2, 'Archives', 'Stories Archive', 'modules.php?name=Stories_Archive', " . $i++ . "),
+        ($maxblock , 0, 'Documents', 'Documents', 'modules.php?name=Documents', " . $i++ . "),
+        ($maxblock , 0, 'Account', 'Your account', 'modules.php?name=Your_Account', " . $i++ . ")
     ";
 } else {
     /* alte Daten konvertieren */
