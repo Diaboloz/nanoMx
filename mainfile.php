@@ -146,12 +146,6 @@ require_once(PMX_SYSTEM_DIR . DS . 'mx_system.php');
 if (!@include(PMX_CONFIGFILE)) {
 
     if (@file_exists('setup') && !is_file(PMX_CONFIGFILE)) {
-        /* $msg .= '
-		<li>pragmaMx seems not to be installed correctly, or you\'re running pragmaMx for the first time. Click <a href="setup/" rel="nofollow"><b>here</b></a> to run the installer.</li>
-		<li>pragmaMx scheint nicht korrekt installiert zu sein oder Sie starten pragmaMx zum erstem Mal. Klicken Sie <a href="setup/" rel="nofollow"><b>hier</b></a>, um den Installer zu starten.</li>
-		<li>pragmaMx semble ne pas &ecirc;tre install&eacute; correctement, ou vous ex&eacute;cutez pragmaMx pour la premi&egrave;re fois. Cliquer <a href="setup/" rel="nofollow"><b>ici</b></a> pour commencer l\'installation.</li>
-		<li>pragmaMx düzgün kurulmam&#305;&#351; veya ilk defa pragmaMx &#231;al&#305;&#351;t&#305;r&#305;yorsunuz. Kurulumu ba&#351;latmak i&#231;in <a href="setup/" rel="nofollow"><b>buraya</b></a> t&#305;klay&#305;n&#305;z.</li>
-		'; */
 		$url="http://".$_SERVER['SERVER_NAME']."/".basename(dirname($_SERVER['PHP_SELF'])).'/setup/index.php';
 		//$url=str_replace("//","/",$url);
 		header('Location: ' .$url);
@@ -159,14 +153,28 @@ if (!@include(PMX_CONFIGFILE)) {
 		exit;
     } else {
 		header('Content-type: text/html; charset=utf-8');
-		$msg = '<html><body><img src="http://www.pragmamx.org/images/logo.gif" alt="pragmaMx-Error" /><ul>';        
-		$msg .= '
-		<li>The config-file is missing or corrupted!</li>
-		<li>Die Konfigurationsdatei fehlt oder ist besch&auml;digt!</li>
-		<li>Le fichier config.php est absent ou corrompu!</li>
-		<li>Ayar dosyas&#305; eksik veya hatal&#305;!</li>
-		';
-		$msg .= '</ul></body></html>';
+		$msg = '
+        <!doctype html>
+        <style>
+        body{background-color:#E6E6E6;font-family:Helvetica,Arial,sans-serif;font-size:10pt;padding-top:50px;text-align:left}a{color:#666;text-decoration:none}a:hover{text-decoration:underline}.container{margin:auto;max-width:540px;min-width:200px}.box hr{diplay:block;border:none;border-bottom:1px dashed #ccc}.box{background-color:#fbfbfb;border:1px solid #AAA;border-bottom:1px solid #888;border-radius:3px;color:#000;box-shadow:0 2px 2px #AAA;padding:20px}.box h1,.box h2{display:block;text-align:center}.box h1{color:#666;font-weight:400;font-size:50px;padding:0;margin:0;margin-top:10px;line-height:50px}.box h2{color:#666;font-weight:400;font-size:1.5em}.box p{display:block;margin-bottom:10px}.box ul li{margin-bottom:7px}
+        </style>
+        <html>
+            <body>
+                <div class="container">
+                    <div class="box">
+                        <h1>ERROR</h1>
+                        <h2>config.php</h2>
+                        <hr />
+                        <ul>
+		                  <li>The config-file is missing or corrupted!</li>
+		                  <li>Die Konfigurationsdatei fehlt oder ist besch&auml;digt!</li>
+		                  <li>Le fichier config.php est absent ou corrompu!</li>
+		                  <li>Ayar dosyas&#305; eksik veya hatal&#305;!</li>
+	                   </ul>
+                    </div>
+                </div>
+            </body>
+        </html>';
 		die($msg);
     }
     

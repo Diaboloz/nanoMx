@@ -196,7 +196,7 @@ function setupFormDefaults()
     $def['user_prefix'] = (!empty($user_prefix)) ? $user_prefix : 'mx' . $xpre;
     // sonstige Einstellungen
     if (empty($sitename)) {
-        $def['sitename'] = MX_SETUP_VERSION . " from pragmaMx.org";
+        $def['sitename'] = MX_SETUP_VERSION;
     } else {
         $old_ansi = (isset($adminpanel) || isset($vkpUserregoption) || isset($nukeurl) || isset($sitekey) || !isset($admintheme) || !isset($mxConf));
         if ($old_ansi) {
@@ -278,13 +278,13 @@ function is_vkp_block($blockfile)
 function setup_NewsBlocks()
 {
     return array(/* Pfad.Dateiname => Blocktitel */
-        'block-vkp_News_Lastarticles.php' => 'Last Articles',
+      //  'block-vkp_News_Lastarticles.php' => 'Last Articles',
         'block-vkp_News_Login.php' => 'Login',
         'block-vkp_News_Options.php' => 'Options',
-        'block-vkp_News_Poll.php' => 'Survey',
-        'block-vkp_News_Rating.php' => 'Article Rating',
-        'block-vkp_News_Related.php' => 'Related Links',
-        'block-vkp_News_Socialshare.php' => 'Social sharing'
+     // 'block-vkp_News_Poll.php' => 'Survey',
+     // 'block-vkp_News_Rating.php' => 'Article Rating',
+     // 'block-vkp_News_Related.php' => 'Related Links',
+     // 'block-vkp_News_Socialshare.php' => 'Social sharing'
         );
 }
 

@@ -68,12 +68,12 @@ if (isset($sqlqry)) {
     setupDoAllQueries($sqlqry);
     unset($sqlqry);
 }
-
+/*
 $numrows = sql_num_rows(sql_query("SELECT `mid` FROM `${prefix}_message` LIMIT 1;"));
 if (!$numrows) {
     $sqlqry[] = "INSERT INTO `${prefix}_message` (`mid`, `title`, `content`, `date`, `expire`, `active`, `view`, `mlanguage`) VALUES (1, '" . _NEWINSTALLMESSAGEBLOCKTITLE . "', '" . _NEWINSTALLMESSAGEBLOCK . "', 1058896704, 0, 1, 1, '');";
 }
-
+*/
 if (isset($sqlqry)) {
     setupDoAllQueries($sqlqry);
     unset($sqlqry);

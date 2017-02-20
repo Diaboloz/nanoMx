@@ -112,10 +112,10 @@ switch ($_REQUEST["op"]) {
 			if (!@file_exists(FILE_CONFIG_ROOT)) {	
 				$msg .='
         <ul>
-				  <li>nanoMx seems not to be installed correctly, or you\'re running pragmaMx for the first time. <br />&nbsp;</li>
-				  <li>nanoMx scheint nicht korrekt installiert zu sein oder Sie starten pragmaMx zum erstem Mal. <br />&nbsp;</li>
-				  <li>nanoMx semble ne pas &ecirc;tre install&eacute; correctement, ou vous ex&eacute;cutez pragmaMx pour la premi&egrave;re fois. <br />&nbsp;</li>
-				  <li>nanoMx düzgün kurulmam&#305;&#351; veya ilk defa pragmaMx &#231;al&#305;&#351;t&#305;r&#305;yorsunuz. <br />&nbsp;</li>
+				  <li>nanoMx seems not to be installed correctly, or you\'re running nanoMx for the first time. <br />&nbsp;</li>
+				  <li>nanoMx scheint nicht korrekt installiert zu sein oder Sie starten nanoMx zum erstem Mal. <br />&nbsp;</li>
+				  <li>nanoMx semble ne pas &ecirc;tre install&eacute; correctement, ou vous ex&eacute;cutez nanoMx pour la premi&egrave;re fois. <br />&nbsp;</li>
+				  <li>nanoMx düzgün kurulmam&#305;&#351; veya ilk defa nanoMx &#231;al&#305;&#351;t&#305;r&#305;yorsunuz. <br />&nbsp;</li>
 				</ul>';		
 			}
             $goto = 'index.php?op=check';

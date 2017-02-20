@@ -73,22 +73,13 @@ if (!$ismenu) {
     list($maxblock) = sql_fetch_row($menresult);
     $maxblock++;
 
-    $sqlqry[] = "INSERT IGNORE INTO `${prefix}_blocks` (`bid`, `bkey`, `title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `view`) VALUES ($maxblock , '', 'myCommunity', '', '', 'r', 3, 1, 0, 0, '', 'block-Menu.php', 1)";
+    $sqlqry[] = "INSERT IGNORE INTO `${prefix}_blocks` (`bid`, `bkey`, `title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `view`) VALUES ($maxblock , '', 'header-nav', '', '', 'r', 3, 1, 0, 0, '', 'block-Menu.php', 1)";
 
     $i = 0;
     $sqlqry[] = "INSERT IGNORE INTO `${prefix}_menu` (`bid`, `pid`, `title`, `description`, `url`, `weight`) VALUES
-        ($maxblock , 3, 'Daten', 'Informationen zum Benutzeraccount', 'modules.php?name=Your_Account&op=edituser', " . $i++ . "),
-        ($maxblock , 0, 'Gästebuch', 'Hier können Sie uns Ihre Nachrichten und Kommentare hinterlassen.', 'modules.php?name=Guestbook', " . $i++ . "),
-        ($maxblock , 0, 'Mein Account', 'Ihr persönliches Kontrollzentrum', 'modules.php?name=Your_Account', " . $i++ . "),
-        ($maxblock , 3, 'Nachrichten', 'Ihre privaten Nachrichten', 'modules.php?name=Private_Messages', " . $i++ . "),
-        ($maxblock , 1, 'Benutzerliste', 'Liste aller angemeldeten Benutzer', 'modules.php?name=Members_List', " . $i++ . "),
-        ($maxblock , 0, 'Benutzer Anmeldung', 'Benutzer Anmeldung', 'modules.php?name=User_Registration', " . $i++ . "),
-        ($maxblock , 1, 'Ungel. Beiträge', 'Ungelesene Beiträge seit Ihrem letzten Besuch', 'modules.php?name=Forum&action=unread', " . $i++ . "),
-        ($maxblock , 0, 'Forum', 'Forum', 'modules.php?name=Forum', " . $i++ . "),
-        ($maxblock , 1, 'Ungel. Antworten', 'Ungelesene Antworten zu Ihren Beiträgen', 'modules.php?name=Forum&action=unreadreplies', " . $i++ . "),
-        ($maxblock , 2, 'Neuer Eintrag', 'Neuen Eintrag im Gästebuch hinzufügen', 'modules.php?name=Guestbook&op=AddEntry', " . $i++ . "),
-        ($maxblock , 3, 'Einstellungen', 'Seitendarstellung konfigurieren', 'modules.php?name=Your_Account&op=edithome', " . $i++ . "),
-        ($maxblock , 3, 'Ausloggen', 'Ausloggen', 'modules.php?name=Your_Account&op=logout', " . $i++ . ")
+        ($maxblock , 0, 'Home', 'return to home', './', " . $i++ . "),
+        ($maxblock , 0, 'News', 'All news', 'modules.php?name=News', " . $i++ . "),
+        ($maxblock , 0, 'Account', 'Your account', 'modules.php?name=Your_Account', " . $i++ . ")       
     ";
 } else {
     /* alte Daten konvertieren */

@@ -23,7 +23,7 @@
 $values = function($section = NULL)
 {
     $defaults['pmx.seo'] = array (/*  */
-        'metakeywords' => array ('pragmaMx', 'CMS'),
+        'metakeywords' => array ('nanoMx', 'CMS'),
         'modrewrite' => array (/*  */
             'anony' => false,
             'users' => false,
@@ -32,9 +32,9 @@ $values = function($section = NULL)
         'modrewriteextend' => false,
         'sitemap' => true,
         'sitemapcache' => 2,
-        'sitemapkeywords' => array('pragmamx', 'php', 'shiba'),
+        'sitemapkeywords' => array('nanoMx', 'php'),
         'sitemaplimit' => 30,
-        'sitemapexmod' => array('_blank', 'blank_Home', 'Banners', 'Ephemerids', 'User_Registration', 'Userinfo'),
+        'sitemapexmod' => array('_blank', 'blank_Home', 'User_Registration', 'Userinfo'),
         );
 
     $defaults['pmx.rss'] = array (/*  */
@@ -57,9 +57,9 @@ $values = function($section = NULL)
         );
 	
 	$defaults['pmx.themes'] = array ( /*  */
-		'defaulttheme' => 'default-pmx',
+		'defaulttheme' => 'light-pmx',
 		'admintheme' => 'admin-pmx',
-		'mobiletheme' => 'default-pmx',
+		'mobiletheme' => 'light-pmx',
 		'themes' => array(),
 		);
 	

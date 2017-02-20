@@ -57,10 +57,10 @@ $mxConf['popauth'] = '';
 $mxConf['sitename'] = 'nanoMx for me ...';
 $mxConf['site_logo'] = 'images/logo.gif';
 $mxConf['slogan'] = 'nanoMx - be special';
-$mxConf['startdate'] = '1.März 2014';
+$mxConf['startdate'] = '1.Fev 2017';
 $mxConf['adminmail'] = 'webmaster@yoursite.de';
 $mxConf['anonpost'] = '0';
-$mxConf['DOCTYPE'] = '3';
+$mxConf['DOCTYPE'] = '6';
 $mxConf['TidyOutput'] = '0';
 $mxConf['juitheme'] = 'default';
 $mxConf['foot1'] = '_Z1';
@@ -99,7 +99,7 @@ $mxConf['mxSiteServiceText'] = 'Siteupdate - single problems possible
 Seitenumstellung - vereinzelte Probleme m&ouml;glich
 <a href=\"' . adminUrl('settings') . '\">change this message</a>';
 $mxConf['mxUseThemecache'] = '1';
-$mxConf['mxDebug'] = array('log' => 16, 'screen' => 0, 'enhanced' => 0);
+$mxConf['mxDebug'] = array('log' => 0, 'screen' => 0, 'enhanced' => 0);
 $mxConf['show_pragmamx_news'] = '1';
 $mxConf['check_chmods'] = '1';
 

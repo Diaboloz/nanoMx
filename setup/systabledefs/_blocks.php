@@ -108,14 +108,14 @@ $isnewsblock = array();
 if (!isset($tables["${prefix}_blocks"])) {
     // Daten fuer Tabelle `mx_blocks`
     // ACHTUNG!!! ohne `bid`
-    $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_1 . "', '', '', '" . SYS_BLOCKPOS_LEFT . "', 1, 1, 0, 0, '', 'block-AdminAlert.php', NULL, 2)";
-    $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_2 . "', '', '', '" . SYS_BLOCKPOS_LEFT . "', 2, 1, 0, 0, '', 'block-AdminNews.php', NULL, 2)";
-    $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_3 . "', '', '', '" . SYS_BLOCKPOS_RIGHT . "', 11, 1, 3600, 0, '', 'block-Languages.php', NULL, 0)";
-    $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_4 . "', '', '', '" . SYS_BLOCKPOS_RIGHT . "', 3, 1, 0, 0, '', 'block-Login.php', 'Your_Account', 3)";
-    $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_5 . "', '" . _BLOCK_CAPTION_5A . "', '', '" . SYS_BLOCKPOS_RIGHT . "', 5, 1, 0, 0, '', 'block-Userblock.php', 'Your_Account', 1)";
-    $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_6 . "', '', '', '" . SYS_BLOCKPOS_RIGHT . "', 7, 1, 0, 0, '', 'block-Who_is_Online.php', 'Your_Account', 1)";
-    $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_8 . "', '', '', '" . SYS_BLOCKPOS_RIGHT . "', 10, 1, 3600, 0, '', 'block-Survey.php', 'Surveys', 1)";
-    $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_9 . "', '', 'http://www.pragmamx.org/backend.php', '" . SYS_BLOCKPOS_RIGHT . "', 12, 1, 36000, 1079910549, '', '', NULL, 0)";
+    $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_1 . "', '', '', '" . SYS_BLOCKPOS_CENTER . "', 1, 1, 0, 0, '', 'block-AdminAlert.php', NULL, 2)";
+  //  $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_2 . "', '', '', '" . SYS_BLOCKPOS_LEFT . "', 2, 1, 0, 0, '', 'block-AdminNews.php', NULL, 2)";
+  //  $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_3 . "', '', '', '" . SYS_BLOCKPOS_RIGHT . "', 11, 1, 3600, 0, '', 'block-Languages.php', NULL, 0)";
+  //  $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_4 . "', '', '', '" . SYS_BLOCKPOS_RIGHT . "', 3, 1, 0, 0, '', 'block-Login.php', 'Your_Account', 3)";
+  //  $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_5 . "', '" . _BLOCK_CAPTION_5A . "', '', '" . SYS_BLOCKPOS_RIGHT . "', 5, 1, 0, 0, '', 'block-Userblock.php', 'Your_Account', 1)";
+  //  $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_6 . "', '', '', '" . SYS_BLOCKPOS_RIGHT . "', 7, 1, 0, 0, '', 'block-Who_is_Online.php', 'Your_Account', 1)";
+  //  $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_8 . "', '', '', '" . SYS_BLOCKPOS_RIGHT . "', 10, 1, 3600, 0, '', 'block-Survey.php', 'Surveys', 1)";
+  //  $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `module`, `view`) VALUES ('" . _BLOCK_CAPTION_9 . "', '', 'http://www.pragmamx.org/backend.php', '" . SYS_BLOCKPOS_RIGHT . "', 12, 1, 36000, 1079910549, '', '', NULL, 0)";
 }
 
 if (isset($sqlqry)) {
@@ -211,13 +211,13 @@ if ($blcount) {
     }
 }
 // sonstige Pflichtblöcke bei Neuinstall oder Update von Nuke einfuegen
-if (!isset($tables["${prefix}_blocks"])) {
-    if (!isset($allblocks['block-Modules_one.php'])) $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `view`) VALUES ('" . _BLOCK_CAPTION_MAINMENU . "', '', '', '" . SYS_BLOCKPOS_LEFT . "', 3, 1, 3600, 0, '', 'block-Modules_one.php', 0)";
+/*if (!isset($tables["${prefix}_blocks"])) {
+   if (!isset($allblocks['block-Modules_one.php'])) $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `view`) VALUES ('" . _BLOCK_CAPTION_MAINMENU . "', '', '', '" . SYS_BLOCKPOS_LEFT . "', 3, 1, 3600, 0, '', 'block-Modules_one.php', 0)";
     if (!isset($allblocks['block-Modules_two.php'])) $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `view`) VALUES ('" . _BLOCK_CAPTION_INTERNAL . "', '', '', '" . SYS_BLOCKPOS_LEFT . "', 4, 1, 3600, 0, '', 'block-Modules_two.php', 0)";
     if (!isset($allblocks['block-Modules_three.php'])) $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `view`) VALUES ('" . _BLOCK_CAPTION_COMMUNITY . "', '', '', '" . SYS_BLOCKPOS_LEFT . "', 5, 1, 0, 0, '', 'block-Modules_three.php', 0)";
     if (!isset($allblocks['block-Modules.php'])) $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `view`) VALUES ('" . _BLOCK_CAPTION_OTHER . "', '', '', '" . SYS_BLOCKPOS_LEFT . "', 6, 1, 0, 0, '', 'block-Modules.php', 0)";
 }
-
+*/
 if (!isset($allblocks['block-AdminAlert.php'])) {
     $sqlqry[] = "INSERT INTO `${prefix}_blocks` (`title`, `position`, `weight`, `active`, `blockfile`, `view`) VALUES ('setup-alarm', '" . SYS_BLOCKPOS_CENTER . "', 1, 1, 'block-AdminAlert.php', 2)";
 } else if (empty($allblocks['block-AdminAlert.php']['active'])) {
