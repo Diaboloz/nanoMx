@@ -1241,7 +1241,7 @@ function pmxDevelLogo($modorg=""){
 	  $title_text = '' . MX_MODULE . ' based on ' . $modorg . ' ' . $title_text . ''; 
 	 }
 	 
-	 $logoimg = '<img src="images/pragmamx.png" style="width:2em">';
+	 $logoimg = '<img src="images/nanoMx/nanoMx_logo.png" style="width:2em">';
 
 	 $logo ='<div class="align-right tiny"><a href="http://www.pragmamx.org" target="_blank" title="' . $title_text . '"> ' . $logoimg . ' </a></div>';
 	 
