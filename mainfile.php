@@ -155,10 +155,16 @@ if (!@include(PMX_CONFIGFILE)) {
 		header('Content-type: text/html; charset=utf-8');
 		$msg = '
         <!doctype html>
-        <style>
-        body{background-color:#E6E6E6;font-family:Helvetica,Arial,sans-serif;font-size:10pt;padding-top:50px;text-align:left}a{color:#666;text-decoration:none}a:hover{text-decoration:underline}.container{margin:auto;max-width:540px;min-width:200px}.box hr{diplay:block;border:none;border-bottom:1px dashed #ccc}.box{background-color:#fbfbfb;border:1px solid #AAA;border-bottom:1px solid #888;border-radius:3px;color:#000;box-shadow:0 2px 2px #AAA;padding:20px}.box h1,.box h2{display:block;text-align:center}.box h1{color:#666;font-weight:400;font-size:50px;padding:0;margin:0;margin-top:10px;line-height:50px}.box h2{color:#666;font-weight:400;font-size:1.5em}.box p{display:block;margin-bottom:10px}.box ul li{margin-bottom:7px}
-        </style>
         <html>
+        <head>
+        <meta charset="utf-8" />
+        <title>ERROR</title>
+        <style>
+        body{background-color:#2D2D2D;font-family:Helvetica,Arial,sans-serif;font-size:10pt;padding-top:50px;text-align:left}a{color:#666;text-decoration:none}a:hover{text-decoration:underline}.container{margin:auto;max-width:540px;min-width:200px}.box hr{diplay:block;border:none;border-bottom:1px dashed #ccc}.box{background-color:#fbfbfb;border: 10px solid #424242;
+  box-shadow: #000000 0 0 10px 0;padding:20px}.box h1,.box h2{display:block;text-align:center}.box h1{color:maroon;font-weight:400;font-size:50px;padding:0;margin:0;margin-top:10px;line-height:50px}.box h2{color:#666;font-weight:400;font-size:1.5em}.box p{display:block;margin-bottom:10px}.box ul li{margin-bottom:7px}
+        </style>
+        </head>
+
             <body>
                 <div class="container">
                     <div class="box">
