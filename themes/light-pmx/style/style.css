@@ -6,7 +6,7 @@
 
 body {
   font-family: "Open Sans",Arial,Helvetica,Sans-Serif;
-  background-color: rgb(47, 49, 58);;
+  background-color: rgb(47, 49, 58);
   color: #414141;
 }
 
@@ -17,15 +17,20 @@ a {
 
 a:hover,
 a:focus {
-    color: #0078e7;
     transition: all 200ms ease-in 0s;
+}
+
+h1 {
+    font-weight: normal;
+    text-transform: uppercase;
 }
 
 /*  Layout 
 ---------------------------------------------------------------------------------------- */
 #wrapper {
-    background-color: #f7f8f8;
-    width: 1240px;
+    background-color: #FFF;
+    width: 100%;
+    max-width: 1220px;
     margin: 0 auto;
 }
 
@@ -107,11 +112,6 @@ a#logo {
 
 /*	Main 
 ----------------------------------------------------------------------------------------*/
-#main {
-
-}
-
-
 #main h3.block-title {
   color: #3B96E2;
   font-weight: normal;
@@ -156,16 +156,36 @@ a#logo {
 
 
 /* themearticle (.article) */
- 
+.mod-News header p {
+  font-size: .9em;
+  color: #383838;
+  padding:4px 10px;
+  margin: 0 0 1em 0;
+  background-color: #F9F9F9;
+  display: inline-block;
+}
 
+.mod-News footer {
+  margin: 25px 0;
+}
  
 /* themeindex */
-.post h3 a {
+.entry {
+  margin: 1em 0;
+  padding: 0 0 1em 0;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.entry h3 {
+  margin: 0;
+}
+
+.entry-title a {
   color: #333;
   font-weight: normal;
   text-decoration: none; }
 
-.post-info {
+.entry-meta {
   color: #AAA;
   text-decoration: none; }
 
