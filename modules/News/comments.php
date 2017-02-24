@@ -77,7 +77,7 @@ function DisplayTopic()
     echo '
         <h3 class="txtcenter">' . mxPrepareToDisplay(strip_tags($story['title'])) . '</h3>
         <a name="comments" id="comments"></a>
-          <article>
+          <article class="mx-g">
               ' . $views . '
           </article>
         </section>';
@@ -238,7 +238,7 @@ function commentview($data)
     $dclass = ($c) ? 'bgcolor1' : 'bgcolor3';*/
 
     $pici = load_class('Userpic', intval($data['uid']));
-    $avatar = $pici->getHtml('small', array('scale-width' => 40, 'class' => 'float-left'), true);
+    $avatar = $pici->getHtml('small', array('scale-width' => 60, 'class' => ''), true);
 
     $data['postername'] = mxPrepareToHTMLDisplay((empty($data['postername'])) ? $anonymous : $data['postername']);
     $nameclick = ($data['posteruid']) ? mxCreateUserprofileLink($data['postername']) : $data['postername'];
@@ -282,13 +282,16 @@ function commentview($data)
             if ($data['host_name']) $pics[] = "<a title=\"" . $data['host_name'] . "\" onclick=\"alert('ip: " . $data['host_name'] . "')\">" . mxCreateimage("modules/$module_name/images/ip.gif", $data['host_name']) . "</a>";
         }
     }
-    $adminpics = (MX_IS_ADMIN) ? '<span style="float:right">' . implode(' ', $pics) . '</span>' : '';
+    $adminpics = (MX_IS_ADMIN) ? '<span>' . implode(' ', $pics) . '</span>' : '';
     return '
-      <p id="c' . $data['tid'] . '" class="comment-meta">
+      <p id="c' . $data['tid'] . '" class="mx-u-2-24 txtcenter comment-meta">
+        ' . $avatar . ' 
+        <br />
         ' . $adminpics . '
-        ' . $avatar . $nameclick . '&nbsp;<span class="tiny">' . _WRITES . '&nbsp;' . _ON . ' ' . $datetime . '</span>
       </p>
-      <div class="comment">
+      <div class="mx-u-22-24 comment">
+        <span class="comment-author">' . $nameclick . '</span>
+        <div class="comment-meta">' . _ON . ' ' . $datetime . '</div>
         ' . $data['comment'] . '
       </div>';
 }
