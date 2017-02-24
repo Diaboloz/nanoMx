@@ -1,29 +1,30 @@
 
 <?php OpenTable() ?>
-<h2 class="title"><?php echo $this->title ?></h2>
+<h1><?php echo $this->title ?></h1>
 
 <?php if ($this->pageview ): ?>
-  <div class="align-right">
+  <div class="txtright">
     <?php echo $this->pageview ?>
     </div>
 <?php endif; /*pageview*/ ?>
 
 <?php if ($this->story_list ): ?>
 
-  <table border="0" width="100%" cellpadding="3" cellspacing="0">
+  <div class="mx-g">
     <?php foreach ($this->story_list  as $row): ?>
-    <tr valign="top">
-        <td width="10%" class="nowrap"><br /><?php echo mx_strftime(_SHORTDATESTRING, $row['tstamp']) ?>&nbsp;&nbsp;</td>
-        <td><br /><b><?php echo $row['title'] ?></b><br />
-        <?php echo $row['hometext'] ?>
-        </td>
-    </tr>
+    <div class="mx-u-1-8">
+        <strong><?php echo mx_strftime(_SHORTDATESTRING, $row['tstamp']) ?></strong>
+    </div>
+    <div class="mx-u-7-8">
+        <h2 class="h4-like"><?php echo $row['title'] ?></h2>
+        <p><?php echo $row['hometext'] ?></p>
+        
+    </div>
     <?php endforeach ?>
-  </table>
+  </div>
 
   <?php if ($this->pageview ): ?>
-  <br />
-  <div class="align-right">
+  <div class="txtright">
     <?php echo $this->pageview ?>
   </div>
   <?php endif; /*pageview*/ ?>
@@ -31,10 +32,10 @@
   <?php endif; /*story_list*/ ?>
 
   <?php if ($this->month_list ): ?>
-  <br /><hr noshade="noshade" size="1" />
+  <hr />
     <p><?php echo _SELECTMONTH2VIEW ?></p>
   <?php foreach($this->month_list  as $year => $data): ?>
-  <div style="float: left; width: 14em">
+  <div class="fl w20">
     <h3><a href="<?php echo $data['link'] ?>"><?php echo $year ?></a></h3>
     <ul>
       <?php foreach($data['months'] as $month): ?>
@@ -53,7 +54,7 @@
 <?php endif; /* month_list */?>
 
 <?php if(mxModuleAllowed('Search') && mxModuleAllowed('News')): ?>
-  <hr noshade="noshade" size="1" />
+  <hr />
     <form action="modules.php?name=Search" method="post">
       <input type="hidden" name="name" value="Search" />
       <input type="hidden" name="m" value="News" />
@@ -64,12 +65,11 @@
     </form>
 <?php endif ?>
 
-<br />
-<p align="center">[ 
+<p class="txtcenter">[ 
 <?php if(!$this->is_home): ?>
   <a href="modules.php?name=<?php echo $this->module_name ?>"><?php echo _ARCHIVESINDEX ?></a> | 
 <?php endif ?>
-<a href="modules.php?name=<?php echo $this->module_name ?>&amp;show_all=yes"><?php echo _SHOWALLSTORIES ?></a>
+  <a href="modules.php?name=<?php echo $this->module_name ?>&amp;show_all=yes"><?php echo _SHOWALLSTORIES ?></a>
 ]</p>
 
 <?php CloseTable() ?>

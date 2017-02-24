@@ -286,12 +286,11 @@ function commentview($data)
     return '
       <div id="c' . $data['tid'] . '" class="mx-u-2-24 txtcenter comment-authorpic">
         ' . $avatar . ' 
-        <br />
-        ' . $adminpics . '
       </div>
       <div class="mx-u-4-24">
         <span class="comment-author">' . $nameclick . '</span>
         <div class="comment-meta">' . _ON . ' ' . $datetime . '</div>
+        ' . $adminpics . '
       </div>
       <div class="mx-u-18-24 comment-content">
             ' . $data['comment'] . '
