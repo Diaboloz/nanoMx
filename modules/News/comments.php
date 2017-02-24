@@ -284,15 +284,17 @@ function commentview($data)
     }
     $adminpics = (MX_IS_ADMIN) ? '<span>' . implode(' ', $pics) . '</span>' : '';
     return '
-      <p id="c' . $data['tid'] . '" class="mx-u-2-24 txtcenter comment-meta">
+      <div id="c' . $data['tid'] . '" class="mx-u-2-24 txtcenter comment-authorpic">
         ' . $avatar . ' 
         <br />
         ' . $adminpics . '
-      </p>
-      <div class="mx-u-22-24 comment">
+      </div>
+      <div class="mx-u-4-24">
         <span class="comment-author">' . $nameclick . '</span>
         <div class="comment-meta">' . _ON . ' ' . $datetime . '</div>
-        ' . $data['comment'] . '
+      </div>
+      <div class="mx-u-18-24 comment-content">
+            ' . $data['comment'] . '
       </div>';
 }
 
