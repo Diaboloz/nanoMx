@@ -65,11 +65,15 @@ $GLOBALS['story_blocks'] = $story;
 $artpage = 1;
 $pagetitle = $story["title"];
 include('header.php');
+echo '
+	<article>';
 themearticle($story["aid"], $story["informant"], $story["datetime"], $story["title_formated"], $story["completetext"], $story["topic"], $story["topicname"], $story["topicimage"], $story["topictext"], $story);
 if ((($mode != "nocomments") && ($story["acomm"] == 0)) && $GLOBALS['articlecomm']) { // // Achtung!!! acomm: 0 = Ja , 1 = Nein
     include_once(PMX_MODULES_DIR . DS . $module_name . "/comments.php");
     DisplayTopic();
 }
+echo '
+	</article>';
 include('footer.php');
 
 ?>
