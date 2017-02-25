@@ -42,7 +42,7 @@ function DisplayTopic()
     $qry = "SELECT u.uid, u.uname, u.email, c.sid, c.tid, c.reply_date, c.host_name, c.subject, c.comment, c.name AS postername
             FROM ${prefix}_comments AS c LEFT JOIN {$user_prefix}_users AS u ON c.uid = u.uid
             WHERE (((c.sid)=" . intval($story['sid']) . ") AND ((c.modul_name)='" . $module_name . "'))
-            ORDER BY  reply_date  DESC";
+            ORDER BY  reply_date  ASC";
     $result = sql_query($qry);
 
     $views = '';
@@ -77,9 +77,7 @@ function DisplayTopic()
     echo '
         <h3 class="txtcenter">' . mxPrepareToDisplay(strip_tags($story['title'])) . '</h3>
         <a name="comments" id="comments"></a>
-          <article class="mx-g">
               ' . $views . '
-          </article>
         </section>';
     }
 }
@@ -284,17 +282,20 @@ function commentview($data)
     }
     $adminpics = (MX_IS_ADMIN) ? '<span>' . implode(' ', $pics) . '</span>' : '';
     return '
-      <div id="c' . $data['tid'] . '" class="mx-u-2-24 txtcenter comment-authorpic">
+    <article id="c' . $data['tid'] . '" class="mx-g mbm">
+      <div class="mx-u-2-24 txtcenter comment-authorpic">
         ' . $avatar . ' 
+        <br />
+        ' . $adminpics . '
       </div>
       <div class="mx-u-4-24">
         <span class="comment-author">' . $nameclick . '</span>
         <div class="comment-meta">' . _ON . ' ' . $datetime . '</div>
-        ' . $adminpics . '
       </div>
       <div class="mx-u-18-24 comment-content">
             ' . $data['comment'] . '
-      </div>';
+      </div>
+    </article>';
 }
 
 function CreateTopic()
