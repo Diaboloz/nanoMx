@@ -81,14 +81,14 @@
 				<!-- START themearticle -->
 					<header>
 						<h1 class="article-title">{$title}</h1>
-						<p>{$posted_day} {$posted_month} {$posted_year} | {$infoline_article}</p>
+						<p class="article-meta">{$posted_day} {$posted_month} {$posted_year} | {$infoline_article}</p>
 					</header>
 					<div class="article-content">
 						{$content}
 					</div>
 					<footer>
 						{$notes}
-						<p class="article-meta">{$tags}</p>
+						<p class="article-tags">{$tags}</p>
 					</footer>
 				<!-- END themearticle -->
 				<!-- END script_output -->
@@ -102,12 +102,12 @@
 				<!-- END blocks_center_down_loop -->								
 			</div>
 			<!-- START blocks_left_container -->
-			<aside id="sidebar-left">
+			<aside id="sidebar-left" class="ptl pll">
 				<div id="sidebar-left-inside" class="blocks">
 					<!-- START blocks_left_loop -->
 					<!-- START block_left -->
 					<div id="__BLOCK_ID__">
-						<h3>{BLOCK_TITLE}</h3>
+						<h3 class="block-title">{BLOCK_TITLE}</h3>
 						<div class="block-content">{BLOCK_CONTENT}</div>
 					</div>
 					<!-- END block_left -->
