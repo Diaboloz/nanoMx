@@ -547,7 +547,7 @@ function themeindex($x1, $x2, $x3, $x4, $x5, $x6, $x7, $x8, $x9, $x10, $x11, $x1
     if (empty($story['allmorelink']['bodycount'])) {
         $story['readmore'] = '';
     } else {
-        $story['readmore'] = '<a href="modules.php?name=News&amp;file=article&amp;sid=' . $story['sid'] . '" class="post-readmore mll"' . $titleattr . '><i class="fa fa-arrow-circle-right"></i>  ' . _HREADMORE . '</a>';
+        $story['readmore'] = '<a href="modules.php?name=News&amp;file=article&amp;sid=' . $story['sid'] . '" class="post-readmore mx-button mx-button-primary"' . $titleattr . '><i class="fa fa-arrow-circle-right"></i>  ' . _HREADMORE . '</a>';
     }
 
     $story['title'] = '<a href="modules.php?name=News&amp;file=article&amp;sid=' . $story['sid'] . '" rel="bookmark"' . $titleattr . '>' . strip_tags($story['title']) . '</a>';

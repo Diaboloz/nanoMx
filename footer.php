@@ -40,6 +40,7 @@ ob_start();
 if ($content) {
     /* eindeutige Modul css-Id drumrum */
     echo '
+    <div class="mod-' . MX_MODULE . '">
     ' . $content . '
     </div>';
 }
