@@ -1,6 +1,6 @@
 ﻿Changelog for nanoMx
 
-
+- remove unused/unecessary admin modules
 - Remove unused/unnecessary modules 
 - Remove unnecessary meta tags 
 -Frontend: Remove old default.css replace by mxcssframework (mixing purecss & knacss) 
