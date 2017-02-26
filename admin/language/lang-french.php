@@ -46,7 +46,7 @@ define("_SETBAN", "Blocage IP &amp; Courriels");
 define("_YADELETER", "Nouveau compte utilisateur");
 define("_SECLOGTITLE", "Surveillance des évènements");
 define("_OPNOTAVAILABLE", "Cette fonction ('%s') est indisponible.");
-define("_MXTRACKING", "Traçage");
+//define("_MXTRACKING", "Traçage");
 define("_MX_MENU_MANAGER", "Gestion du menu");
 define("_EXPANDALL", "Déployer");
 define("_COLLAPSEALL", "Réduire");

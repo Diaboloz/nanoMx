@@ -476,12 +476,6 @@ class pmxAdminmenue {
                 'image' => 'ban.png' ,
                 );
 
-            $link['tracking'] = array(/* Linkdaten */
-                'panel' => MX_ADMINPANEL_SECURITY,
-                'title' => _MXTRACKING,
-                'image' => 'tracking.png' ,
-                );
-
             $link['messages'] = array(/* Linkdaten */
                 'panel' => MX_ADMINPANEL_SYSTEM,
                 'title' => _MESSAGES,
@@ -715,7 +709,6 @@ class pmxAdminmenue {
             'links.system-preferences.php',
             'links.system-xphpinfo.php',
             'links.topics.php',
-            'links.tracking.php',
             'links.update.php',
             'links.userguest.php',
             'links.users-authors_access.php',

@@ -118,7 +118,6 @@ if(!defined('MX_FIRSTGROUPNAME')) define('MX_FIRSTGROUPNAME','" . MX_FIRSTGROUPN
 \$mxConf['notify_message']    = '$xnotify_message';
 \$mxConf['notify_from']       = '$xnotify_from';
 \$mxConf['httprefmax']        = '$xhttprefmax';
-\$mxConf['vkpTracking']       = '$xvkpTracking';
 \$mxConf['AllowableHTML']     = $newAllowableHTML;
 \$mxConf['CensorList']        = $newcensorlist;
 \$mxConf['CensorMode']        = '$xCensorMode';

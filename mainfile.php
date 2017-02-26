@@ -365,12 +365,6 @@ define('MX_MOBILE_DEVICE', $mobile_device);
 define('MX_THEME', mxGetTheme());
 define('MX_THEME_DIR', 'themes/' . MX_THEME);
 
-/* Website Tracking aktualisieren */
-if (@$vkpTracking) {
-    include_once(PMX_SYSTEM_DIR . DS . 'trackhack.php');
-}
-
-
 /* Referer aktualisieren */
 mxReferer();
 

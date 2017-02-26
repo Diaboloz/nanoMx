@@ -86,7 +86,6 @@ function Configure()
 
     $mxUseThemecache = (empty($mxUseThemecache)) ? 0 : (int)$mxUseThemecache;
 
-    $vkpTracking = (empty($vkpTracking)) ? 0 : $vkpTracking;
     $storyhome_cols = (empty($storyhome_cols)) ? 1 : (int)$storyhome_cols;
     $foot1 = (empty($foot1)) ? '' : htmlspecialchars($foot1);
     $foot2 = (empty($foot2)) ? '' : htmlspecialchars($foot2);
@@ -253,7 +252,6 @@ function Configure()
     }
 	$tb->add("secopt","select","xmxEntitieLevel",$mxEntitieLevel,_REQHTMLFILTER,"",1,$options);
     $tb->add("secopt", "yesno", "xvkpsec_logging", $vkpsec_logging, _SEC_LOGGING );
-    $tb->add("secopt", "yesno", "xvkpTracking",$vkpTracking, _TRACK_ACTIVATEIT );
     $refoptions = array();
     for ($i = 0; $i <= 3000;) {
         $refoptions[$i] = $i;
@@ -454,7 +452,6 @@ function ConfigSave($pvs)
 	$xmxSessionLoc=(empty($xmxSessionLoc)) ? 0 : intval($xmxSessionLoc);
     $xvkpInactiveMins = (empty($xvkpInactiveMins)) ? 10 : $xvkpInactiveMins;
     $xvkpIntranet = (empty($xvkpIntranet)) ? 0 : intval($xvkpIntranet);
-    $xvkpTracking = (empty($xvkpTracking)) ? 0 : intval($xvkpTracking);
     $xvkpSafeCookie1 = (empty($xvkpSafeCookie1)) ? 0 : intval($xvkpSafeCookie1);
     $xvkpSafeCookie2 = (empty($xvkpSafeCookie2)) ? 0 : intval($xvkpSafeCookie2);
     $xvkpSafeSqlinject = (empty($xvkpSafeSqlinject)) ? 0 : intval($xvkpSafeSqlinject);
@@ -625,7 +622,6 @@ if(!defined('MX_FIRSTGROUPNAME')) define('MX_FIRSTGROUPNAME','" . MX_FIRSTGROUPN
 \$mxConf['notify_message']    = '$xnotify_message';
 \$mxConf['notify_from']       = '$xnotify_from';
 \$mxConf['httprefmax']        = '$xhttprefmax';
-\$mxConf['vkpTracking']       = '$xvkpTracking';
 \$mxConf['AllowableHTML']     = $newAllowableHTML;
 \$mxConf['CensorList']        = $newcensorlist;
 \$mxConf['CensorMode']        = '$xCensorMode';

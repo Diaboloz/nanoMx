@@ -88,7 +88,6 @@ $mxConf['notify_subject'] = 'NEWS for my Site';
 $mxConf['notify_message'] = 'Hallo, es gibt neue Artikeleinsendungen auf Deiner Seite.';
 $mxConf['notify_from'] = 'webmaster@yoursite.de';
 $mxConf['httprefmax'] = '500';
-$mxConf['vkpTracking'] = '0';
 $mxConf['AllowableHTML'] = array('a' => 2, 'address' => 1, 'b' => 1, 'big' => 1, 'blockquote' => 1, 'br' => 2, 'cite' => 1, 'code' => 1, 'div' => 2, 'dl' => 1, 'dt' => 1, 'em' => 1, 'fieldset' => 1, 'h3' => 2, 'h4' => 2, 'h5' => 2, 'h6' => 2, 'hr' => 2, 'i' => 1, 'img' => 2, 'li' => 1, 'ol' => 1, 'p' => 2, 'pre' => 1, 'small' => 1, 'span' => 2, 'strike' => 1, 'strong' => 1, 'sub' => 1, 'sup' => 1, 'table' => 2, 'tbody' => 1, 'td' => 2, 'tfoot' => 1, 'th' => 2, 'thead' => 1, 'tr' => 2, 'tt' => 1, 'u' => 1, 'ul' => 2);
 $mxConf['CensorList'] = array("fuck", "cunt", "fucker", "fucking", "pussy", "cock", "c0ck", "cum", "twat", "clit", "bitch", "fuk", "fuking", "motherfucker", "Arsch", "Arschloch", "fick", "Wixer", "Pimmel", "Votz");
 $mxConf['CensorMode'] = '1';

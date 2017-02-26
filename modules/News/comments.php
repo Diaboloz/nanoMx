@@ -42,7 +42,7 @@ function DisplayTopic()
     $qry = "SELECT u.uid, u.uname, u.email, c.sid, c.tid, c.reply_date, c.host_name, c.subject, c.comment, c.name AS postername
             FROM ${prefix}_comments AS c LEFT JOIN {$user_prefix}_users AS u ON c.uid = u.uid
             WHERE (((c.sid)=" . intval($story['sid']) . ") AND ((c.modul_name)='" . $module_name . "'))
-            ORDER BY  reply_date  ASC";
+            ORDER BY  reply_date  DESC";
     $result = sql_query($qry);
 
     $views = '';
@@ -77,7 +77,9 @@ function DisplayTopic()
     echo '
         <h3 class="txtcenter">' . mxPrepareToDisplay(strip_tags($story['title'])) . '</h3>
         <a name="comments" id="comments"></a>
+          <article>
               ' . $views . '
+          </article>
         </section>';
     }
 }
@@ -236,7 +238,7 @@ function commentview($data)
     $dclass = ($c) ? 'bgcolor1' : 'bgcolor3';*/
 
     $pici = load_class('Userpic', intval($data['uid']));
-    $avatar = $pici->getHtml('small', array('scale-width' => 60, 'class' => ''), true);
+    $avatar = $pici->getHtml('small', array('scale-width' => 40, 'class' => 'float-left'), true);
 
     $data['postername'] = mxPrepareToHTMLDisplay((empty($data['postername'])) ? $anonymous : $data['postername']);
     $nameclick = ($data['posteruid']) ? mxCreateUserprofileLink($data['postername']) : $data['postername'];
@@ -280,22 +282,15 @@ function commentview($data)
             if ($data['host_name']) $pics[] = "<a title=\"" . $data['host_name'] . "\" onclick=\"alert('ip: " . $data['host_name'] . "')\">" . mxCreateimage("modules/$module_name/images/ip.gif", $data['host_name']) . "</a>";
         }
     }
-    $adminpics = (MX_IS_ADMIN) ? '<span>' . implode(' ', $pics) . '</span>' : '';
+    $adminpics = (MX_IS_ADMIN) ? '<span style="float:right">' . implode(' ', $pics) . '</span>' : '';
     return '
-    <article id="c' . $data['tid'] . '" class="mx-g mbm">
-      <div class="mx-u-2-24 txtcenter comment-authorpic">
-        ' . $avatar . ' 
-        <br />
+      <p id="c' . $data['tid'] . '" class="comment-meta">
         ' . $adminpics . '
-      </div>
-      <div class="mx-u-4-24">
-        <span class="comment-author">' . $nameclick . '</span>
-        <div class="comment-meta">' . _ON . ' ' . $datetime . '</div>
-      </div>
-      <div class="mx-u-18-24 comment-content">
-            ' . $data['comment'] . '
-      </div>
-    </article>';
+        ' . $avatar . $nameclick . '&nbsp;<span class="tiny">' . _WRITES . '&nbsp;' . _ON . ' ' . $datetime . '</span>
+      </p>
+      <div class="comment">
+        ' . $data['comment'] . '
+      </div>';
 }
 
 function CreateTopic()
