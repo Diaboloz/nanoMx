@@ -366,7 +366,7 @@ define('MX_THEME', mxGetTheme());
 define('MX_THEME_DIR', 'themes/' . MX_THEME);
 
 /* Referer aktualisieren */
-mxReferer();
+//rem for nanomx mxReferer();
 
 /* Bannfunktion ausfuehren */
 vkpIpBanning();
