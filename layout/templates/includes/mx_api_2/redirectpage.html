@@ -12,11 +12,13 @@
 </head>
 
 <body>
-  <div class="wauto center">
-    <h4 class="align-center"><?php echo $this->message ?></h4>
-    <p class="align-center" id="repiclock"><span><?php echo sprintf(_REDIRECTMESS1, $this->delay) ?></span></p>
-    <p class="align-center">(<a href="<?php echo $this->url_html ?>"><?php echo _REDIRECTMESS2 ?></a>)</p>
-    <?php echo $this->debug ?>
+  <div class="modal">
+    <div class="modal-body">
+      <p><?php echo $this->message ?></p>
+      <p id="repiclock"><?php echo sprintf(_REDIRECTMESS1, $this->delay) ?></p>
+      <p><a href="<?php echo $this->url_html ?>" class="mx-button"><?php echo _REDIRECTMESS2 ?></a></p>
+      <?php echo $this->debug ?>
+    </div>
   </div>
 
 <?php if ($this->delay > 5) { ?>
