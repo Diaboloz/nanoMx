@@ -117,7 +117,7 @@ function mxGetAllBlocks($side = false)
                 // den Zähler für diese Position zurücksetzen
                 if ($block['position'] == "c") {
                     // die Mitteilungen bei den oberen Centerblöcken mitzählen
-                    $i = count($allmessages);
+               //rem nanomx     $i = count($allmessages);
                 } else {
                     $i = 0;
                 }

@@ -73,7 +73,7 @@ if (!$ismenu) {
     list($maxblock) = sql_fetch_row($menresult);
     $maxblock++;
 
-    $sqlqry[] = "INSERT IGNORE INTO `${prefix}_blocks` (`bid`, `bkey`, `title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `view`) VALUES ($maxblock , '', 'header-nav', '', '', 'c', 2, 1, 0, 0, '', 'block-Menu.php', 1)";
+    $sqlqry[] = "INSERT IGNORE INTO `${prefix}_blocks` (`bid`, `bkey`, `title`, `content`, `url`, `position`, `weight`, `active`, `refresh`, `time`, `blanguage`, `blockfile`, `view`) VALUES ($maxblock , '', 'header-nav', '', '', 'c', 2, 0, 0, 0, '', 'block-Menu.php', 1)";
 
     $i = 0;
     $sqlqry[] = "INSERT IGNORE INTO `${prefix}_menu` (`bid`, `pid`, `title`, `description`, `url`, `weight`) VALUES
