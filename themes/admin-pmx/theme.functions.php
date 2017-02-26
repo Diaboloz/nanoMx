@@ -635,7 +635,6 @@ function theme_headitems()
         $userentries['title'] = sprintf($msg, $userentries['count']);
     }
     */
-    
     $adminentries = array();
     if ($newentries = pmx_get_adminnews()) {
         $adminentries['count'] = 0;

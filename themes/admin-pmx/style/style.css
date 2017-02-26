@@ -51,12 +51,15 @@ a { color: #799D24; }
  
 #pmx-content { padding: 0 20px 20px; }
 
-#pmx-content h2, #pmx-content .title {
+#pmx-content h1,
+#pmx-content h2,
+#pmx-content .title {
     margin: -20px -20px 20px;
     padding: 15px 0 15px 20px;
     background: #EBEBEB;
     border-bottom: 1px solid #D3D3D3;
     font-weight: lighter;
+    font-size: 30px;
 }
 
 
