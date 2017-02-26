@@ -333,11 +333,11 @@ class pmxAdminmenue {
      */
     private function _paneldata()
     {
-        $nav_item = array(
+         $nav_item = array(
             MX_ADMINPANEL_SYSTEM => array(/*  */
                 // erster Menüpunkt verlinkt zur Startseite
                 'url' => adminUrl(),
-                'image' => 'images/menu/panel/cog.png',
+                'image' => 'fa-gears',
                 'title' => _PANELSYSTEM,
                 'description' => _PANELSYSTEM_DESCR,
                 'panelname' => 'system',
@@ -345,7 +345,7 @@ class pmxAdminmenue {
                 'links' => array(),
                 ),
             MX_ADMINPANEL_CONTENT => array(/*  */
-                'image' => 'images/menu/panel/page.png',
+                'image' => 'fa-file-text',
                 'title' => _PANELCONTENT,
                 'description' => _PANELCONTENT_DESCR,
                 'panelname' => 'content',
@@ -353,7 +353,7 @@ class pmxAdminmenue {
                 'links' => array(),
                 ),
             MX_ADMINPANEL_USERS => array(/*  */
-                'image' => 'images/menu/panel/user.png',
+                'image' => 'fa-group',
                 'title' => _PANELUSER,
                 'description' => _PANELUSER_DESCR,
                 'panelname' => 'users',
@@ -361,7 +361,7 @@ class pmxAdminmenue {
                 'links' => array(),
                 ),
             MX_ADMINPANEL_TOOLS => array(/*  */
-                'image' => 'images/menu/panel/wrench.png',
+                'image' => 'fa-tachometer',
                 'title' => _PANELTOOLS,
                 'description' => _PANELTOOLS_DESCR,
                 'panelname' => 'tools',
@@ -369,7 +369,7 @@ class pmxAdminmenue {
                 'links' => array(),
                 ),
             MX_ADMINPANEL_SECURITY => array(/*  */
-                'image' => 'images/menu/panel/lock.png',
+                'image' => 'fa-lock',
                 'title' => _PANELSECURITY,
                 'description' => _PANELSECURITY_DESCR,
                 'panelname' => 'security',
@@ -377,7 +377,7 @@ class pmxAdminmenue {
                 'links' => array(),
                 ),
             MX_ADMINPANEL_ADDON => array(/*  */
-                'image' => 'images/menu/panel/plugin.png',
+                'image' => 'fa-inbox',
                 'title' => _PANELADDON,
                 'description' => _PANELADDON_DESCR,
                 'panelname' => 'addon',
