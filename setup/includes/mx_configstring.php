@@ -66,7 +66,6 @@ if(!defined('MX_FIRSTGROUPNAME')) define('MX_FIRSTGROUPNAME','" . MX_FIRSTGROUPN
 \$mxConf['mxCookieLink']		  = '$xmxCookieLink';
 \$mxConf['vkpSafeSqlinject']      = '$xvkpSafeSqlinject';
 \$mxConf['mxEntitieLevel']        = '$xmxEntitieLevel';
-\$mxConf['vkpsec_logging']        = '$xvkpsec_logging';
 \$mxConf['mxUseGzipCompression']  = '$xmxUseGzipCompression';
 \$mxConf['mxJpCacheUse']          = '$xmxJpCacheUse';
 \$mxConf['mxJpCacheTimeout']      = '$xmxJpCacheTimeout';

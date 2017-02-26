@@ -1663,10 +1663,10 @@ function mxMail($to, $subject, $message, $mxsender = '', $type = 'text', $seclog
     }
 
     for($recipient = 0, Reset($email_message->invalid_recipients);$recipient < count($email_message->invalid_recipients);Next($email_message->invalid_recipients), $recipient++)
-    mxSecureLog("Mailsystem-Invalid recipient: ", Key($email_message->invalid_recipients) . " Error: " . $email_message->invalid_recipients[Key($email_message->invalid_recipients)] . PHP_EOL);
+//rem nanomx    mxSecureLog("Mailsystem-Invalid recipient: ", Key($email_message->invalid_recipients) . " Error: " . $email_message->invalid_recipients[Key($email_message->invalid_recipients)] . PHP_EOL);
     if (!empty($seclogid)) {
         $securelog = $seclogid . PHP_EOL;
-        mxSecureLog("Mailsystem-Log: ", $securelog . " " . $subject . " \n" . $to);
+//        mxSecureLog("Mailsystem-Log: ", $securelog . " " . $subject . " \n" . $to);
     }
     if (strcmp($error, '')) {
         if (MX_IS_ADMIN && mxGetAdminPref('radminsuper') && pmxDebug::is_mode('screen')) {
@@ -1674,7 +1674,7 @@ function mxMail($to, $subject, $message, $mxsender = '', $type = 'text', $seclog
         } else {
             trigger_error($error, E_USER_NOTICE);
         }
-        mxSecureLog("Mailsystem-Error: ", $subject . " \n" . $to . " \n" . $error);
+  //rem nanomx      mxSecureLog("Mailsystem-Error: ", $subject . " \n" . $to . " \n" . $error);
         return false;
     }
 

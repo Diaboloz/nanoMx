@@ -251,7 +251,7 @@ function Configure()
         $options[constant('_REQHTMLFILTER_' . $i)] = $i  ;
     }
 	$tb->add("secopt","select","xmxEntitieLevel",$mxEntitieLevel,_REQHTMLFILTER,"",1,$options);
-    $tb->add("secopt", "yesno", "xvkpsec_logging", $vkpsec_logging, _SEC_LOGGING );
+    //rem nanomx $tb->add("secopt", "yesno", "xvkpsec_logging", $vkpsec_logging, _SEC_LOGGING );
     $refoptions = array();
     for ($i = 0; $i <= 3000;) {
         $refoptions[$i] = $i;
@@ -455,8 +455,7 @@ function ConfigSave($pvs)
     $xvkpSafeCookie1 = (empty($xvkpSafeCookie1)) ? 0 : intval($xvkpSafeCookie1);
     $xvkpSafeCookie2 = (empty($xvkpSafeCookie2)) ? 0 : intval($xvkpSafeCookie2);
     $xvkpSafeSqlinject = (empty($xvkpSafeSqlinject)) ? 0 : intval($xvkpSafeSqlinject);
-    $xmxEntitieLevel = (empty($xmxEntitieLevel)) ? 0 : intval($xmxEntitieLevel);
-    $xvkpsec_logging = (empty($xvkpsec_logging)) ? 0 : intval($xvkpsec_logging);
+//    $xvkpsec_logging = (empty($xvkpsec_logging)) ? 0 : intval($xvkpsec_logging);
     $xstoryhome_cols = (empty($xstoryhome_cols)) ? 1 : $xstoryhome_cols;
     $xmxDeactNukeCompatible = (empty($xmxDeactNukeCompatible)) ? 0 : intval($xmxDeactNukeCompatible);
     $xmxCreateNukeCookie = (empty($xmxCreateNukeCookie)) ? 0 : intval($xmxCreateNukeCookie);
@@ -651,7 +650,7 @@ extract(\$mxConf, EXTR_OVERWRITE);
 //\$mxConf['mxDeactNukeCompatible'] = '$xmxDeactNukeCompatible';
 //\$mxConf['mxCreateNukeCookie']    = '$xmxCreateNukeCookie';
     // //// ende setup-string
-    mxSecureLog("SecLog", "Change config.php");
+    //rem nanomx mxSecureLog("SecLog", "Change config.php");
 
     $ok = mx_write_file(PMX_CONFIGFILE, $cont, true);
 
