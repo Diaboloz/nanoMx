@@ -42,15 +42,11 @@ function mxGetAllBlocks($side = false)
         // TODO: das ist Themespezifisch und funzt nicht überall...
         $where .= (empty($GLOBALS['hide_left'])) ? '' : " AND (position <> 'l')";
 
-//rem nanomx
-//        if (defined('MX_HOME_FILE')) {
-            /* die Mitteilungen für die Startseite in ein Array stellen */
-//            $allmessages = mxGetMessages();
-//        } else {
+
+          if (!defined('MX_HOME_FILE')) {
             /* Centerblöcke von der Abfrage ausschliessen, wenn nicht auf Startseite */
-//            $where .= " AND (position NOT IN('c','d'))";
-//            $allmessages = array();
-//       }
+              $where .= " AND (position NOT IN('c','d'))";
+         }
 
         /* die rechten News-Artikel Blöcke in der Abfrage extra behandeln */
         if (empty($GLOBALS['story_blocks'])) {
@@ -117,10 +113,8 @@ function mxGetAllBlocks($side = false)
                 // den Zähler für diese Position zurücksetzen
                 if ($block['position'] == "c") {
                     // die Mitteilungen bei den oberen Centerblöcken mitzählen
-               //rem nanomx     $i = count($allmessages);
-                } else {
-                    $i = 0;
-                }
+                    $i = 0; //rem nanomx     $i = count($allmessages);
+                } 
             }
             // Arrayschlüssel 'order' mit diesem Wert belegen
             $block['order'] = $i;
