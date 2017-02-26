@@ -42,14 +42,15 @@ function mxGetAllBlocks($side = false)
         // TODO: das ist Themespezifisch und funzt nicht überall...
         $where .= (empty($GLOBALS['hide_left'])) ? '' : " AND (position <> 'l')";
 
-        if (defined('MX_HOME_FILE')) {
+//rem nanomx
+//        if (defined('MX_HOME_FILE')) {
             /* die Mitteilungen für die Startseite in ein Array stellen */
-            $allmessages = mxGetMessages();
-        } else {
+//            $allmessages = mxGetMessages();
+//        } else {
             /* Centerblöcke von der Abfrage ausschliessen, wenn nicht auf Startseite */
-            $where .= " AND (position NOT IN('c','d'))";
-            $allmessages = array();
-        }
+//            $where .= " AND (position NOT IN('c','d'))";
+//            $allmessages = array();
+//       }
 
         /* die rechten News-Artikel Blöcke in der Abfrage extra behandeln */
         if (empty($GLOBALS['story_blocks'])) {
@@ -131,9 +132,10 @@ function mxGetAllBlocks($side = false)
             $i++;
         }
         // die Messages in die CenterBlöcke einschleifen
-        if (count($allmessages)) {
-            $allblocks['c'] = (isset($allblocks['c'])) ? array_merge($allmessages, $allblocks['c']) : $allmessages;
-        }
+        
+// rem nanomx        if (count($allmessages)) {
+//            $allblocks['c'] = (isset($allblocks['c'])) ? array_merge($allmessages, $allblocks['c']) : $allmessages;
+//        }
     }
 
     switch (true) {
@@ -415,7 +417,7 @@ function mxIsNewsBlockfile($module, $blockname)
 }
 
 /**
- * mxGetMessages()
+ * mxGetMessages() /// remove for nanomx
  *
  * @return
  */
