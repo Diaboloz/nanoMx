@@ -493,13 +493,13 @@ class pmxAdminmenue {
                 'title' => _BENUTZERCONFIG,
                 'image' => 'userconfig.png' ,
                 );
-
-            $link['versioncheck'] = array(/* Linkdaten */
+/*
+            $link['versioncheck'] = array(
                 'panel' => MX_ADMINPANEL_TOOLS,
                 'title' => _VERSIONCHECK,
                 'image' => 'daemons.png' ,
                 );
-
+*/
             $link['seo'] = array(/* Linkdaten */
                 'panel' => MX_ADMINPANEL_SYSTEM,
                 'title' => _SEO,
