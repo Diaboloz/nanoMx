@@ -439,13 +439,13 @@ class pmxAdminmenue {
                 'title' => _SAVEDATABASE,
                 'image' => 'backup.png' ,
                 );
-
-            $link['reset/cache'] = array(/* Linkdaten */
+/*
+            $link['reset/cache'] = array(
                 'panel' => MX_ADMINPANEL_TOOLS,
                 'title' => _RESETPMXCACHE,
                 'image' => 'reactivateuser.png' ,
                 );
-
+*/
             $link['lightbox'] = array(/* Linkdaten */
                 'panel' => MX_ADMINPANEL_SYSTEM,
                 'title' => _LIGHTBOXSETTINGS,
