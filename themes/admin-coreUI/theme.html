@@ -1,0 +1,237 @@
+<!--
+ * CoreUI - Open Source Bootstrap Admin Template
+ * @version v1.0.0-alpha.4
+ * @link http://coreui.io
+ * Copyright (c) 2017 creativeLabs Łukasz Holeczek
+ * @license MIT
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,jQuery,CSS,HTML,RWD,Dashboard">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>CoreUI - Open Source Bootstrap Admin Template</title>
+
+    <!-- Icons -->
+    <link href="style/font-awesome.min.css" rel="stylesheet">
+    <link href="style/simple-line-icons.css" rel="stylesheet">
+
+    <!-- Main styles for this application -->
+    <link href="style/style.css" rel="stylesheet">
+
+</head>
+
+<!-- BODY options, add following classes to body to change options
+
+// Header options
+1. '.header-fixed'					- Fixed Header
+
+// Sidebar options
+1. '.sidebar-fixed'					- Fixed Sidebar
+2. '.sidebar-hidden'				- Hidden Sidebar
+3. '.sidebar-off-canvas'		- Off Canvas Sidebar
+4. '.sidebar-compact'				- Compact Sidebar Navigation (Only icons)
+
+// Aside options
+1. '.aside-menu-fixed'			- Fixed Aside Menu
+2. '.aside-menu-hidden'			- Hidden Aside Menu
+3. '.aside-menu-off-canvas'	- Off Canvas Aside Menu
+
+// Footer options
+1. '.footer-fixed'						- Fixed footer
+
+-->
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+    <header class="app-header navbar">
+        <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">☰</button>
+        <a class="navbar-brand" href="#"></a>
+        <ul class="nav navbar-nav hidden-md-down">
+            <li class="nav-item">
+                <a class="nav-link navbar-toggler sidebar-toggler" href="#">☰</a>
+            </li>
+
+            <li class="nav-item px-1">
+                <span class="nav-link">
+                    {_THEME_PROJECT}: <a href="./" target="_blank">{PAGE_TITLE} <i class="fa fa-external-link"></i></a>
+                </span>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+            {THEME_TRAYITEMS} 
+            <!-- START hddebug1 -->
+                <li><a href="admin.php?op=settings" id="hddebug" title="{_MSGDEBUGMODE}" data-placement="left"><i class="fa fa-bug"></i></a></li>
+                <!-- END hddebug1 -->
+                <!-- START hddebug2 -->
+                <li><a href="admin.php?op=settings" id="hddebug" class="critical" title="{_MSGDEBUGMODE}" data-placement="left"><i class="fa fa-bug"></i></a></li>
+                <!-- END hddebug2 -->  
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    {USERPIC}
+                    <span class="hidden-md-down">{USERNAME}</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+
+                    <div class="dropdown-header text-center">
+                        <strong>Compte</strong>
+                    </div>
+
+                    <a class="dropdown-item" href="admin.php?op=selfadmin" title="{_THEME_ADMIN_EDIT}"><i class="fa fa-wrench"></i> {_THEME_ADMIN_EDIT}</a>
+                   <a class="dropdown-item" href="admin.php?op=logout" title="{_THEME_LOGOUT}"><i class="fa fa-lock"></i> {_THEME_LOGOUT}</a>
+                </div>
+            </li>
+            <li class="nav-item hidden-md-down">
+                <a class="nav-link navbar-toggler aside-menu-toggler" href="#">☰</a>
+            </li>
+
+        </ul>
+    </header>
+
+    <div class="app-body">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <!-- START blocks_left_container -->
+                <!-- START blocks_left_loop -->
+                <!-- START admin_block_menu -->
+                <!-- END admin_block_menu -->             
+                <!-- START block_left -->
+                    {BLOCK_TITLE}
+                    {BLOCK_CONTENT}
+                <!-- END block_left -->
+                <!-- END blocks_left_loop -->
+                <!-- END blocks_left_container -->
+                <!-- START blocks_right_container -->
+                <!-- START blocks_right_loop -->
+                <!-- START block_right -->
+                    {BLOCK_TITLE}
+                    {BLOCK_CONTENT}
+                <!-- END block_right -->
+                <!-- END blocks_right_loop -->
+                <!-- END blocks_right_container -->        
+                <!-- START headmenue -->
+                <!-- END headmenue -->                
+            </nav>
+        </div>
+
+        <!-- Main content -->
+        <main class="main">
+
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">Home</li>
+                <li class="breadcrumb-item active">
+                    {CURRENT_MOD_LINK}
+                </li>
+
+                <!-- Breadcrumb Menu-->
+                <li class="breadcrumb-menu hidden-md-down">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <a class="btn btn-secondary" href="./admin.php"><i class="icon-graph"></i> &nbsp;Dashboard</a>
+                    </div>
+                </li>
+            </ol>
+
+
+            <div class="container-fluid">
+                <div class="animated fadeIn">
+
+
+
+           <!-- MAIN CONTENT (div #pmx-content) -->
+
+
+        <div id="pmx-content">
+        <!-- START script_output -->
+        <!-- START opentable -->
+            <div class="openclosetable">{OPENCLOSE_TABLE}</div>
+        <!-- END opentable -->
+        <!-- START opentable2 -->
+            <div class="openclosetable2">{OPENCLOSE_TABLE_2}</div>
+        <!-- END opentable2 -->
+        <!-- START opentableal -->
+            <div class="openclosetableal">{OPENCLOSE_TABLE_AL}</div>
+        <!-- END opentableal -->
+        <!-- START themeindex -->
+          <div class="box">
+            <h2>{$title}</h2>
+            <p class="f-right tiny">{$datetime}</p>
+            <div class="content">{$hometext}</div>
+          </div>
+        <!-- END themeindex -->
+        <!-- START themearticle -->
+          <div class="box">
+            <h2>{$title}</h2>
+            <p class="f-right tiny">{$datetime}</p>
+            <div class="content">{$content}</div>
+          </div>
+        <!-- END themearticle -->
+        <!-- END script_output -->
+
+        <!-- START blocks_center_top_loop -->
+        <!-- START block_center_top -->
+          <div class="box">
+            <h3>{BLOCK_TITLE}</h3>
+            {BLOCK_CONTENT}
+          </div>
+        <!-- END block_center_top -->
+        <!-- END blocks_center_top_loop -->
+
+        <!-- START blocks_center_down_loop -->
+        <!-- START block_center_down -->
+          <div class="box">
+            <h3>{BLOCK_TITLE}</h3>
+            {BLOCK_CONTENT}
+          </div>
+        <!-- END block_center_down -->
+        <!-- END blocks_center_down_loop -->
+
+<!-- end add pmx -->
+            </div>
+            <!-- END MAIN CONTENT -->
+
+
+
+                </div>
+
+            </div>
+            <!-- /.conainer-fluid -->
+        </main>
+
+
+
+    </div>
+
+    <footer class="app-footer">
+        &copy; {CURRENTYEAR} | nanoMx powered by <a href="http://www.pragmamx.org/">pragmaMx</a>
+        <span class="float-right">Theme by <a href="http://coreui.io">CoreUI</a> | {VIEWBENCH}
+        </span>
+    </footer>
+
+
+    <!-- Bootstrap and necessary plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+
+
+    <!-- Plugins and scripts required by all views -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+
+    <!-- GenesisUI main scripts -->
+
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>

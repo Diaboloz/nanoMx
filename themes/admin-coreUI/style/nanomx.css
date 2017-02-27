@@ -1,0 +1,87 @@
+#pmx-content h1,
+#pmx-content h2,
+#pmx-content .title {
+    margin: -24px -30px 25px;
+    padding: 15px 0 15px 20px;
+    background: #EBEBEB;
+    border-bottom: 1px solid #D3D3D3;
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+/*      modal
+  --------------------------------------*/
+.modal {
+  display: block;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  z-index: 1050;
+  width: 560px;
+  margin-left: -280px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  *border: 1px solid #999;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  outline: none;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding-box;
+          background-clip: padding-box;
+}
+
+.modal-body {
+  position: relative;
+  max-height: 400px;
+  padding: 15px;
+  overflow-y: auto;
+  text-align: center;
+}
+
+
+/*              system
+---------------------------------------*/
+.tabs-nav{border-bottom-style:solid;border-bottom-width:1px;font-size:.95em;font-weight:bold;list-style-type:none;margin:1em 0 0 0;padding:0 1.1em 0 1.1em;position:relative;text-align:left;top:1px;}
+.tabs-nav li{display:inline;font-size:1em;line-height:2.25em;margin:0;padding:0;position:relative;white-space:nowrap;}
+.tabs-nav li a{font-size: 1.2em;background-color:#efefef;border-style:solid solid none solid;border-width:1px;bottom:0;color:#444444;display:inline-block;margin-right:0;margin-top:.2em;padding-left:.75em;padding-right:.75em;padding-top:0;position:relative;text-decoration:none;white-space:nowrap;}
+.tabs-nav li a:hover,.tabs-nav li.current ul li a:hover{background-color:#e5e5e5;color:#4a4a4a;}
+.tabs-nav li.current a,.tabs-nav li.tabs-active a,.tabs-nav li.active a{background-color:#fff;bottom:-2px;color:#666;margin-top:0;padding-top:.2em;box-shadow: 0 -2px 0 #8FAB28;}
+.tabs-nav,.tabs-nav li a,.tabs-nav li ul,.tabs-panel{border-color:#dadada;}
+.tabs-collapsible .tabs-nav li.current a,.tabs-collapsible .tabs-nav li.tabs-active a,.tabs-collapsible .tabs-nav li.active a{cursor:pointer;}
+.tabs-nav li.current a,.tabs-nav li.tabs-active a,.tabs-nav li.active a,.tabs-nav li.tabs-loading a{cursor:text;}
+.tabs-panel{background-color:#FFFFFF;border: 1px solid #E6E9ED;margin-bottom:1em;overflow:hidden;padding:1em;text-align:left;}
+#graphicadmin .tabs-nav li a,.tabs-nav li a.img{background-position:5px 50%;background-repeat:no-repeat;background-size:16px 16px;padding-left:28px;}
+#graphicadmin .tabs-nav li a{cursor:default;}
+#graphicadmin .tabs-nav li.tabs-nav-sys a{cursor:pointer;}
+#graphicadmin .tabs-panel{padding:.3em;}
+#graphicadmin a.item{background-color:#fbfbfb;background-position:center 2.5em;background-repeat:no-repeat;border:1px solid #eeeeee;color:inherit;display:block;float:left;font-size:90%;font-weight:normal;height:5.7em;margin:.3em;padding:.3em .2em 0 .2em;text-align:center;text-decoration:none;width:15%;}
+#graphicadmin a.item.current,#graphicadmin a.item.tabs-active,#graphicadmin a.item.active{background-color:#efefef;border:1px solid #dadada;color:inherit;}
+#graphicadmin a.item.current:hover,#graphicadmin a.item.tabs-active:hover,#graphicadmin a.item.active:hover{background-color:#f9f9f9;color:inherit;}
+#graphicadmin a.item.text{font-size:95%;height:auto;margin:.2em;padding:.2em;text-align:left;white-space:nowrap;width:18%;}
+#graphicadmin a.item:hover{background-color:#eeeeee;border:1px solid #dadada;color:inherit;text-decoration:none;}
+#graphicadmin ul.sf-menu li a{cursor:default;}
+#graphicadmin ul.sf-menu li.current a{bottom:auto;padding-top:0;}
+#graphicadmin ul.sf-menu li:hover{visibility:inherit;}
+#graphicadmin ul.sf-menu{margin-bottom:2em;}
+#graphicadmin ul.sf-menu ul{border-style:none none solid none;border-width:0 0 1px 0;margin:0;max-height:40em;overflow-x:hidden;overflow-y:auto;padding:0;position:absolute;top:-999em;}
+#graphicadmin ul.sf-menu li li{float:left;position:relative;width:16em;}
+#graphicadmin ul.sf-menu li li a{background-color:#efefef;background-position:4px 50%;background-repeat:no-repeat !important;background-size:24px 24px;border-radius:0;border-style:solid solid none solid;border-width:1px 1px 0 1px;color:#000000;cursor:pointer;display:block;font-weight:normal;line-height:30px;margin:0;padding-left:32px;position:relative;}
+#graphicadmin ul.sf-menu li li.current a,#graphicadmin ul.sf-menu li li a:hover,#graphicadmin ul.sf-menu li.current li a:hover{background-color:#e5e5e5;color:#4a4a4a;}
+#graphicadmin ul.sf-menu li li.current a{font-weight:bold;}
+#graphicadmin ul.sf-menu li:hover ul,#graphicadmin ul.sf-menu li.sfHover ul{left:0;top:1.75em;z-index:99;}
+#graphicadmin ul.sf-menu.sf-js-enabled li:hover ul,#graphicadmin ul.sf-menu.sf-js-enabled li.sfHover ul{top:2em;}
+#graphicadmin ul.sf-menu li:hover li ul,#graphicadmin ul.sf-menu li.sfHover li ul{top:-999em;}
+#graphicadmin ul.sf-menu li li:hover ul,#graphicadmin ul.sf-menu li li.sfHover ul{left:10em;top:0;}
+#graphicadmin ul.sf-menu li li:hover li ul,#graphicadmin ul.sf-menu li li.sfHover li ul{top:-999em;}
+#graphicadmin ul.sf-menu li li li:hover ul,#graphicadmin ul.sf-menu li li li.sfHover ul{left:10em;top:0;}
+#currentmodlinks{border:.1em solid #dadada;border-radius:.35em;float:right;margin:0 0 1.5em 1.5em;padding:0 1em;}
+#currentmodlinks a{background-clip:border-box;background-position:right center;background-repeat:no-repeat;float:left;height:34px;line-height:34px;padding:0 34px 0 0;}
+#currentmodlinks a.to-view{background-image:url(../../images/admin/favorites.png);}
+.tabs-nav-secondary{margin:1em 0;padding:.5em 0;}
+.tabs-nav-secondary li{float:left;list-style-type:none;margin:0 0 1.1em .5em;}
+.tabs-nav-secondary li a{background-color:#efefef;border:1px solid #dadada;border-radius:.35em;color:inherit;display:block;font-size:110%;line-height:1.75em;padding:0 .75em;text-decoration:none;}
+.tabs-nav-secondary li.current a,.tabs-nav-secondary li a.current{background-color:#f9f9f9;color:#4a4a4a;font-weight:bold;}

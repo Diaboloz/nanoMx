@@ -1,0 +1,55 @@
+<?php
+/**
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ *
+ * pragmaMx is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * $Revision: 1.1 $
+ * $Author: tora60 $
+ * $Date: 2013-02-26 22:32:19 $
+ */
+?>
+
+<?php if($this->level===0) { ?>
+
+  <div class="mx-menu">
+    <ul id="adminblockmenue" <?php echo $this->containerclass ?>>
+      <?php foreach ($this->items as $row) { ?>
+      <li <?php echo $row['class']['citem'] ?> >
+        <a <?php echo $row['class']['actor'] ?><?php echo $row['title'] ?>><?php echo $row['caption'] ?></a>
+        <?php echo $row['subtree'] ?> 
+      </li>
+      <?php } // endforeach ?>
+    </ul>
+  </div>
+
+<?php } else { ?>
+
+<ul <?php echo $this->containerclass ?>>
+  <?php foreach ($this->items as $row) { ?>
+  <li <?php echo $row['class']['citem'] ?> >
+    <a <?php echo $row['class']['link'] ?> <?php echo $row['href'] ?> <?php echo $row['title'] ?> onfocus="this.blur()"><?php echo $row['caption'] ?></a>
+    <?php echo $row['subtree'] ?> 
+  </li>
+  <?php } // endforeach ?>
+</ul>
+
+<?php 
+}
+
+if($this->level===0 && $this->js_end) { ?>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+<?php echo $this->js_end ?>
+
+/*]]>*/
+</script>
+
+<?php } ?>
+
