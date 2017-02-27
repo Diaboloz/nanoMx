@@ -577,11 +577,12 @@ class pmxAdminmenue {
             'image' => 'gohome.png' ,
             );
 
-        $link['selfadmin'] = array(/* Linkdaten */
+/*        $link['selfadmin'] = array(
             'panel' => MX_ADMINPANEL_USERS,
             'title' => _OWNDATA,
             'image' => 'theuser.png' ,
             );
+*/
 
         $link['comments'] = array(/* Linkdaten */
             'panel' => MX_ADMINPANEL_CONTENT,
