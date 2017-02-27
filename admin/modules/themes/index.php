@@ -13,7 +13,7 @@
 
 defined('mxMainFileLoaded') or die('access denied');
 
-include_once("includes/functions.php");
+include_once(PMX_ADMINMODULES_DIR . DS . 'themes/includes/functions.php');
 
 /**
  * themes_admin
