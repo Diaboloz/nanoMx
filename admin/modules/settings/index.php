@@ -205,7 +205,7 @@ function Configure()
 	$tb->add("siteinfo","special","languages",$sellanguage,_SELLANGUAGE ." / ". _LANGUAGES);
     $tb->add("siteinfo", "yesno", "xuseflags", $useflags, _ACTUSEFLAGS );
 	$tb->add("siteinfo","number","xvkpInactiveMins", $vkpInactiveMins,_SECINACTIVELENGTH . "  [". _SECMINUTES . "]","",5);
-    $tb->add("siteinfo", "yesno", "xbanners", $banners, _ACTBANNERS );
+    //$tb->add("siteinfo", "yesno", "xbanners", $banners, _ACTBANNERS );
 	
 	/* graphics */
     $tb->addFieldset("graph", _GRAPHICOPT, "", true);
@@ -286,9 +286,9 @@ function Configure()
 	/* Footer */
     $tb->addFieldset("footer", _FOOTERMSG, "", true);
 	$tb->add("footer","textbox","xfoot1",trim($foot1),_FOOTERLINE1);
-	$tb->add("footer","textbox","xfoot2",trim($foot2),_FOOTERLINE2);
-	$tb->add("footer","textbox","xfoot3",trim($foot3),_FOOTERLINE3);
-	$tb->add("footer","textbox","xfoot4",trim($foot4),_FOOTERLINE4);
+//	$tb->add("footer","textbox","xfoot2",trim($foot2),_FOOTERLINE2);
+//	$tb->add("footer","textbox","xfoot3",trim($foot3),_FOOTERLINE3);
+//	$tb->add("footer","textbox","xfoot4",trim($foot4),_FOOTERLINE4);
 	$tb->add("footer","note", _ADMIN_FOOTCONSTMSG );
 	
 	
@@ -309,7 +309,7 @@ function Configure()
     foreach($doctype_array as $key => $var) {
         $options[$var['name']] =  $key;
     }
-	$tb->add("htmlopt","select","xDOCTYPE",$DOCTYPE,_SITEDOCTYPE,"",1,$options);
+	//$tb->add("htmlopt","select","xDOCTYPE",$DOCTYPE,_SITEDOCTYPE,"",1,$options);
     $tb->add("htmlopt", "yesno", "xTidyOutput", $TidyOutput, _USEHTMLTIDY );
     $tb->add("htmlopt", "yesno", "xmxJpCacheUse", $mxJpCacheUse, _JPCACHEUSE1A,_JPCACHEUSE1B );
     $tb->add("htmlopt", "number", "xmxJpCacheTimeout", ((empty($mxJpCacheTimeout)) ? MX_SETINACTIVE_MINS : $mxJpCacheTimeout), _JPCACHEUSE2A,_JPCACHEUSE2B,5 );
@@ -385,20 +385,7 @@ function Configure()
 	$tb->add("debug","select","debug[log]",$mxDebug['log'],_DEBUG_ERRORS_1,"",_NO,$debug_errors);
 	$tb->add("debug","select","debug[screen]",$mxDebug['screen'],_DEBUG_ERRORS_2,"",_NO,$debug_errors);
 	$tb->add("debug","select","debug[enhanced]",$mxDebug['enhanced'],_DEBUG_ENHANCED,"",_NO,$debug_errors);
-	
-	/* Database */
-    $tb->addFieldset("dbinfo", _DBSETTINGS, "", true);
-	$dbpassclick = "&nbsp;<a href=\"#\" onclick=\"alert('" . $dbpass . "'); return false;\">click</a>";
-	$tb->add("dbinfo","input","xdbhost", $dbhost,_DBSERVER,"",30,"readonly='readonly'");
-	$tb->add("dbinfo","input","xdbuname", $dbuname,_DBUSERNAME,"",30,"readonly='readonly'");
-	$tb->add("dbinfo","password","xdbpass", "fzbtudtburuzt",_DBPASS,$dbpassclick,30,"readonly='readonly'");
-	$tb->add("dbinfo","input","xdbname", $dbname,_DBNAME,"",30,"readonly='readonly'");
-	$tb->add("dbinfo","input","xprefix", $prefix,_PREFIX,"",30,"readonly='readonly'");
-	$tb->add("dbinfo","input","xuser_prefix", $user_prefix,_USERPREFIX,"",30,"readonly='readonly'");
-		//$dbtypes=array("mysql"=>"0","mysqli"=>"1","pdo"=>"2");		//
-	//$tb->add("dbinfo","select","xdbconnect",$xdbconnect,_DB_TYPE,_DB_TYPE_TEXT,1,$dbtypes);
-	$tb->add("dbinfo","hidden","xdbconnect",1);
-	
+		
    /* formular abrufen */
     $form = $tb->Show();
     /*
@@ -608,8 +595,7 @@ if(!defined('MX_FIRSTGROUPNAME')) define('MX_FIRSTGROUPNAME','" . MX_FIRSTGROUPN
 \$mxConf['storyhome']        = '$xstoryhome';
 \$mxConf['storyhome_cols']   = '$xstoryhome_cols';
 \$mxConf['oldnum']           = '$xoldnum';
-\$mxConf['banners']          = '$xbanners';
-\$mxConf['language_avalaible']            = $newlanguage_avalaible;
+\$mxConf['language_avalaible'] = $newlanguage_avalaible;
 \$mxConf['language']          = '$xlanguage';
 \$mxConf['default_timezone']  = '$xdefault_timezone';
 \$mxConf['multilingual']      = '$xmultilingual';

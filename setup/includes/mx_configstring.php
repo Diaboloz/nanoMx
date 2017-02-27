@@ -104,7 +104,6 @@ if(!defined('MX_FIRSTGROUPNAME')) define('MX_FIRSTGROUPNAME','" . MX_FIRSTGROUPN
 \$mxConf['storyhome']        = '$xstoryhome';
 \$mxConf['storyhome_cols']   = '$xstoryhome_cols';
 \$mxConf['oldnum']           = '$xoldnum';
-\$mxConf['banners']          = '$xbanners';
 \$mxConf['language_avalaible']            = $newlanguage_avalaible;
 \$mxConf['language']          = '$xlanguage';
 \$mxConf['default_timezone']  = '$xdefault_timezone';

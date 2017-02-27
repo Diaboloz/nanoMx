@@ -557,8 +557,8 @@ if (!function_exists('theme_total_user_online')) {
     }
 }
 
+/* rem nanomx
 if (!function_exists('theme_show_banner')) {
-    // bannercode
     function theme_show_banner($pos)
     {
         if ($GLOBALS['banners']) {
@@ -572,6 +572,7 @@ if (!function_exists('theme_show_banner')) {
         return '&nbsp;';
     }
 }
+*/
 
 if (!function_exists('theme_adminname')) {
     /**
