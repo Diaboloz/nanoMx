@@ -108,7 +108,7 @@ function Configure()
     $vkpSafeSqlinject = (empty($vkpSafeSqlinject)) ? ((isset($vkpSafeSqlinject)) ? $vkpSafeSqlinject : 1) : 1;
 
     $vkpsec_logging = (empty($vkpsec_logging)) ? 0 : intval($vkpsec_logging);
-    $DOCTYPE = (empty($DOCTYPE)) ? 0 : intval($DOCTYPE);
+    $DOCTYPE = (empty($DOCTYPE)) ? 6 : intval($DOCTYPE);
     $doctype_array = mxDoctypeArray();
 
     $tidy_available = is_tidy_available();
@@ -305,10 +305,10 @@ function Configure()
 	
 	/* HTML-Optionen */
     $tb->addFieldset("htmlopt", _HTMLOPT, "", true);
-	$options = array();
-    foreach($doctype_array as $key => $var) {
-        $options[$var['name']] =  $key;
-    }
+	//$options = array();
+    //foreach($doctype_array as $key => $var) {
+      //  $options[$var['name']] =  $key;
+    //}
 	//$tb->add("htmlopt","select","xDOCTYPE",$DOCTYPE,_SITEDOCTYPE,"",1,$options);
     $tb->add("htmlopt", "yesno", "xTidyOutput", $TidyOutput, _USEHTMLTIDY );
     $tb->add("htmlopt", "yesno", "xmxJpCacheUse", $mxJpCacheUse, _JPCACHEUSE1A,_JPCACHEUSE1B );
@@ -459,7 +459,7 @@ function ConfigSave($pvs)
 	$xmxCookieLink = (empty($xmxCookieLink)) ? "" : $xmxCookieLink;	
 	$xmxCookiePos = (empty($xmxCookiePos)) ? "top" : $xmxCookiePos;
 
-    $xDOCTYPE = (empty($xDOCTYPE)) ? 0 : intval($xDOCTYPE);
+    $xDOCTYPE = (empty($xDOCTYPE)) ? 6 : intval($xDOCTYPE);
     $xTidyOutput = (empty($xTidyOutput) || !is_tidy_available()) ? 0 : intval($xTidyOutput);
 
     $xmxFTPon = (empty($xmxFTPon)) ? 0 : intval($xmxFTPon);
