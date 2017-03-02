@@ -45,7 +45,7 @@ class themetest_functions {
      */
     static function GetDefaultConfig()
     {
-        $temp = array('admintheme' => 'admin-pmx',
+        $temp = array('admintheme' => 'admin-coreUI',
             'defaulttheme' => 'default-pmx',
 			'mobiletheme'=>'default-pmx',
             'theme' => array(),
