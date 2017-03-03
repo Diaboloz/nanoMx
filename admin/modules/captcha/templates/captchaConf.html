@@ -17,11 +17,10 @@
 </ul>
 
 <div class="tab-content py-1">
+
   <div class="tab-pane active" id="captcha-1" role="tabpanel">
    <form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
 
-<div class="row">
- 
     <div class="container">
 
 
@@ -67,7 +66,6 @@
             <label class="col-sm-2 col-form-label"><?php echo _CAPTCHACHARCASESEN ?></label>
             <div class="col-sm-3">
               <div class="form-check">
-
                   <label class="form-check-label">
                     <input class="form-check-input" type="radio" value="1"<?php echo ($this->casesensitive) ? ' checked="checked"' : '' ?> name="casesensitive" /> <?php echo _YES ?>
                   </label>
@@ -216,13 +214,10 @@
 
 
     </div><!--/ container -->
-    </div><!-- /row -->
-    </form>
  </div><!-- / captcha-1 -->
 
 
   <div class="tab-pane" id="captcha-2" role="tabpanel">
-    <form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
      <div class="container">
 
           <div class="form-group row">
@@ -254,7 +249,7 @@
             </div>
           </div>
 
-      <h4 class="mb-2"><?php echo _CAPTCHAMODSET ?></h4>
+          <h4 class="mb-2"><?php echo _CAPTCHAMODSET ?></h4>
 
           <div class="form-group row">
             <label class="col-sm-2 col-form-label"><?php echo _CAPTCHACOMMENTSON ?></label>
@@ -309,10 +304,9 @@
     </div> 
 
 
+      </div><!-- /container -->
+    </div><!-- /#captcha-2 -->
+
     </form>
-    </div>
-    </div><!-- #captcha-2 -->
-
-
- 
+  </div>
 </div><!-- tab-content ->
