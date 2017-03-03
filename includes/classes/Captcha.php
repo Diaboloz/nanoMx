@@ -195,11 +195,11 @@ class pmxCaptcha {
             $defaults = array(// Standardwerte die durch $attr überschrieben werden könnten
                 'src' => 'nur zur Sortierung ;-)',
                 'id' => 'nur zur Sortierung ;-)',
-                'name' => 'captcha' . $this->id,
+                //'name' => 'captcha' . $this->id,
                 'height' => $this->imageheight,
                 'width' => $this->imagewidth,
-                'align' => 'middle',
-                'border' => 0,
+                //'align' => 'middle',
+                //'border' => 0,
                 'alt' => 'captcha',
                 'class' => 'captcha-image',
                 );
