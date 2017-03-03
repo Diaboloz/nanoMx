@@ -52,9 +52,7 @@ function pmx_get_admin_dashboard()
 
     $template = load_class('Template');
     $template->init_path(__FILE__);
-
     $template->assign(compact('show_pragmamx_news', 'show_pragmamx_news_url', 'falsechmods', 'show_pragmamx_doku_url', 'newentries'));
-
     $content= $template->fetch('dashboard.html');
 	
 	return $content;
@@ -68,10 +66,10 @@ function pmx_get_admin_dashboard()
  */
 function pmx_admin_main()
 {
-    include('header.php');
+    mxIncludeHeader();
     GraphicAdmin();
     echo pmx_get_admin_dashboard();
-    include ('footer.php');
+    mxIncludeFooter();
 }
 
 /**

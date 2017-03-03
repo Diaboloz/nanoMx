@@ -1,49 +1,37 @@
+<div class="row">
 
-<div style="width:50%" class="float-left clearfix">
-  <ul class="tabs-nav-secondary">
-    <li><a target="_blank" href="<?php echo $this->show_pragmamx_doku_url ?>"><?php echo _ONLINEMANUAL ?></a></li>
-    <li><a href="<?php echo adminUrl('logout') ?>"><?php echo _ADMINLOGOUT ?></a></li>
-  </ul>
-  <br class="clear"/>
+  <div class="col-sm-6 col-lg-4">
 
-  <?php if ($this->newentries) {?>
-
-  <div class="box">
-    <h3><?php echo _NEWSUBMISSIONS ?></h3>
-    <ul class="infolist align-left">
-    <?php foreach ($this->newentries as $entry) {?>
-      <li class="nowrap"><b><?php echo intval($entry['count']) ?></b> <a href="<?php echo $entry['link'] ?>"><?php echo $entry['text'] ?></a></li>
+    <?php if ($this->newentries) {?>
+    <div class="card">
+      <div class="card-block">
+        <h3><?php echo _NEWSUBMISSIONS ?></h3>
+        <ul class="infolist align-left">
+        <?php foreach ($this->newentries as $entry) {?>
+          <li class="nowrap"><b><?php echo intval($entry['count']) ?></b> <a href="<?php echo $entry['link'] ?>"><?php echo $entry['text'] ?></a></li>
+        <?php }?>
+        </ul>
+      </div>
+    </div>
+    <?php }else {?>
+    <div class="card text-center">
+      <div class="card-block">
+          <p class="text-uppercase font-weight-bold"><?php echo _NOSUBMISSIONS ?></p>
+      </div>
+    </div>
     <?php }?>
-    </ul>
-  </div>
-
-  <?php }else {?>
-    <h3 class="note align-center"><?php echo _NOSUBMISSIONS ?></h3>
-  <?php }?>
   
-  <?php if ($this->falsechmods) {?>
-
-  <div class="warning">
-  <p><?php echo _FALSECHMODS1 ?></p>
-  <ul class="align-left">
-  <?php foreach ($this->falsechmods as $key => $file) {?>
-    <li><?php echo $file ?></li>
-  <?php }?>
-  </ul>
-  </div><br />
-
-      <?php
-  }
-  //endif
-  if ($this->show_pragmamx_news) {
+  <?php  if ($this->show_pragmamx_news) {
       $url = adminUrl('main', 'infonews', rand(), false, '&');
       ?>
-  <div class="box">
-    <h3><?php echo _PRAGMANEWS ?></h3>
-    <div id="showpragmamxnews" style="width: auto;overflow: auto; max-height: 10em">
-      <a href="<?php echo $this->show_pragmamx_news_url ?>" target="_blank" class="tiny"><?php echo _SHOWPRAGMANEWS ?></a>
-    </div>
-
+    <div class="card">
+      <h3 class="card-header">
+        <?php echo _PRAGMANEWS ?>
+      </h3>
+      <div class="card-block">
+        <div id="showpragmamxnews" style="width: auto;overflow: auto; max-height: 10em">
+          <a href="<?php echo $this->show_pragmamx_news_url ?>" target="_blank" class="tiny"><?php echo _SHOWPRAGMANEWS ?></a>
+        </div>
     <script type="text/javascript">
     /*<![CDATA[*/
       $(document).ready(function(){
@@ -53,36 +41,51 @@
       });
     /*]]>*/
     </script>
-  </div>
-
+    </div>
   <?php }else {?>
-
-  <p class="box">
-    <a href="<?php echo $this->show_pragmamx_news_url ?>" target="_blank"><strong><?php echo _SHOWPRAGMANEWS ?></strong></a>
-  </p>
-
+    <p class="box">
+      <a href="<?php echo $this->show_pragmamx_news_url ?>" target="_blank"><strong><?php echo _SHOWPRAGMANEWS ?></strong></a>
+    </p>
   <?php }?>
-</div>
+  </div>
+  </div><!-- /col -->
 
-<div style="width:40%" class="float-right clearfix">
-  <dl>
-    <dt><?php echo _VERSION_CMS ?>:</dt>
-    <dd>pragmaMx <?php echo PMX_VERSION_NUM ?> (<?php echo PMX_VERSION_DATE ?>)</dd>
-    <dt><?php echo _VERSION_PHP ?>:</dt>
-    <dd><?php echo phpversion() ?>
-      <?php if (mxGetAdminPref('radminsuper')) {?>
-      &nbsp;&nbsp;<span class="tiny">(<a title="PHP-Info" href="<?php echo adminUrl('phpinfo') ?>">PHP-Info</a>)</span>
-      <?php }?>
-    </dd>
-    <dt><?php echo _VERSION_MYSQL ?>:</dt>
-    <dd><?php echo MX_SQL_VERSION ?></dd>
-    <dt><?php echo _VERSION_SERVER ?>:</dt>
-    <dd><?php echo $_SERVER['SERVER_SOFTWARE'] ?></dd>
-    <dt><?php echo _VERSION_JQUERY ?>:</dt>
-    <dd><?php echo MX_JQUERY_VERSION ?></dd>	
-  </dl>
-</div>
+    <?php if ($this->falsechmods) {?>
+    <div class="col-sm-6 col-lg-4">
+    <div class="card card-inverse card-danger">
+      <div class="card-block">
+          <p class="font-weight-bold"><?php echo _FALSECHMODS1 ?></p>
+          <ul class="list-unstyled">
+          <?php foreach ($this->falsechmods as $key => $file) {?>
+            <li><?php echo $file ?></li>
+          <?php }?>
+          </ul>
+      </div>
+    </div>
+    </div>
+    <?php } ?>
 
-<br /><br />
+  <div class="col-sm-6 col-lg-3">
+    <div class="card card-inverse card-info">
+      <div class="card-block">
+        <dl>
+          <dt><?php echo _VERSION_CMS ?>:</dt>
+          <dd>pragmaMx <?php echo PMX_VERSION_NUM ?> (<?php echo PMX_VERSION_DATE ?>)</dd>
+          <dt><?php echo _VERSION_PHP ?>:</dt>
+          <dd><?php echo phpversion() ?>
+          <?php if (mxGetAdminPref('radminsuper')) {?>
+          &nbsp;&nbsp;<span class="badge badge-pill badge-default"><a title="PHP-Info" href="<?php echo adminUrl('phpinfo') ?>">PHP-INFO</a></span>
+          <?php }?>
+          </dd>
+          <dt><?php echo _VERSION_MYSQL ?>:</dt>
+          <dd><?php echo MX_SQL_VERSION ?></dd>
+          <dt><?php echo _VERSION_SERVER ?>:</dt>
+          <dd><?php echo $_SERVER['SERVER_SOFTWARE'] ?></dd>
+          <dt><?php echo _VERSION_JQUERY ?>:</dt>
+          <dd><?php echo MX_JQUERY_VERSION ?></dd>	
+        </dl>
+      </div>
+      </div>
+    </div><!-- /col -->
 
-<?php /* $Id: dashboard.html 198 2016-08-03 09:38:21Z PragmaMx $ äöüß*/ ?>
+</div><!-- /row -->
