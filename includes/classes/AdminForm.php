@@ -56,7 +56,7 @@ class pmxAdminForm {
     /* Configuration */
     private $__set = array(); // Konfigurtion
     private $toolbar = array(); // speichert die Toolbar
-	private $config = array(); // Konfigurationseinstellungen
+  private $config = array(); // Konfigurationseinstellungen
     private $fieldset_array = array(); // nimmt die Feldnamen auf für JS
     private $formset = array();
     private $noformset = array();
@@ -76,7 +76,7 @@ class pmxAdminForm {
         'rightMiddle', 'rightBottom', 'rightTop',
         'leftMiddle', 'leftTop', 'leftBottom'
         );
-	private static $checkselector = "cid"; // Name der Checkbox, die für "alle selektieren" verantworlich ist
+  private static $checkselector = "cid"; // Name der Checkbox, die für "alle selektieren" verantworlich ist
     /**
      * pmxAdminForm::__construct()
      *
@@ -101,18 +101,18 @@ class pmxAdminForm {
             'tb_show' => 'top', // anzeige der Toolaber top=oben, bottom=unten, both = oben und unten
             'formname' => preg_replace('#[^a-zA-Z0-9_]#', '', $formname), // Name des Formulars
             'buttontext' => false, // Buttons für alle öffnen/schliessen der Fieldsets als Text zeigen
-			'collapsibleshowbutton'=>'both', // einblenden der Klappbutton (both=oben und unten, top=nur oben, bottom=nur unten, none=nichst)
+      'collapsibleshowbutton'=>'both', // einblenden der Klappbutton (both=oben und unten, top=nur oben, bottom=nur unten, none=nichst)
             'acceptbutton' => true, // Anzeige von Accept-Button unterhalb der Fieldsets
             'target_url' => $_SERVER['REQUEST_URI'], // Target-Url des Formulars -> standard = self
             'enctype' => '', // encrypt-Type für das Formular
             'title' => '', // <h3>-Titel über dem Formular
             'description' => '', // Text unter dem Titel
             'csstoolbar' => 'toolbar1', // css-Klasse für die Toolbar ... standard 'toolbar1'
-			'toolbarfixed'=>false, // true= gleiche Buttonbreite, false = Buttonbreite richtet sich nach dem Text
+      'toolbarfixed'=>false, // true= gleiche Buttonbreite, false = Buttonbreite richtet sich nach dem Text
             'cssform' => 'adminForm', // css-Klasse für das Formular ... standard 'adminForm'
             'infobutton' => false, // Infobutton (true) oder Infotext (false)
             'fieldhomebutton' => false, // blendet einen Homebutton im unteren Rand des Fieldsets ein
-			'fieldimagesize'=>"150px", // größe von anzuzeigenden Bildern im Formular. Kann in den betroffenen Inputfeldern einzeln auch eingestellt werden
+      'fieldimagesize'=>"150px", // größe von anzuzeigenden Bildern im Formular. Kann in den betroffenen Inputfeldern einzeln auch eingestellt werden
             // TODO: dies sollte in die globale pragmaMx-Umgebung ausgelaget werden, so
             // dass alle tooltips auf der Seite gleich dargestellt werden
             // - die css-Datei "default.tooltip.css" ist bereits angepasst
@@ -121,8 +121,8 @@ class pmxAdminForm {
             'tooltipdirection' => 'bottom right', // Tooltipdirection : Position der Spitze des Tooltips 'bootom left, bottom right, bottom center, top left, top right, top center'
             'checkselector' => self::$checkselector, // Name der Checkbox, die für "alle selektieren" verantworlich ist
             'homelink' => true, // wenn true wird unter der Form ein Link zum Formanfang gesetzt
-			'mainform' => true, // auf false setzen, wenn 2.Form auf der Seite
-			
+      'mainform' => true, // auf false setzen, wenn 2.Form auf der Seite
+      
             );
         $this->checklisJS = "<script type=\"text/javascript\">
                     /*<![CDATA[*/
@@ -141,37 +141,37 @@ class pmxAdminForm {
                       });
                       /*]]>*/
                       </script> ";
-					  
-		$this->fieldsetsJS = "jQuery(document).ready(function(){
-					jQuery('." . $this->cssform . "_fieldset_collapsed').hide();
-					/* jQuery('." . $this->cssform . "_fieldset ." . $this->cssform . "_fieldset_collapsed:first').slideDown();
-					jQuery('." . $this->cssform . "_fieldset_title:first').toggleClass('" . $this->cssform . "_fieldset_title');*/
-					
-					jQuery('h3." . $this->cssform . "_fieldset_title').click(function(){
-						if(jQuery(this).next().css('display')!='block'){
-							/*jQuery('." . $this->cssform . "_fieldset_collapsed').slideUp(200);*/
-							jQuery(this).next().slideDown(600);
-							/*jQuery(this).next().css('display','block');*/
-						} else {
-							jQuery(this).next().slideUp(600);
-							/*jQuery(this).next().css('display','none');*/
-						}
-						
-						jQuery('." . $this->cssform . "_fieldset h3').removeClass();
-						jQuery('." . $this->cssform . "_fieldset h3').addClass('" . $this->cssform . "_fieldset_title');
-						
-						jQuery(this).removeClass();
-						jQuery(this).addClass('" . $this->cssform . "_fieldset_title');
-					})
-					jQuery('button.fieldset-expand_all').click(function(){
-						jQuery('." . $this->cssform . "_fieldset_collapsed').slideDown(600);
-					})
-					jQuery('button.fieldset-collapse_all').click(function(){
-						jQuery('." . $this->cssform . "_fieldset_collapsed').slideUp(600);
-					})
-	
-					})";	
-		
+            
+    $this->fieldsetsJS = "jQuery(document).ready(function(){
+          jQuery('." . $this->cssform . "_fieldset_collapsed').hide();
+          /* jQuery('." . $this->cssform . "_fieldset ." . $this->cssform . "_fieldset_collapsed:first').slideDown();
+          jQuery('." . $this->cssform . "_fieldset_title:first').toggleClass('" . $this->cssform . "_fieldset_title');*/
+          
+          jQuery('h3." . $this->cssform . "_fieldset_title').click(function(){
+            if(jQuery(this).next().css('display')!='block'){
+              /*jQuery('." . $this->cssform . "_fieldset_collapsed').slideUp(200);*/
+              jQuery(this).next().slideDown(600);
+              /*jQuery(this).next().css('display','block');*/
+            } else {
+              jQuery(this).next().slideUp(600);
+              /*jQuery(this).next().css('display','none');*/
+            }
+            
+            jQuery('." . $this->cssform . "_fieldset h3').removeClass();
+            jQuery('." . $this->cssform . "_fieldset h3').addClass('" . $this->cssform . "_fieldset_title');
+            
+            jQuery(this).removeClass();
+            jQuery(this).addClass('" . $this->cssform . "_fieldset_title');
+          })
+          jQuery('button.fieldset-expand_all').click(function(){
+            jQuery('." . $this->cssform . "_fieldset_collapsed').slideDown(600);
+          })
+          jQuery('button.fieldset-collapse_all').click(function(){
+            jQuery('." . $this->cssform . "_fieldset_collapsed').slideUp(600);
+          })
+  
+          })";  
+    
         mxGetLangfile(dirname(__FILE__) . DS . 'AdminForm' . DS . 'language');
     }
 
@@ -241,7 +241,7 @@ class pmxAdminForm {
         $onsubmit = ($this->checklistflag) ? " onsubmit=\"return validateForm();\"" : "";
 
         $tdtext = "\n";
-		$tdtext .= "<div class=\"adminForm " . $this->cssform . "\">\n" ;
+    $tdtext .= "<div class=\"adminForm " . $this->cssform . "\">\n" ;
         $tdtext .= "<a name=\"" . $this->formname . "-container\" ></a>";
         $tdtext .= "<div id=\"" . $this->formname . "-adminformcontainer\" >";
         $tdtext .= (trim($this->title)) ? "<h3>" . $this->title . "</h3>" : "";
@@ -269,7 +269,7 @@ class pmxAdminForm {
         if ($this->homelink) {
             $tdtext .= $this->_getHomebutton();
         }
-		
+    
         $tdtext .= "<input type=\"hidden\" name=\"boxchecked\" value=\"0\"  />" ;
         $tdtext .= "</div></form></div>\n";
         $this->formopenflag = false;
@@ -290,7 +290,7 @@ class pmxAdminForm {
 
         if ($this->checklistflag) {
             pmxHeader::add_script(PMX_JAVASCRIPT_PATH . 'mx_checklist.js');
-			$tdtext .= $this->checklisJS;
+      $tdtext .= $this->checklisJS;
         }
 
         return $tdtext;
@@ -317,7 +317,7 @@ class pmxAdminForm {
             $fstyle = $attributes['style'];
             unset($attributes['style']);
         }
-		
+    
         $attributes = self::get_attributes_from_array($attributes);
         $tdtext = "<div style=\"display:inline-block;vertical-align:top;" . $fstyle . "\">";
         $class .= ' ' . $class . ' ' . $attributes;
@@ -325,16 +325,16 @@ class pmxAdminForm {
         if ($class) {
             $class = trim($class);
         }
-		//$tdtext .="<div class=\"fieldset\">";
+    //$tdtext .="<div class=\"fieldset\">";
         if ($collapsible) {
             $this->collapsibleflag = true;
-            $tdtext .= "<div class=\"fieldset\" ><legend class=\"" . $this->cssform . "_fieldset_title legend\">" . $legend . "</legend>";
+            $tdtext .= "<div class=\"card\" ><legend class=\"" . $this->cssform . " card-header\">" . $legend . "</legend>";
             $tdtext .= "<div class=\"" . $this->cssform . "_fieldset_collapsed\">";
         } else {
-            $tdtext .= "<div class=\"fieldset\" ><legend class=\"" . $this->cssform . "_fieldset_title_open legend\">" . $legend . "</legend>";
+            $tdtext .= "<div class=\"card\" ><legend class=\"" . $this->cssform . " card-header\">" . $legend . "</legend>";
             $tdtext .= "<div class=\"" . $this->cssform . "_fieldset_open\">";
         }
-        $tdtext .= "<div class=\"formcontent\">";
+        $tdtext .= "<div class=\"card-block\">";
 
         $tdtext .= ($extendedtext) ? '<div class="fielddescription">' . $extendedtext . '</div>' : "";
         return $tdtext;
@@ -377,7 +377,7 @@ class pmxAdminForm {
         $tt = "";
         if ($this->checklistflag) {
             $tt = "onclick=\"javascript:if(document[adminForm].boxchecked.value==0){alert('" . _NOACTION . "');} else {onsubmitform();}\"";
-        } 		
+        }     
         $img = $this->tb_pic_path . "accept.png";
         $img2 = $this->tb_pic_path . "up.png";
         $tdtext = "<div class=\"form-submit align-" . $this->tb_direction . "\">\n";
@@ -390,23 +390,23 @@ class pmxAdminForm {
         $tdtext .= "</button>";
 
         if ($this->fieldhomebutton) {
-            $tdtext .= $this->_getHomebutton();			
+            $tdtext .= $this->_getHomebutton();     
         }
         $tdtext .= "</div>";
         return $tdtext;
     }
 
-	private function _getHomebutton ()
-	{
+  private function _getHomebutton ()
+  {
             $img2 = $this->tb_pic_path . "up.png";
             $tdtext = "<div class=\"homebutton\">\n";
             $tdtext .= "<a href=\"#" . $this->formname . "-container\" >";
             $tdtext .= "<img src=\"$img2\" title='" . _HOME . "' alt='" . _HOME . "' />";
             $tdtext .= "<img src=\"$img2\" title='" . _HOME . "' alt='" . _HOME . "' />";
             $tdtext .= "</a></div>";
-			return $tdtext;
-	}
-	
+      return $tdtext;
+  }
+  
     /**
      * pmxAdminForm::FieldSetButton()
      *
@@ -481,39 +481,39 @@ class pmxAdminForm {
     {
         $output = "";
         //pmxHeader::add_script(PMX_JAVASCRIPT_PATH . 'mx_fieldsets.js');
-		$this->fieldsetsJS = "jQuery(document).ready(function(){
-					jQuery('." . $this->cssform . "_fieldset_collapsed').hide();
-					
-					
-					jQuery('legend." . $this->cssform . "_fieldset_title').click(function(){
-						if(jQuery(this).next().css('display')!='block'){
-							
-							jQuery(this).next().slideDown(600);
-							
-						} else {
-							jQuery(this).next().slideUp(600);
-							
-						}
-						
-						jQuery('." . $this->cssform . "_fieldset legend').removeClass();
-						jQuery('." . $this->cssform . "_fieldset legend').addClass('" . $this->cssform . "_fieldset_title legend');
-						
-						jQuery(this).removeClass();
-						jQuery(this).addClass('" . $this->cssform . "_fieldset_title legend');
-					})
-					jQuery('button.fieldset-expand_all').click(function(){
-						jQuery('." . $this->cssform . "_fieldset_collapsed').slideDown(600);
-					})
-					jQuery('button.fieldset-collapse_all').click(function(){
-						jQuery('." . $this->cssform . "_fieldset_collapsed').slideUp(600);
-					})
-	
-					})";		
-		pmxHeader::add_script_code($this->fieldsetsJS);
+    $this->fieldsetsJS = "jQuery(document).ready(function(){
+          jQuery('." . $this->cssform . "_fieldset_collapsed').hide();
+          
+          
+          jQuery('legend." . $this->cssform . "_fieldset_title').click(function(){
+            if(jQuery(this).next().css('display')!='block'){
+              
+              jQuery(this).next().slideDown(600);
+              
+            } else {
+              jQuery(this).next().slideUp(600);
+              
+            }
+            
+            jQuery('." . $this->cssform . "_fieldset legend').removeClass();
+            jQuery('." . $this->cssform . "_fieldset legend').addClass('" . $this->cssform . "_fieldset_title legend');
+            
+            jQuery(this).removeClass();
+            jQuery(this).addClass('" . $this->cssform . "_fieldset_title legend');
+          })
+          jQuery('button.fieldset-expand_all').click(function(){
+            jQuery('." . $this->cssform . "_fieldset_collapsed').slideDown(600);
+          })
+          jQuery('button.fieldset-collapse_all').click(function(){
+            jQuery('." . $this->cssform . "_fieldset_collapsed').slideUp(600);
+          })
+  
+          })";    
+    pmxHeader::add_script_code($this->fieldsetsJS);
         /* wenn klappbare Fieldsets, dann button einblenden  */
-		$this->collapsibleshowbutton=(in_array($this->collapsibleshowbutton,array("top","bottom","both","none")))?$this->collapsibleshowbutton:"both";
+    $this->collapsibleshowbutton=(in_array($this->collapsibleshowbutton,array("top","bottom","both","none")))?$this->collapsibleshowbutton:"both";
         if ($this->collapsibleflag && 
-			($this->collapsibleshowbutton=="both" OR $this->collapsibleshowbutton=="top")) $output .= $this->FieldSetButton();
+      ($this->collapsibleshowbutton=="both" OR $this->collapsibleshowbutton=="top"));
         /* jetzt Formularelemente ohne Fieldsets ausgeben */
         if (count($this->noformset) > 0) {
             $output .= "<div class=\"formcontainer\">\n";
@@ -533,7 +533,7 @@ class pmxAdminForm {
         }
         /* wenn klappbare Fieldsets, dann button einblenden am Ende auch noch mal */
         if ($this->collapsibleflag && 
-			($this->collapsibleshowbutton=="both" OR $this->collapsibleshowbutton=="bottom")) $output .= $this->FieldSetButton();
+      ($this->collapsibleshowbutton=="both" OR $this->collapsibleshowbutton=="bottom"));
         return $output;
     }
 
@@ -707,7 +707,7 @@ class pmxAdminForm {
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
                 // $class
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><div id=\"" . $inputid . "\" title=\"" . $fdesc . "\" " . $fextern . ">" . $fvalue . "</div></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -723,9 +723,9 @@ class pmxAdminForm {
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
                 // $class
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
-                $forminput .= "<div {$linestyle2}><input type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
+                $forminput .= "<div {$linestyle2}><input class=\"form-control\" type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
@@ -734,7 +734,7 @@ class pmxAdminForm {
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 20 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><input type=\"password\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -744,7 +744,7 @@ class pmxAdminForm {
             case "button":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= "<label for=\"" . $inputid . "\" $linestyle1 title=\"\" >&nbsp;</label>";
                 $forminput .= "<div {$linestyle2}><button type=\"button\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" " . $fextern . ">";
                 $forminput .= $flegend;
@@ -755,7 +755,7 @@ class pmxAdminForm {
             case "submitbutton":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 //$forminput .= "<label for=\"" . $inputid . "\" $linestyle1 title=\"\" >&nbsp;</label>";
                 $forminput .= "<div {$linestyle2}><button type=\"submit\" name=\"toolbarsubmit\" value=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fvalue . "\" " . $fextern . ">";
@@ -774,7 +774,7 @@ class pmxAdminForm {
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><input type=\"file\" name='" . $ffieldname . "[]' value='" . $fvalue . "' id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . " /></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -786,10 +786,10 @@ class pmxAdminForm {
             case "yesno":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>";
-                $forminput .= "<select name=\"" . $ffieldname . "\" size=\"2\"  id=\"" . $inputid . "\" title=\"" . $fdesc . "\" " . $fextern . " >
+                $forminput .= "<select class=\"form-control\" name=\"" . $ffieldname . "\" size=\"2\"  id=\"" . $inputid . "\" title=\"" . $fdesc . "\" " . $fextern . " >
                 <option value=\"1\"" . (($fvalue == 1) ? ' selected="selected" class="current"' : '') . ">" . _YES . "</option>
                 <option value=\"0\"" . (($fvalue != 1) ? ' selected="selected" class="current"' : '') . ">" . _NO . "</option>
                 </select>";
@@ -800,10 +800,10 @@ class pmxAdminForm {
             case "yesnodefault":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>";
-                $forminput .= "<select name=\"" . $ffieldname . "\" size=\"1\"  id=\"" . $inputid . "\" title=\"" . $fdesc . "\" " . $fextern . " >
+                $forminput .= "<select class=\"form-control\" name=\"" . $ffieldname . "\" size=\"1\"  id=\"" . $inputid . "\" title=\"" . $fdesc . "\" " . $fextern . " >
                 <option value=\"-1\"" . (($fvalue == (-1)) ? ' selected="selected" class="current"' : '') . ">" . _DEFAULT . "&nbsp;</option>
                 <option value=\"1\"" . (($fvalue == 1) ? ' selected="selected" class="current"' : '') . ">" . _YES . "</option>
                 <option value=\"0\"" . (($fvalue == 0) ? ' selected="selected" class="current"' : '') . ">" . _NO . "</option>
@@ -819,7 +819,7 @@ class pmxAdminForm {
                 $fvalue = intval($fvalue);
                 $fixe = "";
                 if ($fvalue == "1") $fixe = "checked=\"checked\"";
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><input type=\"hidden\" name='" . $ffieldname . "' value='0' />";
                 $forminput .= "<input type=\"checkbox\" name='" . $ffieldname . "' value='1' " . $fixe . "  id=\"" . $inputid . "\" title=\"" . $fdesc . "\"" . $ifrequired . $fextern . " /></div>";
@@ -833,7 +833,7 @@ class pmxAdminForm {
                 $fvalue = intval($fvalue);
                 $fixe = "";
                 if ($ffieldlen == "1") $fixe = "checked=\"checked\"";   /* hier rüber wird der aktivierte Butto bestimmt */
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>";
                 $forminput .= "<input type=\"radio\" name='" . $ffieldname . "' value='". $fvalue . "' " . $fixe . " id=\"" . $inputid . "\" title=\"" . $fdesc . "\"" . $fextern . " /></div>";
@@ -842,30 +842,30 @@ class pmxAdminForm {
                 break;
             case "radiogroup":
                 $class = self::extract_class($frequired);
-                			
-				/* über $fextern muss ein Array übergeben werden mit den Werten und den Bezeichnungen 
-				   Format = array("ausgabetext"=>"wert",....);
-				*/
-				if (!is_array($fextern)) return;
+                      
+        /* über $fextern muss ein Array übergeben werden mit den Werten und den Bezeichnungen 
+           Format = array("ausgabetext"=>"wert",....);
+        */
+        if (!is_array($fextern)) return;
                 
-				/* über $fvalue wird der "wert" übergeben, der ausgewählt werden soll   
-				*/
-				
-				/* ist ffieldlen > 0 dann wird die Liste horizontal ausgegeben, ansonsten vertikal */
-				
-				$ffieldlen=intval($ffieldlen);
-				
-				$forientation=($ffieldlen==0)?"<br />":"&nbsp";
-				
-                $forminput = "<div class=\"forminputline{$class}\">";
+        /* über $fvalue wird der "wert" übergeben, der ausgewählt werden soll   
+        */
+        
+        /* ist ffieldlen > 0 dann wird die Liste horizontal ausgegeben, ansonsten vertikal */
+        
+        $ffieldlen=intval($ffieldlen);
+        
+        $forientation=($ffieldlen==0)?"<br />":"&nbsp";
+        
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>";
-				  foreach ($fextern as $key=>$value) {
-					$fixe =($fvalue==$value) ?"checked=\"checked\"":"";
-					//$forminput .= "<div {$linestyle2}>";
-					$forminput .= "<input type=\"radio\" name='" . $ffieldname . "' value='". $value . "' " . $fixe . "  title=\"" . $key . "\" />" . $key . $forientation;
-				  }
-				$forminput .= "</div><div {$linestyle3}>" . $fdescription . "</div>";
+          foreach ($fextern as $key=>$value) {
+          $fixe =($fvalue==$value) ?"checked=\"checked\"":"";
+          //$forminput .= "<div {$linestyle2}>";
+          $forminput .= "<input type=\"radio\" name='" . $ffieldname . "' value='". $value . "' " . $fixe . "  title=\"" . $key . "\" />" . $key . $forientation;
+          }
+        $forminput .= "</div><div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
 
@@ -878,10 +878,10 @@ class pmxAdminForm {
                     $arrlen = max(2, intval($ffieldlen));
                     $arrlen = min(5, $arrlen);
 
-                    $forminput = "<div class=\"forminputline{$class}\">";
+                    $forminput = "<div class=\"form-group{$class}\">";
                     $forminput .= $inputlabel;
                     $forminput .= "<div $linestyle2>";
-                    $forminput .= "<select name=\"" . $ffieldname . "\" size=\"" . $arrlen . "\"  id=\"" . $inputid . "\" title=\"" . $fdesc . "\"" . $fextern . ">";
+                    $forminput .= "<select class=\"form-control\" name=\"" . $ffieldname . "\" size=\"" . $arrlen . "\"  id=\"" . $inputid . "\" title=\"" . $fdesc . "\"" . $fextern . ">";
                     $forminput .= "<option value=\"0\" " . ((0 == $fvalue) ? ' selected="selected" class="current"' : '') . " >" . _NONE . "</option>";
                     $forminput .= $usergroup . "</select></div>";
                     $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -903,24 +903,24 @@ class pmxAdminForm {
                     $arrlen = max(1, intval(count($fextern)));
                     $arrlen = (intval($arrlen) > 4) ? 4 : $arrlen;
                 }
-                $ausdruck = '<select name="' . $ffieldname . '" size="' . $arrlen . '"  id="' . $inputid . '" title="' . $fdesc . '"' . $attributes . '>';
+                $ausdruck = '<select class="form-control" name="' . $ffieldname . '" size="' . $arrlen . '"  id="' . $inputid . '" title="' . $fdesc . '"' . $attributes . '>';
                 $ausdruck .= "<option value='0' " . ((0 == $fvalue) ? ' selected="selected" class="current"' : '') . " >" . _NONE . "&nbsp;&nbsp;</option>";
                 /* foreach ($fextern as $key => $value) {
                     $sel = ($key == $fvalue) ? ' selected="selected" class="current"' : '';
                     $ausdruck .= "<option value='" . $key . "' " . $sel . " >" . $value . "&nbsp;&nbsp;</option>";
                 } */
-				foreach ($fextern as $key => $value) {
-				  if (is_array($fvalue) && in_array($key, $fvalue) && !in_array('0', $fvalue)){
-					$sel = ' selected="selected" class="current"' ;
-				  } else {
-					$sel = ($key == $fvalue) ? ' selected="selected" class="current"' : '';
-				  }
-				  $ausdruck .= "<option value='" . $key . "' " . $sel . " >" . $value . "&nbsp;&nbsp;</option>";
-				}
-								
+        foreach ($fextern as $key => $value) {
+          if (is_array($fvalue) && in_array($key, $fvalue) && !in_array('0', $fvalue)){
+          $sel = ' selected="selected" class="current"' ;
+          } else {
+          $sel = ($key == $fvalue) ? ' selected="selected" class="current"' : '';
+          }
+          $ausdruck .= "<option value='" . $key . "' " . $sel . " >" . $value . "&nbsp;&nbsp;</option>";
+        }
+                
                 $ausdruck .= "</select>";
 
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -943,7 +943,7 @@ class pmxAdminForm {
                 $arrlen = max(2, intval($ffieldlen));
                 $arrlen = min(4, $arrlen);
                 // $arrlen = (intval($arrlen) > 4) ? 4 : $arrlen;
-                $ausdruck = '<select name="' . $ffieldname . '" size="' . $arrlen . '"  id="' . $inputid . '" title="' . $fdesc . '"' . $attributes . '>';
+                $ausdruck = '<select class="form-control" name="' . $ffieldname . '" size="' . $arrlen . '"  id="' . $inputid . '" title="' . $fdesc . '"' . $attributes . '>';
                 $ausdruck .= "<option value='-1' " . ((is_array($fvalue) && in_array('-1', $fvalue)) ? ' selected="selected" class="current"' : '') . " >" . _NONE . "&nbsp;&nbsp;</option>";
                 // $ausdruck .= "<option value='0' " . ((is_array($fvalue) && in_array('0', $fvalue)) ? ' selected="selected" class="current"' : '') . " >" . _ALL . "&nbsp;&nbsp;</option>";
                 foreach ($fextern as $key => $value) {
@@ -956,7 +956,7 @@ class pmxAdminForm {
                 }
                 $ausdruck .= "</select>";
 
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -975,21 +975,21 @@ class pmxAdminForm {
                     $arrlen = intval(count($fextern));
                     $arrlen = (intval($arrlen) > 4) ? 4 : $arrlen;
                 }
-				
-				if (is_array($fvalue)) $attributes .=" multiple=\"multiple\"";
-				
-                $ausdruck = '<select name="' . $ffieldname . '" size="' . $arrlen . '"  id="' . $inputid . '" title="' . $fdesc . '"' . $attributes . '>';
+        
+        if (is_array($fvalue)) $attributes .=" multiple=\"multiple\"";
+        
+                $ausdruck = '<select class="form-control" name="' . $ffieldname . '" size="' . $arrlen . '"  id="' . $inputid . '" title="' . $fdesc . '"' . $attributes . '>';
                 foreach ($fextern as $key => $value) {
-					if (is_array($fvalue)) {
-						$sel= (array_search($value,$fvalue)===FALSE)?"":' selected="selected" class="current"';
-					} else {
-						$sel = ($value == $fvalue) ? ' selected="selected" class="current"' : '';
-					}
+          if (is_array($fvalue)) {
+            $sel= (array_search($value,$fvalue)===FALSE)?"":' selected="selected" class="current"';
+          } else {
+            $sel = ($value == $fvalue) ? ' selected="selected" class="current"' : '';
+          }
                     $ausdruck .= "<option value='" . $value . "' " . $sel . " >" . $key . "&nbsp;&nbsp;</option>";
                 }
                 $ausdruck .= "</select>";
 
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1015,9 +1015,9 @@ class pmxAdminForm {
                 foreach($languageslist as $alt => $value) {
                     $options[] = '<option value="' . $value . '"' . (($value == $fvalue) ? ' selected="selected" class="current" ' : '') . ' >' . $alt . '</option>';
                 }
-                $ausdruck .= '<select name="' . $ffieldname . '" ' . $fextern . ' id="' . $inputid . '" title="' . $fdesc . '"' . $fextern . '>' . implode("\n", $options) . '</select>';
+                $ausdruck .= '<select class="form-control" name="' . $ffieldname . '" ' . $fextern . ' id="' . $inputid . '" title="' . $fdesc . '"' . $fextern . '>' . implode("\n", $options) . '</select>';
 
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1038,21 +1038,21 @@ class pmxAdminForm {
                     $arrlen = intval(count($fextern));
                     $arrlen = (intval($arrlen) > 4) ? 4 : $arrlen;
                 }
-                $ausdruck = "<select name=\"" . $ffieldname . "\" size='" . $arrlen . "'  id=\"" . $inputid . "\" title=\"" . $fdesc . "\"" . $attributes . ">";
+                $ausdruck = "<select class=\"form-control\" name=\"" . $ffieldname . "\" size='" . $arrlen . "'  id=\"" . $inputid . "\" title=\"" . $fdesc . "\"" . $attributes . ">";
                 foreach ($fextern as $key => $value) {
                     $sel = ($value == $fvalue) ? ' selected="selected" class="current"' : '';
                     $ausdruck .= "<option value='$value' " . $sel . " >" . $key . "&nbsp;&nbsp;</option>";
                 }
                 $ausdruck .= "</select>";
 
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
 
-			case "textbox":		// gibt eine Textarea eingepasst in die Zeile aus
+      case "textbox":   // gibt eine Textarea eingepasst in die Zeile aus
 
                 if (!isset($fextern['rows'])) {
                     $fextern['rows'] = intval($ffieldlen / 9);
@@ -1066,11 +1066,11 @@ class pmxAdminForm {
                 $attributes = self::get_attributes_from_array($fextern);
                 $class = self::extract_class($fextern);
                 // $intext = htmlspecialchars($fvalue, ENT_COMPAT | ENT_HTML5, 'UTF-8', false);
-                $ausdruck = "<textarea name=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" style=\"width:90% " . $style . "\"" . $attributes . ">" . $fvalue . "</textarea>";
+                $ausdruck = "<textarea class=\"form-control\" name=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" style=\"width:90% " . $style . "\"" . $attributes . ">" . $fvalue . "</textarea>";
                 $ausdruck .= "<input type=\"hidden\" name=\"spaw\" value=\"0\" />";
 
-                $forminput = "<div class=\"forminputline{$class}\" 
-				>";
+                $forminput = "<div class=\"form-group{$class}\" 
+        >";
                  $forminput .= $inputlabel;
                
                 $forminput .= "<div class=\"forminputfield{$class}\" >" . $ausdruck . "</div>";
@@ -1078,7 +1078,7 @@ class pmxAdminForm {
                 $forminput .= "</div>";
                 break;
 
-            case "textarea":	// gibt eine Textarea über die gesammte Breite aus
+            case "textarea":  // gibt eine Textarea über die gesammte Breite aus
 
                 if (!isset($fextern['rows'])) {
                     $fextern['rows'] = intval($ffieldlen / 9);
@@ -1092,25 +1092,25 @@ class pmxAdminForm {
                 $attributes = self::get_attributes_from_array($fextern);
                 $class = self::extract_class($fextern);
                 // $intext = htmlspecialchars($fvalue, ENT_COMPAT | ENT_HTML5, 'UTF-8', false);
-                $ausdruck = "<textarea name=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" style=\"1em;width:95%;" . $style . "\"" . $attributes . ">" . $fvalue . "</textarea>";
+                $ausdruck = "<textarea class=\"form-control\" name=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" style=\"1em;width:95%;" . $style . "\"" . $attributes . ">" . $fvalue . "</textarea>";
                 $ausdruck .= "<input type=\"hidden\" name=\"spaw\" value=\"0\" />";
 
-                $forminput = "<div class=\"forminputline{$class}\" >";
+                $forminput = "<div class=\"form-group{$class}\" >";
                 //$forminput .= "<label for=\"" . $inputid . "\" class=\"forminputline{$class} title=\"" . htmlspecialchars(strip_tags($fdesc), ENT_COMPAT | ENT_HTML5, 'UTF-8', false) . "\" >" . $flegend . "</label>";
                 $forminput .= "<div {$linestyle2}>" . $flegend . "&nbsp;</div>";                //$forminput .= "<div {$linestyle2}>" . $flegend . "&nbsp;</div>";
-                $forminput .= "<div class=\"forminputline{$class}\" style='width:100%'>" . $ausdruck . "</div>";
+                $forminput .= "<div class=\"form-group{$class}\" style='width:100%'>" . $ausdruck . "</div>";
                 $forminput .= "<div class=\"forminputdesc {$class}\" style='width:100%'>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-			
+      
 
             /* Wysiwyg Editor */
             case "editor":
-				/* übergabe der Parameter für den Editor in einem array über $fextern
-				*	mode= 'normal','full','mini'
-				*	z.Bsp. array('mode'=>'mini')
-				*   siehe auch : \includes\classes\Textarea.php
-				*/
+        /* übergabe der Parameter für den Editor in einem array über $fextern
+        * mode= 'normal','full','mini'
+        * z.Bsp. array('mode'=>'mini')
+        *   siehe auch : \includes\classes\Textarea.php
+        */
                 switch (true) {
                     case $fextern === false:
                         $class = '';
@@ -1158,7 +1158,7 @@ class pmxAdminForm {
                 $ausdruck = $editor->getHtml();
                 $ausdruck .= "<input type=\"hidden\" name=\"spaw\" value=\"" . $spaw . "\" id=\"" . $inputid . "\" />";
 
-                $forminput = "<div class=\"forminputline{$class} clearfix\">";
+                $forminput = "<div class=\"form-group{$class} clearfix\">";
                 $forminput .= "<div {$linestyle2}>" . $flegend . "&nbsp;</div>";
                 $forminput .= "<div class=\"forminputline clear {$class}\" style='width:100%'>" . $ausdruck . "</div>";
                 $forminput .= "<div class=\"forminputdesc {$class}\" style='width:100%'>" . $fdescription . "</div>";
@@ -1170,24 +1170,24 @@ class pmxAdminForm {
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 10 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
-                $forminput .= "<div {$linestyle2}><input type=\"" . $ftype . "\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . " /></div>";
+                $forminput .= "<div {$linestyle2}><input class=\"form-control\" type=\"" . $ftype . "\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . " /></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
 
-			case "range": // über fextern kann min= und Max= step= festgelegt werden
+      case "range": // über fextern kann min= und Max= step= festgelegt werden
                 
-				$class = self::extract_class($fextern);
+        $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>";
-				$forminput .= "<input class=\"inputrange\" type=\"" . $ftype . "\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . " oninput=\"" . $inputid . "x.value=parseInt(" . $inputid . ".value)\" />";
-				$forminput .= "<output class=\"outputrange\" name=\"" . $inputid . "x\" for=\"" . $inputid . "\">".$fvalue."</output>";
-				$forminput .= "</div>";
+        $forminput .= "<input class=\"inputrange\" type=\"" . $ftype . "\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . " oninput=\"" . $inputid . "x.value=parseInt(" . $inputid . ".value)\" />";
+        $forminput .= "<output class=\"outputrange\" name=\"" . $inputid . "x\" for=\"" . $inputid . "\">".$fvalue."</output>";
+        $forminput .= "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
@@ -1207,9 +1207,9 @@ class pmxAdminForm {
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
-                $forminput .= "<div {$linestyle2}><input type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
+                $forminput .= "<div {$linestyle2}><input class=\"form-control\" type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
@@ -1239,7 +1239,7 @@ class pmxAdminForm {
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
                 $forminput = "<div class=\"forminputline{$class}\">";
                 $forminput .= $inputlabel;
-                $forminput .= "<div {$linestyle2}><input type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
+                $forminput .= "<div {$linestyle2}><input class=\"form-control\" type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
@@ -1286,7 +1286,7 @@ class pmxAdminForm {
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
                 $forminput = "<div class=\"forminputline{$class}\">";
                 $forminput .= $inputlabel;
-                $forminput .= "<div {$linestyle2}><input type=\"" . $ftype . "\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
+                $forminput .= "<div {$linestyle2}><input class=\"form-control\" type=\"" . $ftype . "\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
@@ -1381,7 +1381,7 @@ class pmxAdminForm {
                 }
 
                 $class = self::extract_class($fextern);
-				
+        
                 $ffextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 25 : intval($ffieldlen);
 
@@ -1389,100 +1389,100 @@ class pmxAdminForm {
                 <div class=\"forminputline{$class}\">
                 {$inputlabel}
                 <div style=\"white-space:nowrap\" {$linestyle2}>
-                  <input type=\"text\" name=\"{$ffieldname}\" value=\"{$fvalue}\" id=\"{$inputid}\" title=\"{$fdesc}\" size=\"{$ffieldlen}\" {$ffextern} {$ifrequired} />";
+                  <input class=\"form-control\" type=\"text\" name=\"{$ffieldname}\" value=\"{$fvalue}\" id=\"{$inputid}\" title=\"{$fdesc}\" size=\"{$ffieldlen}\" {$ffextern} {$ifrequired} />";
 
                 if ($fb->is_active()) {
-					$forminput .= "
-					 <button id=\"xx{$inputid}xx\">" . _BROWSE . "</button>
-					 <script type=\"text/javascript\">
-					 /*<![CDATA[*/
-					  var yy{$inputid}yy = '{$inputid}';
-					  $('#xx{$inputid}xx').click(function() {
-						pmxfilemanager(yy{$inputid}yy, true);
-						return false;
-					  });
-					 /*]]>*/
-					 </script>";
-					
-					
-					// Soll das Image dargestellt werden?
-					$showimage = false;
-					if (array_key_exists('showimage',$fextern )) {
-					  $showimage = $fextern ['showimage'];
-					}
-					$widthimage=$this->fieldimagesize;
-					
-					if ($showimage){
-						$widthimage=$this->fieldimagesize; // standard erst mal setzen
-						if (array_key_exists('width',$fextern )) {
-						  $widthimage = $fextern ['width'];
-					}
-					// Image-ID
-					  $img_id = $inputid."_img";
-					  // Image-Tag incl. JavaScript:
-					  $img = "<img src=\"{$fvalue}\" id=\"{$img_id}\"/>";
-					  $img .= "<script type=\"text/javascript\">
-					  /*<![CDATA[*/
-					  $('#{$inputid}').change(function() {
-						$('#{$img_id}').attr('src', this.value);
-						$('#{$img_id}').attr('style', 'width:{$widthimage}');
-					  });
-					  /* ]]> */
-					  </script>";
-					
-					 //Image-Tag mit eigener style-class hinzufuegen:
-					 $forminput .= "<div class=\"filebrowseimage{$class}\">".$img."</div>";
-				   }
-				}	 
-			    $forminput .= "
-						</div>
-						<div {$linestyle3}>{$fdescription}</div>
-						</div>";
+          $forminput .= "
+           <button id=\"xx{$inputid}xx\">" . _BROWSE . "</button>
+           <script type=\"text/javascript\">
+           /*<![CDATA[*/
+            var yy{$inputid}yy = '{$inputid}';
+            $('#xx{$inputid}xx').click(function() {
+            pmxfilemanager(yy{$inputid}yy, true);
+            return false;
+            });
+           /*]]>*/
+           </script>";
+          
+          
+          // Soll das Image dargestellt werden?
+          $showimage = false;
+          if (array_key_exists('showimage',$fextern )) {
+            $showimage = $fextern ['showimage'];
+          }
+          $widthimage=$this->fieldimagesize;
+          
+          if ($showimage){
+            $widthimage=$this->fieldimagesize; // standard erst mal setzen
+            if (array_key_exists('width',$fextern )) {
+              $widthimage = $fextern ['width'];
+          }
+          // Image-ID
+            $img_id = $inputid."_img";
+            // Image-Tag incl. JavaScript:
+            $img = "<img src=\"{$fvalue}\" id=\"{$img_id}\"/>";
+            $img .= "<script type=\"text/javascript\">
+            /*<![CDATA[*/
+            $('#{$inputid}').change(function() {
+            $('#{$img_id}').attr('src', this.value);
+            $('#{$img_id}').attr('style', 'width:{$widthimage}');
+            });
+            /* ]]> */
+            </script>";
+          
+           //Image-Tag mit eigener style-class hinzufuegen:
+           $forminput .= "<div class=\"filebrowseimage{$class}\">".$img."</div>";
+           }
+        }  
+          $forminput .= "
+            </div>
+            <div {$linestyle3}>{$fdescription}</div>
+            </div>";
 
                 break;
 
-			case "path":
-				/* Path prüft, ob das eingegebene Verzeichnis vorhanden und besschreibbar ist, wenn nicht weird das Feld rot angezeigt.
-				   die Pfadangabe bezieht sich immer auf das root-Verzeichnis der Installation
-				*/			
+      case "path":
+        /* Path prüft, ob das eingegebene Verzeichnis vorhanden und besschreibbar ist, wenn nicht weird das Feld rot angezeigt.
+           die Pfadangabe bezieht sich immer auf das root-Verzeichnis der Installation
+        */      
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
                 // chek path is writable
-				$inputcolor="";
-				if (!empty(trim($fvalue))) {
-					if(substr($fvalue,strlen($fvalue)-1,1)!="/") $fvalue .="/";
-					//$inputcolor= "style='".((is_writable($fvalue))?"background:#429943;color:#000000;":"background:#EE0000;color:#f71b1b;")."'";
-					$inputcolor= ((!is_writable($fvalue))?"class='inputerror'":"class='inputok'");
-					$fdesc = (!is_writable($fvalue))?_NOWRITABLE:_WRITABLE;
-				}
+        $inputcolor="";
+        if (!empty(trim($fvalue))) {
+          if(substr($fvalue,strlen($fvalue)-1,1)!="/") $fvalue .="/";
+          //$inputcolor= "style='".((is_writable($fvalue))?"background:#429943;color:#000000;":"background:#EE0000;color:#f71b1b;")."'";
+          $inputcolor= ((!is_writable($fvalue))?"class='inputerror'":"class='inputok'");
+          $fdesc = (!is_writable($fvalue))?_NOWRITABLE:_WRITABLE;
+        }
                 $forminput = "<div class=\"forminputline{$class}\">";
                 $forminput .= $inputlabel;
-                $forminput .= "<div {$linestyle2} ><input ".$inputcolor ." type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
+                $forminput .= "<div {$linestyle2} ><input class=\"form-control\" ".$inputcolor ." type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
-				break;
-			
-			case "table":
+        break;
+      
+      case "table":
                 $class = self::extract_class($fextern);
                 /* kniffelig:....
-					wenn über die Klasse eine Checklist gefordert wird, ist das höchste Priorität
-					ansonten gilt, wenn manuell über 'checklistflag' ein Wert gesetzt ist, wird dieser Wert genommen
-					ansonsten wird der Wert aus der Klasse genommen
-				*/
-				$fextern['checklistflag']= (array_key_exists('checklistflag',$fextern))?(($this->checklistflag==true)?true:$fextern['checklistflag']):$this->checklistflag;
-				$this->checklistflag=($fextern['checklistflag'])?true:$this->checklistflag;
-				$fextern['checkselektor']=$this->checkselektor;
-				$fextern['adminform']=true;
+          wenn über die Klasse eine Checklist gefordert wird, ist das höchste Priorität
+          ansonten gilt, wenn manuell über 'checklistflag' ein Wert gesetzt ist, wird dieser Wert genommen
+          ansonsten wird der Wert aus der Klasse genommen
+        */
+        $fextern['checklistflag']= (array_key_exists('checklistflag',$fextern))?(($this->checklistflag==true)?true:$fextern['checklistflag']):$this->checklistflag;
+        $this->checklistflag=($fextern['checklistflag'])?true:$this->checklistflag;
+        $fextern['checkselektor']=$this->checkselektor;
+        $fextern['adminform']=true;
                 /* die ersten beiden Parameter sind nicht optional */
-				$ausdruck= self::ListTable($ffieldname,$fvalue,$fextern);
-			    
+        $ausdruck= self::ListTable($ffieldname,$fvalue,$fextern);
+          
                 $forminput = "<div class=\"forminputline{$class}\">";
                 $forminput .= "<div {$linestyle2}>" . $flegend . "&nbsp;</div>";
-				$forminput .= "<div class=\"list\">" . $ausdruck . "</div>";
+        $forminput .= "<div class=\"list\">" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
-                $forminput .= "</div>";				
-				break;
+                $forminput .= "</div>";       
+        break;
         }
 
         /* leere title-Attribute entfernen */
@@ -1503,8 +1503,8 @@ class pmxAdminForm {
         global $prefix, $module_name, $WSCFG;
 
         $captcha_object = load_class('Captcha', $ffieldname);
-		return $captcha_object->check($_POST, 'captcha');
-		
+    return $captcha_object->check($_POST, 'captcha');
+    
         if (!$captcha_object->check($_POST, 'captcha')) {
             return false;
         } else {
@@ -1576,7 +1576,7 @@ class pmxAdminForm {
         $this->_addToolbarButton($name, $text, $pic, $listfunc, 'button', '', $alttext);
     }
 
-	    /**
+      /**
      * pmxAdminForm::addToolbarSpace()
      * add whitespace to Toolbar
      * @return
@@ -1623,44 +1623,44 @@ class pmxAdminForm {
         }
 
         /* Bild testen und festlegen , wenn gar nix geht, dann blank.png*/
-		
+    
         if ($pic == '') {
-			// nachsehen ob eventuell im alternativen Pfad das Bild ist?
+      // nachsehen ob eventuell im alternativen Pfad das Bild ist?
             if (file_exists($this->tb_pic_alternate_path . $namelist . ".png")) {
-				// bild im angegebenen Pfad vorhanden
+        // bild im angegebenen Pfad vorhanden
                 $pic = $this->tb_pic_alternate_path . $namelist . ".png";
             } else {
-				// nachsehen ob eventuell bei der AdminKlasse das Bild schon ist?
-				if (file_exists($this->tb_pic_path . $namelist . ".png")) {
-					$pic = $this->tb_pic_path . $namelist . ".png";
-				} else {
-					// nein, keins da, also blank verwenden	
-					$pic = $this->tb_pic_blank_pic;
-				}
+        // nachsehen ob eventuell bei der AdminKlasse das Bild schon ist?
+        if (file_exists($this->tb_pic_path . $namelist . ".png")) {
+          $pic = $this->tb_pic_path . $namelist . ".png";
+        } else {
+          // nein, keins da, also blank verwenden 
+          $pic = $this->tb_pic_blank_pic;
+        }
             }
         } else {
             if (!file_exists($pic)) {
-				// nachsehen ob eventuell im alternativen Pfad das Bild ist?
-				if (file_exists($this->tb_pic_alternate_path . $pic )) {
-					// nachsehen ob eventuell im alternativen Pfad das Bild ist?
-					$pic = $this->tb_pic_alternate_path . $pic ;
-				
-				} elseif (file_exists($this->tb_pic_alternate_path . $pic . ".png")) {
-					// nachsehen ob eventuell im alternativen Pfad das Bild ist?
-					$pic = $this->tb_pic_alternate_path . $pic . ".png";
-				
-				} elseif (file_exists($this->tb_pic_path . $pic )) {
-					// nachsehen ob eventuell im orginal-Pfad das Bild ist?
-					$pic = $this->tb_pic_path . $pic ;
-				} elseif (file_exists($this->tb_pic_path . $pic . ".png")) {
-					// nachsehen ob eventuell im orginal-Pfad das Bild ist?
-					$pic = $this->tb_pic_path . $pic . ".png";				
-				} else {
-					// nein, keins da, also blank verwenden	
-					$pic = $this->tb_pic_blank_pic;
-					
-				}
-				
+        // nachsehen ob eventuell im alternativen Pfad das Bild ist?
+        if (file_exists($this->tb_pic_alternate_path . $pic )) {
+          // nachsehen ob eventuell im alternativen Pfad das Bild ist?
+          $pic = $this->tb_pic_alternate_path . $pic ;
+        
+        } elseif (file_exists($this->tb_pic_alternate_path . $pic . ".png")) {
+          // nachsehen ob eventuell im alternativen Pfad das Bild ist?
+          $pic = $this->tb_pic_alternate_path . $pic . ".png";
+        
+        } elseif (file_exists($this->tb_pic_path . $pic )) {
+          // nachsehen ob eventuell im orginal-Pfad das Bild ist?
+          $pic = $this->tb_pic_path . $pic ;
+        } elseif (file_exists($this->tb_pic_path . $pic . ".png")) {
+          // nachsehen ob eventuell im orginal-Pfad das Bild ist?
+          $pic = $this->tb_pic_path . $pic . ".png";        
+        } else {
+          // nein, keins da, also blank verwenden 
+          $pic = $this->tb_pic_blank_pic;
+          
+        }
+        
             } 
         }
         $alttext = strip_tags((!$alttext) ? $textconst : $alttext);
@@ -1670,7 +1670,7 @@ class pmxAdminForm {
         $this->toolbar[] = array('name' => $namelist, 'text' => $textconst, 'picture' => $pic, 'list' => $listfunc, 'type' => $type, 'target' => $targeturl, 'alttext' => $alttext);
         $this->tb_flag = true;
         return;
-		}
+    }
 
     /**
      * pmxAdminForm::clearToolbar()
@@ -1698,30 +1698,30 @@ class pmxAdminForm {
         $this->toolbar2 = $this->toolbar;
         $output = "<div class=\"" . $this->csstoolbar . "\">";
 
-		//es bibt nur links oder rechts, Standard=links
+    //es bibt nur links oder rechts, Standard=links
         if ($this->tb_direction != "right") $this->tb_direction = "left";
         if ($this->tb_direction != "left") $this->tb_direction = "right";
 
-		if ($this->toolbarfixed) {
-			$ww=($this->tb_pic_text)?intval(2.5 * $this->tb_pic_heigth):intval(2 * $this->tb_pic_heigth);
-			pmxHeader::add_style_code("<style type=\"text/css\">/* <![CDATA[ */.".$this->csstoolbar." button{width:" . $ww . "px !important;height:" . $ww . "px !important;}/* ]]> */");
-		}
+    if ($this->toolbarfixed) {
+      $ww=($this->tb_pic_text)?intval(2.5 * $this->tb_pic_heigth):intval(2 * $this->tb_pic_heigth);
+      pmxHeader::add_style_code("<style type=\"text/css\">/* <![CDATA[ */.".$this->csstoolbar." button{width:" . $ww . "px !important;height:" . $ww . "px !important;}/* ]]> */");
+    }
         $output .= "<ul class=\"" . $this->csstoolbar . "\">";
         
-		/* Ausgabe-Richtung ermitteln */
+    /* Ausgabe-Richtung ermitteln */
         if ($this->tb_direction == "right") {
             $this->toolbar2 = array_reverse($this->toolbar);
             if ($this->tb_text) $output .= "<li style=\"float:left;overflow:hidden;\" ><span>" . $this->tb_text . "</span></li>\n";
         }
         /* Button ausgeben */
         foreach ($this->toolbar2 as $value) {
-			if ($value['type']=='space') {
+      if ($value['type']=='space') {
 
-				$output .= "<li style=\"float:" . $this->tb_direction . ";overflow:hidden;width:" . $this->tb_pic_heigth . "px;\" class=\"" . $this->csstoolbar . "\" >&nbsp;</li>\n";
-			   				
-			} else {
-				$output .= "<li style=\"float:" . $this->tb_direction . ";overflow:hidden;\" class=\"" . $this->csstoolbar . "\" >" . $this->_Image($value['name'], $value['picture'], $value['text'], $value['alttext'], $value['list'], $value['type'], $value['target']) . "</li>\n";				
-			}
+        $output .= "<li style=\"float:" . $this->tb_direction . ";overflow:hidden;width:" . $this->tb_pic_heigth . "px;\" class=\"" . $this->csstoolbar . "\" >&nbsp;</li>\n";
+                
+      } else {
+        $output .= "<li style=\"float:" . $this->tb_direction . ";overflow:hidden;\" class=\"" . $this->csstoolbar . "\" >" . $this->_Image($value['name'], $value['picture'], $value['text'], $value['alttext'], $value['list'], $value['type'], $value['target']) . "</li>\n";        
+      }
         }
         if ($this->tb_direction == "left") {
             if ($this->tb_text) $output .= "<li style=\"float:right;overflow:hidden;\"><p>" . $this->tb_text . "</p></li>\n";
@@ -1768,9 +1768,8 @@ class pmxAdminForm {
 
         $tdtext = "";
         $tdtext .= "";
-        $tdtext .= "<button class=\"" . $this->csstoolbar . $claas . "\" type='" . $buttontype . "' name='toolbarsubmit' value='" . $feldname . "' " . $tt . " title='" . $text . "' >";
-        $tdtext .= "<img class=\"" . $this->csstoolbar . "\" src=\"" . $img . "\" style=\"width:auto; height:" . $this->tb_pic_heigth . "px;\" title='" . $title . "' alt='" . $text . "' />";
-        if ($this->tb_pic_text == 1) $tdtext .= "<br /><div class=\"tiny align-center\">" . $title . "</div>";
+        $tdtext .= "<button class=\"" . $this->csstoolbar . $claas . " btn btn-success\" type='" . $buttontype . "' name='toolbarsubmit' value='" . $feldname . "' " . $tt . " title='" . $text . "' > ";
+        if ($this->tb_pic_text == 1) $tdtext .= "<i class=\" fa fa-check\"></i> " . $title;
         $tdtext .= "</button>";
 
         return $tdtext;
@@ -1877,121 +1876,121 @@ class pmxAdminForm {
         }
         return $attributes;
     }
-	
+  
 
-	/**
-	 *  $function addTable
-	 *  
-	 *  gibt eine Listen Tabelle mit optionalen selector  zurück
-	 *  
-	 *  param 
-	 *  $header array	: [name] alle Spaltenköpfe als Strings
-	 *  				  [class] css-Klasse
-	 *  				  [attr]  zusätzliche HTML-Attribute für die Header-SPalte
-						  [col_attr]  attribute für die Datenspalten
-						  
-	 *  $values multi array   : alle Listeneiträge mit alles Spalten 	 
-	 *  					der index muss den Wert enthalten, der bei der check-Funktion übergeben werden soll.
-	 *  
-	 *  $attributes 		: allgemeinen Einstellungen für die Tabelle
-	 * 						u.a.
-	 *						[tableclass]  CSS-der Tabelle
-	 *  					[checklistflag] wenn true dann wird eine Checkselektor-Spalte hinzugefügt
-	 *  
-	 *  
-	 */
-	static function ListTable($header=array(),$values=array(),$attributes=array()) 
-	{
-		$table="";
-		$alternate=true;
+  /**
+   *  $function addTable
+   *  
+   *  gibt eine Listen Tabelle mit optionalen selector  zurück
+   *  
+   *  param 
+   *  $header array : [name] alle Spaltenköpfe als Strings
+   *            [class] css-Klasse
+   *            [attr]  zusätzliche HTML-Attribute für die Header-SPalte
+              [col_attr]  attribute für die Datenspalten
+              
+   *  $values multi array   : alle Listeneiträge mit alles Spalten   
+   *            der index muss den Wert enthalten, der bei der check-Funktion übergeben werden soll.
+   *  
+   *  $attributes     : allgemeinen Einstellungen für die Tabelle
+   *            u.a.
+   *            [tableclass]  CSS-der Tabelle
+   *            [checklistflag] wenn true dann wird eine Checkselektor-Spalte hinzugefügt
+   *  
+   *  
+   */
+  static function ListTable($header=array(),$values=array(),$attributes=array()) 
+  {
+    $table="";
+    $alternate=true;
         $class = self::extract_class($attributes);
-		$checklistflag = false;
-		$adminform=false;
-		$tableclass="";
-		$colclass="listcol";
-		$preselectall=false;
-		$checkselector = self::$checkselector;
-		
-		if (array_key_exists('checklistflag',$attributes)){
-			$checklistflag = $attributes['checklistflag'];
-			unset($attributes['checklistflag']);
-		}
-		if (array_key_exists('adminform',$attributes)){
-			$adminform = $attributes['adminform'];
-			unset($attributes['adminform']);
-		}		
-		if (array_key_exists('checkselector',$attributes)){
-			$checkselector = $attributes['checkselector'];
-			unset($attributes['checkselector']);
-		}
-		if (array_key_exists('alternate',$attributes)){
-			$alternate = $attributes['alternate'];
-			unset($attributes['alternate']);
-		}
-		if (array_key_exists('preselectall',$attributes)){
-			$preselectall = $attributes['preselectall'];
-			unset($attributes['preselectall']);
-			$checklistflag=true;
-		}
-		if (array_key_exists('tableclass',$attributes)){
-			$tableclass = $attributes['tableclass'];
-			unset($attributes['tableclass']);
-		}		
-		if (array_key_exists('colclass',$attributes)){
-			$colclass = $attributes['colclass'];
-			unset($attributes['colclass']);
-			$colclass=(trim($colclass)=="")?"listcol":$colclass;
-		}		
-		$cHeader=(is_array($header) AND !empty($header))?count($header):0;
-		if ($cHeader==0)return "";	/* wenn kein Header da, dann keine Ausgabe */	
+    $checklistflag = false;
+    $adminform=false;
+    $tableclass="";
+    $colclass="listcol";
+    $preselectall=false;
+    $checkselector = self::$checkselector;
+    
+    if (array_key_exists('checklistflag',$attributes)){
+      $checklistflag = $attributes['checklistflag'];
+      unset($attributes['checklistflag']);
+    }
+    if (array_key_exists('adminform',$attributes)){
+      $adminform = $attributes['adminform'];
+      unset($attributes['adminform']);
+    }   
+    if (array_key_exists('checkselector',$attributes)){
+      $checkselector = $attributes['checkselector'];
+      unset($attributes['checkselector']);
+    }
+    if (array_key_exists('alternate',$attributes)){
+      $alternate = $attributes['alternate'];
+      unset($attributes['alternate']);
+    }
+    if (array_key_exists('preselectall',$attributes)){
+      $preselectall = $attributes['preselectall'];
+      unset($attributes['preselectall']);
+      $checklistflag=true;
+    }
+    if (array_key_exists('tableclass',$attributes)){
+      $tableclass = $attributes['tableclass'];
+      unset($attributes['tableclass']);
+    }   
+    if (array_key_exists('colclass',$attributes)){
+      $colclass = $attributes['colclass'];
+      unset($attributes['colclass']);
+      $colclass=(trim($colclass)=="")?"listcol":$colclass;
+    }   
+    $cHeader=(is_array($header) AND !empty($header))?count($header):0;
+    if ($cHeader==0)return "";  /* wenn kein Header da, dann keine Ausgabe */ 
 
-		$colCount=($checklistflag)?$cHeader+1:$cHeader;
-		$rowCount=(!empty($values))?count($values):0;
-		$selected=($preselectall)?"checked='checked'":"";	
-		$checkflag=$checklistflag && $adminform;
-		
+    $colCount=($checklistflag)?$cHeader+1:$cHeader;
+    $rowCount=(!empty($values))?count($values):0;
+    $selected=($preselectall)?"checked='checked'":""; 
+    $checkflag=$checklistflag && $adminform;
+    
         $fextern = self::get_attributes_from_array($attributes);
-		$table.="<table class='list listtable $tableclass' ".$fextern."><thead><tr>";
-		
-		$table.=($checkflag)?'<th class="tablecheckbox"><input type="checkbox" name="toggle" value="" onclick="checkAll('.$rowCount.');" '.$selected.'/></th> ':(($checklistflag)?"<th>&nbsp;</th>":"");	
-		foreach ($header as $col)
-		{
-			$col= array_merge(array("name"=>"","attr"=>"","class"=>""),$col);
-			$table .="<th class='".$col['class']."' ".self::get_attributes_from_array($col['attr']) .">".$col['name']."</th>";
-		}
-		$table.="</tr></head><tbody>";
-		
-		if ($checkflag && $preselectall) {
-			pmxHeader::add_script_code('
-			window.onload = function () {
-				checkAll('.$rowCount.');
-			}
-			');
-		}
-		$i=0;
-		$altC=0;
-		$inlineJS=($checkflag)?' onclick="isChecked(this.checked);"':'';
-		if ($rowCount > 0) {
-			foreach ($values as $key => $value){
-				$altC++;
-				$altColor=($alternate)?((intval($altC/2)===$altC/2)?"alt0":"alt1"):"";
-				$table .="<tr>";
-				
-				$table .=($checklistflag)?'<td  class="tablecheckbox '.$altColor.' '.$colclass.'_0"><input type="checkbox" id="cb'.$i.'" name="'.$checkselector.'[]" value="'.$key. '"'. $inlineJS. ' '.$selected.'/></td> ':'';
-				$i++;
-				$l=0;
-				foreach($value as $v) {
-					$l++;
-					$table.="<td class=\"$altColor {$colclass}_{$l}\">".$v."</td>";
-				}
-				$table .="</tr>";
-			}
-		}
-		$table.="</tbody></table>";
+    $table.="<table class='list listtable $tableclass' ".$fextern."><thead><tr>";
+    
+    $table.=($checkflag)?'<th class="tablecheckbox"><input type="checkbox" name="toggle" value="" onclick="checkAll('.$rowCount.');" '.$selected.'/></th> ':(($checklistflag)?"<th>&nbsp;</th>":"");  
+    foreach ($header as $col)
+    {
+      $col= array_merge(array("name"=>"","attr"=>"","class"=>""),$col);
+      $table .="<th class='".$col['class']."' ".self::get_attributes_from_array($col['attr']) .">".$col['name']."</th>";
+    }
+    $table.="</tr></head><tbody>";
+    
+    if ($checkflag && $preselectall) {
+      pmxHeader::add_script_code('
+      window.onload = function () {
+        checkAll('.$rowCount.');
+      }
+      ');
+    }
+    $i=0;
+    $altC=0;
+    $inlineJS=($checkflag)?' onclick="isChecked(this.checked);"':'';
+    if ($rowCount > 0) {
+      foreach ($values as $key => $value){
+        $altC++;
+        $altColor=($alternate)?((intval($altC/2)===$altC/2)?"alt0":"alt1"):"";
+        $table .="<tr>";
         
-		return "<div class=\"block\">".$table."</div>";
-		
-	}
+        $table .=($checklistflag)?'<td  class="tablecheckbox '.$altColor.' '.$colclass.'_0"><input type="checkbox" id="cb'.$i.'" name="'.$checkselector.'[]" value="'.$key. '"'. $inlineJS. ' '.$selected.'/></td> ':'';
+        $i++;
+        $l=0;
+        foreach($value as $v) {
+          $l++;
+          $table.="<td class=\"$altColor {$colclass}_{$l}\">".$v."</td>";
+        }
+        $table .="</tr>";
+      }
+    }
+    $table.="</tbody></table>";
+        
+    return "<div class=\"block\">".$table."</div>";
+    
+  }
 }
 
 ?>
