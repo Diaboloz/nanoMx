@@ -6,26 +6,24 @@ pmxHeader::add_tabs();
 <ul class="nav nav-tabs" role="tablist" id="userconfigTab">
   <li class="nav-item">
     <a class="nav-link active" data-toggle="tab" href="#ya-register" role="tab"><?php echo _UTAB_OPTIONS ?></a>
-  </li>
+  </li><!--END:#ya-register -->
   <li class="nav-item">
     <a class="nav-link" data-toggle="tab" href="#ya-photo" role="tab"><?php echo _UTAB_USERPIC ?></a>
-  </li>
+  </li><!--END:#ya-photo -->
   <?php if ($this->tab_welcome): ?>
   <li class="nav-item">
     <a class="nav-link" data-toggle="tab" href="#ya-welcome" role="tab"><?php echo _UTAB_WELCOMEMSG ?></a>
-  </li>
+  </li><!--END:#ya-welcome -->
   <?php endif ?>
   <li class="nav-item">
     <a class="nav-link" data-toggle="tab" href="#ya-points" role="tab"><?php echo _UTAB_USERPOINTS ?></a>
-  </li>
+  </li><!--END:#ya-points -->
   <li class="nav-item">
     <a class="nav-link" data-toggle="tab" href="#ya-other" role="tab"><?php echo _UTAB_OTHERS ?></a>
-  </li>
+  </li><!--END:#ya-other -->
 </ul> <!-- END:.nav .nav-tabs -->
 
 <div class="tab-content">
-
-
 
   <div id="ya-register" class="tab-pane active">
   <form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
@@ -33,7 +31,7 @@ pmxHeader::add_tabs();
   <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" /><br/>
   <button class="btn btn-success" type="submit"><?php echo _UCSAVECHANGES ?></button>
   </form>
-  </div>
+  </div><!--END:#ya-register -->
 
   <div id="ya-photo" class="tab-pane">
   <form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
@@ -41,7 +39,7 @@ pmxHeader::add_tabs();
   <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" /><br/>
   <button class="btn btn-success" type="submit"><?php echo _UCSAVECHANGES ?></button>
   </form>
-  </div>
+  </div><!--END:#ya-photo -->
 
 <?php if ($this->tab_welcome): ?>
   <div id="ya-welcome" class="tab-pane">
@@ -50,7 +48,7 @@ pmxHeader::add_tabs();
   <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" /><br/>
   <button class="btn btn-success" type="submit"><?php echo _UCSAVECHANGES ?></button>
   </form>
-  </div>
+  </div><!--END:#ya-welcome -->
 <?php endif ?>
 
   <div id="ya-points" class="tab-pane">
@@ -59,7 +57,7 @@ pmxHeader::add_tabs();
   <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" /><br/>
   <button class="btn btn-success" type="submit"><?php echo _UCSAVECHANGES ?></button>
   </form>
-  </div>
+  </div><!--END:#ya-points -->
 
   <div id="ya-other" class="tab-pane">
   <form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
@@ -67,17 +65,17 @@ pmxHeader::add_tabs();
   <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" /><br/>
   <button class="btn btn-success" type="submit"><?php echo _UCSAVECHANGES ?></button>
   </form>
-  </div>
+  </div><!--END:#ya-other -->
 
+</div> <!-- END:.tab-content -->
 
-
-</div>
-
+<!-- START:JS TABS Bootstrap -->
 <script type="text/javascript">
 $('#userconfigTab a').click(function (e) {
   e.preventDefault()
   $(this).tab('show')
 })
 </script>
+<!-- END:JS TABS Bootstrap -->
 
 <?php /* pragmaMx CVS $Id: usersconfig.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>
