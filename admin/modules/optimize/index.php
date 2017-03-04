@@ -94,10 +94,10 @@ class dboptimize_admin {
                 $gain = $table['Data_free'] / 1024 ;
                 $total_gain += $gain;
                 $table['gain'] = round($gain, 3);
-                $table['status'] = '<strong>' . _OPTIMIZED . '</strong>';
+                $table['status'] = '<span class="badge badge-success">' . _OPTIMIZED . '</span>';
             } else {
                 $table['gain'] = '--';
-                $table['status'] = _ALREADYOPTIMIZED;
+                $table['status'] = '<span class="badge badge-default">' . _ALREADYOPTIMIZED . '</span>';
             }
             $tableslist[] = $table;
 			$tableNames[] = $table['Name'];
@@ -115,10 +115,10 @@ class dboptimize_admin {
 					$gain = $table['Data_free'] / 1024 ;
 					$total_gain += $gain;
 					$table['gain'] = round($gain, 3);
-					$table['status'] = '<strong>' . _OPTIMIZED . '</strong>';
+					$table['status'] = '<span class="badge badge-success">' . _OPTIMIZED . '</span>';
 				} else {
 					$table['gain'] = '--';
-					$table['status'] = _ALREADYOPTIMIZED;
+					$table['status'] = '<span class="badge badge-default">' . _ALREADYOPTIMIZED . '</span>';
 				}
 				$tableslist[] = $table;
 			}

@@ -1,10 +1,12 @@
 <h2><?php echo _OPTIMIZINGDB ?></h2>
-<h3><?php echo _OPTIMIZATIONRESULTS ?>:</h3>
+<div class="card">
+  <div class="card-block">
+<h3><?php echo _OPTIMIZATIONRESULTS ?></h3>
 
 <?php if($this->tableslist ): ?>
-<table class="list full">
+<table class="table table-hover table-sm table-outline m-b-0 hidden-sm-down">
 
-  <thead>
+  <thead class="thead-inverse">
     <tr>
       <th><?php echo _TABLE ?></th>
       <th><?php echo _SIZE ?></th>
@@ -25,27 +27,14 @@
   </tbody>
 
   <tfoot>
-    <tr class="alternate-b">
-      <td colspan="2" class="align-right"><?php echo _TOTALSPACESAVED ?>:</td>
-      <td colspan="2"><strong><?php echo $this->total_gain ?>&nbsp;Kb</strong></td>
+    <tr>
+      <td colspan="2"><span class="font-weight-bold"><?php echo _TOTALSPACESAVED ?></span></td>
+      <td colspan="2"><span class="font-weight-bold"><?php echo $this->total_gain ?>&nbsp;Kb</span></td>
     </tr>
   </tfoot>
 
 </table>
-
-<script type="text/javascript">
-/*<![CDATA[*/
-
-$(document).ready(function() {
-
-  $('table.list tbody tr:even').addClass('alternate');
-
-});
-
-/*]]>*/
-</script>
 <?php endif ?>
 
-
-
-<?php /* pragmaMx CVS $Id: optimize.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>
+</div>
+</div>
