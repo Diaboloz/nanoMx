@@ -1,6 +1,5 @@
 <?php
 $credits = '
-Admin-Theme for pragmaMx Content Management System Platform
+Admin coreUI theme for nanoMx, http://coreui.io ported by Diabolo [)-(] http://nanomx.pro
 ';
-
 ?>
