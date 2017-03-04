@@ -136,7 +136,7 @@ function setBanMain(){
 	$template->assign(compact('form'));	
 
 	include_once('header.php');	
-		$template->display("main.html");
+		$template->display("setban.html");
 	include_once('footer.php');	
 
 }

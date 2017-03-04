@@ -13,7 +13,6 @@
  * $Author: PragmaMx $
  * $Date: 2016-09-29 15:13:55 +0200 (Do, 29. Sep 2016) $
  */
-
 /*
     Dateien
         - includes/classes/
@@ -31,11 +30,8 @@
         -  jQuery
             qtip/jquery.qtip.js
             jquery/jquery.accordion.js
-
 */
-
 defined('mxMainFileLoaded') or die('access denied');
-
 /**
  * pmxAdminForm
  *
@@ -52,7 +48,6 @@ defined('mxMainFileLoaded') or die('access denied');
 class pmxAdminForm {
     /* Speichert die Instanz der Klasse */
     //private static $_initialized = false;
-
     /* Configuration */
     private $__set = array(); // Konfigurtion
     private $toolbar = array(); // speichert die Toolbar
@@ -89,7 +84,6 @@ class pmxAdminForm {
         //    return;
         //}
         //self::$_initialized = true;
-
         $this->config = array(/* Standardwerte */
             'tb_pic_heigth' => 30, // höhe Bilder der Toolbar, standard 30px
             'tb_pic_text' => true, // Anzeige Text unter den Toolbarimages true/false
@@ -174,7 +168,6 @@ class pmxAdminForm {
     
         mxGetLangfile(dirname(__FILE__) . DS . 'AdminForm' . DS . 'language');
     }
-
     /**
      * pmxAdminForm::__get()
      *
@@ -188,7 +181,6 @@ class pmxAdminForm {
         }
         return false;
     }
-
     /**
      * pmxAdminForm::__set()
      *
@@ -200,7 +192,6 @@ class pmxAdminForm {
     {
         $this->config[$name] = $val ;
     }
-
     /**
      * pmxAdminForm::FormOpen()
      *
@@ -213,17 +204,13 @@ class pmxAdminForm {
     public function FormOpen($action = "", $etype = "")
     {
         global $module_name;
-
         /* target-URL ermitteln */
         if (trim($action)) {
             $this->target_url = $action;
         }
-
         $taction = $this->target_url;
-
         $taction = str_replace("&amp;", "&", $taction);
         $taction = str_replace("&", "&amp;", $taction);
-
         /* enctype ermitteln */
         if ($etype == "") {
             $encrypt = "enctype=\"" . $this->enctype . "\"";
@@ -231,15 +218,11 @@ class pmxAdminForm {
             $encrypt = "enctype=\"" . $etype . "\"";
             $this->enctype = $etype;
         }
-
         $this->config['formname'] = ($this->formname == "adminForm")?$this->formname . rand(10, 99):$this->formname;
         /* jetzt Ausgabe zusammenstellen */
-
         pmxHeader::add_jquery();
         if ($this->config['mainform']) pmxHeader::add_script_code("var adminForm = '" . $this->config['formname'] . "';");
-
         $onsubmit = ($this->checklistflag) ? " onsubmit=\"return validateForm();\"" : "";
-
         $tdtext = "\n";
     $tdtext .= "<div class=\"adminForm " . $this->cssform . "\">\n" ;
         $tdtext .= "<a name=\"" . $this->formname . "-container\" ></a>";
@@ -250,12 +233,9 @@ class pmxAdminForm {
         $tdtext .= (trim($this->description)) ? "<p>" . $this->description . "</p>" : "";
         $tdtext .= "<input type=\"hidden\" name=\"hidemainmenu\" value=\"0\"  />" ;
         
-
         $this->formopenflag = true;
-
         return $tdtext;
     }
-
     /**
      * pmxAdminForm::FormClose()
      *
@@ -287,15 +267,12 @@ class pmxAdminForm {
         })
       });");
         }
-
         if ($this->checklistflag) {
             pmxHeader::add_script(PMX_JAVASCRIPT_PATH . 'mx_checklist.js');
       $tdtext .= $this->checklisJS;
         }
-
         return $tdtext;
     }
-
     /**
      * pmxAdminForm::FieldSetOpen()
      *
@@ -321,7 +298,6 @@ class pmxAdminForm {
         $attributes = self::get_attributes_from_array($attributes);
         $tdtext = "<div style=\"display:inline-block;vertical-align:top;" . $fstyle . "\">";
         $class .= ' ' . $class . ' ' . $attributes;
-
         if ($class) {
             $class = trim($class);
         }
@@ -335,11 +311,9 @@ class pmxAdminForm {
             $tdtext .= "<div class=\"" . $this->cssform . "_fieldset_open\">";
         }
         $tdtext .= "<div class=\"card-block\">";
-
         $tdtext .= ($extendedtext) ? '<div class="fielddescription">' . $extendedtext . '</div>' : "";
         return $tdtext;
     }
-
     /**
      * pmxAdminForm::FieldSetClose()
      *
@@ -360,10 +334,8 @@ class pmxAdminForm {
         $tdtext .= "</div>";
         //$tdtext .= "</div>";//fieldset
         $tdtext .= "</div>";
-
         return $tdtext;
     }
-
     /**
      * pmxAdminForm::_SetSubmitButton()
      *
@@ -388,14 +360,12 @@ class pmxAdminForm {
             $tdtext .= "<img  src=\"" . $img . "\" style=\"width:auto; height:16px;\" title='" . _ACCEPT . "' alt='" . _ACCEPT . "'  />";
         }
         $tdtext .= "</button>";
-
         if ($this->fieldhomebutton) {
             $tdtext .= $this->_getHomebutton();     
         }
         $tdtext .= "</div>";
         return $tdtext;
     }
-
   private function _getHomebutton ()
   {
             $img2 = $this->tb_pic_path . "up.png";
@@ -432,7 +402,6 @@ class pmxAdminForm {
         }
         return $tdtext;
     }
-
     /**
      * pmxAdminForm::Show()
      *
@@ -444,7 +413,6 @@ class pmxAdminForm {
     {
         return $this->getAdminForm();
     }
-
     /**
      * pmxAdminForm::getAdminForm()
      *
@@ -455,23 +423,17 @@ class pmxAdminForm {
     public function getAdminForm()
     {
         $output = "";
-
         /* Form öffnen */
         if (!$this->formopenflag) $output .= $this->FormOpen();
-
         /* wenn Toolbar top/both angegeben, dann Toolbar ausgeben */
         if ($this->tb_flag && $this->tb_show != "bottom") $output .= $this->getToolbar();
-
         $output .= $this->getForm();
-
         /* wenn Toolbar bottom/both angegeben, dann Toolbar ausgeben */
         if ($this->tb_flag && $this->tb_show != "top") $output .= $this->getToolbar();
-
         /* Form schließen*/
         $output .= $this->FormClose();
         return $output;
     }
-
     /**
      * pmxAdminForm::getForm()
      *
@@ -520,7 +482,6 @@ class pmxAdminForm {
             foreach ($this->noformset as $dummy => $field) {
                 $output .= $field;
             }
-
             $output .= "\n</div>\n";
         }
         /* jetzt Fieldsets und Inhalte ausgeben */
@@ -536,7 +497,6 @@ class pmxAdminForm {
       ($this->collapsibleshowbutton=="both" OR $this->collapsibleshowbutton=="bottom"));
         return $output;
     }
-
     /**
      * pmxAdminForm::getFieldSet()
      *
@@ -558,7 +518,6 @@ class pmxAdminForm {
         
         return $output;
     }
-
     /**
      * pmxAdminForm::addFieldSet()
      *
@@ -575,7 +534,6 @@ class pmxAdminForm {
     {
         $this->add("", "fieldset", $ftitle, $collapsible, $fname, $flegend, 0, $attributes);
     }
-
     /**
      * pmxAdminForm::add()
      *
@@ -623,7 +581,6 @@ class pmxAdminForm {
             $linestyle2 = "class=\"forminputfield\"";
             $linestyle3 = "class=\"forminputdesc\"";
             $fdescription = "";
-
             if ($this->infobutton && ($fdesc)) {
                 $fdescription = "<img src=\"" . $this->tb_pic_path . "info.png\" title=\"" . htmlspecialchars(strip_tags($fdesc), ENT_COMPAT | ENT_HTML5, 'UTF-8', false) . "\" alt=\"\" style=\"height:16px;width:auto;\" />";
                 $linestyle3 = "class=\"forminputinfo\"";
@@ -631,9 +588,7 @@ class pmxAdminForm {
             } else {
                 $fdescription = $fdesc; //;
             }
-
             $ifrequired = ($frequired) ? ' required="required"' : "";
-
             if ($ffieldset) {
                 $inputid = $this->formname . $this->formset[$ffieldset]['name'] . count($this->formset[$ffieldset]['child']);
             } else {
@@ -643,7 +598,6 @@ class pmxAdminForm {
             $inputlabel = "<label for=\"" . $inputid . "\" $linestyle1 title=\"" . htmlspecialchars(strip_tags($fdesc), ENT_COMPAT | ENT_HTML5, 'UTF-8', false) . "\" >" . $flegend . "</label>";
         }
         $fdesc = htmlspecialchars(strip_tags($fdesc), ENT_COMPAT | ENT_HTML5, 'UTF-8', false);
-
         switch ($ftype) {
             case "fieldset":
                 $fieldname = str_replace(" ", "", $flegend);
@@ -658,47 +612,39 @@ class pmxAdminForm {
                     $this->fieldset_array[$fieldname] = $flegend;
                 }
                 return true;
-
             case "output":
                 $forminput .= "<div class=\"formcontent\">";
                 if (trim($flegend)) $forminput .= $flegend;
                 $forminput .= $ffieldname . "</div>";
                 break;
-
             case "info":
                 $forminput .= "<div class=\"info\">";
                 if (trim($flegend)) $forminput .= $flegend;
                 $forminput .= $ffieldname . "</div>";
                 break;
-
             case "note":
                 $forminput .= "<div class=\"note\">";
                 if (trim($flegend)) $forminput .= $flegend;
                 $forminput .= $ffieldname . "</div>";
                 break;
-
             case "error":
                 $forminput .= "<div class=\"error\">";
                 if (trim($flegend)) $forminput .= $flegend;
                 $forminput .= $ffieldname . "</div>";
                 break;
-
             case "warning":
                 $forminput .= "<div class=\"warning\">";
                 if (trim($flegend)) $forminput .= $flegend;
                 $forminput .= $ffieldname . "</div>";
                 break;
-
             case "highlight":
                 $forminput .= "<div class=\"highlight\">";
                 if (trim($flegend)) $forminput .= $flegend;
                 $forminput .= $ffieldname . "</div>";
                 break;
-
             case "html":
                 $forminput = $ffieldname;
                 break;
-
             case "special":
                 // der per $value übergebene Inhalt wird in dem Bereich des
                 // eigentlichen Formularfeldes angezeigt. So können beliebige
@@ -713,7 +659,6 @@ class pmxAdminForm {
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "input":
             default:
                 // falls im Attribut-Parameter die eine CSS Klasse angegeben wurde, diese
@@ -729,7 +674,6 @@ class pmxAdminForm {
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "password":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
@@ -740,7 +684,6 @@ class pmxAdminForm {
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "button":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
@@ -751,7 +694,6 @@ class pmxAdminForm {
                 $forminput .= "</button></div><div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "submitbutton":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
@@ -763,13 +705,11 @@ class pmxAdminForm {
                 $forminput .= "</button></div><div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "hidden":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $forminput .= "<input type=\"hidden\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\"" . $fextern . " class=\"hidden\" />";
                 break;
-
             case "file":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
@@ -782,7 +722,6 @@ class pmxAdminForm {
                 // multipart/form-data zwangsweise setzen
                 $this->enctype = "multipart/form-data";
                 break;
-
             case "yesno":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
@@ -796,7 +735,6 @@ class pmxAdminForm {
                 $forminput .= "</div><div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "yesnodefault":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
@@ -811,7 +749,6 @@ class pmxAdminForm {
                 $forminput .= "</div><div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "checkbox":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
@@ -826,7 +763,6 @@ class pmxAdminForm {
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "radio":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
@@ -868,7 +804,6 @@ class pmxAdminForm {
         $forminput .= "</div><div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "usergroup":
                 /* nur im Adminbereich zulässig */
                 if (defined('mxAdminFileLoaded')) {
@@ -877,7 +812,6 @@ class pmxAdminForm {
                     $usergroup = getAllAccessLevelSelectOptions($fvalue);
                     $arrlen = max(2, intval($ffieldlen));
                     $arrlen = min(5, $arrlen);
-
                     $forminput = "<div class=\"form-group{$class}\">";
                     $forminput .= $inputlabel;
                     $forminput .= "<div $linestyle2>";
@@ -888,14 +822,12 @@ class pmxAdminForm {
                     $forminput .= "</div>";
                 }
                 break;
-
             case "selectuser":
                 $resultuser = sql_query("select uid,uname from " . $GLOBALS['user_prefix'] . "_users where user_stat>0 order by uname asc");
                 while ($fuser = sql_fetch_assoc($resultuser)) {
                     $fextern[$fuser['uid']] = $fuser['uname'];
                 }
                 unset($fuser, $resultuser);
-
                 $class = self::extract_class($frequired);
                 $attributes = self::get_attributes_from_array($frequired);
                 $arrlen = min(intval($ffieldlen), count($fextern));
@@ -919,25 +851,20 @@ class pmxAdminForm {
         }
                 
                 $ausdruck .= "</select>";
-
                 $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "selectusergroup":
                 $fextern = array();
                 $resultusergroup = sql_query("select access_id,access_title from " . $GLOBALS['prefix'] . "_groups_access order by access_id");
                 while ($fuser = sql_fetch_assoc($resultusergroup)) {
                     $fextern[$fuser['access_id']] = $fuser['access_title'];
                 }
-
                 unset($fuser, $resultusergroup);
-
                 if (count($fextern) == 0) break;
-
                 $class = self::extract_class($frequired);
                 $attributes = self::get_attributes_from_array($frequired);
                 $arrlen = max(2, intval($ffieldlen));
@@ -955,14 +882,12 @@ class pmxAdminForm {
                     $ausdruck .= "<option value='" . $key . "' " . $sel . " >" . $value . "&nbsp;&nbsp;</option>";
                 }
                 $ausdruck .= "</select>";
-
                 $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "select":
                 if (!is_array($fextern)) {
                     /* nur was ausgeben, wenn auch eine Liste per $fextern übergeben wurde */
@@ -988,14 +913,12 @@ class pmxAdminForm {
                     $ausdruck .= "<option value='" . $value . "' " . $sel . " >" . $key . "&nbsp;&nbsp;</option>";
                 }
                 $ausdruck .= "</select>";
-
                 $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "selectlanguage":
                 /* Sprachauswahl   */
                 $class = self::extract_class($fextern);
@@ -1011,22 +934,18 @@ class pmxAdminForm {
                 }
                 $options = array();
                 $options[] = '<option value="ALL"' . (("ALL" == $fvalue) ? ' selected="selected" class="current" ' : '') . ' >' . _ALL . '</option>';
-
                 foreach($languageslist as $alt => $value) {
                     $options[] = '<option value="' . $value . '"' . (($value == $fvalue) ? ' selected="selected" class="current" ' : '') . ' >' . $alt . '</option>';
                 }
                 $ausdruck .= '<select class="form-control" name="' . $ffieldname . '" ' . $fextern . ' id="' . $inputid . '" title="' . $fdesc . '"' . $fextern . '>' . implode("\n", $options) . '</select>';
-
                 $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "optiongroup":
                 /* fextern enthält die komplette Auswahlliste mit allen <optiongroup> und <option> inkl. abschließender Tags */
-
                 if (!is_array($fextern)) {
                     /* nur was ausgeben, wenn auch eine Liste per $fextern übergeben wurde */
                     break;
@@ -1044,16 +963,13 @@ class pmxAdminForm {
                     $ausdruck .= "<option value='$value' " . $sel . " >" . $key . "&nbsp;&nbsp;</option>";
                 }
                 $ausdruck .= "</select>";
-
                 $forminput = "<div class=\"form-group{$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
       case "textbox":   // gibt eine Textarea eingepasst in die Zeile aus
-
                 if (!isset($fextern['rows'])) {
                     $fextern['rows'] = intval($ffieldlen / 9);
                 }
@@ -1062,13 +978,11 @@ class pmxAdminForm {
                     $style = $fextern['style'];
                     unset($fextern['style']);
                 }
-
                 $attributes = self::get_attributes_from_array($fextern);
                 $class = self::extract_class($fextern);
                 // $intext = htmlspecialchars($fvalue, ENT_COMPAT | ENT_HTML5, 'UTF-8', false);
                 $ausdruck = "<textarea class=\"form-control\" name=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" style=\"width:90% " . $style . "\"" . $attributes . ">" . $fvalue . "</textarea>";
                 $ausdruck .= "<input type=\"hidden\" name=\"spaw\" value=\"0\" />";
-
                 $forminput = "<div class=\"form-group{$class}\" 
         >";
                  $forminput .= $inputlabel;
@@ -1077,9 +991,7 @@ class pmxAdminForm {
                 $forminput .= "<div  {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "textarea":  // gibt eine Textarea über die gesammte Breite aus
-
                 if (!isset($fextern['rows'])) {
                     $fextern['rows'] = intval($ffieldlen / 9);
                 }
@@ -1088,13 +1000,11 @@ class pmxAdminForm {
                     $style = $fextern['style'];
                     unset($fextern['style']);
                 }
-
                 $attributes = self::get_attributes_from_array($fextern);
                 $class = self::extract_class($fextern);
                 // $intext = htmlspecialchars($fvalue, ENT_COMPAT | ENT_HTML5, 'UTF-8', false);
                 $ausdruck = "<textarea class=\"form-control\" name=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" style=\"1em;width:95%;" . $style . "\"" . $attributes . ">" . $fvalue . "</textarea>";
                 $ausdruck .= "<input type=\"hidden\" name=\"spaw\" value=\"0\" />";
-
                 $forminput = "<div class=\"form-group{$class}\" >";
                 //$forminput .= "<label for=\"" . $inputid . "\" class=\"forminputline{$class} title=\"" . htmlspecialchars(strip_tags($fdesc), ENT_COMPAT | ENT_HTML5, 'UTF-8', false) . "\" >" . $flegend . "</label>";
                 $forminput .= "<div {$linestyle2}>" . $flegend . "&nbsp;</div>";                //$forminput .= "<div {$linestyle2}>" . $flegend . "&nbsp;</div>";
@@ -1103,7 +1013,6 @@ class pmxAdminForm {
                 $forminput .= "</div>";
                 break;
       
-
             /* Wysiwyg Editor */
             case "editor":
         /* übergabe der Parameter für den Editor in einem array über $fextern
@@ -1129,19 +1038,15 @@ class pmxAdminForm {
                         $class = '';
                         $attr = array();
                 }
-
                 /* diese Beiden Werte müssen immer über die add-Parameter kommen */
                 $attr['name'] = $ffieldname;
                 $attr['value'] = $fvalue;
-
                 /* Wenn der add-Parameter $ffieldlen realistischen Wert hat und die Höhe nicht expliziet angegeben wurde, $ffieldlen als Höhe (in Pivel) verwenden */
                 if (intval($ffieldlen) >= 50 && !isset($attr['height'])) {
                     $attr['height'] = $ffieldlen;
                 }
-
                 /* die gesammelten Attribute werden der Textarea-Klasse bereits im Konstruktor übergeben */
                 $editor = load_class('Textarea', $attr);
-
                 /* nochmal guggen ob wysiwyg überhaupt aktiviert */
                 switch (true) {
                     case $fextern === false:
@@ -1153,18 +1058,15 @@ class pmxAdminForm {
                         $spaw = intval($editor->getWysiwyg());
                         break;
                 }
-
                 /* HTML-Ausgabe der Textarea-Klasse abrufen */
                 $ausdruck = $editor->getHtml();
                 $ausdruck .= "<input type=\"hidden\" name=\"spaw\" value=\"" . $spaw . "\" id=\"" . $inputid . "\" />";
-
                 $forminput = "<div class=\"form-group{$class} clearfix\">";
                 $forminput .= "<div {$linestyle2}>" . $flegend . "&nbsp;</div>";
                 $forminput .= "<div class=\"forminputline clear {$class}\" style='width:100%'>" . $ausdruck . "</div>";
                 $forminput .= "<div class=\"forminputdesc {$class}\" style='width:100%'>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             /* HTML5 Formularelemente */
             case "number": // 
                 $class = self::extract_class($fextern);
@@ -1176,7 +1078,6 @@ class pmxAdminForm {
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
       case "range": // über fextern kann min= und Max= step= festgelegt werden
                 
         $class = self::extract_class($fextern);
@@ -1191,19 +1092,16 @@ class pmxAdminForm {
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "date":
                 /*todo JS-Datepicker einbauen*/
                 pmxHeader::add_jquery('ui/jquery.ui.datepicker.js',
                     'ui/i18n/jquery.ui.datepicker-' . _DOC_LANGUAGE . '.js'
                     );
-
                 $datepickeroptions = (trim($fextern)) ? ",{" . $fextern . "}" : "";
                 pmxHeader::add_script_code('
                     $(function() {
                         $("#' . $inputid . '").datepicker($.datepicker.regional[ "' . _DOC_LANGUAGE . '" ]' . $datepickeroptions . ');
                     });');
-
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
@@ -1213,14 +1111,12 @@ class pmxAdminForm {
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "datetime":
                 /*todo JS-Datepicker einbauen*/
                 pmxHeader::add_jquery('ui/jquery.ui.datepicker.js',
                     'ui/i18n/jquery.ui.datepicker-' . _DOC_LANGUAGE . '.js',
                     'ui/jquery.ui.slider.js'
                     );
-
                 pmxHeader::add_jquery('jquery.timepicker.js');
                 pmxHeader::add_style('layout/jquery/css/timepicker.css');
                 $datepickeroptions = (trim($fextern)) ? "," . $fextern : "";
@@ -1233,7 +1129,6 @@ class pmxAdminForm {
                             ' . $datepickeroptions . '
                         });
                     });');
-
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
@@ -1243,7 +1138,6 @@ class pmxAdminForm {
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "datetime-local":
             case "month":
             case "week":
@@ -1252,7 +1146,6 @@ class pmxAdminForm {
                     'ui/i18n/jquery.ui.datepicker-' . _DOC_LANGUAGE . '.js',
                     'ui/jquery.ui.slider.js'
                     );
-
                 pmxHeader::add_jquery('jquery.timepicker.js');
                 pmxHeader::add_style('layout/jquery/css/timepicker.css');
                 $datepickeroptions = (trim($fextern)) ? "," . $fextern : "";
@@ -1266,7 +1159,6 @@ class pmxAdminForm {
                             ' . $datepickeroptions . '
                         });
                     });');
-
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
@@ -1276,7 +1168,6 @@ class pmxAdminForm {
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "tel":
             case "search":
             case "url":
@@ -1290,7 +1181,6 @@ class pmxAdminForm {
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "color":
                 pmxHeader::add_jquery('color/js/colpick.js');
                 pmxHeader::add_style('includes/javascript/jquery/color/css/colpick.css');
@@ -1308,13 +1198,11 @@ class pmxAdminForm {
                       return false;
                     }
                   });
-
                   $("#' . $inputid . '").parent().click(
                     function () {
                       $(this).children().click();
                     });
                 });');
-
                 $fvalue = strtolower(trim($fvalue, '# '));
                 $defcol = ($fvalue) ? '#' . $fvalue : 'transparent';
                 $class = self::extract_class($fextern);
@@ -1329,7 +1217,6 @@ class pmxAdminForm {
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
-
             case "captcha":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
@@ -1339,7 +1226,6 @@ class pmxAdminForm {
                 if ($captcha_object->get_active($ffieldname)) {
                     // $captcha_object->set_active();
                     $ausgabe = $captcha_object->show_inputfield(array("required"=>"required","autocomplete"=>"off")) . "<br />" . $captcha_object->show_image() . "<br />" . $captcha_object->show_reloadbutton();
-
                     $forminput = "<div class=\"forminputline{$class}\">";
                     $forminput .= ($inputlabel == "") ? $captcha_object->show_caption() : $inputlabel;
                     $forminput .= "<div {$linestyle2}>" . $ausgabe . "</div>";
@@ -1347,7 +1233,6 @@ class pmxAdminForm {
                     $forminput .= "</div>";
                 }
                 break;
-
             case "filebrowse":
                 // Dateimanager für Texteingabe Feld
                 // spezielle Parameter über $fextern:
@@ -1376,21 +1261,17 @@ class pmxAdminForm {
                         }
                         unset($fextern['title'], $fextern['type'], $fextern['getback'], $fextern['root'], $fextern['alias']);
                     }
-
                     $fb->dialog();
                 }
-
                 $class = self::extract_class($fextern);
         
                 $ffextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 25 : intval($ffieldlen);
-
                 $forminput = "
                 <div class=\"forminputline{$class}\">
                 {$inputlabel}
                 <div style=\"white-space:nowrap\" {$linestyle2}>
                   <input class=\"form-control\" type=\"text\" name=\"{$ffieldname}\" value=\"{$fvalue}\" id=\"{$inputid}\" title=\"{$fdesc}\" size=\"{$ffieldlen}\" {$ffextern} {$ifrequired} />";
-
                 if ($fb->is_active()) {
           $forminput .= "
            <button id=\"xx{$inputid}xx\">" . _BROWSE . "</button>
@@ -1438,9 +1319,7 @@ class pmxAdminForm {
             </div>
             <div {$linestyle3}>{$fdescription}</div>
             </div>";
-
                 break;
-
       case "path":
         /* Path prüft, ob das eingegebene Verzeichnis vorhanden und besschreibbar ist, wenn nicht weird das Feld rot angezeigt.
            die Pfadangabe bezieht sich immer auf das root-Verzeichnis der Installation
@@ -1484,10 +1363,8 @@ class pmxAdminForm {
                 $forminput .= "</div>";       
         break;
         }
-
         /* leere title-Attribute entfernen */
         $formoutput = str_replace(' title=""', '', $forminput);
-
         if (strlen(trim($forminput)) > 0 and $ffieldset == "") {
             $this->noformset[] = $formoutput;
         } else {
@@ -1497,11 +1374,9 @@ class pmxAdminForm {
         }
         return;
     }
-
     public static function checkCaptcha($ffieldname = 'captcha')
     {
         global $prefix, $module_name, $WSCFG;
-
         $captcha_object = load_class('Captcha', $ffieldname);
     return $captcha_object->check($_POST, 'captcha');
     
@@ -1511,9 +1386,7 @@ class pmxAdminForm {
             return true;
         }
     }
-
     /* Toolbar Basisfunktionen */
-
     /**
      * addToolbarLink     fügt eine Schaltfläche der Toolbar hinzu, mit einem Link
      * addToolbar .      fügt eine Schaltfläche der Toolbar hinzu, welche über das Formular ausgewertet werden kann
@@ -1547,7 +1420,6 @@ class pmxAdminForm {
      * Buttonbeschriftung aus _NEWS
      * Rückgabe: link direkt zur URL
      */
-
     /**
      * pmxAdminForm::addToolbarLink()
      *
@@ -1561,7 +1433,6 @@ class pmxAdminForm {
     {
         $this->_addToolbarButton($name, $text, $pic, false, 'link', $targeturl, $alttext );
     }
-
     /**
      * pmxAdminForm::addToolbar()
      *
@@ -1575,7 +1446,6 @@ class pmxAdminForm {
     {
         $this->_addToolbarButton($name, $text, $pic, $listfunc, 'button', '', $alttext);
     }
-
       /**
      * pmxAdminForm::addToolbarSpace()
      * add whitespace to Toolbar
@@ -1599,20 +1469,16 @@ class pmxAdminForm {
     private function _addToolbarButton($name, $text = '', $pic = '', $listfunc = false, $type = 'button', $target = '', $alttext = '')
     {
         $textconst = $text;
-
         /* erst mal den Namen prüfen und konvertieren */
         $namelist = (strtolower(substr($name, -1)) == "x") ? (substr($name, 0, -1)) : $name;
-
         /* Testen ob Listfunction definiert */
         if (strtolower(substr($name, -1)) == "x") {
             $listfunc = true;
         }
-
         /* um die $listfunc-Funktion zu aktivieren wird der Feldname des Checkboxen-Array's der zugehörigen Liste benötigt */
         if ($listfunc !== false) {
             $this->checklistflag = $listfunc;
         }
-
         /* wenn $text leer dann nach Konstanten suchen */
         if (trim($text == '')) {
             if (!defined("_" . strtoupper($namelist))) {
@@ -1621,7 +1487,6 @@ class pmxAdminForm {
                 $textconst = constant("_" . strtoupper($namelist));
             }
         }
-
         /* Bild testen und festlegen , wenn gar nix geht, dann blank.png*/
     
         if ($pic == '') {
@@ -1665,13 +1530,11 @@ class pmxAdminForm {
         }
         $alttext = strip_tags((!$alttext) ? $textconst : $alttext);
         $targeturl = $target;
-
         /* und nun endlich ins Array */
         $this->toolbar[] = array('name' => $namelist, 'text' => $textconst, 'picture' => $pic, 'list' => $listfunc, 'type' => $type, 'target' => $targeturl, 'alttext' => $alttext);
         $this->tb_flag = true;
         return;
     }
-
     /**
      * pmxAdminForm::clearToolbar()
      *
@@ -1685,7 +1548,6 @@ class pmxAdminForm {
         $this->toolbar = array();
         return;
     }
-
     /**
      * pmxAdminForm::getToolbar()
      *
@@ -1697,11 +1559,9 @@ class pmxAdminForm {
     {
         $this->toolbar2 = $this->toolbar;
         $output = "<div class=\"" . $this->csstoolbar . "\">";
-
     //es bibt nur links oder rechts, Standard=links
         if ($this->tb_direction != "right") $this->tb_direction = "left";
         if ($this->tb_direction != "left") $this->tb_direction = "right";
-
     if ($this->toolbarfixed) {
       $ww=($this->tb_pic_text)?intval(2.5 * $this->tb_pic_heigth):intval(2 * $this->tb_pic_heigth);
       pmxHeader::add_style_code("<style type=\"text/css\">/* <![CDATA[ */.".$this->csstoolbar." button{width:" . $ww . "px !important;height:" . $ww . "px !important;}/* ]]> */");
@@ -1716,7 +1576,6 @@ class pmxAdminForm {
         /* Button ausgeben */
         foreach ($this->toolbar2 as $value) {
       if ($value['type']=='space') {
-
         $output .= "<li style=\"float:" . $this->tb_direction . ";overflow:hidden;width:" . $this->tb_pic_heigth . "px;\" class=\"" . $this->csstoolbar . "\" >&nbsp;</li>\n";
                 
       } else {
@@ -1728,10 +1587,8 @@ class pmxAdminForm {
         }
         $output .= "</ul>\n<br/><input type='hidden' name='toolbarhide' value='1' /></div><br/>";
         unset ($this->toolbar2);
-
         return $output;
     }
-
     /**
      * pmxAdminForm::_Image()
      *
@@ -1749,7 +1606,6 @@ class pmxAdminForm {
         $tt = "";
         $img = $imgname;
         $buttontype = 'submit';
-
         $claas = '';
         if ($listerr) {
             $claas = ' frmchecklist';
@@ -1759,22 +1615,18 @@ class pmxAdminForm {
         } else {
             $tt = "onclick=\"javascript:hideMainMenu();\"";
         }
-
         if ($type == 'link' && ($linkurl)) {
             $linkurl = str_replace("&nbsp;", "&", $linkurl);
             $tt = " onclick=\"window.location.href='" . $linkurl . "';\"";
             $buttontype = 'button';
         }
-
         $tdtext = "";
         $tdtext .= "";
         $tdtext .= "<button class=\"" . $this->csstoolbar . $claas . " btn btn-success\" type='" . $buttontype . "' name='toolbarsubmit' value='" . $feldname . "' " . $tt . " title='" . $text . "' > ";
         if ($this->tb_pic_text == 1) $tdtext .= "<i class=\" fa fa-check\"></i> " . $title;
         $tdtext .= "</button>";
-
         return $tdtext;
     }
-
     /**
      * pmxAdminForm::CheckButton()
      *
@@ -1795,7 +1647,6 @@ class pmxAdminForm {
             return $_POST['toolbarsubmit'];
         }
     }
-
     /**
      * pmxAdminForm::extract_class()
      * extrahiert eine angegebene css-Klassendefinition als String
@@ -1806,7 +1657,6 @@ class pmxAdminForm {
     protected static function extract_class(&$attrib_array)
     {
         $class = '';
-
         if (is_array($attrib_array)) {
             if (isset($attrib_array['class'])) {
                 $class = $attrib_array['class'];
@@ -1818,7 +1668,6 @@ class pmxAdminForm {
             }
             return $class;
         }
-
         if (is_string($attrib_array) && stripos($attrib_array, 'class') !== false) {
             if (preg_match('#class\s*=\s*([\'"])([^\1]+)\1#i', $attrib_array, $matches)) {
                 $attrib_array = trim(str_replace($matches[0], '', $attrib_array));
@@ -1827,7 +1676,6 @@ class pmxAdminForm {
             return $class;
         }
     }
-
     /**
      * pmxAdminForm::get_attributes_from_array()
      *
@@ -1843,17 +1691,14 @@ class pmxAdminForm {
         if (is_string($attrib_array)) {
             return ' ' . trim($attrib_array);
         }
-
         if (!is_array($attrib_array)) {
             // hmmmm... ?
             return $attrib_array;
         }
-
         $notallowed = array('name', 'value', 'type', 'id', 'title', 'size');
         $attributes = '';
         foreach ((array) $attrib_array as $key => $val) {
             $key = strtolower($key);
-
             switch (true) {
                 case $val === null:
                 case $val === false:
@@ -1868,16 +1713,13 @@ class pmxAdminForm {
                     $val = implode(';', $val);
                     break;
             }
-
             $key = htmlspecialchars($key, ENT_COMPAT | ENT_HTML5, 'UTF-8', false);
             $val = htmlspecialchars($val, ENT_COMPAT | ENT_HTML5, 'UTF-8', false);
-
             $attributes .= " $key=\"$val\"";
         }
         return $attributes;
     }
   
-
   /**
    *  $function addTable
    *  
@@ -1943,7 +1785,6 @@ class pmxAdminForm {
     }   
     $cHeader=(is_array($header) AND !empty($header))?count($header):0;
     if ($cHeader==0)return "";  /* wenn kein Header da, dann keine Ausgabe */ 
-
     $colCount=($checklistflag)?$cHeader+1:$cHeader;
     $rowCount=(!empty($values))?count($values):0;
     $selected=($preselectall)?"checked='checked'":""; 
@@ -1992,5 +1833,4 @@ class pmxAdminForm {
     
   }
 }
-
 ?>

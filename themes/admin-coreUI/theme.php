@@ -39,7 +39,7 @@ if (!defined('DONT_INIT_THEME') || DONT_INIT_THEME == false) {
 
     /* bei Bedarf den Dokumenttyp anpassen :) */
     if (!theme_check_xhtmldoctype()) {
-        $GLOBALS['DOCTYPE'] = 3;
+        $GLOBALS['DOCTYPE'] = 5;
     }
 }
 

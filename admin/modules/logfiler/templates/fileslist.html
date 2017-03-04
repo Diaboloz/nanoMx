@@ -17,8 +17,8 @@
 
 <div class="float-right clear-right"><?php echo $this->pagination ?></div>
 
-  <table class="list full">
-    <thead>
+  <table class="table">
+    <thead class="thead-inverse">
     <tr>
       <th><input type="checkbox" name="toggle" title="<?php echo _LOGF_SELECTALL ?>" onclick="checkAll(<?php echo count($this->files)?>);" /></th>
       <th><?php echo _LOGF_FILENAME ?></th>

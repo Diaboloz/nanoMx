@@ -23,7 +23,6 @@ function theme_define_placeholders()
     //$part[] = array("{ADMINMENUBLOCK}", theme_get_blockmenu());
     $part[] = array("{USERPIC}", theme_get_userpic());
     $part[] = array("{CURRENTPATH}", theme_show_currentpath());
-    $part[] = array("{CONTAINER_CLASS}", theme_get_container_class());
     $part[] = array("{CURRENT_MOD_LINK}", theme_get_currentmodlink());
     $part[] = array("{CURRENTYEAR}", date('Y'));
     $part[] = array("{PMX_VERSION}", PMX_VERSION_DATE);
@@ -122,39 +121,9 @@ function theme_get_layout_class()
 {
     global $themesetting;
 
-    static $class = '';
-    if ($class) {
-        return $class;
-    }
-//TODO class coreui
-    $class = ' app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden';
-    switch ($themesetting['layouttype']) {
-        case 'fluid':
-            $class .= ' fluid';
-            break;
-        case 'fixed':
-        default:
-            $class .= ' fixed';
-    }
-    $class .= ' col2';
-
+    $class = $themesetting['layouttype'];
     return trim($class);
 }
-
-/**
- * Die verschiedenen Layout-Spalten definieren
- */
-function theme_get_container_class()
-{
-    global $themesetting;
-
-    if ($themesetting['layouttype'] == 'fixed') {
-        return 'container';
-    } else {
-        return '';
-    }
-}
-
 
 /**
  * Die verschiedenen Layout-Spalten definieren
@@ -207,7 +176,7 @@ function theme_replace_start($template)
     theme_extract_part($template, 'headmenue', '{ADMINMENUHEAD}');
     // das Block-Adminmenü durch die tatsächlichen Daten ersetzen
     //theme_extract_part($template, 'admin_block_menu', '{ADMINMENUBLOCK}');
-    $part[] = array('{CLASS}' , theme_get_layout_class());
+    //$part[] = array('{CLASS}' , theme_get_layout_class());
 
     return theme_replace_parts($template, $part);
 }
@@ -276,10 +245,10 @@ function theme_header($newheader, &$siteservice, &$debugservice)
     // diese Teile werden vor der Ausgabe des headers im Headbereich ersetzt
     $newheader = theme_replace_header($newheader);
 
-    /* Fixes für den IE */
+    /* Fixes für den IE 
     $browser = load_class('Browser');
     if ($browser->msie) {
-        //pmxHeader::add_style(MX_THEME_DIR . '/style/main-ie6.css', 'all', 'lte IE 6');
+        pmxHeader::add_style(MX_THEME_DIR . '/style/main-ie6.css', 'all', 'lte IE 6');
     }
 
     /* Layout-Type: fluid oder fixed 
@@ -287,14 +256,17 @@ function theme_header($newheader, &$siteservice, &$debugservice)
         //pmxHeader::add_style(MX_THEME_DIR . '/style/layout.fixed.css.php');
     }*/
 
-    pmxHeader::add_jquery('jquery.cookie.js');
-    pmxHeader::add_script(MX_THEME_DIR . '/js/theme.js');
-    pmxHeader::add_script_code('var cookiepath="' . PMX_BASE_PATH . '";');
+    //pmxHeader::add_jquery('jquery.cookie.js');
+   // pmxHeader::add_script_code('var cookiepath="' . PMX_BASE_PATH . '";');
     //pmxHeader::add_script_code('var frameSrc = "https://www.google.fr/";');
-    pmxHeader::add_script_code('$(document).ready(function() {$("#hddebug, #switcher, #currentmodlinks a, #logo").tooltip()});');
+   // pmxHeader::add_script_code('$(document).ready(function() {$("#hddebug, #switcher, #currentmodlinks a, #logo").tooltip()});');
     // pmxHeader::add_style(MX_THEME_DIR . '/style/cssmenue.css');//
     //pmxHeader::add_script(MX_THEME_DIR . '/js/jquery.scrollUp.min.js');
-    pmxHeader::add_script(MX_THEME_DIR . '/js/bootstrap.min.js');
+   // pmxHeader::add_script(MX_THEME_DIR . '/js/libs/jquery.min.js');
+    //pmxHeader::add_script(MX_THEME_DIR . '/js/libs/bootstrap.min.js');
+    //pmxHeader::add_script(MX_THEME_DIR . '/js/libs/tether.min.js');
+   //pmxHeader::add_script(MX_THEME_DIR . '/js/app.js');
+
     return $newheader;
 }
 

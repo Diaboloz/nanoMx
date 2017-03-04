@@ -58,7 +58,7 @@ $values = function($section = NULL)
 	
 	$defaults['pmx.themes'] = array ( /*  */
 		'defaulttheme' => 'light-pmx',
-		'admintheme' => 'admin-pmx',
+		'admintheme' => 'admin-coreUI',
 		'mobiletheme' => 'light-pmx',
 		'themes' => array(),
 		);

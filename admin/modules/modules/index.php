@@ -178,13 +178,14 @@ function modules()
     }
     unset($dbmodlist);
     $headline = '
+    <thead class="thead-inverse">
         <tr>
                 <th>' . _TITLE . '</th>
                 <th>' . _CUSTOMTITLE . '</th>
                 <th>' . _MODULESBLOCKS . '</th>
                 <th>' . _VIEW . '</th>
                 <th>' . _FUNCTIONS . '</th>
-            </tr>';
+            </tr></thead>';
     GraphicAdmin();
     echo "<a name='additem' id='additem'></a>\n";
     title(_MODULESADMIN);
@@ -196,87 +197,83 @@ function modules()
     }
 
     ?>
-<!-- START: TABS NAV -->
-<div id="mod-tabs">
+<!-- START: TABS BOOTSTRAP 4 -->
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist" id="mymodules">
 
-<ul class="tabs-nav">
-<?php if ($out_active) {
-        ?>
-  <li><a href="#mod-active"><?php echo _ACTIVEMODULES ?></a></li>
-<?php }
-    ?>
-<?php if ($out_main) {
-        ?>
-  <li><a href="#mod-main"><?php echo _DEFHOMEMODULE ?></a></li>
-<?php }
-    ?>
-<?php if ($out_deact) {
-        ?>
-  <li><a href="#mod-inactive"><?php echo _NOACTIVEMODULES ?></a></li>
-<?php }
-    ?>
-</ul>
+<?php if ($out_active): ?>
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#mod-active" role="tab"><?php echo _ACTIVEMODULES ?></a>
+  </li>
+<?php endif; ?>
+
+<?php if ($out_main): ?>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#mod-main" role="tab"><?php echo _DEFHOMEMODULE ?></a>
+  </li>
+<?php endif; ?>
+
+<?php if ($out_deact): ?>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#mod-inactive" role="tab"><?php echo _NOACTIVEMODULES ?></a>
+  </li>
+<?php endif; ?>
+
+</ul> <!-- END:.nav nav-tabs -->
 
 <!-- START: ACTIF MODULES -->
-<?php if ($out_active) {
-        ?>
-<div id="mod-active" class="tabs-panel">
+<!-- Tab panes -->
+<div class="tab-content">
+
+<!-- START: ACTIF MODULES -->
+<!-- out_active -->
+<?php if ($out_active): ?>
+  <div class="tab-pane active" id="mod-active" role="tabpanel">
     <h3 class="mod-hidecaption"><?php echo _ACTIVEMODULES ?>:</h3>
-    <table class="full list">
+    <table class="table">
         <?php echo $headline . implode("\n", $out_active) ?>
     </table>
 <p class="note align-left"><?php echo _MODULESACTIVATION ?></p>
-</div>
-<?php }
-    ?>
-<!-- END: ACTIF MODULES -->
+  </div>
+ <?php endif; ?>
+ <!-- END:out_active -->
+ <!-- END: ACTIF MODULES -->
 
 <!-- START: MODULE IN HOME -->
-<?php if ($out_main) {
-        ?>
-<div id="mod-main" class="tabs-panel">
+<!-- out_main -->
+<?php if ($out_main): ?>
+  <div class="tab-pane" id="mod-main" role="tabpanel">
     <h3 class="mod-hidecaption"><?php echo _DEFHOMEMODULE ?>:</h3>
-    <table class="full list">
+    <table class="table">
         <?php echo $headline . implode("\n", $out_main) ?>
     </table>
 <p class="note align-left"><?php echo _MODULEHOMENOTE ?></p>
-</div>
-<?php }
-    ?>
-<!-- END: MODULE IN HOME -->
+  </div>
+ <?php endif; ?>
+ <!-- END:out_active --> 
+ <!-- END: MODULE IN HOME -->
 
 <!-- START: INACTIF MODULES -->
-<?php if ($out_deact) {
-        ?>
-<div id="mod-inactive" class="tabs-panel">
+ <!-- out_main -->
+<?php if ($out_deact): ?> 
+  <div class="tab-pane" id="mod-inactive" role="tabpanel">
     <h3 class="mod-hidecaption"><?php echo _NOACTIVEMODULES ?>:</h3>
-    <table class="full list">
+    <table class="table">
         <?php echo $headline . implode("\n", $out_deact) ?>
     </table>
-</div>
-<?php }
-    ?>
-<!-- END: INACTIF MODULES -->
+  </div>
+ <?php endif; ?>
+ <!-- END:out_active -->
+ <!-- END: INACTIF MODULES --> 
 
-</div><!-- /mod-tabs -->
+</div> <!-- END:.tab-content -->
 <!-- END: TABS NAV -->
 
 <script type="text/javascript">
-  /* <![CDATA[ */
-  $(document).ready(function() {
-    var tab_cookie_name = "tab_modadmin";
-    $('#mod-tabs').tabs({
-      active: ($.cookie(tab_cookie_name) || 0),
-      activate: function(event, ui) {
-        var newIndex = ui.newTab.parent().children().index(ui.newTab);
-        $.cookie(tab_cookie_name, newIndex, {
-          path: window.location.pathname,
-          expires: 7
-        });
-      }
-    });
-    $('#mod-tabs .mod-hidecaption').hide();
-  }); /* ]]> */
+$('#mymodules a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
 </script>
 
 <?php
