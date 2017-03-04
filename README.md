@@ -4,6 +4,7 @@ nanoMx
   
 05/03/2017  
   
+*admin/modules/userconfig*  
 - welcome.html (class CSS table)  
 - other.html (class CSS table)  
 - photo.html (class CSS table)  
