@@ -1,8 +1,11 @@
 <h2><?php echo _LOGFILER ?></h2>
 
 
-<?php echo $this->form->FormOpen(adminUrl('logfiler')). $this->form->getToolbar() ?>
 
+<div class="card">
+	<div class="card-block">
+	<?php echo $this->form->FormOpen(adminUrl('logfiler')). $this->form->getToolbar() ?>
+	
 <?php if($this->messages){ ?>
 <div class="alert alert-info">
   <?php echo implode('<br />', $this->messages) ?>
@@ -53,3 +56,6 @@
 	<input type="checkbox" name="deleteallrem" value="1" class="" title="<?php echo _LOGF_DELETEALLREM ?>"/>	
 	<?php echo _LOGF_DELETEALLREM ?>	
   <div class="text-right"><?php echo $this->pagination ?></div>
+
+  </div>
+  </div>
