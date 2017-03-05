@@ -16,14 +16,14 @@
 
 defined('mxMainFileLoaded') or die('access denied');
 
-define("_DB_BACKUP_1", "Le serveur de sauvegarde '<i>%s</i>' ne répond pas.");
-define("_DB_BACKUP_2", "La base de données '<i>%s</i>' ne répond pas.");
-define("_DB_BACKUP_3", "Le répertoire '<i>%s</i>' n'existe pas.");
-define("_DB_BACKUP_4", "Le répertoire '<i>%s</i>' a été créer.");
-define("_DB_BACKUP_5", "Le répertoire '<i>%s</i>' ne peut être créer.");
-define("_DB_BACKUP_6", "Le répertoire '<i>%s</i>' éxiste bien.");
-define("_DB_BACKUP_7", "La base de données '<i>%s</i>' écrit dans le fichier '<i>%s</i>'.");
-define("_DB_BACKUP_8", "La base de données '<i>%s</i>' <b>ne peut pas</b> être sauvegardée.");
+define("_DB_BACKUP_1", "Le serveur de sauvegarde '<span class=\"badge badge-warning\">%s</span>' ne répond pas.");
+define("_DB_BACKUP_2", "La base de données '<span class=\"badge badge-warning\">%s</span>' ne répond pas.");
+define("_DB_BACKUP_3", "Le répertoire '<span class=\"badge badge-warning\">%s</span>' n'existe pas.");
+define("_DB_BACKUP_4", "Le répertoire '<span class=\"badge badge-success\">%s</span>' a été créer.");
+define("_DB_BACKUP_5", "Le répertoire '<span class=\"badge badge-warning\">%s</span>' ne peut être créer.");
+define("_DB_BACKUP_6", "Le répertoire <span class=\"badge badge-success\">%s</span> éxiste bien.");
+define("_DB_BACKUP_7", "La base de données <span class=\"badge badge-success\">%s</span> a été écrit dans le fichier '<span class=\"badge badge-success\">%s</span>'.");
+define("_DB_BACKUP_8", "La base de données <span class=\"badge badge-default\">%s</span> <strong>ne peut pas</strong> être sauvegardée, veuillez vérifier vos CHMOD.");
 define("_DB_BACKUP_9", "Continuer");
 define("_DB_BACKUP_10", "Répertoire de sauvegarde");
 define("_DB_BACKUP_11", "Partant du chemin d'installation de pragmaMx");
@@ -34,7 +34,7 @@ define("_DB_BACKUP_15", "Compression GZIP");
 define("_DB_BACKUP_16", "Aucune compression SQL");
 define("_DB_BACKUP_17", "Sauvegarder");
 define("_DB_BACKUP_18", "Retour");
-define("_DB_BACKUP_19", "(Sous Windows le fichier '<i>minigzip.exe</i>' doit exister dans le répertoire principal)");
+define("_DB_BACKUP_19", "(Sous Windows le fichier '<span class=\"badge badge-warning\">minigzip.exe</span>' doit exister dans le répertoire principal)");
 define("_DB_BACKUP_20", "Fonctionne SEULEMENT sous Linux/Unix ayant le module gzip installé!");
 define("_SAVEDATABASETITLE", "Sauvegarder votre base de données");
 
