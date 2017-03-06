@@ -47,55 +47,115 @@ function mainusers()
     include("header.php");
     GraphicAdmin();
     title(_USERADMIN);
-    OpenTable();
-    echo '<fieldset><legend>' . _YA_EDITUSER . '</legend>';
-    echo '<form method="post" action="' . adminUrl(PMX_MODULE, 'modify') . '" name="edit_user_form">';
-    echo '<table style="margin:auto" border="0" cellspacing="1" cellpadding="3" class="bgcolor1">';
-    echo '<tr class="bgcolor2"><th>' . _YA_USERSTAT . '</th><th>' . _YA_ADM_USERENAMEGROUP . '</th><th>' . _SELECTSTAT . '</th></tr>';
+    echo '
+		<ul class="nav nav-tabs" role="tablist">
+			<li class="nav-item">
+				<a  class="nav-link active" data-toggle="tab" href="#userEdit" role="tab">' . _YA_EDITUSER . '</a>
+			</li>
+			<li class="nav-item">
+				<a  class="nav-link" data-toggle="tab" href="#userAdd" role="tab">' . _ADDUSER . '</a>
+			</li>
+		</ul>
+
+	<div class="tab-content py-1">
+
+        <div class="tab-pane active" id="userEdit" role="tabpanel">
+			<form method="post" action="' . adminUrl(PMX_MODULE, 'modify') . '" name="edit_user_form">
+                <table class="table table-hover w-50">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>' . _YA_USERSTAT . '</th>
+                            <th>' . _YA_ADM_USERENAMEGROUP . '</th>
+                            <th>' . _SELECTSTAT . '</th>
+                        </tr>
+                    </thead>
+                    <tbody>';
 
     if ((!empty($options[0])) && ($userconfig->register_option === 2 || $userconfig->register_option === 4)) {
-        echo '<tr class="bgcolor2"><td>' . _YA_ADM_NEWUSERS . ':&nbsp;</td>';
-        echo '<td class="bgcolor3"><select name="uid_0">' . implode("", $options[0]) . '</select>&nbsp;(' . count($options[0]) . ')</td>';
-        echo '<td class="bgcolor3 align-center"><input type="radio" name="user_stat" value="0" /></td></tr>';
+        echo '
+            <tr>
+                <th scope="row">' . _YA_ADM_NEWUSERS . '</th>
+                <td><select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="uid_0">' . implode("", $options[0]) . '</select>&nbsp;(' . count($options[0]) . ')</td>
+                <td><input type="radio" name="user_stat" value="0" /></td>
+            </tr>';
     }
 
     if (!empty($options[1])) {
-        echo '<tr class="bgcolor2"><td>' . _YA_ADM_ACTIVUSERS . ':&nbsp;</td>';
-        echo '<td class="bgcolor3"><select name="uid_1">' . implode("", $options[1]) . '</select>&nbsp;(' . count($options[1]) . ')</td>';
-        echo '<td class="bgcolor3 align-center"><input type="radio" name="user_stat" value="1" checked="checked" /></td></tr>';
+        echo '
+            <tr>
+                <th scope="row">' . _YA_ADM_ACTIVUSERS . '</th>
+                <td><select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="uid_1">' . implode("", $options[1]) . '</select>&nbsp;(' . count($options[1]) . ')</td>
+                <td><input type="radio" name="user_stat" value="1" checked="checked" /></td>
+            </tr>';
     }
 
     if (!empty($options[2])) {
-        echo '<tr class="bgcolor2"><td>' . _YA_ADM_DEACTIVUSERS . ':&nbsp;</td>';
-        echo '<td class="bgcolor3"><select name="uid_2">' . implode("", $options[2]) . '</select>&nbsp;(' . count($options[2]) . ')</td>';
-        echo '<td class="bgcolor3 align-center"><input type="radio" name="user_stat" value="2" /></td></tr>';
+        echo '
+            <tr>
+                <th scope="row">' . _YA_ADM_DEACTIVUSERS . '</th>
+                <td><select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="uid_2">' . implode("", $options[2]) . '</select>&nbsp;(' . count($options[2]) . ')</td>
+                <td><input type="radio" name="user_stat" value="2" /></td>
+            </tr>';
     }
 
     if (!empty($options[-1])) {
-        echo '<tr class="bgcolor2"><td>' . _YA_REAC_DELETED . ':&nbsp;</td>';
-        echo '<td class="bgcolor3"><select name="uid_3">' . implode("", $options[-1]) . '</select>&nbsp;(' . count($options[-1]) . ')</td>';
-        echo '<td class="bgcolor3 align-center"><input type="radio" name="user_stat" value="-1" /></td></tr>';
+        echo '
+            <tr>
+                <th scope="row">' . _YA_REAC_DELETED . '</th>
+                <td><select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="uid_3">' . implode("", $options[-1]) . '</select>&nbsp;(' . count($options[-1]) . ')</td>
+                <td><input type="radio" name="user_stat" value="-1" /></td>
+            </tr>';
     }
 
-    echo '<tr class="bgcolor2"><td colspan="3" style="text-align: center; vertical-align: bottom; height: 30px;"><input type="submit" name="umodify" value="' . _MODIFY . '" />&nbsp;&nbsp;<input type="submit" name="udelete" value="' . _DELETE . '" />';
-    echo '<input type="hidden" name="op" value="' . PMX_MODULE . '/modify" /></td></tr>';
-    echo '</table></form></fieldset>';
-    CloseTable();
-    echo '<br />';
-    OpenTable();
-    echo '<fieldset><legend>' . _ADDUSER . '</legend>'
-     . '<form action="' . adminUrl(PMX_MODULE, 'add') . '" method="post">'
-     . '<table style="margin:auto" border="0" cellspacing="1" cellpadding="3" class="bgcolor1">'
-     . '<tr class="bgcolor2"><td><b>' . _NICKNAME . '</b></td>'
-     . '<td class="bgcolor3"><input type="text" name="uname" size="30" maxlength="25" /> <font class="tiny">' . _REQUIRED . '</font></td></tr>'
-     . '<tr class="bgcolor2"><td><b>' . _PASSWORD . '</b></td>'
-     . '<td class="bgcolor3"><input type="text" name="pass" size="30" value="' . $newpass . '" class="password-checker-input" /> <font class="tiny">' . _REQUIRED . '</font></td></tr>'
-     . adminuserform($udata)
-     . '<tr class="bgcolor3"><td colspan="2"><input type="submit" value="' . _ADDUSERBUT . '" />'
-     . '<input type="hidden" name="op" value="' . PMX_MODULE . '/add" /></td></tr>'
-     . '</table></form></fieldset>';
+    echo '
+        </tbody>
+        </table>
+        <div class="container">
+            <div class="form-group">
+                    <input type="submit" class="btn btn-primary"  name="umodify" value="' . _MODIFY . '" />
+                    <input type="submit" class="btn btn-danger" name="udelete" value="' . _DELETE . '" />
+                    <input type="hidden" name="op" value="' . PMX_MODULE . '/modify" />
+            </div>       
+        </div>
+	</form>
+    </div>';
+ 
+	// add user
+    echo '
+		<div class="tab-pane" id="userAdd" role="tabpanel">
+			<form action="' . adminUrl(PMX_MODULE, 'add') . '" method="post">
+            <div class="container">
+			
+	        <div class="form-group row">
+				<label for="uname" class="col-sm-2 col-form-label">' . _NICKNAME . '</label>
+				<div class="col-sm-2">
+					<input type="text" class="form-control" id="uname" name="uname" size="30" maxlength="25" /> 
+					<span class="small">' . _REQUIRED . '</span>
+				</div>
+			</div>
+			
+	        <div class="form-group row">
+				<label for="pass" class="col-sm-2 col-form-label">' . _PASSWORD . '</label>
+				<div class="col-sm-2">
+					<input type="text" class="form-control password-checker-input" id="pass" name="pass" size="30" value="' . $newpass . '" /> 
+				</div>
+			</div>			
+			
+			' . adminuserform($udata) . '
+			
+			<div class="form-group row">
+				<div class="offset-sm-2 col-sm-10">
+					<input type="hidden" name="op" value="' . PMX_MODULE . '/add" />
+					<input type="submit" class="btn btn-primary" value="' . _ADDUSERBUT . '" />
+				</div>
+			</div>	
 
-    CloseTable();
+            </div>		
+			</form>
+        </div>
+
+	</div><!-- /tab-content -->';
+
     include('footer.php');
 }
 
@@ -162,14 +222,18 @@ function modify()
             break;
 
         case ($userconfig->register_option === 4) && ($udata['user_stat'] == 0):
-            $querypss = "SELECT check_thepss FROM `{$user_prefix}_users_temptable` WHERE (uname='" . mxAddSlashesForSQL($udata['uname']) . "' AND email = '" . mxAddSlashesForSQL($udata['email']) . "')";
+            $querypss = "SELECT check_thepss 
+						FROM `{$user_prefix}_users_temptable` 
+						WHERE (uname='" . mxAddSlashesForSQL($udata['uname']) . "' AND email = '" . mxAddSlashesForSQL($udata['email']) . "')";
             $thequerypss_result = sql_query($querypss);
             if (!$thequerypss_result) {
                 return mxErrorScreen(_DATABASEERROR . "Get the readable password --> Activationlink mod --> users.php");
             }
             $getthedata = sql_fetch_assoc($thequerypss_result);
             $formpass = base64_decode($getthedata['check_thepss']);
-            $delqry1 = "DELETE FROM `{$user_prefix}_users_temptable` WHERE (uname='" . mxAddSlashesForSQL($udata['uname']) . "' AND email = '" . mxAddSlashesForSQL($udata['email']) . "')";
+            $delqry1 = "DELETE 
+						FROM `{$user_prefix}_users_temptable` 
+						WHERE (uname='" . mxAddSlashesForSQL($udata['uname']) . "' AND email = '" . mxAddSlashesForSQL($udata['email']) . "')";
             $delresult1 = sql_query($delqry1);
             if (!$delresult1) {
                 return mxErrorScreen(_DATABASEERROR . "Delete temptable - entry --> users.php");
@@ -192,35 +256,40 @@ function modify()
     GraphicAdmin();
     title(_USERADMIN);
     OpenTable();
-    echo "<fieldset><legend>" . $ptitle . ": <em>" . $udata['uname'] . "</em></legend>"
-     . "<form action=\"" . adminUrl(PMX_MODULE, 'update') . "\" method=\"post\">"
-     . "<table style=\"margin:auto\" border=\"0\" cellspacing=\"1\" cellpadding=\"3\" class=\"bgcolor1\">"
-     . "<tr class=\"bgcolor2\"><td>" . _USERID . "</td>"
-     . "<td class=\"bgcolor3\"><b>" . $udata['uid'] . "</b></td></tr>"
-     . "<tr class=\"bgcolor2\"><td><b>" . _NICKNAME . "</b></td>"
-     . "<td class=\"bgcolor3\"><b>" . $udata['uname'] . "</b><input type=\"hidden\" name=\"uname\" value=\"" . mxEntityQuotes($udata['uname']) . "\" /></td></tr>"
+    echo "
+		<fieldset>
+			<legend>" . $ptitle . ": <em>" . $udata['uname'] . "</em></legend>
+			<form action=\"" . adminUrl(PMX_MODULE, 'update') . "\" method=\"post\">
+     
+    " . _USERID . "
+    " . $udata['uid'] . "
+    " . _NICKNAME . "
+    " . $udata['uname'] . "
+	<input type=\"hidden\" name=\"uname\" value=\"" . mxEntityQuotes($udata['uname']) . "\" /></td></tr>"
      . adminuserform($udata);
+	 
     if ($udata['user_stat'] != -1) {
         pmx_html_passwordchecker();
-        echo "<tr class=\"bgcolor2\"><td>" . _PASSWORD . "</td>"
-         . "<td class=\"bgcolor3\"><input type=\"password\" name=\"pass\" value=\"" . $formpass . "\" size=\"30\" class=\"password-checker-input\" />" . $forchanges . "</td></tr>"
-         . "<tr class=\"bgcolor2\"><td>" . _RETYPEPASSWD . "</td>"
-         . "<td class=\"bgcolor3\"><input type=\"password\" name=\"pass2\" value=\"" . $formpass . "\" size=\"30\" class=\"password-checker-input\" />" . $forchanges . "</td></tr>"
-         . "<tr class=\"bgcolor3\"><td colspan=\"2\">
+        echo "
+		" . _PASSWORD . "
+        <input type=\"password\" name=\"pass\" value=\"" . $formpass . "\" size=\"30\" class=\"password-checker-input\" />" . $forchanges . "
+        " . _RETYPEPASSWD . "
+		<input type=\"password\" name=\"pass2\" value=\"" . $formpass . "\" size=\"30\" class=\"password-checker-input\" />" . $forchanges . "
         <input type=\"submit\" value=\"" . _SAVECHANGES . "\" />
-        </td></tr>";
+        ";
     } else {
-        echo "<tr class=\"bgcolor3\"><td colspan=\"2\">
+        echo "
         <input type=\"hidden\" name=\"user_stat\" value=\"1\" />
         <input type=\"submit\" name=\"ureactivate\" value=\"" . _REACTIVATEUSER . "\" />
-        </td></tr>";
+       ";
     }
 
-    echo "</table>"
-     . "<input type=\"hidden\" name=\"chng_uid\" value=\"" . $udata['uid'] . "\" />"
-     . "<input type=\"hidden\" name=\"old_user_stat\" value=\"" . $udata['user_stat'] . "\" />"
-     . "<input type=\"hidden\" name=\"op\" value=\"" . PMX_MODULE . "/update\" />"
-     . "</form></fieldset>";
+    echo "
+    <input type=\"hidden\" name=\"chng_uid\" value=\"" . $udata['uid'] . "\" />
+	<input type=\"hidden\" name=\"old_user_stat\" value=\"" . $udata['user_stat'] . "\" />
+	<input type=\"hidden\" name=\"op\" value=\"" . PMX_MODULE . "/update\" />
+	</form>
+</fieldset>";
 
     if ($uploadedpic) {
 
@@ -351,8 +420,9 @@ function update($pvs)
             include('header.php');
             title(_USERADMIN);
             OpenTable();
-            echo '<center><p class="note stronger">' . sprintf(_YA_REAC_RESULTOK, htmlspecialchars($uname)) . '</p><br /><br />
-             <p><b>' . sprintf(_YA_REAC_SENDMESSAGE, htmlspecialchars($uname)) . '</b></p><br />
+            echo '
+				<p class="note stronger">' . sprintf(_YA_REAC_RESULTOK, htmlspecialchars($uname)) . '</p>
+				<p><b>' . sprintf(_YA_REAC_SENDMESSAGE, htmlspecialchars($uname)) . '</b></p>
              <form action="' . adminUrl(PMX_MODULE, 'reactivate') . '" method="post">
                 <p>' . _YA_REAC_EDITMSGTEXT . '</p>
                 <textarea cols="75" rows="8" name="message">' . $message . '</textarea><br /><br />
@@ -360,7 +430,7 @@ function update($pvs)
                 <input type="hidden" name="uid" value="' . $chng_uid . '" />
                 <input type="submit" name="sendmail" value="' . _YES . '" /> &nbsp;
                 <input type="submit" value="' . _NO . '" />
-             </form></center>';
+             </form>';
             CloseTable();
             include('footer.php');
             break;
@@ -498,14 +568,15 @@ function delete()
     include('header.php');
     title(_USERADMIN);
     OpenTableAl();
-    echo '<center><p class="option">' . _DELETEUSER . '</p>
-     <p>' . _SURE2DELETE . '&nbsp;<b>' . htmlspecialchars($udata['uname']) . '</b>?</p><br />
+    echo '
+		<p class="option">' . _DELETEUSER . '</p>
+		<p>' . _SURE2DELETE . '&nbsp;<b>' . htmlspecialchars($udata['uname']) . '</b>?</p><br />
      <form action="' . adminUrl(PMX_MODULE, 'delete_confirm') . '" method="post">
         <input type="hidden" name="op" value="' . PMX_MODULE . '/delete_confirm" />
         <input type="hidden" name="del_uid" value="' . $udata['uid'] . '" />
         <input type="submit" name="action" value="' . _YES . '" /> &nbsp;
         <input type="submit" value="' . _NO . '" />
-     </form></center>';
+     </form>';
     CloseTableAl();
     include('footer.php');
 }
