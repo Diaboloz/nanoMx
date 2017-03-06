@@ -2,6 +2,10 @@ nanoMx
 -----------------------
 **By Divrezstudio (SelMaK_)**   
   
+06/03/2017  
+  
+*Global updates Skud/SelMaK and correction by Diabolo (project manager)*  
+  
 05/03/2017  
   
 *admin/modules/userconfig*  
