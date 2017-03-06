@@ -12,10 +12,10 @@ $access_upload = new pmxInlinePermissions('access_upload', $this->access_upload,
 
 ?>
 <?php if (!$gd_installed) : ?>
-  <div class="alert alert-warning"><?php echo _UPIC_GD_WARNING ?></div>
+  <div class="warning"><?php echo _UPIC_GD_WARNING ?></div>
 <?php endif ?>
 
-<table class="table">
+<table class="form full">
 
   <tr valign="top">
     <th colspan="2"><h3><?php echo _UPIC_SERVER_STORED ?></h3></th>

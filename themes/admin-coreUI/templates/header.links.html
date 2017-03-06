@@ -7,18 +7,15 @@
 ?>
              
 <?php if($this->langentries !== false){ ?>
-<li class="dropdown">
-		<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
-		    <i style="background-image: url('<?php echo $this->langentries['image'] ?>');display: inline-block;height: 12px;line-height: 12px;margin-top: 4px;vertical-align: text-top;width: 18px;"></i> 
-		    <span class="caret"></span>
+<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+		    <i style="background-image: url('<?php echo $this->langentries['image'] ?>');display: inline-block;height: 12px;line-height: 12px;margin-top: 4px;vertical-align: text-top;width: 18px;"></i>
 		</a>
-		<ul class="dropdown-menu">
+		<div class="dropdown-menu dropdown-menu-right">
     <?php foreach ($this->langentries['items'] as $item) { ?>
-			<li>
-				<a href="<?php echo $item['link'] ?>" title="<?php echo $item['title'] ?>"><i style="background-image: url('<?php echo $item['image'] ?>');display: inline-block;height: 12px;line-height: 12px;margin-top: 1px;vertical-align: text-top;width: 18px;"></i> <?php echo $item['text'] ?></a>
-			</li>
+    		<a class="dropdown-item" href="<?php echo $item['link'] ?>" title="<?php echo $item['title'] ?>"><i style="background-image: url('<?php echo $item['image'] ?>');display: inline-block;height: 12px;line-height: 12px;margin-top: 1px;vertical-align: text-top;width: 18px;"></i> <?php echo $item['text'] ?></a>
     <?php } //endforeach ?>
-		</ul>
+		</div>
 </li>
 <?php } //endif adminentries ?>
 
@@ -29,5 +26,5 @@
     <a class="nav-link" href="admin.php?op=reset/cache"><i class="icon-refresh" title="<?php echo $this->headentries['cache'] ?>"></i></a>
 </li>
 <li class="nav-item hidden-md-down">
-    <a class="nav-link" href="admin.php?op=versioncheck title="<?php echo $this->headentries['version'] ?>"><i class="icon-layers"></i></a>
+    <a class="nav-link" href="admin.php?op=versioncheck" title="<?php echo $this->headentries['version'] ?>"><i class="icon-layers"></i></a>
 </li>

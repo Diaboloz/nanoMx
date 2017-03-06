@@ -90,10 +90,15 @@ function backupdoit()
     }
     include('header.php');
     title(_SAVEDATABASE);
-    OpenTable();
-    echo '<ul><li>' . implode('</li><li>', $msg) . '</li></ul>';
-    echo "<br /><br /><div align=\"center\"><a href=\"" . adminUrl(PMX_MODULE) . "\">" . _DB_BACKUP_9 . "</a></div>";
-    CloseTable();
+    echo '
+    	<div class="card">
+  			<div class="card-block">
+    			<ul class="list-unstyled">
+    				<li>' . implode('</li><li>', $msg) . '</li>
+    			</ul>			
+    				<a href="' . adminUrl(PMX_MODULE) . '" class="btn btn-primary">' . _DB_BACKUP_9 . '</a>	
+    		</div>
+    	</div>';
     include('footer.php');
 }
 
@@ -104,39 +109,67 @@ function backupstart()
     $savefile = $dbname . date("_Y_m_d", time()) . '_' . rand(234, 912) . '.sql';
     $docroot = realpath(PMX_REAL_BASE_DIR . '/');
 
-    include("header.php");
+    include('header.php');
     title(_SAVEDATABASETITLE);
-    OpenTable();
-    echo "<form action=\"" . adminUrl(PMX_MODULE) . "\" method=\"post\" name=\"doit\">
-    <input type=\"hidden\" name=\"op\" value=\"" . PMX_MODULE . "/doit\" />
-    <table cellspacing=\"0\" cellpadding=\"3\">
-    <tr>
-    <td>" . _DB_BACKUP_10 . ":</td>
-    <td><input type=\"text\" name=\"savepath\" value=\"" . $savepath . "\" size=\"50\" /><br />
-    <font class=\"note tiny\">" . _DB_BACKUP_11 . " (" . $docroot . ")</font></td>
-    </tr><tr>
-    <td>" . _DB_BACKUP_12 . ":</td>
-    <td><input type=\"text\" name=\"savefile\" value=\"" . $savefile . "\" size=\"50\" maxlength=\"80\" /></td>
-    </tr><tr>
-    <td colspan=\"2\"><br />" . _DB_BACKUP_13 . "</td>
-    </tr><tr>
-    <td align=\"right\" valign=\"top\"><input type=\"radio\" name=\"ff\" value=\"none\" checked=\"checked\" /></td><td>" . _DB_BACKUP_16 . "</td>
-    </tr><tr><td align=\"right\" valign=\"top\">";
+    echo '
+    	<div class="card">
+  			<div class="card-block">
+  				<div class="container">
+    			<form action="' . adminUrl(PMX_MODULE) . '" method="post" name="doit">
+    				<input type="hidden" name="op" value="' . PMX_MODULE . '/doit" />
+				    <div class="form-group row">
+      					<label for="savepath" class="col-sm-2 col-form-label">' . _DB_BACKUP_10 . '</label>
+      					<div class="col-sm-10">
+      						<input type="text" class="form-control" id="savepath" name="savepath" placeholder="' . $savepath . '" size="50" /> 
+      						<small class="text-muted">
+      							 ' . _DB_BACKUP_11 . ' (' . $docroot . ')
+      						</small>   					
+      					</div>
+    				</div>
+
+				    <div class="form-group row">
+      					<label for="savefile" class="col-sm-2 col-form-label">' . _DB_BACKUP_12 . '</label>
+      					<div class="col-sm-10">
+      						<input type="text" class="form-control" id="savefile" name="savefile" value="' . $savefile . '" size="50" maxlength="80" />				
+      					</div>
+    				</div>
+
+    <fieldset class="form-group row">
+      <legend class="col-form-legend col-sm-2">' . _DB_BACKUP_13 . '</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <label class="form-check-label">
+          	<input type="radio" class="form-check-input" name="ff" value="none" checked="checked" /> ' . _DB_BACKUP_16 . '
+          </label>
+        </div>';
+
     if (!strcmp(substr(PHP_OS, 0, 3), 'WIN')) {
-        echo "<input type=\"radio\" name=\"ff\" value=\"minigzip\" /></td><td>" . _DB_BACKUP_14 . "
-        <br /><span class=\"tiny\">" . _DB_BACKUP_19 . "</span>";
+        echo '
+        <div class="form-check">
+          <label class="form-check-label">
+          	<input class="form-check-input" type="radio" name="ff" value="minigzip" /> ' . _DB_BACKUP_14 . '
+          	<small class="text-muted">' . _DB_BACKUP_19 . '</small>
+          </label>
+        </div>';
     } else {
-        echo "<input type=\"radio\" name=\"ff\" value=\"gzip\" /></td><td>" . _DB_BACKUP_15 . "
-        <br /><span class=\"note tiny\">" . _DB_BACKUP_20 . "</span>";
+        echo '
+        <div class="form-check">
+          <label class="form-check-label">
+          	<input class="form-check-input" type="radio" name="ff" value="gzip" />' . _DB_BACKUP_15 . '
+          	<small class="text-muted">' . _DB_BACKUP_20 . '</small>
+          </label>
+        </div>';
     }
-    echo "</td></tr><tr>
-    <td colspan=\"2\" align=\"center\"><br />
-    <input type=\"submit\" value=\"" . _DB_BACKUP_17 . "\" />
-    &nbsp;<input type=\"reset\" value=\"" . _DB_BACKUP_18 . "\" />
-    </td></tr></table>
-    </form>";
-    CloseTable();
-    include("footer.php");
+
+    echo '
+        </div>
+    </fieldset>
+    			<input type="submit" class="btn btn-primary" value="' . _DB_BACKUP_17 . '" />
+    			</form>
+    		</div>
+    	</div>
+    </div>';
+    include('footer.php');
 }
 
 switch ($op) {

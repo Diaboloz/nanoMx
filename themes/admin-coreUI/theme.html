@@ -41,13 +41,7 @@
             </li>
         </ul>
         <ul class="nav navbar-nav ml-auto mr-2">
-            {THEME_TRAYITEMS} 
-            <!-- START hddebug1 -->
-                <li><a href="admin.php?op=settings" id="hddebug" title="{_MSGDEBUGMODE}" data-placement="left"><i class="fa fa-bug"></i></a></li>
-                <!-- END hddebug1 -->
-                <!-- START hddebug2 -->
-                <li><a href="admin.php?op=settings" id="hddebug" class="critical" title="{_MSGDEBUGMODE}" data-placement="left"><i class="fa fa-bug"></i></a></li>
-                <!-- END hddebug2 -->  
+            {THEME_TRAYITEMS}   
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     {USERPIC}
@@ -63,10 +57,21 @@
                    <a class="dropdown-item" href="admin.php?op=logout" title="{_THEME_LOGOUT}"><i class="fa fa-lock"></i> {_THEME_LOGOUT}</a>
                 </div>
             </li>
+            <!-- START hddebug1 -->
+            <li class="nav-item hidden-md-down">
+                <a class="nav-link" href="admin.php?op=settings" id="hddebug" title="{_MSGDEBUGMODE}" style="color: maroon;"><i class="fa fa-bug"></i></a>
+            </li>
+            <!-- END hddebug1 -->
+            <!-- START hddebug2 -->
+            <li class="nav-item hidden-md-down">
+                <a class="nav-link critical" href="admin.php?op=settings" id="hddebug" title="{_MSGDEBUGMODE}" style="color: red;"><i class="fa fa-bug"></i></a>
+            </li>
+            <!-- END hddebug2 -->           
         </ul>
     </header>
 
     <div class="app-body mb-3">
+        
         <div class="sidebar">
             <nav class="sidebar-nav">
                 <!-- START blocks_left_container -->
@@ -94,13 +99,13 @@
 
         <!-- Main content -->
         <main class="main">
+
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">Home</li>
                 <li class="breadcrumb-item active">
                     {CURRENT_MOD_LINK}
                 </li>
-
                 <!-- Breadcrumb Menu-->
                 <li class="breadcrumb-menu hidden-md-down">
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
@@ -108,6 +113,7 @@
                     </div>
                 </li>
             </ol>
+
             <div class="container-fluid">
                 <div class="animated fadeIn">
                 <!-- MAIN CONTENT (div #pmx-content) -->

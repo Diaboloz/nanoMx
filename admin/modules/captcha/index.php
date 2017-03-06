@@ -186,7 +186,7 @@ class captcha_admin extends pmxCaptcha {
         unset($settings, $hookvars, $check, $captcha_object);
 
         include('header.php');
-        $template->display('form.html');
+        $template->display('navTabs.html');
         include('footer.php');
     }
 

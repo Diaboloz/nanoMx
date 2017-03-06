@@ -2,80 +2,64 @@
 /* Javascript & jquery for tabs */
 pmxHeader::add_tabs();
 ?>
-<!-- Nav tabs -->
-<ul class="nav nav-tabs" role="tablist" id="userconfigTab">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#ya-register" role="tab"><?php echo _UTAB_OPTIONS ?></a>
-  </li><!--END:#ya-register -->
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#ya-photo" role="tab"><?php echo _UTAB_USERPIC ?></a>
-  </li><!--END:#ya-photo -->
-  <?php if ($this->tab_welcome): ?>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#ya-welcome" role="tab"><?php echo _UTAB_WELCOMEMSG ?></a>
-  </li><!--END:#ya-welcome -->
-  <?php endif ?>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#ya-points" role="tab"><?php echo _UTAB_USERPOINTS ?></a>
-  </li><!--END:#ya-points -->
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#ya-other" role="tab"><?php echo _UTAB_OTHERS ?></a>
-  </li><!--END:#ya-other -->
-</ul> <!-- END:.nav .nav-tabs -->
 
-<div class="tab-content">
+<div id="ya-tabs">
 
-  <div id="ya-register" class="tab-pane active">
-  <form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
+<ul class="tabs-nav">
+  <li><a href="#ya-register"><?php echo _UTAB_OPTIONS ?></a></li>
+  <li><a href="#ya-photo"><?php echo _UTAB_USERPIC ?></a></li>
+<?php if ($this->tab_welcome): ?>
+  <li><a href="#ya-welcome"><?php echo _UTAB_WELCOMEMSG ?></a></li>
+<?php endif ?>
+  <li><a href="#ya-points"><?php echo _UTAB_USERPOINTS ?></a></li>
+  <li><a href="#ya-other"><?php echo _UTAB_OTHERS ?></a></li>
+</ul>
+
+<form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
+  <div id="ya-register" class="tabs-panel">
     <?php echo($this->tab_register) ?>
-  <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" /><br/>
-  <button class="btn btn-success" type="submit"><?php echo _UCSAVECHANGES ?></button>
-  </form>
-  </div><!--END:#ya-register -->
+  </div>
 
-  <div id="ya-photo" class="tab-pane">
-  <form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
+  <div id="ya-photo" class="tabs-panel">
     <?php echo($this->tab_photo) ?>
-  <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" /><br/>
-  <button class="btn btn-success" type="submit"><?php echo _UCSAVECHANGES ?></button>
-  </form>
-  </div><!--END:#ya-photo -->
+  </div>
 
 <?php if ($this->tab_welcome): ?>
-  <div id="ya-welcome" class="tab-pane">
-  <form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
+  <div id="ya-welcome" class="tabs-panel">
     <?php echo($this->tab_welcome) ?>
-  <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" /><br/>
-  <button class="btn btn-success" type="submit"><?php echo _UCSAVECHANGES ?></button>
-  </form>
-  </div><!--END:#ya-welcome -->
+  </div>
 <?php endif ?>
 
-  <div id="ya-points" class="tab-pane">
-  <form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
+  <div id="ya-points" class="tabs-panel">
     <?php echo($this->tab_points) ?>
-  <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" /><br/>
-  <button class="btn btn-success" type="submit"><?php echo _UCSAVECHANGES ?></button>
-  </form>
-  </div><!--END:#ya-points -->
+  </div>
 
-  <div id="ya-other" class="tab-pane">
-  <form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
+  <div id="ya-other" class="tabs-panel">
     <?php echo($this->tab_other) ?>
-  <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" /><br/>
-  <button class="btn btn-success" type="submit"><?php echo _UCSAVECHANGES ?></button>
-  </form>
-  </div><!--END:#ya-other -->
+  </div>
 
-</div> <!-- END:.tab-content -->
+  <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" />
+  <input type="submit" value="<?php echo _UCSAVECHANGES ?>" />
+</form>
 
-<!-- START:JS TABS Bootstrap -->
+</div>
+
 <script type="text/javascript">
-$('#userconfigTab a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
+  /* <![CDATA[ */
+  $(document).ready(function() {
+    var tab_cookie_name = 'tab_usersconfig';
+    $("#ya-tabs").tabs({
+      active: ($.cookie(tab_cookie_name) || 0),
+      activate: function(event, ui) {
+        var newIndex = ui.newTab.parent().children().index(ui.newTab);
+        $.cookie(tab_cookie_name, newIndex, {
+          path: window.location.pathname,
+          expires: 7
+        });
+      }
+    });
+    $(".ya-hidecaption").hide();
+  }); /* ]]> */
 </script>
-<!-- END:JS TABS Bootstrap -->
 
 <?php /* pragmaMx CVS $Id: usersconfig.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>
