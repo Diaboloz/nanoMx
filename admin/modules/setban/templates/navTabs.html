@@ -1,0 +1,25 @@
+<h2><?php echo _SETBAN ?></h2>
+
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a  class="nav-link active" data-toggle="tab" href="#setbanIp" role="tab"><?php echo _INFOHOWBAN ?></a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" data-toggle="tab" href="#setbanName" role="tab"><?php echo _INFOHOWBANNAME ?></a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" data-toggle="tab" href="#setbanMail" role="tab"><?php echo _INFOHOWBANMAIL ?></a>
+  </li>
+</ul>
+
+<div class="tab-content py-1">
+  <div class="tab-pane active" id="setbanIp" role="tabpanel">
+  <?php $this->display('setbanIp.html') ?>
+  </div>
+  <div class="tab-pane" id="setbanName" role="tabpanel">
+  <?php $this->display('setbanName.html') ?>
+  </div>
+  <div class="tab-pane" id="setbanMail" role="tabpanel">
+  <?php $this->display('setbanMail.html') ?>
+  </div>
+</div>

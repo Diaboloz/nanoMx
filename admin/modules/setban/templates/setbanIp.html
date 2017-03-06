@@ -1,0 +1,10 @@
+<form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
+  <?php echo _INFOHOWBANHELP ?>
+  	<div class="form-group">
+    	<?php echo $this->formTextarea('ip_ban', $this->ban_ip, array('cols'=>60, 'rows'=>8, 'class'=>'form-control')) ?>
+    </div>
+    <p class="font-italic"><?php echo _CUTWITHCOMMATA ?></p>
+    <?php echo $this->formHidden('op', PMX_MODULE . '/save') ?>
+    <?php echo $this->formHidden('ip_type', 'ban_ip') ?>
+    <?php echo $this->formSubmit('submit', _SAVECHANGES, array ('class'=>'btn btn-primary')) ?>
+</form>
