@@ -1,29 +1,8 @@
-<h2><?php echo _CAPTCHATITLE ?></h2>
-
-<?php if ($this->check !== true) { ?>
-<div class="alert alert-warning">
-    <h4><?php echo _CAPTCHAERR ?></h4>
-    <p><?php echo $this->check ?></p>
-</div>
-<?php  } ?>
-
-<ul class="nav nav-tabs" role="tablist">
-  <li class="nav-item">
-    <a  class="nav-link active" data-toggle="tab" href="#captcha-1" role="tab"><?php echo _CAPTCHASETTINGS ?></a>
-  </li>
-  <li class="nav-item">
-    <a  class="nav-link" data-toggle="tab" href="#captcha-2" role="tab"><?php echo _CAPTCHASETTINGS2 ?></a>
-  </li>
-</ul>
-
-<div class="tab-content py-1">
-
-  <div class="tab-pane active" id="captcha-1" role="tabpanel">
+  <div class="tab-pane active" id="captchaConf" role="tabpanel">
    <form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
-
-    <div class="container">
-
-
+ 
+	<div class="container">
+	
     <div class="card">
       <div class="card-block text-center">
         <div class="text-muted small text-uppercase font-weight-bold"><?php echo _CAPTCHASAMPLE ?></div>
@@ -212,101 +191,7 @@
     </div>
 
 
-
-    </div><!--/ container -->
  </div><!-- / captcha-1 -->
 
-
-  <div class="tab-pane" id="captcha-2" role="tabpanel">
-     <div class="container">
-
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label"><?php echo _CAPTCHASESSION ?></label>
-            <div class="col-sm-3">
-              <div class="form-check">
-                  <label class="form-check-label">
-                    <input type="radio" value="1"<?php echo ($this->captchasession) ? ' checked="checked"' : '' ?> name="captchasession" /> <?php echo _YES ?>
-                  </label>
-                  <label class="form-check-label">
-                     <input type="radio" value="0"<?php echo ($this->captchasession) ? '' : ' checked="checked"' ?> name="captchasession" /> <?php echo _NO ?>
-                  </label>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label"><?php echo _CAPTCHAUSERON ?></label>
-            <div class="col-sm-3">
-              <div class="form-check">
-                  <label class="form-check-label">
-                    <input type="radio" value="1"<?php echo ($this->captchauseron) ? ' checked="checked"' : '' ?> name="captchauseron" /> <?php echo _YES ?>
-                  </label>
-                  <label class="form-check-label">
-                     <input type="radio" value="0"<?php echo ($this->captchauseron) ? '' : ' checked="checked"' ?> name="captchauseron" /> <?php echo _NO ?>
-                  </label>
-              </div>
-            </div>
-          </div>
-
-          <h4 class="mb-2"><?php echo _CAPTCHAMODSET ?></h4>
-
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label"><?php echo _CAPTCHACOMMENTSON ?></label>
-            <div class="col-sm-3">
-              <div class="form-check">
-                  <label class="form-check-label">
-                    <input type="radio" value="1"<?php echo ($this->commentson) ? ' checked="checked"' : '' ?> name="commentson" /> <?php echo _YES ?>
-                  </label>
-                  <label class="form-check-label">
-                     <input type="radio" value="0"<?php echo ($this->commentson) ? '' : ' checked="checked"' ?> name="commentson" /> <?php echo _NO ?>
-                  </label>
-              </div>
-            </div>
-          </div>
-
-      <?php foreach ($this->hookvars as $hook) {
-          if (!$hook['hidden'])  { ?>
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label"><?php echo $hook['caption'] ?></label>
-            <div class="col-sm-3">
-              <div class="form-check">
-                  <label class="form-check-label">
-                    <input type="radio" value="1"<?php echo ($hook['varname']) ? ' checked="checked"' : '' ?> name="<?php echo $hook['varname'] ?>" /> <?php echo _YES ?>
-                  </label>
-                  <label class="form-check-label">
-                     <input type="radio" value="0"<?php echo ($hook['varname']) ? '' : ' checked="checked"' ?> name="<?php echo $hook['varname'] ?>" /> <?php echo _NO ?>
-                  </label>
-              </div>
-            </div>
-          </div>
-      <?php } } //endforeach ?>
-      <?php 
-      $i = 0;
-      foreach ($this->hookvars as $hook) {
-          if ($hook['hidden'])  {
-            $i++;
-            if($i === 1){ ?>
-      <p><?php echo _CAPTCHAMODHAVEOWN ?></p>
-      <?php } //endif $i === 1 ?>
-      <p><a href="<?php echo $hook['adminlink'] ?>"><?php echo $hook['caption'] ?></a></p>
-      <?php } } //endforeach ?>
-  
-
-
-    <div class="form-group row">
-      <div class="offset-sm-2 col-sm-10">
-        <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" />
-        <input type="submit" class="btn btn-primary" value="<?php echo _CAPTCHASAVESETTINGS ?>" />
-        <input type="hidden" name="do_html_opt_reset" value="0" />
-        <input type="checkbox" name="do_html_opt_reset" value="1" />&nbsp;<?php echo _CAPTCHASETRESET ?>
-      </div>
-    </div> 
-
-
-      </div><!-- /container -->
-    </div><!-- /#captcha-2 -->
-
-    </form>
+ </form>
   </div>
-</div><!-- tab-content ->
