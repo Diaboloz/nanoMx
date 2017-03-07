@@ -178,7 +178,7 @@ function modules()
     }
     unset($dbmodlist);
     $headline = '
-    <thead class="thead-inverse">
+    <thead class="thead-default">
         <tr>
                 <th>' . _TITLE . '</th>
                 <th>' . _CUSTOMTITLE . '</th>
