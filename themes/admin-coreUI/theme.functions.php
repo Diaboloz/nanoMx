@@ -255,7 +255,8 @@ function theme_header($newheader, &$siteservice, &$debugservice)
     if ($themesetting['layouttype'] == 'fixed') {
         //pmxHeader::add_style(MX_THEME_DIR . '/style/layout.fixed.css.php');
     }*/
-
+    
+    pmxHeader::add_jquery();
     //pmxHeader::add_jquery('jquery.cookie.js');
    // pmxHeader::add_script_code('var cookiepath="' . PMX_BASE_PATH . '";');
     //pmxHeader::add_script_code('var frameSrc = "https://www.google.fr/";');
