@@ -6,6 +6,8 @@ nanoMx
   
 *themes/admin-coreUI/theme.html*  
 - delete line script jquery.min  
+*Other*  
+- Update class CSS table "thead"    
   
 06/03/2017  
   
