@@ -1,6 +1,11 @@
 nanoMx
 -----------------------
-**By Divrezstudio (SelMaK_)**   
+**By Diabolo (project manager) and Divrezstudio (SelMaK_)**   
+  
+07/03/2017  
+  
+*themes/admin-coreUI/theme.html*  
+- delete line script jquery.min  
   
 06/03/2017  
   
