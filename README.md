@@ -2,6 +2,22 @@ nanoMx
 -----------------------
 **By Diabolo (project manager) and Divrezstudio (SelMaK_)**   
   
+08/03/2017  
+  
+*admin/modules/blocks*  
+  
+- index.php  
+- templates/blockaddform.html  
+- templates/blockeditmenue.html  
+- templates/blocksadmin.html  
+- templates/blocksedit.html  
+- templates/changestatus.html  
+- templates/blockslistall.html  
+- templates/headlinesadmin.html  
+- templates/headlinesdel.html  
+- templates/headlinesedit.html  
+- templates/showpreview.html  
+  
 07/03/2017  
   
 *themes/admin-coreUI/theme.html*  
