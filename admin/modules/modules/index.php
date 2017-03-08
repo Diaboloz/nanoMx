@@ -40,8 +40,8 @@ function modules()
     global $prefix;
 
     // Icons Bootstrap 4
-    $img_activate   = '<i class="fa fa-minus-circle fa-lg m-t-2"></i>';
-    $img_deactivate = '<i class="fa fa-check fa-lg m-t-2"></i>';
+    $img_activate   = '<i class="fa fa-check fa-lg m-t-2"></i>';
+    $img_deactivate = '<i class="fa fa-minus-circle fa-lg m-t-2"></i>';
     $img_edit       = '<i class="fa fa-edit fa-lg m-t-2"></i>';
     $img_home       = '<i class="fa fa-home fa-lg m-t-2"></i>';
     $img_view       = '<i class="fa fa-eye fa-lg m-t-2"></i>';
@@ -136,15 +136,15 @@ function modules()
             /* Datei gefunden */
             if (is_file($filename)) {
                 /* Datei verlinken und raus hier */
-                $clickit2 = "<a href=\"admin.php?op=" . $title . "\" target=\"_blank\" title=\"" . $title . " " . _ADMINISTRATION . "\">" . $img_admin . "</a>";
+                $clickit2 = "<a class=\"btn btn-secondary btn-sm\" href=\"admin.php?op=" . $title . "\" target=\"_blank\" title=\"" . $title . " " . _ADMINISTRATION . "\">" . $img_admin . "</a>";
                 break;
             }
         }
 
         if ($title != $mainmod) {
-            $change = "<a href=\"" . adminUrl(PMX_MODULE, 'status', "mid=" . $mid . "&amp;active=" . $act) . "\">" . $change . "</a>";
-            $puthome = "<a title=\""._PUTINHOME."\" href=\"" . adminUrl(PMX_MODULE, 'set_home', "mid=" . $mid) . "\">" . $img_home . "</a>";
-            $clickit = "<a title=\""._SHOW."\" href=\"modules.php?name=" . $title . "\" target=\"_blank\">" . $img_view . "</a>";
+            $change = "<a class=\"btn btn-secondary btn-sm\" href=\"" . adminUrl(PMX_MODULE, 'status', "mid=" . $mid . "&amp;active=" . $act) . "\">" . $change . "</a>";
+            $puthome = "<a class=\"btn btn-secondary btn-sm\" title=\""._PUTINHOME."\" href=\"" . adminUrl(PMX_MODULE, 'set_home', "mid=" . $mid) . "\">" . $img_home . "</a>";
+            $clickit = "<a class=\"btn btn-secondary btn-sm\" title=\""._SHOW."\" href=\"modules.php?name=" . $title . "\" target=\"_blank\">" . $img_view . "</a>";
 
             if ($active) {
                 $class_act = (empty($class_act)) ? ' class="alternate-a"' : '';
@@ -154,7 +154,7 @@ function modules()
                         <td>' . $custom_title . '</td>
                         <td>' . $main_id . '</td>
                         <td>' . $who_view . '</td>
-                        <td nowrap="nowrap"><a title="'._EDIT.'" href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $change . ' ' . $puthome . ' ' . $clickit . ' ' . $clickit2 . '</td>
+                        <td nowrap="nowrap"><a class="btn btn-secondary btn-sm" title="'._EDIT.'" href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $change . ' ' . $puthome . ' ' . $clickit . ' ' . $clickit2 . '</td>
                     </tr>'; #<td>".$active."</td>
             } else {
                 $class_deact = (empty($class_deact)) ? ' class="alternate-a"' : '';
@@ -164,7 +164,7 @@ function modules()
                         <td>' . $custom_title . '</td>
                         <td>' . $main_id . '</td>
                         <td>' . $who_view . '</td>
-                        <td nowrap="nowrap"><a href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $change . ' ' . $puthome . ' ' . $clickit . ' ' . $clickit2 . '</td>
+                        <td nowrap="nowrap"><a  href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $change . ' ' . $puthome . ' ' . $clickit . ' ' . $clickit2 . '</td>
                     </tr>';
             }
         } else {
