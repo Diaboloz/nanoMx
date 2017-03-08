@@ -51,9 +51,9 @@ function blockslistall()
             mxSessionSetVar('blockfilter', $_GET['filter']);
         }
     }
-    $filterlink[] = (mxSessionGetVar('blockfilter') == 1) ? '<a class="current">' . _BLOCKSHOWACTIVE . '</a>' : '<a href="' . adminUrl(PMX_MODULE, '', 'filter=1') . '">' . _BLOCKSHOWACTIVE . '</a>';
-    $filterlink[] = (!mxSessionGetVar('blockfilter')) ? '<a class="current">' . _ALL . '</a>' : '<a href="' . adminUrl(PMX_MODULE, '', 'filter=-1') . '">' . _ALL . '</a>';
-    $filterlink[] = (mxSessionGetVar('blockfilter') == 2) ? '<a class="current">' . _BLOCKSHOWDEACTIVE . '</a>' : '<a href="' . adminUrl(PMX_MODULE, '', 'filter=2') . '">' . _BLOCKSHOWDEACTIVE . '</a>';
+    $filterlink[] = (mxSessionGetVar('blockfilter') == 1) ? '<a class="current">' . _BLOCKSHOWACTIVE . '</a>' : '<a class="btn btn-primary btn-sm" href="' . adminUrl(PMX_MODULE, '', 'filter=1') . '">' . _BLOCKSHOWACTIVE . '</a>';
+    $filterlink[] = (!mxSessionGetVar('blockfilter')) ? '<a class="current">' . _ALL . '</a>' : '<a class="btn btn-primary btn-sm" href="' . adminUrl(PMX_MODULE, '', 'filter=-1') . '">' . _ALL . '</a>';
+    $filterlink[] = (mxSessionGetVar('blockfilter') == 2) ? '<a class="current">' . _BLOCKSHOWDEACTIVE . '</a>' : '<a class="btn btn-primary btn-sm" href="' . adminUrl(PMX_MODULE, '', 'filter=2') . '">' . _BLOCKSHOWDEACTIVE . '</a>';
 
     switch (mxSessionGetVar('blockfilter')) {
         case 1:
@@ -75,11 +75,14 @@ function blockslistall()
     $blocks = array();
 
     if ($countblocks) {
-        $img_activate = mxCreateImage('images/deactivate.gif', _ACTIVATE, array('title' => _ACTIVATE));
-        $img_deactivate = mxCreateImage('images/activate.gif', _DEACTIVATE, array('title' => _DEACTIVATE));
-        $img_delete = mxCreateImage('images/delete.gif', _DELETE, array('title' => _DELETE));
-        $img_edit = mxCreateImage('images/edit.gif', _EDIT, array('title' => _EDIT));
-        $img_view = mxCreateImage('images/view.gif', _SHOW, array('title' => _SHOW));
+
+        // Icons Bootstrap 4
+        $img_activate   = '<i class="fa fa-check fa-lg m-t-2"></i>';
+        $img_deactivate = '<i class="fa fa-minus-circle fa-lg m-t-2"></i>';
+        $img_edit       = '<i class="fa fa-edit fa-lg m-t-2"></i>';
+        $img_delete       = '<i class="fa fa-trash fa-lg m-t-2"></i>';
+        $img_view       = '<i class="fa fa-eye fa-lg m-t-2"></i>';
+        // Icons Bootstrap 4 - End
 
         while ($block = sql_fetch_object($result)) {
             if (mxIsNewsBlockfile($block->module, $block->blockfile)) {
@@ -158,11 +161,11 @@ function blockslistall()
             $block->title = (empty($block->active)) ? '<i>' . $block->title . '</i>' : $block->title;
 
             $block->functions = array();
-            $block->functions[] = '<a href="' . adminUrl(PMX_MODULE, 'Edit', 'bid=' . $block->bid) . '">' . $img_edit . '</a>';
-            $block->functions[] = '<a href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $block->bid) . '">' . ((empty($block->active)) ? $img_activate : $img_deactivate) . '</a>';
+            $block->functions[] = '<a class="btn btn-secondary btn-sm" title="' . _EDIT . '" href="' . adminUrl(PMX_MODULE, 'Edit', 'bid=' . $block->bid) . '">' . $img_edit . '</a>';
+            $block->functions[] = '<a class="btn btn-secondary btn-sm" href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $block->bid) . '">' . ((empty($block->active)) ? $img_activate : $img_deactivate) . '</a>';
             if ($block->position !== 'z') {
-                $block->functions[] = '<a href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $block->bid) . '">' . $img_delete . '</a>';
-                $block->functions[] = '<a href="' . adminUrl(PMX_MODULE, 'show', 'bid=' . $block->bid) . '">' . $img_view . '</a>';
+                $block->functions[] = '<a class="btn btn-secondary btn-sm" title="' . _DELETE . '" href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $block->bid) . '">' . $img_delete . '</a>';
+                $block->functions[] = '<a class="btn btn-secondary btn-sm" title="' . _SHOW . '" href="' . adminUrl(PMX_MODULE, 'show', 'bid=' . $block->bid) . '">' . $img_view . '</a>';
             }
 
             if ($multilingual) {
@@ -385,7 +388,7 @@ function getActiveSelect($active = 1)
 function getRefreshSelect($refresh = 0, $shownever = 0)
 {
     $refresh = (int)$refresh;
-    $out = '<select name="refresh">';
+    $out = '<select class="form-control" name="refresh">';
     if ($shownever) {
         $out .= '<option value="0"' . (($refresh == 0) ? ' selected="selected" class="current"' : '') . '>- ' . _NEVER . '</option>';
     }
@@ -431,7 +434,7 @@ function getRefreshTimeString($refresh)
 function getViewSelect($view = 0)
 {
     $view = (int)$view;
-    $out = '<select name="view">'
+    $out = '<select class="form-control" name="view">'
      . '<option value="0"' . (($view == 0) ? ' selected="selected" class="current"' : '') . '>' . _MVALL . '</option>'
      . '<option value="1"' . (($view == 1) ? ' selected="selected" class="current"' : '') . '>' . _MVGROUPS . '</option>'
      . '<option value="2"' . (($view == 2) ? ' selected="selected" class="current"' : '') . '>' . _MVADMIN . '</option>'
@@ -458,13 +461,13 @@ function getGroupSelect($blockid = 0)
     $groups = (empty($groups)) ? $userconfig->default_group : $groups;
     $groupoptions = getAllAccessLevelSelectOptions($groups);
     $cnt = substr_count($groupoptions, '<option') + 1;
-    $out = '<select name="groups[]" size="' . $cnt . '" multiple="multiple">' . $groupoptions . '</select>';
+    $out = '<select class="form-control" name="groups[]" size="' . $cnt . '" multiple="multiple">' . $groupoptions . '</select>';
     return $out;
 }
 
 function getPositionSelect($pos = '')
 {
-    $out = '<select name="position">'
+    $out = '<select class="form-control" name="position">'
      . '<option value="l"' . (($pos == 'l') ? ' selected="selected" class="current"' : '') . '>' . _LEFT . '</option>'
      . '<option value="c"' . (($pos == 'c') ? ' selected="selected" class="current"' : '') . '>' . _CENTERUP . '</option>'
      . '<option value="d"' . (($pos == 'd') ? ' selected="selected" class="current"' : '') . '>' . _CENTERDOWN . '</option>'
@@ -501,29 +504,29 @@ function block_editmenue($block, $optitle = '', $menu = 0)
 
     switch ($menu) {
         case 1:
-            $link[] = '<a href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $block['bid'] . '&amp;menu=1') . '">' . $active . '</a>';
-            $link[] = '<a href="' . adminUrl(PMX_MODULE, 'Edit', 'bid=' . $block['bid'] . '&amp;menu=1') . '">' . _EDIT . '</a>';
+            $link[] = '<a class="btn btn-sm btn-primary" href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $block['bid'] . '&amp;menu=1') . '">' . $active . '</a>';
+            $link[] = '<a class="btn btn-sm btn-warning" href="' . adminUrl(PMX_MODULE, 'Edit', 'bid=' . $block['bid'] . '&amp;menu=1') . '">' . _EDIT . '</a>';
 
             if (mxIsNewsBlockfile($block['module'], $block['blockfile'])) {
                 $link[] = _DELETE;
             } else {
-                $link[] = '<a href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $block['bid'] . '&amp;menu=1') . '">' . _DELETE . '</a>';
+                $link[] = '<a class="btn btn-sm btn-danger" href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $block['bid'] . '&amp;menu=1') . '">' . _DELETE . '</a>';
             }
             break;
 
         default:
-            $link[] = '<a href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $block['bid']) . '">' . $active . '</a>';
-            $link[] = '<a href="' . adminUrl(PMX_MODULE, 'Edit', 'bid=' . $block['bid']) . '">' . _EDIT . '</a>';
+            $link[] = '<a class="btn btn-sm btn-primary" href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $block['bid']) . '">' . $active . '</a>';
+            $link[] = '<a class="btn btn-sm btn-warning" href="' . adminUrl(PMX_MODULE, 'Edit', 'bid=' . $block['bid']) . '">' . _EDIT . '</a>';
 
             if (mxIsNewsBlockfile($block['module'], $block['blockfile'])) {
                 $link[] = _DELETE;
             } else {
-                $link[] = '<a href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $block['bid']) . '">' . _DELETE . '</a>';
+                $link[] = '<a class="btn btn-sm btn-danger" href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $block['bid']) . '">' . _DELETE . '</a>';
             }
             break;
     }
 
-    $link[] = '<a href="' . adminUrl(PMX_MODULE) . '">' . _BLOCKSADMIN . '</a>';
+    $link[] = '<a class="btn btn-sm btn-info" href="' . adminUrl(PMX_MODULE) . '">' . _BLOCKSADMIN . '</a>';
 
     $template = load_class('Template');
     $template->init_path(__FILE__);

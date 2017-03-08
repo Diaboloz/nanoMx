@@ -1,115 +1,176 @@
 
 <h2><?php echo _EDITBLOCK ?></h2>
 
-<fieldset>
-  <legend><?php echo _BLOCK ?>: <?php echo $this->title ?> <em><?php echo $this->type ?></em></legend>
+<div class="row">
+<!-- START:LEFT COL -->
+<div class="col-md-6">
+<form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
+<div class="card">
+<div class="card-header">
+ <i class="fa fa-edit"></i> <?php echo _BLOCK ?>: <?php echo $this->title ?> <em><?php echo $this->type ?></em>  
+</div> <!-- end:.card-header -->
 
-  <form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
-    <table class="full form">
+<div class="card-block">
 
-      <tr>
-        <td><?php echo _BLOCKTITLE ?>:</td>
-        <td><input type="text" name="title" size="30" maxlength="60" value="<?php echo mxEntityQuotes($this->title) ?>" /></td>
-      </tr>
-      <?php switch($this->type):
-        case _BLOCKFILE: ?>
+          <div class="form-group row">
+            <label for="title" class="col-sm-2 col-form-label"><?php echo _BLOCKTITLE ?></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="title" name="title" size="12" value="<?php echo mxEntityQuotes($this->title) ?>" />
+            </div>
+          </div>
+
+          <?php switch($this->type):
+          case _BLOCKFILE: ?>
           <?php if(!mxIsNewsBlockfile($this->module, $this->blockfile)): ?>
 
-      <tr>
-        <td><?php echo _FILENAME ?>:</td>
-        <td><?php echo getblockfileselect($this->module, $this->blockfile) ?></td>
-      </tr>
-          <?php endif; ?>
-        <?php break;
-        case _RSSCONTENT: ?>
+          <div class="form-group row">
+            <label for="title" class="col-sm-2 col-form-label"><?php echo _FILENAME ?></label>
+            <div class="col-sm-10">
+              <?php echo getblockfileselect($this->module, $this->blockfile) ?>
+            </div>
+          </div>
 
-      <tr>
-        <td><?php echo _RSSFILE ?>:</td>
-        <td><?php echo getheadlineselect($this->url) ?></td>
-      </tr>
-      <?php break;
-      default: ?>
+          <?php endif; ?> 
+          <?php break;
+          case _RSSCONTENT: ?>
 
-      <tr>
-        <td colspan="2"><?php echo _CONTENT ?>:<br />
-        <?php echo $this->formWysiwyg('b_content', $this->content, array('height'=>'250')) ?></td>
-      </tr>
-      <?php break;
-      endswitch;?>
+          <div class="form-group row">
+            <label for="title" class="col-sm-2 col-form-label"><?php echo _RSSFILE ?></label>
+            <div class="col-sm-10">
+              <?php echo getheadlineselect($this->url) ?>
+            </div>
+          </div>
 
-      <tr>
-        <td><?php echo _POSITION ?>:</td>
-        <td>
-        <?php if(mxIsNewsBlockfile($this->module, $this->blockfile)): ?>
-          <b><?php echo _RIGHT ?></b>
+          <?php break;
+          default: ?>
+
+          <div class="form-group row">
+            <label for="title" class="col-sm-2 col-form-label"><?php echo _CONTENT ?></label>
+            <div class="col-sm-10">
+              <?php echo $this->formWysiwyg('b_content', $this->content, array('height'=>'250')) ?>
+            </div>
+          </div>
+
+          <?php break;
+          endswitch;?>
+
+          <div class="form-group row">
+            <label for="title" class="col-sm-2 col-form-label"><?php echo _POSITION ?></label>
+            <div class="col-sm-10">
+              <?php if(mxIsNewsBlockfile($this->module, $this->blockfile)): ?>
+                <b><?php echo _RIGHT ?></b>
           <input type="hidden" name="position" value="r" />
           <input type="hidden" name="blockfile" value="<?php echo sprintf(MXBLOCKFILENAMEFORMATER, $this->module, $this->blockfile) ?>" />
-        <?php else: ?>
-          <?php echo getPositionSelect($this->position) ?>
-        <?php endif; ?>
-        </td>
-      </tr>
+              <?php else: ?>
+                <?php echo getPositionSelect($this->position) ?>
+              <?php endif; ?>
+            </div>
+          </div>
 
-      <tr>
-        <td><?php echo _WEIGHT ?>:</td>
-        <td><input type="text" name="weight" size="5" maxlength="3" value="<?php echo $this->weight ?>" /></td>
-      </tr><?php if($this->multilingual): ?>
+          <div class="form-group row">
+            <label for="weight" class="col-sm-2 col-form-label"><?php echo _WEIGHT ?></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="weight" name="weight" size="12" value="<?php echo $this->weight ?>" />
+            </div>
+          </div>
 
-      <tr>
-        <td><?php echo _LANGUAGE ?>:</td>
-        <td><?php echo mxLanguageSelect('blanguage', $this->blanguage, 'language', true) ?></td>
-      </tr><?php endif; ?>
+          <?php if($this->multilingual): ?>
 
-      <tr>
-        <td><?php echo _ACTIVATE2 ?></td>
-        <td><?php echo getActiveSelect($this->active) ?></td>
-      </tr>
+          <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label"><?php echo _LANGUAGE ?></label>
+            <div class="col-sm-10">
+              <?php echo mxLanguageSelect('blanguage', $this->blanguage, 'language', true) ?>
+            </div>
+          </div>
 
-      <tr>
-        <td><?php echo _VIEWPRIV ?></td>
-        <td><?php echo getViewSelect($this->view) ?></td>
-      </tr>
+          <?php endif; ?>
 
-      <tr>
-        <td><!-- <?php echo _VIEWPRIV ?> --></td>
-        <td><?php echo getGroupSelect($this->bid) ?></td>
-      </tr>
-    <?php switch($this->type):
-    case _BLOCKFILE: ?>
+          <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label"><?php echo _ACTIVATE2 ?></label>
+            <div class="col-sm-10">
+              <?php echo getActiveSelect($this->active) ?>
+            </div>
+          </div>
 
-      <tr>
-        <td><?php echo _REFRESHTIME ?>:</td>
-        <td>
-          <?php echo getRefreshSelect($this->refresh, 1) ?>
-          <p class="note tiny"><?php echo _BLOCKCACHEMSG ?></p>
-          <input type="hidden" name="b_content" value="<?php echo $this->content ?>" />
-        </td>
-      </tr>
-      <?php break;
-    case _RSSCONTENT: ?>
+          <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label"><?php echo _VIEWPRIV ?></label>
+            <div class="col-sm-10">
+              <?php echo getViewSelect($this->view) ?>
+            </div>
+          </div>
 
-      <tr>
-        <td><?php echo _REFRESHTIME ?>:</td>
-        <td><?php echo getRefreshSelect($this->refresh, 0) ?></td>
-      </tr>
-      <?php break;
-    endswitch;?>
-    </table>
-    <?php if($this->menu): ?>
-    <input type="hidden" name="menu" value="1" />
-    <?php endif; ?> <?php if(!$this->multilingual): ?>
-    <input type="hidden" name="blanguage" value="" />
-    <?php endif; ?>
-    <input type="hidden" name="op" value="<?php echo  PMX_MODULE ?>/EditSave" />
-    <input type="hidden" name="oldposition" value="<?php echo $this->oldposition ?>" />
-    <input type="hidden" name="bid" value="<?php echo $this->bid ?>" />
-    <input type="submit" value="<?php echo _SAVEBLOCK ?>" />
-  </form>
-</fieldset><br />
+          <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label"><!-- <?php echo _VIEWPRIV ?> --></label>
+            <div class="col-sm-10">
+              <?php echo getGroupSelect($this->bid) ?>
+            </div>
+          </div>
+
+          <?php switch($this->type):
+          case _BLOCKFILE: ?>
+
+          <div class="form-group row">
+            <label for="b_content" class="col-sm-2 col-form-label"><?php echo _REFRESHTIME ?></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="b_content" name="b_content" size="12" value="<?php echo $this->content ?>" />
+            </div>
+          </div>
+
+          <?php break;
+          case _RSSCONTENT: ?>
+
+          <div class="form-group row">
+            <label for="b_content" class="col-sm-2 col-form-label"><?php echo _REFRESHTIME ?></label>
+            <div class="col-sm-10">
+              <?php echo getRefreshSelect($this->refresh, 0) ?>
+            </div>
+          </div>
+
+          <?php break;
+          endswitch;?>
+
+          <?php if($this->menu): ?>
+          <input type="hidden" name="menu" value="1" />
+          <?php endif; ?> <?php if(!$this->multilingual): ?>
+          <input type="hidden" name="blanguage" value="" />
+          <?php endif; ?>
+  
+</div> <!-- end:.card-block -->
+
+<div class="card-footer">
+<input type="hidden" name="op" value="<?php echo  PMX_MODULE ?>/EditSave" />
+<input type="hidden" name="oldposition" value="<?php echo $this->oldposition ?>" />
+<input type="hidden" name="bid" value="<?php echo $this->bid ?>" />
+<button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> <?php echo _SAVEBLOCK ?></button>
+</div> <!-- end:.card-footer -->
+
+</div> <!-- end:.card -->
+</form> <!-- end:form -->
+</div> <!-- end:.col-md-6 -->
+<!-- END:LEFT COL -->
+
+<!-- START:RIGHT COL -->
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+ <i class="fa fa-eye"></i>  
+</div> <!-- end:.card-header -->
+
+<div class="card-block">
+<?php echo showpreview($this->block) ?>
+</div> <!-- end:.card-block -->
+
+<div class="card-footer">
+<?php echo block_editmenue ($this->block, _BLOCKACTIVATION, $this->menu) ?>
+</div> <!-- end:.card-footer -->
+
+</div> <!-- end:.card -->
+</div> <!-- end:.col-md-6 -->
+
+<!-- END:RIGHT COL -->
+
+</div> <!-- end:.row -->
+
 <?php
-
-echo block_editmenue ($this->block, _BLOCKACTIVATION, $this->menu);
-echo showpreview($this->block);
-
 /* pragmaMx CVS $Id: blocksedit.html 6 2015-07-08 07:07:06Z PragmaMx $ */
 ?>

@@ -1,11 +1,11 @@
 
 <span class="nowrap">
-  <input type="text" name="url" size="30" maxlength="200" value="<?php echo $this->url ?>" />
-  <select name="headline">
+  <input class="form-control" type="text" name="url" size="30" maxlength="200" value="<?php echo $this->url ?>" /><br/>
+  <select class="form-control" name="headline">
   <?php echo implode("\n", $this->options) ?>
-  </select>
-   [ <a href="<?php echo adminUrl(PMX_MODULE, 'HeadlinesAdmin') ?>"><?php echo _SETUP_HEADLINES ?></a> ]
-</span><br />
-<span class="note tiny"><?php echo _SETUPHEADLINES ?></span>
+  </select><br/>
+   <a class="btn btn-info btn-sm" href="<?php echo adminUrl(PMX_MODULE, 'HeadlinesAdmin') ?>"><?php echo _SETUP_HEADLINES ?></a>
+</span>
+<span class="help-block"><?php echo _SETUPHEADLINES ?></span>
 
 <?php /* pragmaMx CVS $Id: getheadlineselect.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

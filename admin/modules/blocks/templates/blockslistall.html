@@ -19,9 +19,9 @@ $colspan = ($this->multilingual) ? 7 : 6;
 <form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
   <input type="hidden" name="op" value="<?php echo  PMX_MODULE ?>/ListWeigth" />
 
-  <table class="full list clear">
+  <table class="table">
   <?php foreach ($this->blocks as $pos => $thatblockpos) : ?>
-
+    <thead class="thead-default">
     <tr>
       <th colspan="<?php echo $colspan ?>" class="bigger"><?php echo _POSITION ?>: <i><?php echo $pos ?></i></th>
     </tr>
@@ -37,6 +37,7 @@ $colspan = ($this->multilingual) ? 7 : 6;
       <?php endif; ?>
       <th><?php echo _FUNCTIONS ?></th>
     </tr>
+    </thead>
     <?php foreach ($thatblockpos as $weight => $block) : ?>
       <?php $class = ($class == '') ? ' class="alternate-a"' : ''; ?>
       <?php $errclass = ($block->errfile) ? ' class="warning" style="margin:0" title="' . _BLOCKFILEMISSED . '"' : ''; ?>
@@ -61,12 +62,17 @@ $colspan = ($this->multilingual) ? 7 : 6;
   <?php endforeach ?>
 
     <tr>
-      <td colspan="<?php echo $colspan ?>"><input type="submit" value="<?php echo _BLOCKSAVEORDER ?>" /></td>
+      <td colspan="<?php echo $colspan ?>">
+      <button type="submit" class="btn btn-success"><i class="fa fa-star"></i>&nbsp; <?php echo _BLOCKSAVEORDER ?></button>
+      </td>
     </tr>
   </table>
 </form>
 
-<p class="align-center"><a href="<?php echo adminUrl(PMX_MODULE, 'fixweight') ?>" class="button"><?php echo _FIXBLOCKS ?></a> <a href="<?php echo adminUrl('reset', 'cache/blocks') ?>" class="button"><?php echo _BLOCKDELCACHE ?></a></p>
+<p>
+<a class="btn btn-primary" href="<?php echo adminUrl(PMX_MODULE, 'fixweight') ?>" class="button"><?php echo _FIXBLOCKS ?></a> 
+<a class="btn btn-info" href="<?php echo adminUrl('reset', 'cache/blocks') ?>" class="button"><?php echo _BLOCKDELCACHE ?></a>
+</p>
 
 <?php
 /* Javascript & jquery for tabs */
