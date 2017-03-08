@@ -1,45 +1,41 @@
 
 <h2><?php echo _BLOCKSADMIN ?></h2>
 
-<div id="block-tabs">
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#block-list" role="tab"><?php echo _BLOCKS_INSTALLEDLIST ?></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#block-new-file" role="tab"><?php echo _ADDNEWBLOCK . ' ' . _BLOCKFILE?></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#block-new-html" role="tab"><?php echo _ADDNEWBLOCK . ' (HTML)' ?></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#block-new-rss" role="tab"><?php echo _ADDNEWBLOCK . ' ' . _RSSCONTENT ?></a>
+  </li>
+</ul> <!-- end:.nav nav-tabs -->
 
-  <ul class="tabs-nav">
-    <li><a href="#block-list"><?php echo _BLOCKS_INSTALLEDLIST ?></a></li>
-    <li><a href="#block-new-file"><?php echo _ADDNEWBLOCK . ' ' . _BLOCKFILE?></a></li>
-    <li><a href="#block-new-html"><?php echo _ADDNEWBLOCK . ' (HTML)' ?></a></li>
-    <li><a href="#block-new-rss"><?php echo _ADDNEWBLOCK . ' ' . _RSSCONTENT ?></a></li>
-  </ul>
 
-  <div id="block-list" class="tabs-panel">
-    <h3 class="block-hidecaption"><?php echo _BLOCKS_INSTALLEDLIST ?></h3>
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="block-list" role="tabpanel">
     <?php echo blockslistall() ?>
-  </div>
+  </div> <!-- end:.tab-pane #block-list -->
 
-  <div id="block-new-file" class="tabs-panel">
-    <h3><?php echo _ADDNEWBLOCK . ' ' . _BLOCKFILE?></h3>
+  <div class="tab-pane" id="block-new-file" role="tabpanel">
     <?php echo blockaddform('file') ?>
-  </div>
+  </div> <!-- end:.tab-pane #block-new-file -->
 
-  <div id="block-new-html" class="tabs-panel">
-    <h3><?php echo _ADDNEWBLOCK . ' (HTML)' ?></h3>
+  <div class="tab-pane" id="block-new-html" role="tabpanel">
     <?php echo blockaddform('html') ?>
-  </div>
+  </div> <!-- end:.tab-pane #block-new-html -->
 
-  <div id="block-new-rss" class="tabs-panel">
-    <h3><?php echo _ADDNEWBLOCK . ' ' . _RSSCONTENT ?></h3>
+  <div class="tab-pane" id="block-new-rss" role="tabpanel">
     <?php echo blockaddform('rss') ?>
-  </div>
-
+  </div> <!-- end:.tab-pane #block-new-rss -->
 </div>
-
-<script type="text/javascript">
-/* <![CDATA[ */
-  $(document).ready(function(){
-    $("#block-tabs").tabs();
-    $("#block-tabs .block-hidecaption").hide();
-  });
-/* ]]> */
-</script>
 
 <?php
 /* Javascript & jquery for tabs */

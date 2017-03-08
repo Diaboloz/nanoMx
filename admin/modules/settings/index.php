@@ -55,7 +55,7 @@ function Configure()
 	
 	/* Werte vorbereiten */
 	
-	$info2 = 'pragmaMx ' . PMX_VERSION . ' - ' . _SITECONFIG;
+	$info2 = 'nanoMx ' . PMX_VERSION . ' - ' . _SITECONFIG;
 
     /* falls config.php nicht schreibgeschuetzt, dieses tun... */
     if (is_writable(PMX_CONFIGFILE)) {
