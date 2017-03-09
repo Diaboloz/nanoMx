@@ -50,7 +50,8 @@ function modules()
 
     $mainmod = mxGetMainModuleName();
     $excludes = array('.', '..', 'CVS', 'index.html');
-    $qry = "SELECT title, mid, custom_title, active, view, main_id FROM ${prefix}_modules";
+    $qry = "SELECT title, mid, custom_title, active, view, main_id 
+			FROM ${prefix}_modules";
     $result = sql_query($qry);
     while ($mods = sql_fetch_assoc($result)) {
         if (!@file_exists(PMX_MODULES_DIR . DS . $mods['title'] . '/') || in_array($mods['title'], $excludes) || preg_match('#[^A-Za-z0-9._-]#', $mods['title'])) {
@@ -74,7 +75,9 @@ function modules()
             $qry = "INSERT INTO ${prefix}_modules (title,custom_title,active,view) values ('" . $file . "', '" . $ctitle . "', 0, 0)";
             $result = sql_query($qry);
             if ($result) {
-                $result1 = sql_query("select title, mid, custom_title, active, view, main_id from ${prefix}_modules WHERE title='" . $file . "'");
+                $result1 = sql_query("SELECT title, mid, custom_title, active, view, main_id 
+									FROM ${prefix}_modules 
+									WHERE title='" . $file . "'");
                 $newmod = sql_fetch_assoc($result1);
                 $dbmodlist[strtolower($newmod['title'])] = $newmod;
             }
@@ -147,9 +150,8 @@ function modules()
             $clickit = "<a class=\"btn btn-secondary btn-sm\" title=\""._SHOW."\" href=\"modules.php?name=" . $title . "\" target=\"_blank\">" . $img_view . "</a>";
 
             if ($active) {
-                $class_act = (empty($class_act)) ? ' class="alternate-a"' : '';
                 $out_active[] = '
-                    <tr' . $class_act . '>
+                    <tr>
                         <td>' . $title . '</td>
                         <td>' . $custom_title . '</td>
                         <td>' . $main_id . '</td>
@@ -157,46 +159,49 @@ function modules()
                         <td nowrap="nowrap"><a class="btn btn-secondary btn-sm" title="'._EDIT.'" href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $change . ' ' . $puthome . ' ' . $clickit . ' ' . $clickit2 . '</td>
                     </tr>'; #<td>".$active."</td>
             } else {
-                $class_deact = (empty($class_deact)) ? ' class="alternate-a"' : '';
                 $out_deact[] = '
-                    <tr' . $class_deact . '>
+                    <tr>
                         <td>' . $title . '</td>
                         <td>' . $custom_title . '</td>
                         <td>' . $main_id . '</td>
                         <td>' . $who_view . '</td>
-                        <td nowrap="nowrap"><a  href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $change . ' ' . $puthome . ' ' . $clickit . ' ' . $clickit2 . '</td>
+                        <td nowrap="nowrap"><a class="btn btn-secondary btn-sm" href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $change . ' ' . $puthome . ' ' . $clickit . ' ' . $clickit2 . '</td>
                     </tr>';
             }
         } else {
-            $clickit = "<a href=\"index.php\" target=\"_blank\">" . $img_view . "</a>";
+            $clickit = "<a class=\"btn btn-secondary btn-sm\" href=\"index.php\" target=\"_blank\">" . $img_view . "</a>";
             $out_main[] = '
                 <tr>
                     <td>' . $title . '</td>
                     <td><b>' . _HOME . '</b></td>
                     <td>' . $main_id . '</td>
                     <td>' . _MVALL . '</td>
-                    <td><a href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $clickit . ' ' . $clickit2 . '</td>
+                    <td><a class="btn btn-secondary btn-sm" href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $clickit . ' ' . $clickit2 . '</td>
                 </tr>';
         }
     }
     unset($dbmodlist);
     $headline = '
-    <thead class="thead-default">
-        <tr>
+		<thead class="thead-default">
+			<tr>
                 <th>' . _TITLE . '</th>
                 <th>' . _CUSTOMTITLE . '</th>
                 <th>' . _MODULESBLOCKS . '</th>
                 <th>' . _VIEW . '</th>
                 <th>' . _FUNCTIONS . '</th>
-            </tr></thead>';
+            </tr>
+		</thead>';
     GraphicAdmin();
-    echo "<a name='additem' id='additem'></a>\n";
+    echo '
+		<a name="additem" id="additem"></a>';
     title(_MODULESADMIN);
     if (isset($doublerror)) {
-        OpenTableAl();
-        echo "<center>" . implode("\n", $doublerror) . '<br /><b>' . _ADMIN_WARNDOUBLEMOD3 . "</b></center>";
-        CloseTableAl();
-        echo '<br />';
+        echo "
+			<div class=\"alert alert-warning\">
+				" . implode("\n", $doublerror) . '
+				<br />
+				' . _ADMIN_WARNDOUBLEMOD3 . "
+			</div>";
     }
 
     ?>
@@ -296,26 +301,32 @@ function set_home($gvs)
     $mid = (int)$gvs['mid'];
     $old_m = mxGetMainModuleName();
 
-    $result = sql_query("select title from ${prefix}_modules where mid=" . $mid);
+    $result = sql_query("SELECT title 
+						FROM ${prefix}_modules 
+						WHERE mid=" . $mid);
     list($new_m) = sql_fetch_row($result);
 
     if (empty($ok)) {
         include('header.php');
         GraphicAdmin();
         title(_HOMEMODULE);
-        OpenTable2();
         echo '
-        <p class="align-center">
-          <b>' . _DEFHOMEMODULE . '</b><br /><br />
-          ' . _SURETOCHANGEMOD . ' <b>' . $old_m . '</b> ' . _TO . ' <b>' . $new_m . '</b>?<br /><br />
-          [&nbsp;<a href="' . adminUrl(PMX_MODULE) . '">' . _NO . '</a> | <a href="' . adminUrl(PMX_MODULE, 'set_home', 'mid=' . $mid . '&amp;ok=1') . '">' . _YES . '</a>&nbsp;]
-        </p>';
-        CloseTable2();
+       	<div class="card">
+      		<div class="card-block">
+        		<h4>' . _DEFHOMEMODULE . '</h4>
+        		<p>
+        			' . _SURETOCHANGEMOD . ' ' . $old_m . ' ' . _TO . ' ' . $new_m . '?
+        		</p>
+        		<p>
+          			<a class="btn btn-warning" href="' . adminUrl(PMX_MODULE) . '">' . _NO . '</a> <a class="btn btn-primary" href="' . adminUrl(PMX_MODULE, 'set_home', 'mid=' . $mid . '&amp;ok=1') . '">' . _YES . '</a>
+        		</p>
+        	</div>
+        </div>';
         include('footer.php');
     } else {
         sql_query("DELETE FROM ${prefix}_main");
         sql_query("INSERT INTO ${prefix}_main values ('" . mxAddSlashesForSQL($new_m) . "')");
-        sql_query("update ${prefix}_modules set active=1, view=0 where mid=" . $mid);
+        sql_query("UPDATE ${prefix}_modules set active=1, view=0 WHERE mid=" . $mid);
         mxRedirect(adminUrl(PMX_MODULE));
     }
 }
@@ -361,41 +372,75 @@ function module_edit($mid)
     include('header.php');
     GraphicAdmin();
     title(_MODULEEDIT);
-    OpenTable();
-    echo "<fieldset><legend>" . _CHANGEMODNAME . ": " . $title . "</legend>"
-     . "<form action=\"" . adminUrl(PMX_MODULE, 'edit_save') . "\" method=\"post\">"
-     . "<table style=\"margin:auto\" border=\"0\" cellspacing=\"0\" cellpadding=\"3\">"
-     . "<tr valign=\"top\"><td>" . _CUSTOMMODNAME . "</td>";
+    echo '
+    <div class="card">
+      <div class="card-block">
+		<fieldset>
+			<legend>'. _CHANGEMODNAME . ': ' . $title . '</legend>
+			<form action="' . adminUrl(PMX_MODULE, 'edit_save') . '" method="post">
+				<table>
+					<tr>
+						<td>' . _CUSTOMMODNAME . '</td>';
     if ($title == $main_module) {
-        echo "<td><b>" . _HOME . "</b><input type=\"hidden\" name=\"custom_title\" value=\"" . mxEntityQuotes($custom_title) . "\" /></td></td></tr>";
+        echo '
+			<td>
+				' . _HOME . '
+				<input type="hidden" name="custom_title" value="' . mxEntityQuotes($custom_title) . '" />
+			</td>
+		</td>
+	</tr>';
     } else {
-        echo "<td><input type=\"text\" name=\"custom_title\" value=\"" . mxEntityQuotes($custom_title) . "\" size=\"50\" /></td></tr>";
+        echo '
+			<td>
+				<input type="text" name="custom_title" value="' . mxEntityQuotes($custom_title) . '" size="50" />
+			</td>
+		</tr>';
     }
-    echo "<tr valign=\"top\"><td>" . _VIEWPRIV . "</td><td>";
+    echo '
+		<tr>
+			<td>' . _VIEWPRIV . '</td>
+		<td>';
     if ($title == $main_module) {
-        echo "<b>" . _MVALL . "</b> (" . _DEFHOMEMODULE . ")"
-         . "<input type=\"hidden\" name=\"view\" value=\"0\" />"
-         . "<input type=\"hidden\" name=\"active\" value=\"1\" />";
-        // ."<input type=\"hidden\" name=\"main_id\" value=\"\" />";
+        echo '
+			' . _MVALL . ' (' . _DEFHOMEMODULE . ')
+			<input type="hidden" name="view" value="0" />
+			<input type="hidden" name="active" value="1" />
+			<input type="hidden" name="main_id" value="" />';
     } else {
         echo getViewSelect($view)
-         . "</td></tr>"
-         . "<tr valign='top'><td><!-- " . _VIEWPRIV . " --></td><td>" . getGroupSelect($mid) . "</td></tr>"
-         . "<tr valign=\"top\"><td>" . _ACTIVE . "</td>"
-         . "<td>" . getActiveSelect($active) . "</td></tr>"
-         . "<tr valign=\"top\"><td>&nbsp;</td>"
-         . "<td><input type=\"checkbox\" name=\"putinhome\" value=\"1\" />&nbsp; " . _PUTINHOME . "</td></tr>";
+         . '
+		 </td>
+		</tr>
+		<tr>
+			<td><!-- ' . _VIEWPRIV . ' --></td>
+			<td>' . getGroupSelect($mid) . '</td>
+		</tr>"
+        <tr>
+			<td>' . _ACTIVE . '</td>
+			<td>' . getActiveSelect($active) . '</td>
+		</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td><input type="checkbox" name="putinhome" value="1" />&nbsp; ' . _PUTINHOME . '</td>
+			</tr>';
     }
-    echo "<tr valign=\"top\"><td>" . _COSTUMNAVIBLOCK . "</td>"
-     . "<td>" . getModuleBlockSelect($main_id) . "</td></tr>";
-    echo "</table><br /><br />"
-     . "<input type=\"hidden\" name=\"mid\" value=\"" . $mid . "\" />"
-     . "<input type=\"hidden\" name=\"title\" value=\"" . $title . "\" />"
-     . "<input type=\"hidden\" name=\"op\" value=\"" . PMX_MODULE . "/edit_save\" />"
-     . "<input type=\"submit\" value=\"" . _SAVECHANGES . "\" />"
-     . "</form></fieldset>"
-     . "<br /><br /><center>" . _GOBACK . "</center>";
-    CloseTable();
+    echo '
+		<tr>
+			<td>' . _COSTUMNAVIBLOCK . '</td>
+			<td>' . getModuleBlockSelect($main_id) . '</td>
+		</tr>';
+    echo '
+	</table>
+		<input type="hidden" name="mid" value="' . $mid . '" />
+		<input type="hidden" name="title" value="' . $title . '" />
+		<input type="hidden" name="op" value="' . PMX_MODULE . '/edit_save" />
+		<input type="submit" class="btn btn-primary" value="' . _SAVECHANGES . '" />
+	</form>
+	</fieldset>
+     <center>' . _GOBACK . '</center>
+
+     </div>
+    </div>';
     include('footer.php');
 }
 
@@ -415,12 +460,12 @@ function module_edit_save($pvs)
     $pvs['custom_title'] = (empty($pvs['custom_title'])) ? str_replace("_", " ", $pvs['title']) : $pvs['custom_title'];
     $pvs['main_id'] = ($pvs['putinhome']) ? "" : $pvs['main_id'];
     $pvs['main_id'] = ($pvs['main_id'] == "Modules") ? "" : $pvs['main_id'];
-    $qry = "update ${prefix}_modules set
+    $qry = "UPDATE ${prefix}_modules set
             custom_title='" . $pvs['custom_title'] . "',
             view=" . $pvs['view'] . ",
             active=" . $pvs['active'] . ",
             main_id='" . $pvs['main_id'] . "'
-            where mid=" . $pvs['mid'];
+            WHERE mid=" . $pvs['mid'];
     $result = sql_query($qry);
     if ($result) {
         // Gruppen aktualisieren
@@ -470,13 +515,14 @@ function getActiveSelect($active = 1)
 function getViewSelect($view = 0)
 {
     $view = (int)$view;
-    $out = '<select name="view">'
-     . '<option value="0"' . (($view == 0) ? ' selected="selected" class="current"' : '') . '>' . _MVALL . '</option>'
-     . '<option value="1"' . (($view == 1) ? ' selected="selected" class="current"' : '') . '>' . _MVGROUPS . '</option>'
-     . '<option value="2"' . (($view == 2) ? ' selected="selected" class="current"' : '') . '>' . _MVADMIN . '</option>'
-     . '<option value="4"' . (($view == 4) ? ' selected="selected" class="current"' : '') . '>' . _MVSYSADMIN . '</option>'
-     . '<option value="3"' . (($view == 3) ? ' selected="selected" class="current"' : '') . '>' . _MVANON . '</option>'
-     . '</select>';
+    $out = '
+		<select name="view">'
+			. '<option value="0"' . (($view == 0) ? ' selected="selected" class="current"' : '') . '>' . _MVALL . '</option>'
+			. '<option value="1"' . (($view == 1) ? ' selected="selected" class="current"' : '') . '>' . _MVGROUPS . '</option>'
+			. '<option value="2"' . (($view == 2) ? ' selected="selected" class="current"' : '') . '>' . _MVADMIN . '</option>'
+			. '<option value="4"' . (($view == 4) ? ' selected="selected" class="current"' : '') . '>' . _MVSYSADMIN . '</option>'
+			. '<option value="3"' . (($view == 3) ? ' selected="selected" class="current"' : '') . '>' . _MVANON . '</option>'
+	. '</select>';
     return $out;
 }
 
@@ -489,7 +535,9 @@ function getGroupSelect($modid = 0)
     $userconfig = load_class('Userconfig');
 
     if (!empty($modid)) {
-        $qry = "SELECT group_id FROM ${prefix}_groups_modules WHERE module_id=" . intval($modid);
+        $qry = "SELECT group_id 
+				FROM ${prefix}_groups_modules 
+				WHERE module_id=" . intval($modid);
         $result = sql_query($qry);
         while (list($group_id) = sql_fetch_row($result)) {
             $groups[] = $group_id;
@@ -508,7 +556,9 @@ function getModuleBlockSelect($main_id = '')
 {
     global $prefix;
     $main_id = (empty($main_id)) ? "Modules" : $main_id;
-    $result = sql_query("SELECT bid, title, blockfile FROM ${prefix}_blocks WHERE blockfile LIKE 'block-modules%.php'");
+    $result = sql_query("SELECT bid, title, blockfile 
+						FROM ${prefix}_blocks 
+						WHERE blockfile LIKE 'block-modules%.php'");
     while (list($bid, $btitle, $bfs) = sql_fetch_row($result)) {
         $dbblocks[$bfs] = $btitle;
     }
@@ -537,7 +587,7 @@ function getModuleBlockSelect($main_id = '')
         $view .= implode("\n", $options[0]);
     }
     $out = "\n<select name=\"main_id\">\n" . $view . "</select>\n";
-    $out .= " <br />\n<span class=\"important tiny\">" . _COSTUMNAVIEXAMPLE . "</span>\n";
+    $out .= " <span class=\"important tiny\">" . _COSTUMNAVIEXAMPLE . "</span>\n";
     return $out;
 }
 
