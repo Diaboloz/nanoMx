@@ -1,27 +1,36 @@
 <h2>Hooks verwalten</h2>
 
-<p><?php echo _HOOKS_DESCRIBE1 ?></p>
-<p class="important"><?php echo _HOOKS_DESCRIBE2 ?></p>
+<div class="alert alert-info"><?php echo _HOOKS_DESCRIBE1 ?></div>
+<p class="alert alert-danger"><?php echo _HOOKS_DESCRIBE2 ?></p>
 
-<div id="hook-tabs">
-  <ul class="tabs-nav">
-  <?php foreach ($this->tabs as $id1 => $tab) { ?>
-    <li><a href="#tb<?php echo $id1 ?>"><?php echo $tab['title'] ?></a></li>
-  <?php } //endforeach ?>
-  </ul>
-  <?php foreach ($this->tabs as $id1 => $tab) { ?>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+<?php foreach ($this->tabs as $id1 => $tab) { ?>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#tb<?php echo $id1 ?>" role="tab"><?php echo $tab['title'] ?></a>
+  </li>
+<?php } //endforeach ?>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  
+ <?php foreach ($this->tabs as $id1 => $tab) { ?>
+ <div class="tab-pane" id="tb<?php echo $id1 ?>" role="tabpanel">
     <form method="post" action="<?php echo adminUrl(PMX_MODULE) ?>">
     <?php echo $this->formHidden('op', PMX_MODULE . '/save') ?>
-      <div id="tb<?php echo $id1 ?>" class="tabs-panel panel2">
       <p class="align-right"><?php echo $this->formSubmit('', _SAVECHANGES)?></p>
       <h3 class="hook-hidecaption"><?php echo $tab['title'] ?></h3>
-      <ul class="tabs-nav">
+      <ul class="nav nav-tabs">
       <?php foreach ($tab['data'] as $id2 => $tab2) {  ?>
-        <li><a href="#tb2<?php echo $id2 ?>"><?php echo $tab2['title'] ?></a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tb2<?php echo $id2 ?>" role="tab"><?php echo $tab2['title'] ?></a></li>
       <?php } //endforeach ?>
       </ul>
+
+      <div class="tab-content">
       <?php foreach ($tab['data'] as $id2 => $tab2) { ?>
-        <div id="tb2<?php echo $id2 ?>" class="tabs-panel">
+        <div id="tb2<?php echo $id2 ?>" class="tab-pane" role="tabpanel">
         <h4 class="hook-hidecaption"><?php echo $tab2['title'] ?></h4>
         <?php foreach ($tab2['data'] as $hook => $files) { ?>
           <div class="box clearfix" style="width: 100%">
@@ -37,21 +46,15 @@
         <?php } //endforeach ?>
         </div>
       <?php } //endforeach ?>
-      <p class="align-center"><?php echo $this->formSubmit('', _SAVECHANGES)?></p>
       </div>
-    </form>
-  <?php } //endforeach ?>
-</div>
 
-<script type="text/javascript">
-/* <![CDATA[ */
-  $(document).ready(function(){
-    $("#hook-tabs").tabs();
-    $("#hook-tabs .panel2").tabs();
-    $("#hook-tabs .hook-hidecaption").hide();
-  });
-/* ]]> */
-</script>
+      <p class="align-center"><?php echo $this->formSubmit('', _SAVECHANGES)?></p>
+    </form>
+    </div>
+  <?php } //endforeach ?>
+
+</div> <!-- end:.tab-content -->
+
 
 <?php ob_start() ?>
 <style type="text/css">
