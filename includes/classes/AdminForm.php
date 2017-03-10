@@ -241,7 +241,7 @@ class pmxAdminForm {
         $onsubmit = ($this->checklistflag) ? " onsubmit=\"return validateForm();\"" : "";
 
         $tdtext = "\n";
-		$tdtext .= "<div class=\"adminForm " . $this->cssform . "\">\n" ;
+		    $tdtext .= "<div class=\"adminForm " . $this->cssform . "\">\n" ;
         $tdtext .= "<a name=\"" . $this->formname . "-container\" ></a>";
         $tdtext .= "<div id=\"" . $this->formname . "-adminformcontainer\" >";
         $tdtext .= (trim($this->title)) ? "<h3>" . $this->title . "</h3>" : "";
@@ -319,24 +319,36 @@ class pmxAdminForm {
         }
 		
         $attributes = self::get_attributes_from_array($attributes);
-        $tdtext = "<div style=\"display:inline-block;vertical-align:top;" . $fstyle . "\">";
+        $tdtext = '';
+        //$tdtext = "<div style=\"display:inline-block;vertical-align:top;" . $fstyle . "\">";
         $class .= ' ' . $class . ' ' . $attributes;
 
         if ($class) {
             $class = trim($class);
         }
-		//$tdtext .="<div class=\"fieldset\">";
+
+ 		//$tdtext .="<div class=\"fieldset\">";
         if ($collapsible) {
             $this->collapsibleflag = true;
-            $tdtext .= "<div class=\"fieldset\" ><legend class=\"" . $this->cssform . "_fieldset_title legend\">" . $legend . "</legend>";
-            $tdtext .= "<div class=\"" . $this->cssform . "_fieldset_collapsed\">";
+            $tdtext .= "<div class=\"card\" >
+                          <div class=\"card-header\" role=\"tab\" id=\"head-" . $fieldname . "\">
+                            <h5 class=\"mb-0\">
+                              <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse-" . $fieldname . "\" aria-expanded=\"true\" aria-controls=\"collapseOne\">
+                                " . $legend . "
+                              </a>
+                            </h5>
+                          </div>
+                          <div id=\"collapse-" . $fieldname . "\" class= \"collapse\" role=\"tabpanel\" aria-labelledby=\"head-" . $fieldname . "\">
+                            <div class=\"card-block\">";
         } else {
-            $tdtext .= "<div class=\"fieldset\" ><legend class=\"" . $this->cssform . "_fieldset_title_open legend\">" . $legend . "</legend>";
+            $tdtext .= "<div class=\"card\" >
+                          <legend class=\"" . $this->cssform . "_fieldset_title_open legend\">" . $legend . "</legend>";
             $tdtext .= "<div class=\"" . $this->cssform . "_fieldset_open\">";
         }
-        $tdtext .= "<div class=\"formcontent\">";
+        $tdtext .= "<div class=\"container\">";
 
         $tdtext .= ($extendedtext) ? '<div class="fielddescription">' . $extendedtext . '</div>' : "";
+
         return $tdtext;
     }
 
@@ -355,11 +367,12 @@ class pmxAdminForm {
             /*$tdtext .= "<hr />";*/
             $tdtext .= $this->_SetSubmitButton($button);
         }
-        $tdtext .= "</div>";
-        $tdtext .= "</div>";
-        $tdtext .= "</div>";
-        //$tdtext .= "</div>";//fieldset
-        $tdtext .= "</div>";
+        $tdtext .= '
+                    
+                  </div>
+                </div>
+            </div>
+          </div>';
 
         return $tdtext;
     }
@@ -418,10 +431,10 @@ class pmxAdminForm {
     {
         $tdtext = "";
         if ($this->config['buttontext'] == true) {
-            $tdtext .= "<div style=\"display:inline-block; width:100%;\">";
+            //$tdtext .= "<div style=\"display:inline-block; width:100%;\">";
             $tdtext .= '<p class="align-right" style="margin-right:1em;"><button type="button" class="fieldset-expand_all">' . _EXPANDALL;
             $tdtext .= '</button>&nbsp;&nbsp;<button type="button" class="fieldset-collapse_all">' . _COLLAPSEALL . '</button></p>';
-            $tdtext .= "</div>\n";
+            //$tdtext .= "</div>\n";
         } else {
             $img = $this->config['tb_pic_path'] . "collapsible_all.png";
             $img2 = $this->config['tb_pic_path'] . "expand_all.png";
@@ -516,7 +529,7 @@ class pmxAdminForm {
 			($this->collapsibleshowbutton=="both" OR $this->collapsibleshowbutton=="top")) $output .= $this->FieldSetButton();
         /* jetzt Formularelemente ohne Fieldsets ausgeben */
         if (count($this->noformset) > 0) {
-            $output .= "<div class=\"formcontainer\">\n";
+            $output .= "<div id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\">\n";
             foreach ($this->noformset as $dummy => $field) {
                 $output .= $field;
             }
@@ -525,7 +538,7 @@ class pmxAdminForm {
         }
         /* jetzt Fieldsets und Inhalte ausgeben */
         if (count($this->formset) > 0) {
-            $output .= "<div class=\"formcontainer\">\n";
+            $output .= "<div id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\">\n";
             foreach ($this->formset as $field) {
                 $output .= $this->getFieldSet($field['name']);
             }
@@ -618,9 +631,9 @@ class pmxAdminForm {
     {
         $forminput = "";
         // $fdesc= strip_tags ($fdesc);
-        if ($ftype != "fieldset") {
-            $linestyle1 = "class=\"forminputtitle\"";
-            $linestyle2 = "class=\"forminputfield\"";
+        if ($ftype != "card") {
+            $linestyle1 = "";
+            $linestyle2 = "";
             $linestyle3 = "class=\"forminputdesc\"";
             $fdescription = "";
 
@@ -640,7 +653,7 @@ class pmxAdminForm {
                 $inputid = (is_array($ffieldname))?"table":$ffieldname;
             }
             $inputid = str_replace(array("[", "]", "(", ")", " ", ".", ",", ";"), "", $inputid);
-            $inputlabel = "<label for=\"" . $inputid . "\" $linestyle1 title=\"" . htmlspecialchars(strip_tags($fdesc), ENT_COMPAT | ENT_HTML5, 'UTF-8', false) . "\" >" . $flegend . "</label>";
+            $inputlabel = "<label for=\"" . $inputid . "\" $linestyle1 class=\"col-sm-2 col-form-label col-form-label-lg\" title=\"" . htmlspecialchars(strip_tags($fdesc), ENT_COMPAT | ENT_HTML5, 'UTF-8', false) . "\" >" . $flegend . "</label>";
         }
         $fdesc = htmlspecialchars(strip_tags($fdesc), ENT_COMPAT | ENT_HTML5, 'UTF-8', false);
 
@@ -707,7 +720,7 @@ class pmxAdminForm {
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
                 // $class
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><div id=\"" . $inputid . "\" title=\"" . $fdesc . "\" " . $fextern . ">" . $fvalue . "</div></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -723,10 +736,10 @@ class pmxAdminForm {
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
                 // $class
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
-                $forminput .= "<div {$linestyle2}><input type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
-                $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
+                $forminput .= "<div class=\"col-sm-3\"><input type=\"text\" class=\"form-control\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
+                $forminput .= "<p class=\"form-text text-muted {$linestyle3}\">" . $fdescription . "</p>";
                 $forminput .= "</div>";
                 break;
 
@@ -734,7 +747,7 @@ class pmxAdminForm {
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 20 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><input type=\"password\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -744,7 +757,7 @@ class pmxAdminForm {
             case "button":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= "<label for=\"" . $inputid . "\" $linestyle1 title=\"\" >&nbsp;</label>";
                 $forminput .= "<div {$linestyle2}><button type=\"button\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" " . $fextern . ">";
                 $forminput .= $flegend;
@@ -755,7 +768,7 @@ class pmxAdminForm {
             case "submitbutton":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 //$forminput .= "<label for=\"" . $inputid . "\" $linestyle1 title=\"\" >&nbsp;</label>";
                 $forminput .= "<div {$linestyle2}><button type=\"submit\" name=\"toolbarsubmit\" value=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fvalue . "\" " . $fextern . ">";
@@ -774,7 +787,7 @@ class pmxAdminForm {
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><input type=\"file\" name='" . $ffieldname . "[]' value='" . $fvalue . "' id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . " /></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -786,7 +799,7 @@ class pmxAdminForm {
             case "yesno":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>";
                 $forminput .= "<select name=\"" . $ffieldname . "\" size=\"2\"  id=\"" . $inputid . "\" title=\"" . $fdesc . "\" " . $fextern . " >
@@ -800,7 +813,7 @@ class pmxAdminForm {
             case "yesnodefault":
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>";
                 $forminput .= "<select name=\"" . $ffieldname . "\" size=\"1\"  id=\"" . $inputid . "\" title=\"" . $fdesc . "\" " . $fextern . " >
@@ -819,7 +832,7 @@ class pmxAdminForm {
                 $fvalue = intval($fvalue);
                 $fixe = "";
                 if ($fvalue == "1") $fixe = "checked=\"checked\"";
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><input type=\"hidden\" name='" . $ffieldname . "' value='0' />";
                 $forminput .= "<input type=\"checkbox\" name='" . $ffieldname . "' value='1' " . $fixe . "  id=\"" . $inputid . "\" title=\"" . $fdesc . "\"" . $ifrequired . $fextern . " /></div>";
@@ -833,7 +846,7 @@ class pmxAdminForm {
                 $fvalue = intval($fvalue);
                 $fixe = "";
                 if ($ffieldlen == "1") $fixe = "checked=\"checked\"";   /* hier rüber wird der aktivierte Butto bestimmt */
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>";
                 $forminput .= "<input type=\"radio\" name='" . $ffieldname . "' value='". $fvalue . "' " . $fixe . " id=\"" . $inputid . "\" title=\"" . $fdesc . "\"" . $fextern . " /></div>";
@@ -857,7 +870,7 @@ class pmxAdminForm {
 				
 				$forientation=($ffieldlen==0)?"<br />":"&nbsp";
 				
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>";
 				  foreach ($fextern as $key=>$value) {
@@ -878,7 +891,7 @@ class pmxAdminForm {
                     $arrlen = max(2, intval($ffieldlen));
                     $arrlen = min(5, $arrlen);
 
-                    $forminput = "<div class=\"forminputline{$class}\">";
+                    $forminput = "<div class=\"form-group row {$class}\">";
                     $forminput .= $inputlabel;
                     $forminput .= "<div $linestyle2>";
                     $forminput .= "<select name=\"" . $ffieldname . "\" size=\"" . $arrlen . "\"  id=\"" . $inputid . "\" title=\"" . $fdesc . "\"" . $fextern . ">";
@@ -920,7 +933,7 @@ class pmxAdminForm {
 								
                 $ausdruck .= "</select>";
 
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -956,7 +969,7 @@ class pmxAdminForm {
                 }
                 $ausdruck .= "</select>";
 
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -989,7 +1002,7 @@ class pmxAdminForm {
                 }
                 $ausdruck .= "</select>";
 
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1017,7 +1030,7 @@ class pmxAdminForm {
                 }
                 $ausdruck .= '<select name="' . $ffieldname . '" ' . $fextern . ' id="' . $inputid . '" title="' . $fdesc . '"' . $fextern . '>' . implode("\n", $options) . '</select>';
 
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1045,7 +1058,7 @@ class pmxAdminForm {
                 }
                 $ausdruck .= "</select>";
 
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1069,7 +1082,7 @@ class pmxAdminForm {
                 $ausdruck = "<textarea name=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" style=\"width:90% " . $style . "\"" . $attributes . ">" . $fvalue . "</textarea>";
                 $ausdruck .= "<input type=\"hidden\" name=\"spaw\" value=\"0\" />";
 
-                $forminput = "<div class=\"forminputline{$class}\" 
+                $forminput = "<div class=\"form-group row {$class}\" 
 				>";
                  $forminput .= $inputlabel;
                
@@ -1095,7 +1108,7 @@ class pmxAdminForm {
                 $ausdruck = "<textarea name=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" style=\"1em;width:95%;" . $style . "\"" . $attributes . ">" . $fvalue . "</textarea>";
                 $ausdruck .= "<input type=\"hidden\" name=\"spaw\" value=\"0\" />";
 
-                $forminput = "<div class=\"forminputline{$class}\" >";
+                $forminput = "<div class=\"form-group row {$class}\" >";
                 //$forminput .= "<label for=\"" . $inputid . "\" class=\"forminputline{$class} title=\"" . htmlspecialchars(strip_tags($fdesc), ENT_COMPAT | ENT_HTML5, 'UTF-8', false) . "\" >" . $flegend . "</label>";
                 $forminput .= "<div {$linestyle2}>" . $flegend . "&nbsp;</div>";                //$forminput .= "<div {$linestyle2}>" . $flegend . "&nbsp;</div>";
                 $forminput .= "<div class=\"forminputline{$class}\" style='width:100%'>" . $ausdruck . "</div>";
@@ -1158,7 +1171,7 @@ class pmxAdminForm {
                 $ausdruck = $editor->getHtml();
                 $ausdruck .= "<input type=\"hidden\" name=\"spaw\" value=\"" . $spaw . "\" id=\"" . $inputid . "\" />";
 
-                $forminput = "<div class=\"forminputline{$class} clearfix\">";
+                $forminput = "<div class=\"form-group row {$class} clearfix\">";
                 $forminput .= "<div {$linestyle2}>" . $flegend . "&nbsp;</div>";
                 $forminput .= "<div class=\"forminputline clear {$class}\" style='width:100%'>" . $ausdruck . "</div>";
                 $forminput .= "<div class=\"forminputdesc {$class}\" style='width:100%'>" . $fdescription . "</div>";
@@ -1170,7 +1183,7 @@ class pmxAdminForm {
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 10 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><input type=\"" . $ftype . "\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . " /></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1182,7 +1195,7 @@ class pmxAdminForm {
 				$class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>";
 				$forminput .= "<input class=\"inputrange\" type=\"" . $ftype . "\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . " oninput=\"" . $inputid . "x.value=parseInt(" . $inputid . ".value)\" />";
@@ -1207,7 +1220,7 @@ class pmxAdminForm {
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><input type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1237,7 +1250,7 @@ class pmxAdminForm {
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><input type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1270,7 +1283,7 @@ class pmxAdminForm {
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><input type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1284,7 +1297,7 @@ class pmxAdminForm {
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}><input type=\"" . $ftype . "\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1320,7 +1333,7 @@ class pmxAdminForm {
                 $class = self::extract_class($fextern);
                 $fextern = self::get_attributes_from_array($fextern);
                 $ffieldlen = (intval($ffieldlen) == 0) ? 8 : intval($ffieldlen);
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>";
                 $forminput .= "<span class=\"colpick-color-box\" style=\"padding-right:1em;border-right-color:" . $defcol . "\">";
@@ -1340,7 +1353,7 @@ class pmxAdminForm {
                     // $captcha_object->set_active();
                     $ausgabe = $captcha_object->show_inputfield(array("required"=>"required","autocomplete"=>"off")) . "<br />" . $captcha_object->show_image() . "<br />" . $captcha_object->show_reloadbutton();
 
-                    $forminput = "<div class=\"forminputline{$class}\">";
+                    $forminput = "<div class=\"form-group row {$class}\">";
                     $forminput .= ($inputlabel == "") ? $captcha_object->show_caption() : $inputlabel;
                     $forminput .= "<div {$linestyle2}>" . $ausgabe . "</div>";
                     $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1386,7 +1399,7 @@ class pmxAdminForm {
                 $ffieldlen = (intval($ffieldlen) == 0) ? 25 : intval($ffieldlen);
 
                 $forminput = "
-                <div class=\"forminputline{$class}\">
+                <div class=\"form-group row {$class}\">
                 {$inputlabel}
                 <div style=\"white-space:nowrap\" {$linestyle2}>
                   <input type=\"text\" name=\"{$ffieldname}\" value=\"{$fvalue}\" id=\"{$inputid}\" title=\"{$fdesc}\" size=\"{$ffieldlen}\" {$ffextern} {$ifrequired} />";
@@ -1456,7 +1469,7 @@ class pmxAdminForm {
 					$inputcolor= ((!is_writable($fvalue))?"class='inputerror'":"class='inputok'");
 					$fdesc = (!is_writable($fvalue))?_NOWRITABLE:_WRITABLE;
 				}
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2} ><input ".$inputcolor ." type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1477,7 +1490,7 @@ class pmxAdminForm {
                 /* die ersten beiden Parameter sind nicht optional */
 				$ausdruck= self::ListTable($ffieldname,$fvalue,$fextern);
 			    
-                $forminput = "<div class=\"forminputline{$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= "<div {$linestyle2}>" . $flegend . "&nbsp;</div>";
 				$forminput .= "<div class=\"list\">" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
