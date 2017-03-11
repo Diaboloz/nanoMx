@@ -55,7 +55,7 @@ function Configure()
 	
 	/* Werte vorbereiten */
 	
-	$info2 = 'pragmaMx ' . PMX_VERSION . ' - ' . _SITECONFIG;
+	$info2 = _SITECONFIG;
 
     /* falls config.php nicht schreibgeschuetzt, dieses tun... */
     if (is_writable(PMX_CONFIGFILE)) {
@@ -142,8 +142,8 @@ function Configure()
     pmxHeader::add_jquery('ui/jquery.ui.datepicker.js',
         'ui/i18n/jquery.ui.datepicker-' . _DOC_LANGUAGE . '.js'
         );
-    pmxHeader::add_script(PMX_JAVASCRIPT_PATH . 'fieldset.js.php');
-    include (PMX_JAVASCRIPT_DIR . DS . 'fieldset.js.php');
+    //pmxHeader::add_script(PMX_JAVASCRIPT_PATH . 'fieldset.js.php');
+    //include (PMX_JAVASCRIPT_DIR . DS . 'fieldset.js.php');
     /* Lightbox für Logo-Vorschau */
     pmxHeader::add_lightbox();
 
@@ -163,17 +163,17 @@ function Configure()
 	
     
     //$tb->__set('target_url', "admin.php?op=settings");
-    $tb->__set("tb_text", "" . _ADMIN_LASTCHANGE . ' ' . mx_strftime(_DATESTRING . ' %H:%M:%S', filemtime(PMX_CONFIGFILE)));
-    $tb->__set("tb_direction", 'right');
-    $tb->__set("infobutton", false);
-    $tb->__set("tb_pic_heigth", 25);
-    $tb->__set("csstoolbar", "toolbar1");
-    $tb->__set("cssform", "a305020");
-    $tb->__set('buttontext', false);
-    $tb->__set('homelink', true);
-    $tb->__set('fieldhomebutton', true);
-    $tb->addToolbar("accept");
-    $tb->addToolbar("save");
+    //$tb->__set("tb_text", "" . _ADMIN_LASTCHANGE . ' ' . mx_strftime(_DATESTRING . ' %H:%M:%S', filemtime(PMX_CONFIGFILE)));
+    //$tb->__set("tb_direction", 'right');
+    //$tb->__set("infobutton", false);
+    //$tb->__set("tb_pic_heigth", 25);
+    //$tb->__set("csstoolbar", "toolbar1");
+    //$tb->__set("cssform", "a305020");
+    $tb->__set('buttontext', true);
+    $tb->__set('homelink', false);
+    $tb->__set('fieldhomebutton', false);
+    //$tb->addToolbar("accept");
+    //$tb->addToolbar("save");
     
 	/* general settings */
     $tb->addFieldset("siteinfo", _GENSITEINFO, "", true);
@@ -284,12 +284,13 @@ function Configure()
 	$tb->add("mail","input","xpopauth",$popauth,_MAILPOP3AUTH,"",50);
 	
 	/* Footer */
-    $tb->addFieldset("footer", _FOOTERMSG, "", true);
+/*    $tb->addFieldset("footer", _FOOTERMSG, "", true);
 	$tb->add("footer","textbox","xfoot1",trim($foot1),_FOOTERLINE1);
-//	$tb->add("footer","textbox","xfoot2",trim($foot2),_FOOTERLINE2);
-//	$tb->add("footer","textbox","xfoot3",trim($foot3),_FOOTERLINE3);
-//	$tb->add("footer","textbox","xfoot4",trim($foot4),_FOOTERLINE4);
+	$tb->add("footer","textbox","xfoot2",trim($foot2),_FOOTERLINE2);
+	$tb->add("footer","textbox","xfoot3",trim($foot3),_FOOTERLINE3);
+	$tb->add("footer","textbox","xfoot4",trim($foot4),_FOOTERLINE4);
 	$tb->add("footer","note", _ADMIN_FOOTCONSTMSG );
+*/
 	
 	
 	/* Censor - options */

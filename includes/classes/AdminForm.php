@@ -101,18 +101,18 @@ class pmxAdminForm {
             'tb_show' => 'top', // anzeige der Toolaber top=oben, bottom=unten, both = oben und unten
             'formname' => preg_replace('#[^a-zA-Z0-9_]#', '', $formname), // Name des Formulars
             'buttontext' => false, // Buttons für alle öffnen/schliessen der Fieldsets als Text zeigen
-			'collapsibleshowbutton'=>'both', // einblenden der Klappbutton (both=oben und unten, top=nur oben, bottom=nur unten, none=nichst)
+			      'collapsibleshowbutton'=>'none', // einblenden der Klappbutton (both=oben und unten, top=nur oben, bottom=nur unten, none=nichst)
             'acceptbutton' => true, // Anzeige von Accept-Button unterhalb der Fieldsets
             'target_url' => $_SERVER['REQUEST_URI'], // Target-Url des Formulars -> standard = self
             'enctype' => '', // encrypt-Type für das Formular
             'title' => '', // <h3>-Titel über dem Formular
             'description' => '', // Text unter dem Titel
             'csstoolbar' => 'toolbar1', // css-Klasse für die Toolbar ... standard 'toolbar1'
-			'toolbarfixed'=>false, // true= gleiche Buttonbreite, false = Buttonbreite richtet sich nach dem Text
+			      'toolbarfixed'=>false, // true= gleiche Buttonbreite, false = Buttonbreite richtet sich nach dem Text
             'cssform' => 'adminForm', // css-Klasse für das Formular ... standard 'adminForm'
             'infobutton' => false, // Infobutton (true) oder Infotext (false)
             'fieldhomebutton' => false, // blendet einen Homebutton im unteren Rand des Fieldsets ein
-			'fieldimagesize'=>"150px", // größe von anzuzeigenden Bildern im Formular. Kann in den betroffenen Inputfeldern einzeln auch eingestellt werden
+			      'fieldimagesize'=>"150px", // größe von anzuzeigenden Bildern im Formular. Kann in den betroffenen Inputfeldern einzeln auch eingestellt werden
             // TODO: dies sollte in die globale pragmaMx-Umgebung ausgelaget werden, so
             // dass alle tooltips auf der Seite gleich dargestellt werden
             // - die css-Datei "default.tooltip.css" ist bereits angepasst
@@ -121,7 +121,7 @@ class pmxAdminForm {
             'tooltipdirection' => 'bottom right', // Tooltipdirection : Position der Spitze des Tooltips 'bootom left, bottom right, bottom center, top left, top right, top center'
             'checkselector' => self::$checkselector, // Name der Checkbox, die für "alle selektieren" verantworlich ist
             'homelink' => true, // wenn true wird unter der Form ein Link zum Formanfang gesetzt
-			'mainform' => true, // auf false setzen, wenn 2.Form auf der Seite
+			      'mainform' => true, // auf false setzen, wenn 2.Form auf der Seite
 			
             );
         $this->checklisJS = "<script type=\"text/javascript\">
@@ -393,10 +393,10 @@ class pmxAdminForm {
         } 		
         $img = $this->tb_pic_path . "accept.png";
         $img2 = $this->tb_pic_path . "up.png";
-        $tdtext = "<div class=\"form-submit align-" . $this->tb_direction . "\">\n";
-        $tdtext .= "<button class=\"button\" type=\"submit\" value=\"accept\" name=\"toolbarsubmit\" $tt title=\"" . _ACCEPT . "\"  >";
+        $tdtext = "<div class=\"form-group row align-" . $this->tb_direction . "\">\n";
+        $tdtext .= "<button class=\"btn btn-primary\" type=\"submit\" value=\"accept\" name=\"toolbarsubmit\" $tt title=\"" . _ACCEPT . "\"  >";
         if ($show_as_text) {
-            $tdtext .= _ACCEPT;
+            $tdtext .= '<i class="fa fa-check fa-lg m-t-2"></i> ' .  _ACCEPT ;
         } else {
             $tdtext .= "<img  src=\"" . $img . "\" style=\"width:auto; height:16px;\" title='" . _ACCEPT . "' alt='" . _ACCEPT . "'  />";
         }
@@ -633,7 +633,7 @@ class pmxAdminForm {
         // $fdesc= strip_tags ($fdesc);
         if ($ftype != "card") {
             $linestyle1 = "";
-            $linestyle2 = "";
+            $linestyle2 = "col-sm-4";
             $linestyle3 = "class=\"forminputdesc\"";
             $fdescription = "";
 
@@ -653,7 +653,7 @@ class pmxAdminForm {
                 $inputid = (is_array($ffieldname))?"table":$ffieldname;
             }
             $inputid = str_replace(array("[", "]", "(", ")", " ", ".", ",", ";"), "", $inputid);
-            $inputlabel = "<label for=\"" . $inputid . "\" $linestyle1 class=\"col-sm-2 col-form-label col-form-label-lg\" title=\"" . htmlspecialchars(strip_tags($fdesc), ENT_COMPAT | ENT_HTML5, 'UTF-8', false) . "\" >" . $flegend . "</label>";
+            $inputlabel = "<label for=\"" . $inputid . "\" $linestyle1 class=\"col-sm-4 col-form-label\" title=\"" . htmlspecialchars(strip_tags($fdesc), ENT_COMPAT | ENT_HTML5, 'UTF-8', false) . "\" >" . $flegend . "</label>";
         }
         $fdesc = htmlspecialchars(strip_tags($fdesc), ENT_COMPAT | ENT_HTML5, 'UTF-8', false);
 
@@ -738,7 +738,7 @@ class pmxAdminForm {
                 // $class
                 $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
-                $forminput .= "<div class=\"col-sm-3\"><input type=\"text\" class=\"form-control\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
+                $forminput .= "<div class=\"col-sm-4\"><input type=\"text\" class=\"form-control\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
                 $forminput .= "<p class=\"form-text text-muted {$linestyle3}\">" . $fdescription . "</p>";
                 $forminput .= "</div>";
                 break;
@@ -991,7 +991,7 @@ class pmxAdminForm {
 				
 				if (is_array($fvalue)) $attributes .=" multiple=\"multiple\"";
 				
-                $ausdruck = '<select name="' . $ffieldname . '" size="' . $arrlen . '"  id="' . $inputid . '" title="' . $fdesc . '"' . $attributes . '>';
+                $ausdruck = '<select class="custom-select" name="' . $ffieldname . '" size="' . $arrlen . '"  id="' . $inputid . '" title="' . $fdesc . '"' . $attributes . '>';
                 foreach ($fextern as $key => $value) {
 					if (is_array($fvalue)) {
 						$sel= (array_search($value,$fvalue)===FALSE)?"":' selected="selected" class="current"';
@@ -1028,7 +1028,7 @@ class pmxAdminForm {
                 foreach($languageslist as $alt => $value) {
                     $options[] = '<option value="' . $value . '"' . (($value == $fvalue) ? ' selected="selected" class="current" ' : '') . ' >' . $alt . '</option>';
                 }
-                $ausdruck .= '<select name="' . $ffieldname . '" ' . $fextern . ' id="' . $inputid . '" title="' . $fdesc . '"' . $fextern . '>' . implode("\n", $options) . '</select>';
+                $ausdruck .= '<select class="custom-select" name="' . $ffieldname . '" ' . $fextern . ' id="' . $inputid . '" title="' . $fdesc . '"' . $fextern . '>' . implode("\n", $options) . '</select>';
 
                 $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
@@ -1222,7 +1222,9 @@ class pmxAdminForm {
                 $ffieldlen = (intval($ffieldlen) == 0) ? 30 : intval($ffieldlen);
                 $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
-                $forminput .= "<div {$linestyle2}><input type=\"text\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/></div>";
+                $forminput .= "<div class=\"col-sm-4\">
+                                  <input type=\"text\" class=\"form-control\" name=\"" . $ffieldname . "\" value=\"" . $fvalue . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" size=\"{$ffieldlen}\" " . $fextern . $ifrequired . "/>
+                              </div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
