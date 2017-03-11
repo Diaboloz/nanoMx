@@ -394,7 +394,9 @@ class pmxAdminForm {
         $img = $this->tb_pic_path . "accept.png";
         $img2 = $this->tb_pic_path . "up.png";
         $tdtext = "<div class=\"form-group row align-" . $this->tb_direction . "\">\n";
-        $tdtext .= "<button class=\"btn btn-primary\" type=\"submit\" value=\"accept\" name=\"toolbarsubmit\" $tt title=\"" . _ACCEPT . "\"  >";
+        $tdtext .= "
+              <div class=\"offset-sm-4\">
+                <button class=\"btn btn-primary\" type=\"submit\" value=\"accept\" name=\"toolbarsubmit\" $tt title=\"" . _ACCEPT . "\"  >";
         if ($show_as_text) {
             $tdtext .= '<i class="fa fa-check fa-lg m-t-2"></i> ' .  _ACCEPT ;
         } else {
@@ -405,7 +407,9 @@ class pmxAdminForm {
         if ($this->fieldhomebutton) {
             $tdtext .= $this->_getHomebutton();			
         }
-        $tdtext .= "</div>";
+        $tdtext .= "
+            </div>
+          </div>";
         return $tdtext;
     }
 
@@ -633,8 +637,8 @@ class pmxAdminForm {
         // $fdesc= strip_tags ($fdesc);
         if ($ftype != "card") {
             $linestyle1 = "";
-            $linestyle2 = "col-sm-4";
-            $linestyle3 = "class=\"forminputdesc\"";
+            $linestyle2 = "class=\"col-sm-4\"";
+            $linestyle3 = "class=\"form-text text-muted\"";
             $fdescription = "";
 
             if ($this->infobutton && ($fdesc)) {
@@ -802,7 +806,7 @@ class pmxAdminForm {
                 $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>";
-                $forminput .= "<select name=\"" . $ffieldname . "\" size=\"2\"  id=\"" . $inputid . "\" title=\"" . $fdesc . "\" " . $fextern . " >
+                $forminput .= "<select class=\"custom-select\" name=\"" . $ffieldname . "\" size=\"1\"  id=\"" . $inputid . "\" title=\"" . $fdesc . "\" " . $fextern . " >
                 <option value=\"1\"" . (($fvalue == 1) ? ' selected="selected" class="current"' : '') . ">" . _YES . "</option>
                 <option value=\"0\"" . (($fvalue != 1) ? ' selected="selected" class="current"' : '') . ">" . _NO . "</option>
                 </select>";
@@ -1002,7 +1006,7 @@ class pmxAdminForm {
                 }
                 $ausdruck .= "</select>";
 
-                $forminput = "<div class=\"form-group {$class}\">";
+                $forminput = "<div class=\"form-group row {$class}\">";
                 $forminput .= $inputlabel;
                 $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div {$linestyle3}>" . $fdescription . "</div>";
@@ -1079,14 +1083,14 @@ class pmxAdminForm {
                 $attributes = self::get_attributes_from_array($fextern);
                 $class = self::extract_class($fextern);
                 // $intext = htmlspecialchars($fvalue, ENT_COMPAT | ENT_HTML5, 'UTF-8', false);
-                $ausdruck = "<textarea name=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" style=\"width:90% " . $style . "\"" . $attributes . ">" . $fvalue . "</textarea>";
+                $ausdruck = "<textarea class=\"form-control\" name=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" style=\"" . $style . "\"" . $attributes . ">" . $fvalue . "</textarea>";
                 $ausdruck .= "<input type=\"hidden\" name=\"spaw\" value=\"0\" />";
 
                 $forminput = "<div class=\"form-group row {$class}\" 
 				>";
                  $forminput .= $inputlabel;
                
-                $forminput .= "<div class=\"forminputfield{$class}\" >" . $ausdruck . "</div>";
+                $forminput .= "<div {$linestyle2}>" . $ausdruck . "</div>";
                 $forminput .= "<div  {$linestyle3}>" . $fdescription . "</div>";
                 $forminput .= "</div>";
                 break;
@@ -1105,7 +1109,7 @@ class pmxAdminForm {
                 $attributes = self::get_attributes_from_array($fextern);
                 $class = self::extract_class($fextern);
                 // $intext = htmlspecialchars($fvalue, ENT_COMPAT | ENT_HTML5, 'UTF-8', false);
-                $ausdruck = "<textarea name=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" style=\"1em;width:95%;" . $style . "\"" . $attributes . ">" . $fvalue . "</textarea>";
+                $ausdruck = "<textarea class=\"form-control\" name=\"" . $ffieldname . "\" id=\"" . $inputid . "\" title=\"" . $fdesc . "\" style=\"" . $style . "\"" . $attributes . ">" . $fvalue . "</textarea>";
                 $ausdruck .= "<input type=\"hidden\" name=\"spaw\" value=\"0\" />";
 
                 $forminput = "<div class=\"form-group row {$class}\" >";

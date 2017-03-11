@@ -196,10 +196,10 @@ function Configure()
         $sel1 = ($value == $language) ? ' checked="checked"' : '';
         $sel2 = (in_array($value, $language_avalaible)) ? ' checked="checked"' : '';
         $sellanguage.= '
-			<li>
-				<input type="radio" name="xlanguage" value="' . $value . '"' . $sel1 . ' />
+            <p>
+				<input type="radio" name="xlanguage" value="' . $value . '"' . $sel1 . ' /> 
 				<input type="checkbox" name="xlanguage_avalaible[]" value="' . $value . '"' . $sel2 . ' /> ' . $caption . '
-			</li>';
+			</p>';
 		}
 	}
 	$tb->add("siteinfo","special","languages",$sellanguage,_SELLANGUAGE ." / ". _LANGUAGES);
@@ -284,9 +284,9 @@ function Configure()
 	$tb->add("mail","input","xpopauth",$popauth,_MAILPOP3AUTH,"",50);
 	
 	/* Footer */
-/*    $tb->addFieldset("footer", _FOOTERMSG, "", true);
+    $tb->addFieldset("footer", _FOOTERMSG, "", true);
 	$tb->add("footer","textbox","xfoot1",trim($foot1),_FOOTERLINE1);
-	$tb->add("footer","textbox","xfoot2",trim($foot2),_FOOTERLINE2);
+/*	$tb->add("footer","textbox","xfoot2",trim($foot2),_FOOTERLINE2);
 	$tb->add("footer","textbox","xfoot3",trim($foot3),_FOOTERLINE3);
 	$tb->add("footer","textbox","xfoot4",trim($foot4),_FOOTERLINE4);
 	$tb->add("footer","note", _ADMIN_FOOTCONSTMSG );
