@@ -84,16 +84,19 @@ class pmxSeo_admin {
         $can_extend = ($can_rewrite) ? pmxModrewrite::can_extend() : false;
 
         /* Form Einstellungen */
-        $this->form->tb_pic_heigth = 25;
+       // $this->form->tb_pic_heigth = 25;
         //$this->form->infobutton = true;
-        $this->form->acceptbutton = false;
-		$this->form->fieldhomebutton=false;
-        $this->form->title = _SEO;
-		$this->form->cssform = "a304030";
+       // $this->form->acceptbutton = false;
+		//$this->form->fieldhomebutton=false;
+        //$this->form->title = _SEO;
+		//$this->form->cssform = "a304030";
+
+        $this->form->buttontext = true;
+        $this->form->homelink = false;
         /* Toolbar zusammenstellen */
-        $this->form->addToolbar('accept');
-        $this->form->addToolbar('save');
-        $this->form->addToolbarLink('cancel', adminUrl(PMX_MODULE));
+        //$this->form->addToolbar('accept');
+        //$this->form->addToolbar('save');
+        //$this->form->addToolbarLink('cancel', adminUrl(PMX_MODULE));
         // $this->form->addToolbarLink('cpanel', adminUrl(PMX_MODULE));
         /* allgemeine Elemente */
         $this->form->addFieldSet("global", _SEOGLOBALSET, null, true);
@@ -125,6 +128,7 @@ class pmxSeo_admin {
 
         /* Form ausgeben */
         include_once('header.php');
+        title(_SEO);
         echo $form;
         include_once('footer.php');
     }
