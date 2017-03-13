@@ -38,18 +38,23 @@ include_once(PMX_SYSTEM_DIR . DS . 'mx_userfunctions.php');
 function prevnext($menge, $counter, $int_counter)
 {
     global $entries;
-    echo "<table width=\"100%\"><tr>\n";
+    echo '
+    	<table>
+    		<tr>';
     If (($counter == 0) && ($menge > ($counter + $entries))) {
-        echo "<td width=\"50%\">&nbsp;</td>";
-        echo "<td width=\"50%\" align=\"right\"><a href=\"" . adminUrl(PMX_MODULE, '', "counter=" . ($counter + $entries), '') . "\">" . _GONEXT . " " . $entries . " &#62;&#62;&#62;</a></td>";
+        echo '
+        	<td>&nbsp;</td>';
+        echo "<td><a href=\"" . adminUrl(PMX_MODULE, '', "counter=" . ($counter + $entries), '') . "\">" . _GONEXT . " " . $entries . " &#62;&#62;&#62;</a></td>";
     } elseif (($counter >= $entries) && ($menge > ($counter + $entries))) {
-        echo "<td width=\"50%\" align=\"left\"><a href=\"" . adminUrl(PMX_MODULE, '', "counter=" . ($counter - $entries), '') . "\">&#60;&#60;&#60; " . _GOPREV . " " . $entries . "</a></td>";
-        echo "<td width=\"50%\" align=\"right\"><a href=\"" . adminUrl(PMX_MODULE, '', "counter=" . ($counter + $entries), '') . "\">" . _GONEXT . " " . $entries . " &#62;&#62;&#62;</a></td>";
+        echo "<td><a href=\"" . adminUrl(PMX_MODULE, '', "counter=" . ($counter - $entries), '') . "\">&#60;&#60;&#60; " . _GOPREV . " " . $entries . "</a></td>";
+        echo "<td><a href=\"" . adminUrl(PMX_MODULE, '', "counter=" . ($counter + $entries), '') . "\">" . _GONEXT . " " . $entries . " &#62;&#62;&#62;</a></td>";
     } elseif (($counter >= $entries) && ($menge <= ($counter + $entries))) {
-        echo "<td width=\"50%\" align=\"left\"><a href=\"" . adminUrl(PMX_MODULE, '', "counter=" . ($counter - $entries), '') . "\">&#60;&#60;&#60; " . _GOPREV . " " . $entries . "</td>";
-        echo "<td width=\"50%\">&nbsp;</td>";
+        echo "<td><a href=\"" . adminUrl(PMX_MODULE, '', "counter=" . ($counter - $entries), '') . "\">&#60;&#60;&#60; " . _GOPREV . " " . $entries . "</td>";
+        echo "<td>&nbsp;</td>";
     }
-    echo "</tr></table>";
+    echo '
+    		</tr>
+    	</table>';
 }
 
 /* Die Liste */
@@ -63,9 +68,10 @@ function viewthelist($counter = 0)
     $result1 = sql_query($query);
     if (!$result1) {
         include("header.php");
-        OpenTableAl();
-        echo "<center>Error query 101</center>";
-        CloseTableAl();
+        echo '
+        	<div class="alert alert-error text-center">
+        		Error query 101
+        	</div>';
         include("footer.php");
         die();
     }
@@ -75,45 +81,71 @@ function viewthelist($counter = 0)
     title(_YADTITLE);
     $check = time() - (60 * 60 * $GLOBALS['wait_time']);
     if ($menge > 0) {
-        OpenTable();
-        echo "<form name=\"delete_selected\" action=\"" . adminUrl(PMX_MODULE) . "\" method=\"post\">\n";
-        echo "<table cellspacing=\"1\" cellpadding=\"1\" class=\"bgcolor1 full\">\n";
-        echo "<tr class=\"bgcolor2\"><th align=\"left\">" . _YADMODIFY . ":</th>\n";
-        echo "<th align=\"left\">" . _YADENTRYNAME . ": </th>\n";
-        echo "<th align=\"left\">" . _YADENTRYEMAIL . ": </th>\n";
-        echo "<th align=\"left\">" . _YADENTRYTIME . ": </th></tr>\n";
+        echo '
+        	<form name="delete_selected" action="' . adminUrl(PMX_MODULE) . '" method="post">
+        		<table class="table table-sm">
+        			<thead class="thead-default">
+        				<tr>
+        					<th>' . _YADMODIFY . '</th>
+        					<th>' . _YADENTRYNAME . '</th>
+        					<th>' . _YADENTRYEMAIL . '</th>
+        					<th>' . _YADENTRYTIME . '</th>
+        				</tr>
+        			</thead>';
         $internal_counter = 0;
         while ($eintrag = sql_fetch_assoc($result1)) {
             $zeit = mx_strftime(_SHORTDATESTRING, $eintrag['check_time']) . ' ' . date('H:i', $eintrag['check_time']);
             $internal_counter ++;
             if ($eintrag['check_time'] > $check) {
-                echo "<tr><td>&nbsp;</td>\n";
+                echo '
+                	<tr>
+                		<td>&nbsp;</td>';
             } else {
-                echo "<tr><td><input type=\"checkbox\" name=\"check_delete[]\" value=\"" . $eintrag['uid'] . "\" /></td>\n";
+                echo '
+                	<tr>
+                		<td>
+                			<input type="checkbox" name="check_delete[]" value="' . $eintrag['uid'] . '" />
+                		</td>';
             }
             if ($eintrag['check_ip'] == "255.255.255.255") {
-                $color = '<font color="#dc2300">';
+                $color = '<span class="badge badge-pill badge-primary">';
             } else {
-                $color = '<font color="#008000">';
+                $color = '<span class="badge badge-pill badge-default">';
             }
-            echo "<td>" . $color . $eintrag['uname'] . "</font></td>\n";
-            echo "<td>" . $color . $eintrag['email'] . "</font></td>\n";
-            echo "<td>" . $color . $zeit . "</font></td></tr>\n";
+            echo '
+            	<td>' . $color . $eintrag['uname'] . '</span></td>';
+            echo '
+            	<td>' . $color . $eintrag['email'] . '</span></td>';
+            echo '
+            	<td>' . $color . $zeit . '</span></td>
+            </tr>';
         }
-        echo "<input type=\"hidden\" name=\"counter\" value=\"" . $counter . "\" />\n";
-        echo "<input type=\"hidden\" name=\"internal_counter\" value=\"" . $internal_counter . "\" />\n";
-        echo "<tr><td><b>" . _YADAACTION . " :</b></td><td colspan=\"3\" align =\"center\"><select name=\"op\">\n";
-        echo "<option value=\"" . PMX_MODULE . "/resend\">" . _YADADMINRESEND . "</option>\n";
-        echo "<option value=\"" . PMX_MODULE . "/activate\">" . _YADACTIVATE . "</option>\n";
-        echo "<option value=\"" . PMX_MODULE . "/delete\">" . _YADDELDO . "</option></select></td></tr>\n";
-        echo "<tr><td colspan=\"4\" align =\"center\"><input type=\"submit\" name=\"submit\" value=\"" . _SUBMIT . "\" />\n";
-        echo "</table></form><br />\n";
+
+        echo '
+        	</table>
+
+        	<input type="hidden" name="counter" value="' . $counter . '" />
+        	<input type="hidden" name="internal_counter" value="' . $internal_counter . '" />
+
+          <div class="form-group">
+            <label class="col-sm-2 col-form-label"><?php echo _YADAACTION ?></label>
+            <div class="col-sm-3">
+              <select class="custom-select name="op">
+ 				        <option value="' . PMX_MODULE . '/resend">' . _YADADMINRESEND . '</option>
+        				<option value="' . PMX_MODULE . '/activate">' . _YADACTIVATE . '</option>
+        				<option value="' . PMX_MODULE . '/delete">' . _YADDELDO . '</option>
+              </select>
+            </div>
+          </div>
+
+  
+        	<input type="submit" class="btn btn-primary" name="submit" value="' . _SUBMIT . '" />
+  
+      </form>';
+
         prevnext($menge, $counter, $internal_counter);
-        CloseTable();
     } else {
-        OpenTable();
         echo _YADNOENTRY . "<br />\n";
-        CloseTable();
     }
     include("footer.php");
 }
