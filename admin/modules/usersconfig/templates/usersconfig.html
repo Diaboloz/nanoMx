@@ -3,63 +3,58 @@
 pmxHeader::add_tabs();
 ?>
 
-<div id="ya-tabs">
-
-<ul class="tabs-nav">
-  <li><a href="#ya-register"><?php echo _UTAB_OPTIONS ?></a></li>
-  <li><a href="#ya-photo"><?php echo _UTAB_USERPIC ?></a></li>
-<?php if ($this->tab_welcome): ?>
-  <li><a href="#ya-welcome"><?php echo _UTAB_WELCOMEMSG ?></a></li>
-<?php endif ?>
-  <li><a href="#ya-points"><?php echo _UTAB_USERPOINTS ?></a></li>
-  <li><a href="#ya-other"><?php echo _UTAB_OTHERS ?></a></li>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#ya-register" role="tab"><?php echo _UTAB_OPTIONS ?></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#ya-photo" role="tab"><?php echo _UTAB_USERPIC ?></a>
+  </li>
+  <?php if ($this->tab_welcome): ?>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#ya-welcome" role="tab"><?php echo _UTAB_WELCOMEMSG ?></a>
+  </li>
+  <?php endif ?>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#ya-points" role="tab"><?php echo _UTAB_USERPOINTS ?></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#ya-other" role="tab"><?php echo _UTAB_OTHERS ?></a>
+  </li>
 </ul>
 
+
 <form action="<?php echo adminUrl(PMX_MODULE, 'save') ?>" method="post">
-  <div id="ya-register" class="tabs-panel">
+
+<!-- Tab panes -->
+<div class="tab-content">
+
+  <div class="tab-pane active" id="ya-register" role="tabpanel">
     <?php echo($this->tab_register) ?>
   </div>
 
-  <div id="ya-photo" class="tabs-panel">
+  <div class="tab-pane" id="ya-photo" role="tabpanel">
     <?php echo($this->tab_photo) ?>
   </div>
 
-<?php if ($this->tab_welcome): ?>
-  <div id="ya-welcome" class="tabs-panel">
+  <?php if ($this->tab_welcome): ?>
+  <div class="tab-pane" id="ya-welcome" role="tabpanel">
     <?php echo($this->tab_welcome) ?>
   </div>
-<?php endif ?>
+  <?php endif ?>
 
-  <div id="ya-points" class="tabs-panel">
-    <?php echo($this->tab_points) ?>
+  <div class="tab-pane" id="ya-points" role="tabpanel">
+    <?php echo($this->tab_points) ?>  
   </div>
 
-  <div id="ya-other" class="tabs-panel">
-    <?php echo($this->tab_other) ?>
+  <div class="tab-pane" id="ya-other" role="tabpanel">
+    <?php echo($this->tab_other) ?>  
   </div>
-
-  <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" />
-  <input type="submit" value="<?php echo _UCSAVECHANGES ?>" />
-</form>
-
 </div>
-
-<script type="text/javascript">
-  /* <![CDATA[ */
-  $(document).ready(function() {
-    var tab_cookie_name = 'tab_usersconfig';
-    $("#ya-tabs").tabs({
-      active: ($.cookie(tab_cookie_name) || 0),
-      activate: function(event, ui) {
-        var newIndex = ui.newTab.parent().children().index(ui.newTab);
-        $.cookie(tab_cookie_name, newIndex, {
-          path: window.location.pathname,
-          expires: 7
-        });
-      }
-    });
-    $(".ya-hidecaption").hide();
-  }); /* ]]> */
-</script>
+  <br>
+  <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" />
+  <button type="submit" class="btn btn-primary"><?php echo _UCSAVECHANGES ?></button>
+</form>
 
 <?php /* pragmaMx CVS $Id: usersconfig.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>

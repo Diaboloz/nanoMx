@@ -12,113 +12,115 @@ $access_upload = new pmxInlinePermissions('access_upload', $this->access_upload,
 
 ?>
 <?php if (!$gd_installed) : ?>
-  <div class="warning"><?php echo _UPIC_GD_WARNING ?></div>
+  <div class="alert alert-warning"><?php echo _UPIC_GD_WARNING ?></div>
 <?php endif ?>
 
-<table class="form full">
+<div class="card">
+  <div class="card-header">
+    <?php echo _UPIC_SERVER_STORED ?>
+  </div>
+  <div class="card-block">
+   <div class="container"> 
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label"><?php echo _UPIC_SERVER_STORED_GROUPS ?></label>
+    <div class="col-sm-10"><?php echo $access_avatars->getHtml() ?></div>
+  </div>
 
-  <tr valign="top">
-    <th colspan="2"><h3><?php echo _UPIC_SERVER_STORED ?></h3></th>
-  </tr>
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label <?php echo ($valid_path_avatars ? '' : ' style="color: red; font-weight: bold;"') ?>"><?php echo _UPIC_DIRECTORY ?></label>
+    <div class="col-sm-10"><input class="form-control" type="text" name="path_avatars" id="path_avatars" value="<?php echo $this->path_avatars ?>" size="40" /></div>
+  </div>
 
-  <tr valign="top">
-    <td width="50%" valign="top"><label for="access_avatars"><?php echo _UPIC_SERVER_STORED_GROUPS ?></label>:</td>
-    <td><?php echo $access_avatars->getHtml() ?></td>
-  </tr>
+  <?php if(1===2): ?>
+    // zur Zeit noch nicht implementiert !!
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label <?php echo ($valid_path_avatars ? '' : ' style="color: red; font-weight: bold;"') ?>"><?php echo _UPIC_URL ?></label>
+    <div class="col-sm-10"><input class="form-control" type="text" name="url_avatars" id="url_avatars" value="<?php echo $this->url_avatars ?>" size="40" /></div>
+  </div>
+  <?php endif; ?>
+  </div> <!-- END:.container (_UPIC_SERVER_STORED) -->
+  </div> <!-- END:.card-block (_UPIC_SERVER_STORED) -->
+</div> <!-- END:.card (_UPIC_SERVER_STORED) -->
 
-  <tr valign="top">
-    <td><label for="path_avatars" <?php echo ($valid_path_avatars ? '' : ' style="color: red; font-weight: bold;"') ?>><?php echo _UPIC_DIRECTORY ?></label>:</td>
-    <td><input type="text" name="path_avatars" id="path_avatars" value="<?php echo $this->path_avatars ?>" size="40" /></td>
-  </tr>
-
-<?php if(1===2): ?>
-  // zur Zeit noch nicht implementiert !!
-  <tr valign="top">
-    <td><label for="url_avatars"><?php echo _UPIC_URL ?></label>:</td>
-    <td><input type="text" name="url_avatars" id="url_avatars" value="<?php echo $this->url_avatars ?>" size="40" /></td>
-  </tr>
-<?php endif; ?>
 
 <?php if ($gd_installed) : ?>
-  <tr valign="top">
-    <th colspan="2"><h3><?php echo _UPIC_UPLOADS ?></h3></th>
-  </tr>
+<div class="card">
+  <div class="card-header">
+    <?php echo _UPIC_UPLOADS ?>
+  </div>
+  <div class="container">
+  <div class="card-block">
 
-  <tr valign="top">
-    <td valign="top"><label for="access_upload"><?php echo _UPIC_UPLOAD_GROUPS ?></label>:</td>
-    <td><?php echo $access_upload->getHtml() ?></td>
-  </tr>
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label"><?php echo _UPIC_UPLOAD_GROUPS ?></label>
+    <div class="col-sm-10"><?php echo $access_upload->getHtml() ?></div>
+  </div>
 
-  <tr valign="top">
-    <td><label for="path_upload" <?php echo ($valid_path_upload ? '' : ' style="color: red; font-weight: bold;"') ?>><?php echo _UPIC_CUSTOM_DIR ?></label>:<br />
-    <span class="tiny"><?php echo _UPIC_CUSTOM_DIR_DESC ?></span></td>
-    <td><input type="text" name="path_upload" id="path_upload" value="<?php echo $this->path_upload ?>" size="40" /></td>
-  </tr>
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label" <?php echo ($valid_path_upload ? '' : ' style="color: red; font-weight: bold;"') ?>><?php echo _UPIC_CUSTOM_DIR ?></label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control" name="path_upload" id="path_upload" value="<?php echo $this->path_upload ?>" size="40" />
+    <small id="path_upload" class="form-text text-muted"><?php echo _UPIC_CUSTOM_DIR_DESC ?></small>
+    </div>
+  </div>
 
-  <tr valign="top">
-    <td>
-      <label for="file_maxsize"><?php echo _UPIC_MAXFILESIZE ?></label>
-      <div class="tiny" style="font-weight: bold;">
-        <?php echo _UPIC_DIMENSIONS_NOTE ?>
-      </div>
-    </td>
-    <td><input name="file_maxsize" id="file_maxsize" type="text" value="<?php echo round($this->file_maxsize / 1024) ?>" /> KB</td>
-  </tr>
+  <div class="form-group row">
+    <label for="file_maxsize" class="col-sm-2 col-form-label"><?php echo _UPIC_MAXFILESIZE ?></label>
+    <div class="col-sm-10">
+    <input name="file_maxsize" id="file_maxsize" type="text" value="<?php echo round($this->file_maxsize / 1024) ?>" /> KB
+    <small id="path_upload" class="form-text text-muted"><?php echo _UPIC_DIMENSIONS_NOTE ?></small>
+    </div>
+  </div>
 
-  <tr valign="top">
-    <td>
-      <label for="width_full"><?php echo _UPIC_IMAGEPROPS_UPLOADED ?></label>:
-    </td>
-    <td class="nowrap">
-      <input type="text" name="width_full" id="width_full" value="<?php echo $this->width_full ?>" size="6" /> *
-      <input type="text" name="height_full" id="height_full" value="<?php echo $this->height_full ?>" size="6" /> <?php echo _UPIC_PIXEL ?>
-    </td>
-  </tr>
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label"><?php echo _UPIC_IMAGEPROPS_UPLOADED ?></label>
+    <div class="col-sm-10">
+      <input style="width:10%;display: inline-block" type="text" class="form-control" name="width_full" id="width_full" value="<?php echo $this->width_full ?>" size="6" /> *
+      <input style="width:10%;display: inline-block" type="text" class="form-control" name="height_full" id="height_full" value="<?php echo $this->height_full ?>" size="6" /> <?php echo _UPIC_PIXEL ?>
+    </div>
+  </div>
 
-  <tr valign="top">
-    <td>
-      <label for="width_normal"><?php echo _UPIC_IMAGEPROPS_PROFILE ?></label>
-    </td>
-    <td class="nowrap">
-      <input type="text" name="width_normal" id="width_normal" value="<?php echo $this->width_normal ?>" size="6" /> *
-      <input type="text" name="height_normal" id="height_normal" value="<?php echo $this->height_normal ?>" size="6" /> <?php echo _UPIC_PIXEL ?>
-    </td>
-  </tr>
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label"><?php echo _UPIC_IMAGEPROPS_PROFILE ?></label>
+    <div class="col-sm-10">
+      <input style="width:10%;display: inline-block" type="text" class="form-control" name="width_normal" id="width_normal" value="<?php echo $this->width_normal ?>" size="6" /> *
+      <input style="width:10%;display: inline-block" type="text" class="form-control" name="height_normal" id="height_normal" value="<?php echo $this->height_normal ?>" size="6" /> <?php echo _UPIC_PIXEL ?>
+    </div>
+  </div>
 
-  <tr valign="top">
-    <td>
-      <label for="width_small"><?php echo _UPIC_IMAGEPROPS_AVATAR ?></label>
-    </td>
-    <td class="nowrap">
-      <input type="text" name="width_small" id="width_small" value="<?php echo $this->width_small ?>" size="6" /> *
-      <input type="text" name="height_small" id="height_small" value="<?php echo $this->height_small ?>" size="6" /> <?php echo _UPIC_PIXEL ?>
-    </td>
-  </tr>
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label"><?php echo _UPIC_IMAGEPROPS_AVATAR ?></label>
+    <div class="col-sm-10">
+      <input style="width:10%;display: inline-block" type="text" class="form-control" name="width_small" id="width_small" value="<?php echo $this->width_small ?>" size="6" /> *
+      <input style="width:10%;display: inline-block" type="text" class="form-control" name="height_small" id="height_small" value="<?php echo $this->height_small ?>" size="6" /> <?php echo _UPIC_PIXEL ?>
+    </div>
+  </div>
 
-  <tr valign="top">
-    <td>
-      <label for="width_mini"><?php echo _UPIC_IMAGEPROPS_THEME ?></label>
-    </td>
-    <td class="nowrap">
-      <input type="text" name="width_mini" id="width_mini" value="<?php echo $this->width_mini ?>" size="6" /> *
-      <input type="text" name="height_mini" id="height_mini" value="<?php echo $this->height_mini ?>" size="6" /> <?php echo _UPIC_PIXEL ?>
-    </td>
-  </tr>
-  
-  <tr valign="top">
-    <td><label for="mail_notice"><?php echo _UPIC_MAILNOTICE ?></label></td>
-    <td>
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label"><?php echo _UPIC_IMAGEPROPS_THEME ?></label>
+    <div class="col-sm-10">
+      <input style="width:10%;display: inline-block" type="text" class="form-control" name="width_mini" id="width_mini" value="<?php echo $this->width_mini ?>" size="6" /> *
+      <input style="width:10%;display: inline-block" type="text" class="form-control" name="height_mini" id="height_mini" value="<?php echo $this->height_mini ?>" size="6" /> <?php echo _UPIC_PIXEL ?>
+    </div>
+  </div>  
+
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label"><?php echo _UPIC_MAILNOTICE ?></label>
+    <div class="col-sm-10">
       <input name="mail_notice" id="mail_notice" value="1" size="20" type="radio"<?php echo ($this->mail_notice) ? ' checked="checked"' : '' ?> /><?php echo _YES ?>
       <input name="mail_notice" value="0" size="20" type="radio"<?php echo ($this->mail_notice) ? '' : ' checked="checked"' ?> /><?php echo _NO ?>
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><label for="mail_address"><?php echo _UPIC_YOURMAIL ?>&nbsp;<span class="required">*</span></label></td>
-    <td><input name="mail_address" id="mail_address" value="<?php echo $this->mail_address ?>" type="text" /></td>
-  </tr>
+    </div>
+  </div> 
 
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label"><?php echo _UPIC_YOURMAIL ?> &nbsp;<span class="required">*</span></label>
+    <div class="col-sm-10">
+      <input class="form-control" name="mail_address" id="mail_address" value="<?php echo $this->mail_address ?>" type="text" />
+    </div>
+  </div>  
+  </div> <!-- END:.container (_UPIC_UPLOADS) -->
+  </div> <!-- END:.card-block (_UPIC_UPLOADS) -->
+</div> <!-- END:.card (_UPIC_UPLOADS) -->
 <?php endif ?>
-
-</table>
 
 <?php /* pragmaMx CVS $Id: photo.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>
