@@ -1,92 +1,99 @@
+  <div class="container">
 
-<table class="form full">
+  <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label"><?php echo _ADMIN_USERREGTYPE ?></label>
+    <div class="col-sm-10"><?php echo $this->radio_registertype ?></div>
+  </div>
 
-  <tr valign="top">
-    <td><?php echo _ADMIN_USERREGTYPE ?></td>
-    <td><?php echo $this->radio_registertype ?></td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _PASSWDLEN ?>:</td>
-    <td><select name="minpass">
-      <?php echo $this->select_minpass ?>
-    </select></td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _UNAMEMINCHARS ?></td>
-    <td><select name="uname_min_chars" size="1">
-      <?php echo $this->select_uname_min_chars ?>
-    </select></td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _UNAMECASESENSITIVE ?></td>
-    <td>
+  <div class="form-group row">
+    <label for="minpass" class="col-sm-2 col-form-label"><?php echo _PASSWDLEN ?></label>
+    <div class="col-sm-10"><select name="minpass" class="form-control"><?php echo $this->select_minpass ?></select></div>
+  </div>
+
+  <div class="form-group row">
+    <label for="uname_min_chars" class="col-sm-2 col-form-label"><?php echo _UNAMEMINCHARS ?></label>
+    <div class="col-sm-10"><select name="uname_min_chars" class="form-control"><?php echo $this->select_uname_min_chars ?></select></div>
+  </div>
+
+  <div class="form-group row">
+    <label for="uname_min_chars" class="col-sm-2 col-form-label"><?php echo _UNAMECASESENSITIVE ?></label>
+    <div class="col-sm-10">
       <input type="radio" name="uname_caseinsensitive" value="0" <?php echo (($this->uname_caseinsensitive) ? '' : ' checked="checked"') ?> /><?php echo _NO ?>
       <input type="radio" name="uname_caseinsensitive" value="1" <?php echo (($this->uname_caseinsensitive) ? ' checked="checked"' : '') ?> /><?php echo _YES ?>
       <span class="highlight"><?php echo _UCNOTRECOMMEND ?></span>
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _UNAMESPACECHARS ?></td>
-    <td>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="uname_space_chars" class="col-sm-2 col-form-label"><?php echo _UNAMESPACECHARS ?></label>
+    <div class="col-sm-10">
       <input type="radio" name="uname_space_chars" value="0" <?php echo (($this->uname_space_chars) ? '' : ' checked="checked"') ?> /><?php echo _NO ?>
       <input type="radio" name="uname_space_chars" value="1" <?php echo (($this->uname_space_chars) ? ' checked="checked"' : '') ?> /><?php echo _YES ?>
       <span class="highlight"><?php echo _UCNOTRECOMMEND ?></span>
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _UNAMESPECIALCHARS ?></td>
-    <td>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="uname_special_chars" class="col-sm-2 col-form-label"><?php echo _UNAMESPECIALCHARS ?></label>
+    <div class="col-sm-10">
       <input type="radio" name="uname_special_chars" value="0" <?php echo (($this->uname_special_chars) ? '' : ' checked="checked"') ?> /><?php echo _NO ?>
       <input type="radio" name="uname_special_chars" value="1" <?php echo (($this->uname_special_chars) ? ' checked="checked"' : '') ?> /><?php echo _YES ?>
       <span class="highlight"><?php echo _UCNOTRECOMMEND ?></span>
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _MINAGE ?></td>
-    <td><input name="yaproofdate" maxlength="2" value="<?php echo (($this->yaproofdate) ? $this->yaproofdate : 0) ?>" size="3" type="text" />&nbsp;<?php echo _ZERONONACT ?></td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _ADMINGROUPDEF ?><br /><span class="tiny"><?php echo _ADMINGROUPDEFCUR ?>: <b><?php echo mxGetGroupTitle($this->default_group) ?></b></span></td>
-    <td><select name="default_group">
-      <?php echo $this->select_usergroups ?>
-    </select></td>
-  </tr>
+    </div>
+  </div>
 
-  <tr valign="top">
-    <td><?php echo _AGREERULES ?></td>
-    <td>
+  <div class="form-group row">
+    <label for="yaproofdate" class="col-sm-2 col-form-label"><?php echo _MINAGE ?></label>
+    <div class="col-sm-10">
+    <input name="yaproofdate" class="form-control" maxlength="2" value="<?php echo (($this->yaproofdate) ? $this->yaproofdate : 0) ?>" size="3" type="text" />&nbsp;<?php echo _ZERONONACT ?></div>
+  </div>
+
+  <div class="form-group row">
+    <label for="default_group" class="col-sm-2 col-form-label"><?php echo _ADMINGROUPDEF ?></label>
+    <div class="col-sm-10">
+    <select name="default_group" class="form-control"><?php echo $this->select_usergroups ?></select>
+    <small id="default_group" class="form-text text-muted"><?php echo _ADMINGROUPDEFCUR ?>: <b><?php echo mxGetGroupTitle($this->default_group) ?></b></small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="agb_agree" class="col-sm-2 col-form-label"><?php echo _AGREERULES ?></label>
+    <div class="col-sm-10">
       <input name="agb_agree" value="1" type="radio" <?php echo (($this->agb_agree) ? ' checked="checked"' : '') ?> /><?php echo _YES ?>
       <input name="agb_agree" value="0" type="radio" <?php echo (($this->agb_agree) ? '' : ' checked="checked"') ?> /><?php echo _NO ?>
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _LINK2LEGAL ?></td>
-    <td>
-      <input type="text" name="agb_agree_link" value="<?php echo $this->agb_agree_link ?>" size="50" />
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _LINK2LEGALPP ?></td>
-    <td>
-      <input type="text" name="pp_link" value="<?php echo $this->pp_link ?>" size="50" />
-    </td>
-  </tr>
+    </div>
+  </div>
 
-  <tr valign="top">
-    <td><?php echo _SENDADDMAIL ?></td>
-    <td>
+  <div class="form-group row">
+    <label for="agb_agree_link" class="col-sm-2 col-form-label"><?php echo _LINK2LEGAL ?></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="agb_agree_link" value="<?php echo $this->agb_agree_link ?>" size="50" />
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="pp_link" class="col-sm-2 col-form-label"><?php echo _LINK2LEGALPP ?></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="pp_link" value="<?php echo $this->pp_link ?>" size="50" />
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="sendaddmail" class="col-sm-2 col-form-label"><?php echo _SENDADDMAIL ?></label>
+    <div class="col-sm-10">
       <input name="sendaddmail" value="1" size="20" type="radio" <?php echo ($this->sendaddmail) ? ' checked="checked"' : '' ?> /><?php echo _YES ?>
       <input name="sendaddmail" value="0" size="20" type="radio" <?php echo ($this->sendaddmail) ? '' : ' checked="checked"' ?> /><?php echo _NO ?>
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _SENDDELTEMAIL ?></td>
-    <td>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="senddeletemail" class="col-sm-2 col-form-label"><?php echo _SENDDELTEMAIL ?></label>
+    <div class="col-sm-10">
       <input name="senddeletemail" value="1" size="20" type="radio" <?php echo ($this->senddeletemail) ? ' checked="checked"' : '' ?> /><?php echo _YES ?>
       <input name="senddeletemail" value="0" size="20" type="radio" <?php echo ($this->senddeletemail) ? '' : ' checked="checked"' ?> /><?php echo _NO ?>
-    </td>
-  </tr>
+    </div>
+  </div>
 
-</table>
-
+  </div>
+  
 <?php /* pragmaMx CVS $Id: register.html 129 2016-04-25 14:29:59Z PragmaMx $ */ ?>

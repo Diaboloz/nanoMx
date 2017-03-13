@@ -1,37 +1,45 @@
-
-<table class="form full">
-  <tr valign="top">
-    <td><label for="passlost_codeoption"><?php echo _PASSLOSTOPTION ?></label></td>
-    <td>
+<div class="container">
+  <div class="form-group row">
+    <label for="passlost_codeoption" class="col-sm-2 col-form-label"><?php echo _PASSLOSTOPTION ?></label>
+    <div class="col-sm-10">
       <input type="radio" name="passlost_codeoption" <?php echo ($this->passlost_codeoption == 1) ? ' checked="checked" class="current"' : '' ?> value="1" /> <?php echo _PASSLOSTOPTION_A ?><br />
       <input type="radio" name="passlost_codeoption" <?php echo ($this->passlost_codeoption == 0) ? ' checked="checked" class="current"' : '' ?> value="0" /> <?php echo _PASSLOSTOPTION_B ?>
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _LOGINSTARTPAGE ?></td>
-    <td><input name="yastartpage" value="<?php echo $this->yastartpage ?>" size="50" type="text" /></td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _CHANGETHEMEN ?></td>
-    <td>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="yastartpage" class="col-sm-2 col-form-label"><?php echo _LOGINSTARTPAGE ?></label>
+    <div class="col-sm-10">
+      <input class="form-control" name="yastartpage" value="<?php echo $this->yastartpage ?>" size="50" type="text" />
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="allowchangetheme" class="col-sm-2 col-form-label"><?php echo _CHANGETHEMEN ?></label>
+    <div class="col-sm-10">
     <input name="allowchangetheme" value="1" size="20" type="radio"<?php echo ($this->allowchangetheme) ? ' checked="checked"' : '' ?> /><?php echo _YES ?>
     <input name="allowchangetheme" value="0" size="20" type="radio"<?php echo ($this->allowchangetheme) ? '' : ' checked="checked"' ?> /><?php echo _NO ?>
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _SHOWUSERGROUP ?></td>
-    <td>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="showusergroup" class="col-sm-2 col-form-label"><?php echo _SHOWUSERGROUP ?></label>
+    <div class="col-sm-10">
     <input name="showusergroup" value="0" size="20" type="radio"<?php echo ($this->showusergroup == 0) ? ' checked="checked"' : '' ?> /><?php echo _MVADMIN ?><br />
     <input name="showusergroup" value="1" size="20" type="radio"<?php echo ($this->showusergroup == 1) ? ' checked="checked"' : '' ?> /><?php echo _MVSELF ?><br />
     <input name="showusergroup" value="2" size="20" type="radio"<?php echo ($this->showusergroup == 2) ? ' checked="checked"' : '' ?> /><?php echo _MVUSERS ?><br />
     <input name="showusergroup" value="3" size="20" type="radio"<?php echo ($this->showusergroup == 3) ? ' checked="checked"' : '' ?> /><?php echo _MVALL ?><br />
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><?php echo _ADMIN_POPTIME ?>:<br /><span class="tiny"><?php echo _ADMIN_NOREFS ?></span></td>
-    <td><?php echo _ADMIN_POPTIME1 ?><input type="text" name="pm_poptime" value="<?php echo $this->pm_poptime ?>" size="5" /> <?php echo _ADMIN_POPTIME2 ?></td>
-  </tr>
+    </div>
+  </div>
 
-</table>
+  <div class="form-group row">
+    <label for="showusergroup" class="col-sm-2 col-form-label"><?php echo _ADMIN_POPTIME ?></label>
+    <div class="col-sm-10">
+      <small id="pm_poptime" class="form-text text-muted"><?php echo _ADMIN_NOREFS ?></small>
+      <?php echo _ADMIN_POPTIME1 ?>&nbsp;<input style="width:10%;display:inline-block" class="form-control" type="text" name="pm_poptime" value="<?php echo $this->pm_poptime ?>" size="5" />&nbsp;<?php echo _ADMIN_POPTIME2 ?>     
+    </div>
+  </div>
+
+</div> <!-- END:.container -->
 
 <?php /* pragmaMx CVS $Id: other.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>
