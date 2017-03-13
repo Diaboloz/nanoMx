@@ -396,23 +396,28 @@ class lightbox_admin {
     
 		//$tb->__set('target_url', adminUrl(PMX_MODULE));
 		
-		$tb->__set("tb_direction", 'right');
-		$tb->__set("infobutton", false);
-		$tb->__set("tb_pic_heigth", 25);
-		$tb->__set("csstoolbar", "toolbar1");
-		$tb->__set("cssform", "a304030");
-		$tb->__set('buttontext', false);
+		//$tb->__set("tb_direction", 'right');
+		//$tb->__set("infobutton", false);
+		//$tb->__set("tb_pic_heigth", 25);
+		//$tb->__set("csstoolbar", "toolbar1");
+		//$tb->__set("cssform", "a304030");
+		$tb->__set('buttontext', true);
 		$tb->__set('homelink', false);
-		$tb->__set('fieldhomebutton', true);
+		//$tb->__set('fieldhomebutton', true);
 		
 		
 		//$tb->addToolbar("accept");
-		$tb->addToolbar("save");
+		//$tb->addToolbar("save");
 		
 		/* general settings */
-		$tb->addFieldset("lb", _LIGHTBOXSETTINGS, "", false);
+		$tb->addFieldset("lb", "", "", false);
 		$tb->add("lb","hidden","ok",1);
-		$tb->add("lb","html",'<div class="align-center" ><a title="' . _DESCRIPTION . '" rel="pretty[box]" href="' . $this->_source_path . '/test.jpg">' . mxCreateImage($this->_source_path . '/test.jpg', _TITLE, array('width' => '100', 'height' => '100')) . '</a></div><br />');
+		$tb->add("lb","html",'
+                <div class="card text-center" style="width: 20rem;">
+                    <div class="card-block">
+                        <a title="' . _DESCRIPTION . '" rel="pretty[box]" href="' . $this->_source_path . '/test.jpg">' . mxCreateImage($this->_source_path . '/test.jpg', _TITLE, array('width' => '100', 'height' => '100')) . '</a>
+                    </div>
+                </div>');
 		
 		/* Designs */
         $path = str_replace('/', DS, PMX_LAYOUT_DIR . '/jquery/images/prettyPhoto/*/sprite.png');

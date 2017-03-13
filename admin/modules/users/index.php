@@ -42,7 +42,7 @@ function mainusers()
     $udata['user_bday'] = '0000-00-00';
     $newpass = pmx_password_create();
     $options = getAllUsersSelectOptions1();
-    pmx_html_passwordchecker();
+    //TODO nanomx pmx_html_passwordchecker();
 
     include("header.php");
     GraphicAdmin();
@@ -125,13 +125,20 @@ function mainusers()
 		<div class="tab-pane" id="userAdd" role="tabpanel">
 			<form action="' . adminUrl(PMX_MODULE, 'add') . '" method="post">
             <div class="container">
-			
+		
+        	<div class="form-group row">
+            	<label for="name" class="col-sm-2 col-form-label">' . _NAME . '</label>
+            	<div class="col-sm-3">
+					<input type="text" class="form-control" id="name" name="name" value="' . ((empty($udata['name'])) ? '' : htmlspecialchars($udata['name'])) . '" size="60" maxlength="60" />
+            	</div>
+        	</div>
+
 	        <div class="form-group row">
 				<label for="uname" class="col-sm-2 col-form-label">' . _NICKNAME . '</label>
-				<div class="col-sm-2">
-					<input type="text" class="form-control" id="uname" name="uname" size="30" maxlength="25" /> 
-					<span class="small">' . _REQUIRED . '</span>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="uname" name="uname" size="30" maxlength="25" />
 				</div>
+				<span class="form-text text-muted">' . _REQUIRED . '</span>
 			</div>
 			
 	        <div class="form-group row">
@@ -255,53 +262,24 @@ function modify()
     include('header.php');
     GraphicAdmin();
     title(_USERADMIN);
-    OpenTable();
-    echo "
-		<fieldset>
-			<legend>" . $ptitle . ": <em>" . $udata['uname'] . "</em></legend>
-			<form action=\"" . adminUrl(PMX_MODULE, 'update') . "\" method=\"post\">
-     
-    " . _USERID . "
-    " . $udata['uid'] . "
-    " . _NICKNAME . "
-    " . $udata['uname'] . "
-	<input type=\"hidden\" name=\"uname\" value=\"" . mxEntityQuotes($udata['uname']) . "\" /></td></tr>"
-     . adminuserform($udata);
-	 
-    if ($udata['user_stat'] != -1) {
-        pmx_html_passwordchecker();
-        echo "
-		" . _PASSWORD . "
-        <input type=\"password\" name=\"pass\" value=\"" . $formpass . "\" size=\"30\" class=\"password-checker-input\" />" . $forchanges . "
-        " . _RETYPEPASSWD . "
-		<input type=\"password\" name=\"pass2\" value=\"" . $formpass . "\" size=\"30\" class=\"password-checker-input\" />" . $forchanges . "
-        <input type=\"submit\" value=\"" . _SAVECHANGES . "\" />
-        ";
-    } else {
-        echo "
-        <input type=\"hidden\" name=\"user_stat\" value=\"1\" />
-        <input type=\"submit\" name=\"ureactivate\" value=\"" . _REACTIVATEUSER . "\" />
-       ";
-    }
-
-    echo "
-    <input type=\"hidden\" name=\"chng_uid\" value=\"" . $udata['uid'] . "\" />
-	<input type=\"hidden\" name=\"old_user_stat\" value=\"" . $udata['user_stat'] . "\" />
-	<input type=\"hidden\" name=\"op\" value=\"" . PMX_MODULE . "/update\" />
-	</form>
-</fieldset>";
+    echo '
+    	<div class="card">
+			<div class="card-block">
+				<h3 class="mb-2">' . $ptitle . '  <span class="badge badge-default">' . $udata['uname'] . '</span></h3>';
 
     if ($uploadedpic) {
 
         ?>
-<fieldset>
-    <legend><?php echo _UPIC_UPLOADED ?></legend>
+  
+     	<div class="card text-center" style="width: 20rem;">
+			<div class="card-block"> 			 
+
+    <p class="text-muted small text-uppercase font-weight-bold"><?php echo _UPIC_UPLOADED ?></p>
     <img alt="uploaded" src="<?php echo $uploadedpic ?>"/>
-    &nbsp;&nbsp;<a href="modules.php?name=Your_Account&amp;op=deluserpic&amp;uid=<?php echo $udata['uid'] ?>" class="button hidden" id="upicdelete"><?php echo _UPIC_DELETEIMG ?></a>
+    &nbsp;&nbsp;<a href="modules.php?name=Your_Account&amp;op=deluserpic&amp;uid=<?php echo $udata['uid'] ?>" class="btn hidden" id="upicdelete"><?php echo _UPIC_DELETEIMG ?></a>
     <noscript>
-        <a class="button" href="#" title="<?php echo _JSSHOULDBEACTIVE ?>"><?php echo _UPIC_DELETEIMG ?></a><br /><span class="tiny">(<?php echo _JSSHOULDBEACTIVE ?>)</span>
+        <a class="btn" href="#" title="<?php echo _JSSHOULDBEACTIVE ?>"><?php echo _UPIC_DELETEIMG ?></a><br /><span class="tiny">(<?php echo _JSSHOULDBEACTIVE ?>)</span>
     </noscript>
-</fieldset>
 <script type="text/javascript">
 /*<![CDATA[*/
   $(document).ready(function() {
@@ -312,10 +290,55 @@ function modify()
   });
 /*]]>*/
 </script>
+
+</div>
+</div>
+
     <?php
+    }		
+	echo '
+			<form action="' . adminUrl(PMX_MODULE, 'update') . '" method="post"> 
+				<div class="container">
+				<input type="hidden" name="uname" value="' . mxEntityQuotes($udata['uname']) . '" />
+				' . adminuserform($udata);
+	 
+    if ($udata['user_stat'] != -1) {
+        pmx_html_passwordchecker();
+        echo '
+
+        <div class="form-group row">
+            <label for="pass" class="col-sm-2 col-form-label">' . _PASSWORD . '</label>
+            <div class="col-sm-3">
+            	<input type="password" id="pass" name="pass" value="' . $formpass . '" size="30" class="form-control password-checker-input" />
+            	<span class="form-text text-muted">' . $forchanges . '</span>			
+            </div>           	
+        </div>
+
+        <div class="form-group row">
+            <label for="pass2" class="col-sm-2 col-form-label">' . _RETYPEPASSWD . '</label>
+            <div class="col-sm-3">
+            	<input type="password" id="pass2" name="pass2" value="' . $formpass . '" size="30" class="form-control password-checker-input" />
+            	<span class="form-text text-muted">' . $forchanges . '</span>			
+            </div>           	
+        </div>
+		<input type="submit" class="btn btn-primary" value="' . _SAVECHANGES . '" />';
+
+    } else {
+        echo '
+				<input type="hidden" name="user_stat" value="1" />
+				<input type="submit" class="btn btn-primary" name="ureactivate" value="' . _REACTIVATEUSER . '" />';
     }
 
-    CloseTable();
+    echo '
+				<input type="hidden" name="chng_uid" value="' . $udata['uid'] . '" />
+				<input type="hidden" name="old_user_stat" value="' . $udata['user_stat'] . '" />
+				<input type="hidden" name="op" value="' . PMX_MODULE . '/update" />
+			</form>
+
+			 	</div>
+			</div>
+		</div>';
+
     include('footer.php');
 }
 
@@ -401,7 +424,7 @@ function update($pvs)
             $message .= "  -" . _NICKNAME . ":\t " . $uname . "\n";
             $message .= "  -" . _PASSWORD . ":\t " . $pass . "\n";
             $message .= "\n\n" . $GLOBALS['slogan'] . "\n-----------------------------------------------------------\n\n";
-            $message .= PMX_HOME_URL . "/modules.php?name=Your_Account\n\n\n\n\n\n\n\n\npowered by: pragmaMx " . PMX_VERSION . " (http://www.pragmaMx.org/)";
+            $message .= PMX_HOME_URL . "/modules.php?name=Your_Account\n\n\n\n\n\n\n\n\npowered by: nanoMx " . PMX_VERSION . " (http://www.nanoMx.pro)";
             mxMail($email, $subject, $message);
         }
 
@@ -419,19 +442,21 @@ function update($pvs)
             $message .= "\n\n\n---------------------------------------------------------------------------\n" . _PASSWORDLOST . "\n" . PMX_HOME_URL . "/modules.php?name=Your_Account&amp;op=pass_lost";
             include('header.php');
             title(_USERADMIN);
-            OpenTable();
             echo '
-				<p class="note stronger">' . sprintf(_YA_REAC_RESULTOK, htmlspecialchars($uname)) . '</p>
-				<p><b>' . sprintf(_YA_REAC_SENDMESSAGE, htmlspecialchars($uname)) . '</b></p>
-             <form action="' . adminUrl(PMX_MODULE, 'reactivate') . '" method="post">
-                <p>' . _YA_REAC_EDITMSGTEXT . '</p>
-                <textarea cols="75" rows="8" name="message">' . $message . '</textarea><br /><br />
-                <input type="hidden" name="op" value="' . PMX_MODULE . '/reactivate" />
-                <input type="hidden" name="uid" value="' . $chng_uid . '" />
-                <input type="submit" name="sendmail" value="' . _YES . '" /> &nbsp;
-                <input type="submit" value="' . _NO . '" />
-             </form>';
-            CloseTable();
+				<div class="card">
+					<div class="card-block">
+						<p>' . sprintf(_YA_REAC_RESULTOK, htmlspecialchars($uname)) . '</p>
+						<p>' . sprintf(_YA_REAC_SENDMESSAGE, htmlspecialchars($uname)) . '</p>
+						<form action="' . adminUrl(PMX_MODULE, 'reactivate') . '" method="post">
+							<p>' . _YA_REAC_EDITMSGTEXT . '</p>
+							<textarea cols="75" rows="8" name="message">' . $message . '</textarea>
+							<input type="hidden" name="op" value="' . PMX_MODULE . '/reactivate" />
+							<input type="hidden" name="uid" value="' . $chng_uid . '" />
+							<input type="submit" class="btn btn-warning" name="sendmail" value="' . _YES . '" />
+							<input type="submit"  class="btn btn-default" value="' . _NO . '" />
+						</form>
+					</div>
+				</div>';
             include('footer.php');
             break;
 
@@ -479,7 +504,9 @@ function add($pvs)
     extract($pvs);
     $uname = trim($uname);
 
-    $result = sql_query("SELECT uid FROM `{$user_prefix}_users` WHERE uname='" . mxAddSlashesForSQL($uname) . "'");
+    $result = sql_query("SELECT uid 
+						FROM `{$user_prefix}_users` 
+						WHERE uname='" . mxAddSlashesForSQL($uname) . "'");
     list($new_uid) = sql_fetch_row($result);
     if (!empty($new_uid)) {
         return mxErrorScreen(_USERYESEXIST);
@@ -567,17 +594,21 @@ function delete()
 
     include('header.php');
     title(_USERADMIN);
-    OpenTableAl();
     echo '
-		<p class="option">' . _DELETEUSER . '</p>
-		<p>' . _SURE2DELETE . '&nbsp;<b>' . htmlspecialchars($udata['uname']) . '</b>?</p><br />
-     <form action="' . adminUrl(PMX_MODULE, 'delete_confirm') . '" method="post">
-        <input type="hidden" name="op" value="' . PMX_MODULE . '/delete_confirm" />
-        <input type="hidden" name="del_uid" value="' . $udata['uid'] . '" />
-        <input type="submit" name="action" value="' . _YES . '" /> &nbsp;
-        <input type="submit" value="' . _NO . '" />
-     </form>';
-    CloseTableAl();
+		<h2>' . _DELETEUSER . '</h2>
+		<div class="card">
+			<div class="card-block">
+				<div class="alert alert-warning">
+					<p>' . _SURE2DELETE . '&nbsp;<strong>' . htmlspecialchars($udata['uname']) . '</strong>?</p>
+					<form action="' . adminUrl(PMX_MODULE, 'delete_confirm') . '" method="post">
+						<input type="hidden" name="op" value="' . PMX_MODULE . '/delete_confirm" />
+						<input type="hidden" name="del_uid" value="' . $udata['uid'] . '" />
+						<input type="submit" class="btn btn-warning" name="action" value="' . _YES . '" /> &nbsp;
+						<input type="submit" class="btn btn-default" value="' . _NO . '" />
+					</form>
+				</div>
+			</div>
+		</div>';
     include('footer.php');
 }
 
@@ -619,41 +650,32 @@ function adminuserform($udata = array())
     global $user_prefix, $prefix;
     $udata['user_age'] = (empty($udata['user_age'])) ? '?' : $udata['user_age'];
 
-    $out = ""
-     . "<tr class=\"bgcolor2\"><td><b>" . _EMAIL . "</b></td>"
-     . "<td class=\"bgcolor3\"><input type=\"text\" name=\"email\" value=\"" . ((empty($udata['email'])) ? "" : htmlspecialchars($udata['email'])) . "\" size=\"60\" maxlength=\"100\" /> <font class=\"tiny\">" . _REQUIRED . "</font></td></tr>";
+    $out = '
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">' . _EMAIL . '</label>
+            <div class="col-sm-4">
+				<input type="text" class="form-control" id="email" name="email" value="' . ((empty($udata['email'])) ? '' : htmlspecialchars($udata['email'])) . '" size="60" maxlength="100" /> 
+            </div>
+			<span class="form-text text-muted">' . _REQUIRED . '</span>            
+        </div>';
     if ($udata['user_stat'] != -1) {
-        $out .= "<tr class=\"bgcolor2\"><td><b>" . _YA_USERSTAT . "</b></td>"
-         . "<td class=\"bgcolor3\"><select name=\"user_stat\">" . getUserStatOptions($udata['user_stat']) . "</select><font class=\"tiny\">" . _REQUIRED . "</font></td></tr>";
+        $out .= '
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">' . _YA_USERSTAT . '</label>
+            <div class="col-sm-1">
+				<select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="user_stat">' . getUserStatOptions($udata['user_stat']) . '</select> 
+            </div>
+            	<span class="form-text text-muted">' . _REQUIRED . '</span>
+        </div>';
     }
-    $out .= "<tr class=\"bgcolor2\"><td><b>" . _YA_INGROUP . "</b></td>"
-     . "<td class=\"bgcolor3\"><select name=\"user_ingroup\">" . getAllAccessLevelSelectOptions($udata['user_ingroup']) . "</select><font class=\"tiny\">" . _REQUIRED . "</font></td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _NAME . "</td>"
-     . "<td class=\"bgcolor3\"><input type=\"text\" name=\"name\" value=\"" . ((empty($udata['name'])) ? "" : htmlspecialchars($udata['name'])) . "\" size=\"60\" maxlength=\"60\" /></td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _YA_USEXUS . "</td>"
-     . "<td class=\"bgcolor3\">" . vkpSexusSelect('user_sexus', $udata['user_sexus']) . "</td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _YA_UBDAY . "</td>"
-     . "<td class=\"bgcolor3\">" . vkpBdaySelect($udata['user_bday']) . " (" . $udata['user_age'] . '&nbsp;' . _YEARS . ")</td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _URL . "</td>"
-     . "<td class=\"bgcolor3\"><input type=\"text\" name=\"url\" value=\"" . ((empty($udata['url'])) ? "" : htmlspecialchars($udata['url'])) . "\" size=\"60\" maxlength=\"255\" /></td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _ICQ . "</td>"
-     . "<td class=\"bgcolor3\"><input type=\"text\" name=\"user_icq\" value=\"" . ((empty($udata['user_icq'])) ? "" : htmlspecialchars($udata['user_icq'])) . "\" size=\"60\" maxlength=\"50\" /></td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _AIM . "</td>"
-     . "<td class=\"bgcolor3\"><input type=\"text\" name=\"user_aim\" value=\"" . ((empty($udata['user_aim'])) ? "" : htmlspecialchars($udata['user_aim'])) . "\" size=\"60\" maxlength=\"100\" /></td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _YIM . "</td>"
-     . "<td class=\"bgcolor3\"><input type=\"text\" name=\"user_yim\" value=\"" . ((empty($udata['user_yim'])) ? "" : htmlspecialchars($udata['user_yim'])) . "\" size=\"60\" maxlength=\"100\" /></td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _MSNM . "</td>"
-     . "<td class=\"bgcolor3\"><input type=\"text\" name=\"user_msnm\" value=\"" . ((empty($udata['user_msnm'])) ? "" : htmlspecialchars($udata['user_msnm'])) . "\" size=\"60\" maxlength=\"100\" /></td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _LOCATION . "</td>"
-     . "<td class=\"bgcolor3\"><input type=\"text\" name=\"user_from\" value=\"" . ((empty($udata['user_from'])) ? "" : htmlspecialchars($udata['user_from'])) . "\" size=\"60\" maxlength=\"100\" /></td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _OCCUPATION . "</td>"
-     . "<td class=\"bgcolor3\"><input type=\"text\" name=\"user_occ\" value=\"" . ((empty($udata['user_occ'])) ? "" : htmlspecialchars($udata['user_occ'])) . "\" size=\"60\" maxlength=\"100\" /></td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _INTERESTS . "</td>"
-     . "<td class=\"bgcolor3\"><input type=\"text\" name=\"user_intrest\" value=\"" . ((empty($udata['user_intrest'])) ? "" : htmlspecialchars($udata['user_intrest'])) . "\" size=\"60\" maxlength=\"150\" /></td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _EXTRAINFO . "</td>"
-     . "<td class=\"bgcolor3\"><textarea name=\"bio\" rows=\"6\" cols=\"60\">" . ((empty($udata['bio'])) ? "" : htmlspecialchars($udata['bio'])) . "</textarea></td></tr>"
-     . "<tr class=\"bgcolor2\"><td>" . _SIGNATURE . "</td>"
-     . "<td class=\"bgcolor3\"><textarea name=\"user_sig\" rows=\"6\" cols=\"60\">" . ((empty($udata['user_sig'])) ? "" : htmlspecialchars($udata['user_sig'])) . "</textarea></td></tr>";
+    $out .= '
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">' . _YA_INGROUP . '</label>
+            <div class="col-sm-1">
+				<select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="user_ingroup">' . getAllAccessLevelSelectOptions($udata['user_ingroup']) . '</select>			
+            </div>
+            	<span class="form-text text-muted">' . _REQUIRED . '</span>
+        </div>';
     return $out;
     // ToDo: Die Textareas sollten mittels JavaScript eine (angezeigte = Restzeichen) Laengenbegrenzung haben (wie im SMF-Profil).
 }

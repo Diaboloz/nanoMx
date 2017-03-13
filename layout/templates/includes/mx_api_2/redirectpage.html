@@ -3,24 +3,28 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title><?php echo _REDIRECTMESS3 ?></title>
+  
   <link rel="stylesheet" type="text/css" href="layout/style/style.css.php?t=<?php echo MX_THEME ?>" />
   <?php echo pmxHeader::get() ?>
-  <link rel="stylesheet" type="text/css" href="themes/<?php echo MX_THEME ?>/style/style.css" />
+  
   <?php if ($this->delay <= 5) { ?>
   <meta http-equiv="refresh" content="<?php echo $this->delay ?>;URL=<?php echo $this->url_html ?>" />
   <?php } ?>
 </head>
 
 <body>
-  <div class="modal">
-    <div class="modal-body">
-      <p><?php echo $this->message ?></p>
-      <p id="repiclock"><?php echo sprintf(_REDIRECTMESS1, $this->delay) ?></p>
-      <p><a href="<?php echo $this->url_html ?>" class="mx-button"><?php echo _REDIRECTMESS2 ?></a></p>
-      <?php echo $this->debug ?>
+  <div class="modal fade show" style="display: block;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <h5><?php echo $this->message ?></h5>
+          <p id="repiclock"><?php echo sprintf(_REDIRECTMESS1, $this->delay) ?></p>
+          <p><a href="<?php echo $this->url_html ?>" class="mx-button btn btn-primary"><?php echo _REDIRECTMESS2 ?></a></p>
+          <?php echo $this->debug ?>
+        </div>
+      </div>
     </div>
   </div>
-
 <?php if ($this->delay > 5) { ?>
 <script type="text/javascript">
 /* <![CDATA[ */

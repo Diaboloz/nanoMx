@@ -55,7 +55,7 @@ function Configure()
 	
 	/* Werte vorbereiten */
 	
-	$info2 = 'nanoMx ' . PMX_VERSION . ' - ' . _SITECONFIG;
+	$info2 = _SITECONFIG;
 
     /* falls config.php nicht schreibgeschuetzt, dieses tun... */
     if (is_writable(PMX_CONFIGFILE)) {
@@ -142,8 +142,8 @@ function Configure()
     pmxHeader::add_jquery('ui/jquery.ui.datepicker.js',
         'ui/i18n/jquery.ui.datepicker-' . _DOC_LANGUAGE . '.js'
         );
-    pmxHeader::add_script(PMX_JAVASCRIPT_PATH . 'fieldset.js.php');
-    include (PMX_JAVASCRIPT_DIR . DS . 'fieldset.js.php');
+    //pmxHeader::add_script(PMX_JAVASCRIPT_PATH . 'fieldset.js.php');
+    //include (PMX_JAVASCRIPT_DIR . DS . 'fieldset.js.php');
     /* Lightbox für Logo-Vorschau */
     pmxHeader::add_lightbox();
 
@@ -163,17 +163,17 @@ function Configure()
 	
     
     //$tb->__set('target_url', "admin.php?op=settings");
-    $tb->__set("tb_text", "" . _ADMIN_LASTCHANGE . ' ' . mx_strftime(_DATESTRING . ' %H:%M:%S', filemtime(PMX_CONFIGFILE)));
-    $tb->__set("tb_direction", 'right');
-    $tb->__set("infobutton", false);
-    $tb->__set("tb_pic_heigth", 25);
-    $tb->__set("csstoolbar", "toolbar1");
-    $tb->__set("cssform", "a305020");
-    $tb->__set('buttontext', false);
-    $tb->__set('homelink', true);
-    $tb->__set('fieldhomebutton', true);
-    $tb->addToolbar("accept");
-    $tb->addToolbar("save");
+    //$tb->__set("tb_text", "" . _ADMIN_LASTCHANGE . ' ' . mx_strftime(_DATESTRING . ' %H:%M:%S', filemtime(PMX_CONFIGFILE)));
+    //$tb->__set("tb_direction", 'right');
+    //$tb->__set("infobutton", false);
+    //$tb->__set("tb_pic_heigth", 25);
+    //$tb->__set("csstoolbar", "toolbar1");
+    //$tb->__set("cssform", "a305020");
+    $tb->__set('buttontext', true);
+    $tb->__set('homelink', false);
+    $tb->__set('fieldhomebutton', false);
+    //$tb->addToolbar("accept");
+    //$tb->addToolbar("save");
     
 	/* general settings */
     $tb->addFieldset("siteinfo", _GENSITEINFO, "", true);
@@ -196,10 +196,10 @@ function Configure()
         $sel1 = ($value == $language) ? ' checked="checked"' : '';
         $sel2 = (in_array($value, $language_avalaible)) ? ' checked="checked"' : '';
         $sellanguage.= '
-			<li>
-				<input type="radio" name="xlanguage" value="' . $value . '"' . $sel1 . ' />
+            <p>
+				<input type="radio" name="xlanguage" value="' . $value . '"' . $sel1 . ' /> 
 				<input type="checkbox" name="xlanguage_avalaible[]" value="' . $value . '"' . $sel2 . ' /> ' . $caption . '
-			</li>';
+			</p>';
 		}
 	}
 	$tb->add("siteinfo","special","languages",$sellanguage,_SELLANGUAGE ." / ". _LANGUAGES);
@@ -217,7 +217,7 @@ function Configure()
 	/* news */
     $tb->addFieldset("news", _NEWSMODULE, "", true);
 	$cxarticlecomm=array(_YES=>1,_COMMSCHOWONLY=>2,_NO=>0);
-	$tb->add("news","select","xarticlecomm",$articlecomm,_COMMENTSARTICLES,"",3,$cxarticlecomm);
+	$tb->add("news","select","xarticlecomm",$articlecomm,_COMMENTSARTICLES,"",1,$cxarticlecomm);
 	$tb->add("news","range","xstoryhome", $storyhome,_STORIESHOME,"",200,"min=1 max=30 step=1");
 	$tb->add("news","range","xstoryhome_cols", $storyhome_cols,_STORIESHOMECOLS,"",200,"min=1 max=5 step=1");
 	$tb->add("news","range","xtop", $top,_ITEMSTOP,"",200,"min=5 max=30 step=1");
@@ -238,13 +238,13 @@ function Configure()
     $tb->addFieldset("secopt", _SECOPT, "", true);
 	$tb->add("secopt","warning",_LOGGINWARNING);
 	$tb->add("secopt","number","xvkpSessLifetime", $vkpSessLifetime,_SECMEDLENGTH . "  [". _SECDAYS . "]",_SECDAYS2,5);
-	$tb->add("secopt","select","xmxSessionLoc",$mxSessionLoc,_SESS_LOC,"",2,$sessloc);
+	$tb->add("secopt","select","xmxSessionLoc",$mxSessionLoc,_SESS_LOC,"",1,$sessloc);
     $tb->add("secopt", "yesno", "xvkpSafeCookie1", $vkpSafeCookie1, _SAFECOOKIE1 );
     $tb->add("secopt", "yesno", "xvkpSafeCookie2", $vkpSafeCookie2, _SAFECOOKIE2 );
     $tb->add("secopt", "yesno", "xvkpSafeSqlinject", $vkpSafeSqlinject , _SECSQLINJECT1 ,_SECSQLINJECT3);
 	$tb->add("secopt", "yesno", "xmxCookieInfo", $mxCookieInfo, _COOKIECHOICE1,"");
 	$tb->add("secopt", "input", "xmxCookieLink", $mxCookieLink, _COOKIECHOICE2,"");
-	$tb->add("secopt", "select", "xmxCookiePos", $mxCookiePos, _COOKIECHOICE3,"",2,array(_CCTOP=>"top",_CCBOTTOM=>"bottom"));
+	$tb->add("secopt", "select", "xmxCookiePos", $mxCookiePos, _COOKIECHOICE3,"",1,array(_CCTOP=>"top",_CCBOTTOM=>"bottom"));
 	
 	$options = array();
     for ($i = 0; $i <= 2; $i++) {
@@ -286,10 +286,11 @@ function Configure()
 	/* Footer */
     $tb->addFieldset("footer", _FOOTERMSG, "", true);
 	$tb->add("footer","textbox","xfoot1",trim($foot1),_FOOTERLINE1);
-//	$tb->add("footer","textbox","xfoot2",trim($foot2),_FOOTERLINE2);
-//	$tb->add("footer","textbox","xfoot3",trim($foot3),_FOOTERLINE3);
-//	$tb->add("footer","textbox","xfoot4",trim($foot4),_FOOTERLINE4);
+/*	$tb->add("footer","textbox","xfoot2",trim($foot2),_FOOTERLINE2);
+	$tb->add("footer","textbox","xfoot3",trim($foot3),_FOOTERLINE3);
+	$tb->add("footer","textbox","xfoot4",trim($foot4),_FOOTERLINE4);
 	$tb->add("footer","note", _ADMIN_FOOTCONSTMSG );
+*/
 	
 	
 	/* Censor - options */
@@ -335,14 +336,17 @@ function Configure()
         $y = ceil(count($tags) / $cols); // in 3 Teile splitten
         $parts = array_chunk($tags, $y);
         foreach ($parts as $chunks) {
-            echo '<td>
-            <table class="list" >
-            <tr>
-              <th style="width:25%;">' . _HTMLTAGNAME . '</th>
-              <th class="align-center">' . mxCreateImage('images/allowed.gif', _HTMLTAGALLOWED, 0, 'title="' . _HTMLTAGALLOWED . '"') . '</th>
-              <th class="align-center">' . mxCreateImage('images/allowed-plus.gif', _HTMLTAGALLOWEDWITHPARAMS, 0, 'title="' . _HTMLTAGALLOWEDWITHPARAMS . '"') . '</th>
-              <th class="align-center">' . mxCreateImage('images/notallowed.gif', _HTMLTAGNOTALLOWED, 0, 'title="' . _HTMLTAGNOTALLOWED . '"') . '</th>
-            </tr>';
+            echo '
+            <td>
+              <table class="table table-hover table-sm" >
+                <thead class="thead-default">
+                    <tr>
+                        <th>' . _HTMLTAGNAME . '</th>
+                        <th class="text-center"><span class="badge badge-success">' . _HTMLTAGALLOWED . '<span></div></th>
+                        <th class="text-center"><span class="badge badge-warning">' . _HTMLTAGALLOWEDWITHPARAMS . '<span></th>
+                        <th class="text-center"><span class="badge badge-danger">' . _HTMLTAGNOTALLOWED . '<span></th>
+                    </tr>
+                </thead>';
             foreach ($chunks as $htmltag) {
                 $sel = array(' ', ' ', ' ');
                 if (empty($tags_current[$htmltag])) {
@@ -354,21 +358,35 @@ function Configure()
                 }
                 echo '<tr>
                   <td>' . $tag . '</td>
-                  <td align="center"><input type="radio" value="1" name="htmlallow[' . $htmltag . ']"' . $sel[1] . '/></td>
-                  <td align="center"><input type="radio" value="2" name="htmlallow[' . $htmltag . ']"' . $sel[2] . '/></td>
-                  <td align="center"><input type="radio" value="0" name="htmlallow[' . $htmltag . ']"' . $sel[0] . '/></td>
+                  <td class="text-center"><input type="radio" value="1" name="htmlallow[' . $htmltag . ']"' . $sel[1] . '/></td>
+                  <td class="text-center"><input type="radio" value="2" name="htmlallow[' . $htmltag . ']"' . $sel[2] . '/></td>
+                  <td class="text-center"><input type="radio" value="0" name="htmlallow[' . $htmltag . ']"' . $sel[0] . '/></td>
                 </tr>';
             }
-            echo '</table></td>';
+            echo '
+              </table>
+            </td>';
         }
         return ob_get_clean();
     } ;	
-	$htmlopt='<table class="form full">
-    <tr><td colspan="' . $cols . '"><br />' . _HTMLALLOWED . '</td></tr>
-    <tr style="vertical-align:top">' . $buildrows($tags_normal, $tags_current, $cols) . '</tr>
-    <tr><td colspan="' . $cols . '"><div class="warning" style="margin:0;">' . _HTMLWARNING . '</div></td></tr>
-    <tr style="vertical-align:top">' . $buildrows($tags_danger, $tags_current, $cols) . '</tr>
-    </table>';
+	$htmlopt='
+        <table class="table">
+            <tr>
+                <td colspan="' . $cols . '"><span class="h6">' . _HTMLALLOWED . '</span></td>
+            </tr>
+            <tr>
+                ' . $buildrows($tags_normal, $tags_current, $cols) . '
+            </tr>
+            <tr>
+                <td colspan="' . $cols . '">
+                    <div class="alert alert-warning">' . _HTMLWARNING . '</div>
+                </td>
+            </tr>
+            <tr>
+                ' . $buildrows($tags_danger, $tags_current, $cols) . '
+            </tr>
+        </table>
+        <hr />';
 	
 	$tb->add("htmlopt","html",$htmlopt);
     $tb->add("htmlopt", "checkbox", "do_html_opt_reset", 0, _HTMLOPTRESET );
