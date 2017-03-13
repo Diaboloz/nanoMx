@@ -21,13 +21,13 @@ if ($this->level === 0) { ?>
 
 <?php } else { 
   $cnt = count($this->items); ?>
-  <ul>
+  <ul class="nav-dropdown-items">
     <?php foreach ($this->items as $key => $subitem) {
       if ($cnt > 1 && $subitem['module']=='main') {
         continue;
       } ?>
-    <li>
-      <a <?php echo $subitem['href'] . $subitem['title'] ?> class="nav-link"> <i class="fa <?php echo $subitem['image'] ?>"></i>  <?php echo $subitem['caption'] ?></a>
+    <li class="nav-item">
+      <a <?php echo $subitem['href'] . $subitem['title'] ?> class="nav-link"><?php echo $subitem['caption'] ?></a>
       <?php echo $subitem['subtree'] ?>
     </li>
     <?php } // endforeach ?>
