@@ -1,12 +1,13 @@
-
-<ul class="tabs-nav-secondary">
+<ul class="nav nav-pills mt-1 mb-1">
 <?php foreach ($this->filterlink as $link) : ?>
-  <li><?php echo $link ?></li>
+  <li class="nav-item"><?php echo $link ?></li>
 <?php endforeach ?>
 </ul>
 
 <?php if(!$this->countblocks): ?>
-<p class="note align-center clear"><?php echo _BLOCKNOBLOCKS ?></p>
+<div class="alert alert-info text-center">
+  <?php echo _BLOCKNOBLOCKS ?>
+</div>
 <?php return;
 endif;
 
@@ -21,31 +22,29 @@ $colspan = ($this->multilingual) ? 7 : 6;
 
   <table class="table">
   <?php foreach ($this->blocks as $pos => $thatblockpos) : ?>
-    <thead class="thead-default">
-    <tr>
-      <th colspan="<?php echo $colspan ?>" class="bigger"><?php echo _POSITION ?>: <i><?php echo $pos ?></i></th>
-    </tr>
-
-    <tr>
-      <th><?php echo _BLOCKORDER ?></th>
-      <th><?php echo _BLOCKTITLE ?></th>
-      <th><?php echo _TYPE . ' &gt; ' . _BLK_MODULE . ' &gt; ' . _FILENAME ?></th>
-      <th><?php echo _STATUS ?></th>
-      <th><?php echo _VIEW ?></th>
-      <?php if($this->multilingual): ?>
-      <th><?php echo _LANGUAGE ?></th>
-      <?php endif; ?>
-      <th><?php echo _FUNCTIONS ?></th>
-    </tr>
-    </thead>
+      <tr class="thead-default">
+        <th colspan="<?php echo $colspan ?>">
+            <div class="font-weight-bold text-uppercase"><?php echo _POSITION ?>: <span class="badge badge-default"><?php echo $pos ?></span></div>
+        </th>
+      </tr>
+      <tr>
+        <th class="text-uppercase"><?php echo _BLOCKORDER ?></th>
+        <th class="text-uppercase"><?php echo _BLOCKTITLE ?></th>
+        <th class="text-uppercase"><?php echo _TYPE . ' &gt; ' . _BLK_MODULE . ' &gt; ' . _FILENAME ?></th>
+        <th class="text-uppercase"><?php echo _STATUS ?></th>
+        <th class="text-uppercase"><?php echo _VIEW ?></th>
+        <?php if($this->multilingual): ?>
+        <th class="text-uppercase"><?php echo _LANGUAGE ?></th>
+        <?php endif; ?>
+        <th class="text-uppercase"><?php echo _FUNCTIONS ?></th>
+      </tr>
     <?php foreach ($thatblockpos as $weight => $block) : ?>
-      <?php $class = ($class == '') ? ' class="alternate-a"' : ''; ?>
-      <?php $errclass = ($block->errfile) ? ' class="warning" style="margin:0" title="' . _BLOCKFILEMISSED . '"' : ''; ?>
-    <tr<?php echo $class ?>>
-      <td><input type="text" name="weight[<?php echo $block->bid ?>]" value="<?php echo ($weight + 1) ?>" size="3" maxlength="3" /></td>
+      <?php $errclass = ($block->errfile) ? ' class="badge badge-warning" title="' . _BLOCKFILEMISSED . '"' : ''; ?>
+    <tr>
+      <td><input type="text" class="form-control" name="weight[<?php echo $block->bid ?>]" value="<?php echo ($weight + 1) ?>" size="3" maxlength="3" /></td>
       <td><?php echo $block->title ?></td>
       <td><?php echo $block->type ?></td>
-      <td><?php echo (($block->active) ? _ACTIVE : '<i>' . _INACTIVE . '</i>') ?></td>
+      <td><?php echo (($block->active) ? '<span class="badge badge-success">' . _ACTIVE . '</span>' : '<span class="badge badge-default">' . _INACTIVE . '</span>') ?></td>
       <td><?php echo $block->who_view ?></td>
       <?php if($this->multilingual): ?>
       <td><?php echo $block->blanguage ?></td>
@@ -60,22 +59,13 @@ $colspan = ($this->multilingual) ? 7 : 6;
     </tr>
     <?php endforeach ?>
   <?php endforeach ?>
-
-    <tr>
-      <td colspan="<?php echo $colspan ?>">
-      <button type="submit" class="btn btn-success"><i class="fa fa-star"></i>&nbsp; <?php echo _BLOCKSAVEORDER ?></button>
-      </td>
-    </tr>
   </table>
+  <p>
+    <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>&nbsp; <?php echo _BLOCKSAVEORDER ?></button>
+  </p>
 </form>
 
 <p>
-<a class="btn btn-primary" href="<?php echo adminUrl(PMX_MODULE, 'fixweight') ?>" class="button"><?php echo _FIXBLOCKS ?></a> 
-<a class="btn btn-info" href="<?php echo adminUrl('reset', 'cache/blocks') ?>" class="button"><?php echo _BLOCKDELCACHE ?></a>
+  <a class="btn btn-sm btn-secondary" href="<?php echo adminUrl(PMX_MODULE, 'fixweight') ?>" class="button"><?php echo _FIXBLOCKS ?></a> 
+  <a class="btn btn-sm btn-secondary" href="<?php echo adminUrl('reset', 'cache/blocks') ?>" class="button"><?php echo _BLOCKDELCACHE ?></a>
 </p>
-
-<?php
-/* Javascript & jquery for tabs */
-pmxHeader::add_tabs(false);
-/* pragmaMx CVS $Id: blockslistall.html 6 2015-07-08 07:07:06Z PragmaMx $ */
-?>

@@ -51,9 +51,9 @@ function blockslistall()
             mxSessionSetVar('blockfilter', $_GET['filter']);
         }
     }
-    $filterlink[] = (mxSessionGetVar('blockfilter') == 1) ? '<a class="current">' . _BLOCKSHOWACTIVE . '</a>' : '<a class="btn btn-primary btn-sm" href="' . adminUrl(PMX_MODULE, '', 'filter=1') . '">' . _BLOCKSHOWACTIVE . '</a>';
-    $filterlink[] = (!mxSessionGetVar('blockfilter')) ? '<a class="current">' . _ALL . '</a>' : '<a class="btn btn-primary btn-sm" href="' . adminUrl(PMX_MODULE, '', 'filter=-1') . '">' . _ALL . '</a>';
-    $filterlink[] = (mxSessionGetVar('blockfilter') == 2) ? '<a class="current">' . _BLOCKSHOWDEACTIVE . '</a>' : '<a class="btn btn-primary btn-sm" href="' . adminUrl(PMX_MODULE, '', 'filter=2') . '">' . _BLOCKSHOWDEACTIVE . '</a>';
+    $filterlink[] = (mxSessionGetVar('blockfilter') == 1) ? '<a class="nav-link active">' . _BLOCKSHOWACTIVE . '</a>' : '<a class="nav-link" href="' . adminUrl(PMX_MODULE, '', 'filter=1') . '">' . _BLOCKSHOWACTIVE . '</a>';
+    $filterlink[] = (!mxSessionGetVar('blockfilter')) ? '<a class="nav-link active">' . _ALL . '</a>' : '<a class="nav-link" href="' . adminUrl(PMX_MODULE, '', 'filter=-1') . '">' . _ALL . '</a>';
+    $filterlink[] = (mxSessionGetVar('blockfilter') == 2) ? '<a class="nav-link active">' . _BLOCKSHOWDEACTIVE . '</a>' : '<a class="nav-link" href="' . adminUrl(PMX_MODULE, '', 'filter=2') . '">' . _BLOCKSHOWDEACTIVE . '</a>';
 
     switch (mxSessionGetVar('blockfilter')) {
         case 1:
@@ -77,11 +77,11 @@ function blockslistall()
     if ($countblocks) {
 
         // Icons Bootstrap 4
-        $img_activate   = '<i class="fa fa-check fa-lg m-t-2"></i>';
-        $img_deactivate = '<i class="fa fa-minus-circle fa-lg m-t-2"></i>';
+        $img_activate   = '<i class="fa fa-eye fa-lg m-t-2"></i>';
+        $img_deactivate = '<i class="fa fa-eye-slash fa-lg m-t-2"></i>';
         $img_edit       = '<i class="fa fa-edit fa-lg m-t-2"></i>';
         $img_delete       = '<i class="fa fa-trash fa-lg m-t-2"></i>';
-        $img_view       = '<i class="fa fa-eye fa-lg m-t-2"></i>';
+        $img_view       = '<i class="fa fa-search fa-lg m-t-2"></i>';
         // Icons Bootstrap 4 - End
 
         while ($block = sql_fetch_object($result)) {
@@ -158,7 +158,7 @@ function blockslistall()
                     break;
             }
 
-            $block->title = (empty($block->active)) ? '<i>' . $block->title . '</i>' : $block->title;
+            $block->title = (empty($block->active)) ? '<span class="font-italic">' . $block->title . '</span>' : $block->title;
 
             $block->functions = array();
             $block->functions[] = '<a class="btn btn-secondary btn-sm" title="' . _EDIT . '" href="' . adminUrl(PMX_MODULE, 'Edit', 'bid=' . $block->bid) . '">' . $img_edit . '</a>';
