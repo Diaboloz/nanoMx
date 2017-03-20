@@ -34,7 +34,7 @@ function BlocksAdmin()
     include('header.php');
     GraphicAdmin();
     // title(_BLOCKSADMIN);
-    $template->display('blocksadmin.html');
+    $template->display('navTabs.html');
     include('footer.php');
 }
 
@@ -80,7 +80,7 @@ function blockslistall()
         $img_activate   = '<i class="fa fa-eye fa-lg m-t-2"></i>';
         $img_deactivate = '<i class="fa fa-eye-slash fa-lg m-t-2"></i>';
         $img_edit       = '<i class="fa fa-edit fa-lg m-t-2"></i>';
-        $img_delete       = '<i class="fa fa-trash fa-lg m-t-2"></i>';
+        $img_delete     = '<i class="fa fa-trash fa-lg m-t-2"></i>';
         $img_view       = '<i class="fa fa-search fa-lg m-t-2"></i>';
         // Icons Bootstrap 4 - End
 
@@ -388,7 +388,7 @@ function getActiveSelect($active = 1)
 function getRefreshSelect($refresh = 0, $shownever = 0)
 {
     $refresh = (int)$refresh;
-    $out = '<select class="form-control" name="refresh">';
+    $out = '<select id="refresh" class="form-control" name="refresh">';
     if ($shownever) {
         $out .= '<option value="0"' . (($refresh == 0) ? ' selected="selected" class="current"' : '') . '>- ' . _NEVER . '</option>';
     }
@@ -434,7 +434,7 @@ function getRefreshTimeString($refresh)
 function getViewSelect($view = 0)
 {
     $view = (int)$view;
-    $out = '<select class="form-control" name="view">'
+    $out = '<select id="view" class="form-control" name="view">'
      . '<option value="0"' . (($view == 0) ? ' selected="selected" class="current"' : '') . '>' . _MVALL . '</option>'
      . '<option value="1"' . (($view == 1) ? ' selected="selected" class="current"' : '') . '>' . _MVGROUPS . '</option>'
      . '<option value="2"' . (($view == 2) ? ' selected="selected" class="current"' : '') . '>' . _MVADMIN . '</option>'
@@ -467,7 +467,7 @@ function getGroupSelect($blockid = 0)
 
 function getPositionSelect($pos = '')
 {
-    $out = '<select class="form-control" name="position">'
+    $out = '<select id="position" class="form-control" name="position">'
      . '<option value="l"' . (($pos == 'l') ? ' selected="selected" class="current"' : '') . '>' . _LEFT . '</option>'
      . '<option value="c"' . (($pos == 'c') ? ' selected="selected" class="current"' : '') . '>' . _CENTERUP . '</option>'
      . '<option value="d"' . (($pos == 'd') ? ' selected="selected" class="current"' : '') . '>' . _CENTERDOWN . '</option>'

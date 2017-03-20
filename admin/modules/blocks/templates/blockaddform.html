@@ -5,7 +5,7 @@
 
           <div class="form-group row">
             <label for="title" class="col-sm-2 col-form-label"><?php echo _BLOCKTITLE ?></label>
-            <div class="col-sm-10">
+            <div class="col-sm-5">
               <input type="text" class="form-control" id="title" name="title" size="12" />
             </div>
           </div>
@@ -14,8 +14,8 @@
           case 'file': ?>
 
           <div class="form-group row">
-            <label for="title" class="col-sm-2 col-form-label"><?php echo _FILENAME ?></label>
-            <div class="col-sm-10">
+            <label class="col-sm-2 col-form-label"><?php echo _FILENAME ?></label>
+            <div class="col-sm-5">
               <?php echo getblockfileselect() ?>
             </div>
           </div>
@@ -24,8 +24,8 @@
           case 'rss': ?>
 
           <div class="form-group row">
-            <label for="title" class="col-sm-2 col-form-label"><?php echo _RSSFILE ?></label>
-            <div class="col-sm-10">
+            <label class="col-sm-2 col-form-label"><?php echo _RSSFILE ?></label>
+            <div class="col-sm-5">
               <?php echo getheadlineselect() ?>
             </div>
           </div>
@@ -34,7 +34,7 @@
           case 'html': default:?>
 
           <div class="form-group row">
-            <label for="title" class="col-sm-2 col-form-label"><?php echo _CONTENT ?></label>
+            <label class="col-sm-2 col-form-label"><?php echo _CONTENT ?></label>
             <div class="col-sm-10">
               <?php echo $this->formWysiwyg('b_content', $this->content, array('height'=>'250')) ?>
             </div>
@@ -44,23 +44,23 @@
           endswitch;?>
 
           <div class="form-group row">
-            <label for="title" class="col-sm-2 col-form-label"><?php echo _POSITION ?></label>
-            <div class="col-sm-10">
+            <label for="position" class="col-sm-2 col-form-label"><?php echo _POSITION ?></label>
+            <div class="col-sm-3">
               <?php echo getPositionSelect('l') ?>
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="title" class="col-sm-2 col-form-label"><?php echo _WEIGHT ?></label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" name="weight" size="12" value="0" />
+            <label for="weight" class="col-sm-2 col-form-label"><?php echo _WEIGHT ?></label>
+            <div class="col-sm-1">
+              <input type="text" id="weight" class="form-control" name="weight" size="12" value="0" />
             </div>
           </div>
 
           <?php if($this->multilingual): ?>
 
           <div class="form-group row">
-            <label for="title" class="col-sm-2 col-form-label"><?php echo _LANGUAGE ?></label>
+            <label for="language" class="col-sm-2 col-form-label"><?php echo _LANGUAGE ?></label>
             <div class="col-sm-10">
               <?php echo mxLanguageSelect('blanguage', '', 'language', true) ?>
             </div>
@@ -69,22 +69,22 @@
           <?php endif; ?>
 
           <div class="form-group row">
-            <label for="title" class="col-sm-2 col-form-label"><?php echo _ACTIVATE2 ?></label>
+            <label for="active" class="col-sm-2 col-form-label"><?php echo _ACTIVATE2 ?></label>
             <div class="col-sm-10">
               <?php echo getActiveSelect(1) ?>
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="title" class="col-sm-2 col-form-label"><?php echo _VIEWPRIV ?></label>
-            <div class="col-sm-10">
+            <label for="view" class="col-sm-2 col-form-label"><?php echo _VIEWPRIV ?></label>
+            <div class="col-sm-3">
               <?php echo getViewSelect(0) ?>
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="title" class="col-sm-2 col-form-label"><!-- <?php echo _VIEWPRIV ?> --></label>
-            <div class="col-sm-10">
+            <label for="group" class="col-sm-2 col-form-label"><!-- <?php echo _VIEWPRIV ?> --></label>
+            <div class="col-sm-3">
               <?php echo $this->groupselect ?>
             </div>
           </div>
@@ -93,8 +93,8 @@
           case 'rss': ?>
 
           <div class="form-group row">
-            <label for="title" class="col-sm-2 col-form-label"><?php echo _REFRESHTIME ?></label>
-            <div class="col-sm-10">
+            <label for="refresh" class="col-sm-2 col-form-label"><?php echo _REFRESHTIME ?></label>
+            <div class="col-sm-4">
               <?php echo getRefreshSelect(3600, 0) ?>
             </div>
           </div>
@@ -103,10 +103,12 @@
           case 'file': ?>
 
           <div class="form-group row">
-            <label for="title" class="col-sm-2 col-form-label"><?php echo _CACHING ?></label>
-            <div class="col-sm-10">
+            <label for="refresh" class="col-sm-2 col-form-label"><?php echo _CACHING ?></label>
+            <div class="col-sm-2">
               <?php echo getRefreshSelect(0, 1) ?>
-              <span class="help-block"><?php echo _BLOCKCACHEMSG ?></span>
+            </div>
+            <div class="col-sm-8">
+              <p class="help-block text-muted small"><?php echo _BLOCKCACHEMSG ?></p>
             </div>
           </div>
 
@@ -120,7 +122,7 @@
           <div class="form-group row">
             <div class="offset-sm-2 col-sm-10">
           <input type="hidden" name="op" value="<?php echo  PMX_MODULE ?>/Add" />
-          <input type="submit" class="btn btn-primary" value="<?php echo _CREATEBLOCK ?>" />
+          <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;<?php echo _CREATEBLOCK ?></button> 
           </div> <!-- end:.offset-sm-2 -->
           </div> <!-- end:.form-group -->
 

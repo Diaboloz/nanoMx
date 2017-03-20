@@ -76,5 +76,6 @@ define("_WANT2ACTIVATE", "Voulez-vous activer ce bloc ?");
 define("_WEIGHT", "Ordre");
 define("_BLOCKSYSTEM", "SYSTEM");
 define("_BLOCKFILEMISSED", "Fichier manquant");
+define("_CONTENT", "Contenu");
 
 ?>
