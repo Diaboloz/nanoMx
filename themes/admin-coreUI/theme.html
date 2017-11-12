@@ -28,19 +28,21 @@
 </head>
 <body class="open themesetting.php for choice">
     <header class="app-header navbar">
-        <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">☰</button>
+        <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <a class="navbar-brand" href="./admin.php"></a>
-        <ul class="nav navbar-nav hidden-md-down">
-            <li class="nav-item">
-                <a class="nav-link navbar-toggler sidebar-toggler" href="#">☰</a>
-            </li>
+        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="nav navbar-nav d-md-down-none">
             <li class="nav-item px-1">
                 <span class="nav-link">
                     {_THEME_PROJECT}: <a href="./" target="_blank">{PAGE_TITLE} <i class="fa fa-external-link"></i></a>
                 </span>
             </li>
         </ul>
-        <ul class="nav navbar-nav ml-auto mr-2">
+        <ul class="nav navbar-nav ml-auto">
             {THEME_TRAYITEMS}   
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -48,13 +50,11 @@
                     <span class="hidden-md-down">{USERNAME}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-
                     <div class="dropdown-header text-center">
                         <strong>Compte</strong>
                     </div>
-
                     <a class="dropdown-item" href="admin.php?op=selfadmin" title="{_THEME_ADMIN_EDIT}"><i class="fa fa-wrench"></i> {_THEME_ADMIN_EDIT}</a>
-                   <a class="dropdown-item" href="admin.php?op=logout" title="{_THEME_LOGOUT}"><i class="fa fa-lock"></i> {_THEME_LOGOUT}</a>
+                    <a class="dropdown-item" href="admin.php?op=logout" title="{_THEME_LOGOUT}"><i class="fa fa-lock"></i> {_THEME_LOGOUT}</a>
                 </div>
             </li>
             <!-- START hddebug1 -->
@@ -66,7 +66,7 @@
             <li class="nav-item hidden-md-down">
                 <a class="nav-link critical" href="admin.php?op=settings" id="hddebug" title="{_MSGDEBUGMODE}" style="color: red;"><i class="fa fa-bug"></i></a>
             </li>
-            <!-- END hddebug2 -->           
+            <!-- END hddebug2 -->      
         </ul>
     </header>
 
@@ -107,9 +107,9 @@
                     {CURRENT_MOD_LINK}
                 </li>
                 <!-- Breadcrumb Menu-->
-                <li class="breadcrumb-menu hidden-md-down">
+                <li class="breadcrumb-menu d-md-down-none">
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                        <a class="btn btn-secondary" href="./admin.php"><i class="icon-graph"></i> &nbsp;Dashboard</a>
+                        <a class="btn" href="./admin.php"><i class="icon-graph"></i> &nbsp;Dashboard</a>
                     </div>
                 </li>
             </ol>
@@ -168,8 +168,8 @@
     </div>
 
     <footer class="app-footer small">
-        &copy; {CURRENTYEAR} | nanoMx powered by <a href="http://www.pragmamx.org/">pragmaMx</a>
-        <span class="float-right">Theme by <a href="http://coreui.io">CoreUI</a> | {VIEWBENCH}
+        <span>&copy; {CURRENTYEAR} | nanoMx powered by <a href="http://www.pragmamx.org/">pragmaMx</a></span>
+        <span class="ml-auto">Theme by <a href="http://coreui.io">CoreUI</a> | {VIEWBENCH}
         </span>
     </footer>
 
@@ -185,8 +185,8 @@
 
 
     <!-- GenesisUI main scripts -->
-
-    <script src="js/app.js"></script>
+    <script src="js/app_old.js"></script>
+   <!-- <script type="text/javascript" src="js/views/main.js"></script>-->
 </body>
 
 </html>

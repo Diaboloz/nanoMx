@@ -106,3 +106,10 @@ body #pmx-debug-area h4 {
 body div #pmx-debug-area {
    width: auto;
 }
+
+div.required .co-form-label:not(span):before,
+td.required:before {
+    content: '* ';
+    color: #F00;
+    font-weight: bold;
+}
