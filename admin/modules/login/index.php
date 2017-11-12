@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 206 $
- * $Author: PragmaMx $
- * $Date: 2016-09-12 13:33:26 +0200 (Mo, 12. Sep 2016) $
+ * $Revision: 390 $
+ * $Author: pragmamx $
+ * $Date: 2017-10-08 14:33:39 +0200 (So, 08. Okt 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -76,11 +76,54 @@ function admin_login()
     $template->message = $formmessage;
     $template->elements = $field;
 
-    include ('header.php');
-    OpenTable();
-    $template->display('loginform.html');
-    CloseTable();
-    include ('footer.php');
+	
+    //include ('header.php');
+    //OpenTable();
+    //$template->display('loginform.html');
+    //CloseTable();
+    //include ('footer.php');
+	
+	/* neu */
+	
+/* header senden */
+if (!headers_sent()) {
+	header(pmxHeader::Status()); 
+    header('Content-type: text/html; charset=utf-8');
+    header('Content-Language: ' . _DOC_LANGUAGE);
+    header('X-Powered-By: pragmaMx ' . PMX_VERSION);
+    header('X-UA-Compatible: IE=edge;FF=5;chrome=1');
+}
+echo '<html lang="'. _DOC_LANGUAGE. '" dir="'. _DOC_DIRECTION. '" >'; 
+?>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<base href="<?php echo PMX_HOME_URL; ?>" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="language" content="<?php echo _DOC_LANGUAGE ?>" />
+	<title>Admin | <?php echo pmxBase::get('sitename'); ?></title>
+	<link rel="stylesheet" href="<?php echo PMX_HOME_URL.DS.PMX_LAYOUT_PATH .  'style'.DS.'login.css' ?>" type="text/css" />
+<?php
+ /* evtl. custom.login.css einbinden */
+ if (file_exists(PMX_LAYOUT_PATH .  'style'.DS.'custom.login.css')) { ?>
+	<link rel="stylesheet" href="<?php echo PMX_HOME_URL.DS.PMX_LAYOUT_PATH .  'style'.DS.'custom.login.css' ?>" type="text/css" />
+<?php } ?>
+</head>
+	<body class="login">
+		<div class="login-page">
+			<div class="title"><?php echo pmxBase::get('sitename') ?></div>
+			<div class="content">
+				<div class="login-form"><?php $template->display('loginform.html'); ?></div>
+				<a href="<?php echo PMX_HOME_URL; ?>" title="<?php echo pmxBase::get('sitename') ?>"><?php echo _HOME ?></a>
+			</div>
+		</div>
+	</body>
+</html>
+
+<?php 
+	die();
+	/* neu ende */
 }
 
 /**
