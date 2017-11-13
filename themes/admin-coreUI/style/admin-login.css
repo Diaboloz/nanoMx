@@ -1,0 +1,110 @@
+/**
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ * $Id: login.css 6 2015-07-08 07:07:06Z PragmaMx $
+ */
+
+
+*[hspace] {
+  margin-left: .5em;
+  margin-right: .5em;
+}
+
+*[hspace="0"] {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+*[vspace] {
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+
+*[vspace="0"] {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+html { width: 100%; height:100%; overflow:hidden; 	}
+
+body {
+  background-color: #E4E5E6 ;
+   color: #151B1E ;	
+   background-image: none;
+   position: relative;
+   font-size:1em;
+
+}
+.login {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.login-page {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	color: #333;
+	position: relative;
+	max-width: 600px;
+	height: auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 10%;
+	text-align:center;
+	background:#FAFAFA;
+	padding:20px;
+	padding-top:40px;
+	border: 1px solid #c2cfd6;
+}
+
+
+
+.title {
+	font-size:2em;
+	margin:20px;
+}
+
+.login-form {
+	margin: 18px;
+	
+}
+
+.login-form fieldset{
+	border:none;
+}
+
+.login-form legend{
+	width:100%;
+	text-align:center;
+}
+.content {
+	
+
+}
+table.form{
+	width:80%;
+	text-align:center;
+}
+
+table.form input[type=submit]{
+	margin-top:20px;
+	padding:10px;
+	background-color:#20a8d8;
+	color: #FFF;
+} 
+table.form input[type=submit]:hover{
+	
+	background-color:#187da0;
+}
+
+
+input { 
+	width: 100%; 
+	margin-bottom: 10px; 
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	border: 1px solid rgba(0,0,0,0.3);
+}

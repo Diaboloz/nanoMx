@@ -103,12 +103,7 @@ echo '<html lang="'. _DOC_LANGUAGE. '" dir="'. _DOC_DIRECTION. '" >';
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="language" content="<?php echo _DOC_LANGUAGE ?>" />
 	<title>Admin | <?php echo pmxBase::get('sitename'); ?></title>
-	<link rel="stylesheet" href="<?php echo PMX_HOME_URL.DS.PMX_LAYOUT_PATH .  'style'.DS.'login.css' ?>" type="text/css" />
-<?php
- /* evtl. custom.login.css einbinden */
- if (file_exists(PMX_LAYOUT_PATH .  'style'.DS.'custom.login.css')) { ?>
-	<link rel="stylesheet" href="<?php echo PMX_HOME_URL.DS.PMX_LAYOUT_PATH .  'style'.DS.'custom.login.css' ?>" type="text/css" />
-<?php } ?>
+	<link rel="stylesheet" href="<?php echo PMX_THEMES_PATH .  'admin-coreUI'.DS.'style'.DS.'admin-login.css' ?>" type="text/css" />
 </head>
 	<body class="login">
 		<div class="login-page">
