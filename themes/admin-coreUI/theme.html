@@ -42,19 +42,19 @@
                 </span>
             </li>
         </ul>
-        <ul class="nav navbar-nav ml-auto">
+        <ul class="nav navbar-nav ml-auto mr-3">
             {THEME_TRAYITEMS}   
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle nav-link" href="admin.php?op=selfadmin" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     {USERPIC}
-                    <span class="hidden-md-down">{USERNAME}</span>
+                    <span class="d-md-down-none">{USERNAME}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-header text-center">
                         <strong>Compte</strong>
                     </div>
                     <a class="dropdown-item" href="admin.php?op=selfadmin" title="{_THEME_ADMIN_EDIT}"><i class="fa fa-wrench"></i> {_THEME_ADMIN_EDIT}</a>
-                    <a class="dropdown-item" href="admin.php?op=logout" title="{_THEME_LOGOUT}"><i class="fa fa-lock"></i> {_THEME_LOGOUT}</a>
+                    <a class="dropdown-item" href="admin.php?op=logout" title="{_THEME_LOGOUT}"><i class="fa fa-sign-out"></i> {_THEME_LOGOUT}</a>
                 </div>
             </li>
             <!-- START hddebug1 -->
@@ -175,18 +175,18 @@
 
 
     <!-- Bootstrap and necessary plugins -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
 
 
-    <!-- Plugins and scripts required by all views -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <!-- Plugins and scripts required by all views 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>-->
 
 
     <!-- GenesisUI main scripts -->
-    <script src="js/app_old.js"></script>
-   <!-- <script type="text/javascript" src="js/views/main.js"></script>-->
+    <script src="js/app.js"></script>
+    <script type="text/javascript" src="js/views/main.js"></script>
 </body>
 
 </html>
