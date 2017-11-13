@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 231 $
- * $Author: PragmaMx $
- * $Date: 2016-09-29 10:15:05 +0200 (Do, 29. Sep 2016) $
+ * $Revision: 387 $
+ * $Author: pragmamx $
+ * $Date: 2017-10-07 12:11:21 +0200 (Sa, 07. Okt 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -27,7 +27,7 @@ define("MX_SETUP_VERSION_NUM", "1.0");
 define("MX_SETUP_VERSION", "nanoMx " . MX_SETUP_VERSION_NUM);
 define("MX_SETUP_VERSION_SUB", "new-setup");
 define("MX_SETUP_MIN_PHPVERSION", "5.4");
-define("MX_SETUP_MIN_MYSQLVERSION", "5.1.");
+define("MX_SETUP_MIN_MYSQLVERSION", "5.0.");
 // only for phpNuke modules compatibility!
 define("MX_NUKE_VERSION", "5.6");
 

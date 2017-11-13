@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 179 $
- * $Author: PragmaMx $
- * $Date: 2016-07-05 15:00:35 +0200 (Di, 05. Jul 2016) $
+ * $Revision: 390 $
+ * $Author: pragmamx $
+ * $Date: 2017-10-08 14:33:39 +0200 (So, 08. Okt 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -29,8 +29,7 @@ $cont = "<?php
 /*
  pragmaMx - Web Content Management System
  Copyright by pragmaMx Developer Team - http://www.pragmamx.org
- write with: \$Id: mx_configstring.php 179 2016-07-05 13:00:35Z PragmaMx $
- Version: pragmaMx " . PMX_VERSION . "
+ Version: " . PMX_VERSION . "
  */
 
 /**
@@ -64,8 +63,10 @@ if(!defined('MX_FIRSTGROUPNAME')) define('MX_FIRSTGROUPNAME','" . MX_FIRSTGROUPN
 \$mxConf['vkpSafeCookie2']        = '$xvkpSafeCookie2';
 \$mxConf['mxCookieInfo']		  = '$xmxCookieInfo';
 \$mxConf['mxCookieLink']		  = '$xmxCookieLink';
+\$mxConf['mxCookiePos']		  	  = '$xmxCookiePos';
 \$mxConf['vkpSafeSqlinject']      = '$xvkpSafeSqlinject';
 \$mxConf['mxEntitieLevel']        = '$xmxEntitieLevel';
+\$mxConf['vkpsec_logging']        = '$xvkpsec_logging';
 \$mxConf['mxUseGzipCompression']  = '$xmxUseGzipCompression';
 \$mxConf['mxJpCacheUse']          = '$xmxJpCacheUse';
 \$mxConf['mxJpCacheTimeout']      = '$xmxJpCacheTimeout';
@@ -123,6 +124,8 @@ if(!defined('MX_FIRSTGROUPNAME')) define('MX_FIRSTGROUPNAME','" . MX_FIRSTGROUPN
 \$mxConf['tipath']            = 'images/topics/';
 \$mxConf['mxSiteService']     = '$xmxSiteService';
 \$mxConf['mxSiteServiceText'] = '$xmxSiteServiceText';
+\$mxConf['mxOfflineMode']     = '$xmxOfflineMode';
+\$mxConf['mxOfflineModeText'] = '$xmxOfflineModeText';
 \$mxConf['mxUseThemecache']   = '$xmxUseThemecache';
 \$mxConf['mxDebug']           = $newdebug;
 \$mxConf['show_pragmamx_news']= '$xshow_pragmamx_news';
@@ -133,7 +136,7 @@ if(!defined('MX_FIRSTGROUPNAME')) define('MX_FIRSTGROUPNAME','" . MX_FIRSTGROUPN
  */
 (stripos(\$_SERVER['PHP_SELF'], basename(__FILE__)) === false) or die('access denied');
 // only dbtype MySQL is supported by pragmaMx " . PMX_VERSION . "!
-\$mxConf['dbtype'] = 'MySQL';
+
 // set globals
 foreach (\$mxConf as \$key => \$value) {
   \$mxConf[\$key] = (!is_array(\$value)) ? stripslashes(\$value) : \$value;

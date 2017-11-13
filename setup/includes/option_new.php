@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 234 $
- * $Author: PragmaMx $
- * $Date: 2016-09-29 13:10:09 +0200 (Do, 29. Sep 2016) $
+ * $Revision: 387 $
+ * $Author: pragmamx $
+ * $Date: 2017-10-07 12:11:21 +0200 (Sa, 07. Okt 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -490,7 +490,7 @@ switch ($_REQUEST['op']) {
 				  <div class="span1">
 					<form action="index.php" method="post">
 					  <p>' . hiddenrequest('showconfig') . '
-						<input type="hidden" name="config_php" value="' . $status['config_php'] . '" />
+						<input type="hidden" name="configphp" value="' . $status['config_php'] . '" />
 						<input class="btn" type="submit" value="' . _CONFIG_BUTTONMAN . '" />
 					  </p>
 					</form>
@@ -506,7 +506,7 @@ switch ($_REQUEST['op']) {
         $option = _CONFIG_BUTTONMAN;
         $output = '
           <p>' . _CONFIG_CREATE . '</p>
-          <p><textarea cols="180" rows="25" name="xxconfigphp" style="width:100%">' . stripslashes($_POST['config_php']) . '</textarea></p>
+          <p><textarea cols="180" rows="25" name="xxconfigphp" style="width:100%">' . stripslashes($_POST['configphp']) . '</textarea></p>
           <div class="row">
             <div class="span1">
               <form action="index.php" method="post">

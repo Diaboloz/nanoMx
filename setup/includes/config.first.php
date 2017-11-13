@@ -1,9 +1,8 @@
 <?php
-/**
- * pragmaMx - Web Content Management System
- * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
- * write with: $Id: config.first.php 220 2016-09-27 08:21:05Z PragmaMx $
- * Version: pragmaMx 2
+/*
+ pragmaMx - Web Content Management System
+ Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ Version: pragmaMx 2.4.2.
  */
 
 /**
@@ -21,6 +20,7 @@ $mxConf['dbuname'] = '??????????????????';
 $mxConf['dbpass'] = '??????????????????';
 $mxConf['prefix'] = '??????????????????';
 $mxConf['user_prefix'] = '??????????????????';
+$mxConf['dbtype']  = 'mysql';
 $mxConf['dbconnect'] = '1';
 
 /**
@@ -35,6 +35,8 @@ $mxConf['vkpIntranet'] = '1';
 $mxConf['vkpSafeCookie1'] = '0';
 $mxConf['vkpSafeCookie2'] = '1';
 $mxConf['mxCookieInfo']	='0';
+$mxConf['mxCookieLink']= 'modules.php?name=legal&act=privacy';
+$mxConf['mxCookiePos'] = 'top';
 $mxConf['vkpSafeSqlinject'] = '1';
 $mxConf['mxEntitieLevel'] = '1';
 $mxConf['vkpsec_logging'] = '0';
@@ -96,7 +98,9 @@ $mxConf['tipath'] = 'images/topics/';
 $mxConf['mxSiteService'] = '0';
 $mxConf['mxSiteServiceText'] = 'Siteupdate - single problems possible
 Seitenumstellung - vereinzelte Probleme m&ouml;glich
-<a href=\"' . adminUrl('settings') . '\">change this message</a>';
+<a href=\'' . adminUrl('settings') . '\'>change this message</a>';
+$mxConf['mxOfflineMode']     = '0';
+$mxConf['mxOfflineModeText'] = 'This site is down for maintenance. Please check back again soon. <br />Diese Seite ist derzeit Offline. Bitte kommen Sie sp&auml;ter wieder.';
 $mxConf['mxUseThemecache'] = '1';
 $mxConf['mxDebug'] = array('log' => 0, 'screen' => 0, 'enhanced' => 0);
 $mxConf['show_pragmamx_news'] = '1';

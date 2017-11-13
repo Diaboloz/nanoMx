@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 101 $
- * $Author: PragmaMx $
- * $Date: 2015-12-30 21:08:19 +0100 (Mi, 30. Dez 2015) $
+ * $Revision: 321 $
+ * $Author: pragmamx $
+ * $Date: 2017-02-13 19:27:47 +0100 (Mo, 13. Feb 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -29,7 +29,7 @@ $newcollate = 'utf8_unicode_ci';
 /**
  * * SHOW TABLE STATUS [FROM datenbank] [LIKE platzhalter]
  */
-$qry = 'SHOW TABLE STATUS FROM ' . $dbname . ' LIKE \'' . $prefix . '%\'';
+$qry = 'SHOW TABLE STATUS FROM ' . $dbname . ' LIKE \'' . $prefix . '%\';';
 $result = sql_query($qry);
 while ($table = sql_fetch_assoc($result)) {
     if (isset($table['Collation']) && $table['Collation'] != $newcollate) {
@@ -41,7 +41,7 @@ while ($table = sql_fetch_assoc($result)) {
 }
 
 if ($user_prefix != $prefix) {
-    $qry = 'SHOW TABLE STATUS FROM ' . $dbname . ' LIKE "' . $user_prefix . '%"';
+    $qry = 'SHOW TABLE STATUS FROM ' . $dbname . ' LIKE \'' . $user_prefix . '%\';';
     $result = sql_query($qry);
     while ($table = sql_fetch_assoc($result)) {
         if (isset($table['Collation']) && $table['Collation'] != $newcollate) {

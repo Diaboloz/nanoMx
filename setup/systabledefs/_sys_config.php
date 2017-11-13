@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 59 $
+ * $Revision: 304 $
  * $Author: PragmaMx $
- * $Date: 2015-08-06 20:38:53 +0200 (Do, 06. Aug 2015) $
+ * $Date: 2016-12-19 12:48:55 +0100 (Mo, 19. Dez 2016) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -23,8 +23,8 @@ unset($sqlqry);
 if (!isset($tables["{$prefix}_sys_config"])) {
     $sqlqry[] = "
 CREATE TABLE `{$prefix}_sys_config` (
-  `section` varchar(30) NOT NULL,
-  `key` varchar(30) NOT NULL,
+  `section` varchar(50) NOT NULL,
+  `key` varchar(50) NOT NULL,
   `value` longtext,
   `serialized` tinyint(1) NOT NULL default '0',
   `change` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
@@ -48,6 +48,7 @@ CREATE TABLE `{$prefix}_sys_config` (
     if (!isset($indexes['PRIMARY'])) {
         $sqlqry[] = "ALTER TABLE `{$prefix}_sys_config` ADD PRIMARY KEY ( `section` , `key` )";
     }
+	$sqlqry[] = "ALTER TABLE `{$prefix}_sys_config` CHANGE `key` `key` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL;";
 }
 	
 

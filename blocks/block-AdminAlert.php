@@ -37,7 +37,7 @@ if (MX_IS_ADMIN && defined('MX_HOME_FILE') && file_exists('setup/index.php')) {
     if (!$rok) {
         $blockfiletitle = "!! " . _ATTENTION . " !!";
         $content = '
-          <p class="warning">
+          <p style="border:3px solid #C03000; padding:1em">
             Si vous pouvez lire ce message alors vous avez installé nanoMx corectement, félicitations ;-). <br />
             Par contre reste le programme d\'installation, <strong>' . _SETUPWARNING1 . '</strong> pour des raisons de sécurité.<br />
             ' . sprintf(_SETUPWARNING2, $idx) . '

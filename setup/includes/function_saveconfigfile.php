@@ -65,6 +65,7 @@ function SetupSaveConfigFile($setvalues)
 
 	/* verschiedene texte zurück konvertieren */
 	$mxSiteServiceText=utf8_decode(trim($mxSiteServiceText));
+	$xmxOfflineModeText=utf8_decode(trim($mxOfflineModeText));
 	$notify_message=utf8_decode(trim($notify_message));
 	$notify_subject=utf8_decode(trim($notify_subject));
 	$sitename=utf8_decode(trim($sitename));
@@ -73,6 +74,10 @@ function SetupSaveConfigFile($setvalues)
 	$foot2=utf8_decode(trim($foot2));
 	$foot3=utf8_decode(trim($foot3));
 	$foot4=utf8_decode(trim($foot4));
+
+    $xmxSiteService = (empty($mxSiteServiceText)) ? 0 : $mxSiteService;
+    $xmxOfflineMode = (empty($mxOfflineModeText)) ? 0 : $mxOfflineMode;
+
 	
 	/* Censor list */
     foreach ($CensorList as $word) {
@@ -280,7 +285,7 @@ function SetupSaveConfigFile($setvalues)
         $out['err'] = false;
     }
     $out['len'] = strlen($cont);
-    $out['config_php'] =htmlentities(addslashes(str_replace("\"","'",$cont)),ENT_QUOTES);
+    $out['config_php'] = htmlentities(addslashes(str_replace("\"","'",$cont)),ENT_QUOTES ,"UTF-8");
 	$out['len'] = strlen($out['config_php']);
 	$out['retry']=$retry;
     return $out;

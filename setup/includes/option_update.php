@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 180 $
- * $Author: PragmaMx $
- * $Date: 2016-07-08 10:13:09 +0200 (Fr, 08. Jul 2016) $
+ * $Revision: 385 $
+ * $Author: pragmamx $
+ * $Date: 2017-10-04 20:31:51 +0200 (Mi, 04. Okt 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -466,7 +466,7 @@ switch ($_REQUEST['op']) {
         // <input type="hidden" name="configphp" value="'.$_REQUEST['configphp'].'" />
         $output = '
                 <p>' . _CONFIG_CREATE . '</p>
-                <p><textarea cols="72" rows="12" name="xxconfigphp" style="width:90%">' . $_REQUEST['configphp'] . '</textarea></p>
+                <p><textarea cols="72" rows="12" name="xxconfigphp" style="width:90%">' . stripslashes($_REQUEST['configphp']) . '</textarea></p>
                 <div class="row">
                   <div class="span1">
                     <form action="index.php" method="post">

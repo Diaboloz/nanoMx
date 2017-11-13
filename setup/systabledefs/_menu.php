@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 6 $
- * $Author: PragmaMx $
- * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ * $Revision: 341 $
+ * $Author: pragmamx $
+ * $Date: 2017-05-18 21:31:41 +0200 (Do, 18. Mai 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -23,7 +23,7 @@ unset($sqlqry);
 // Tabellenstruktur fuer Tabelle `mx_menu`
 if (!isset($tables["${prefix}_menu"])) {
     $sqlqry[] = "
-CREATE TABLE `${prefix}_menu` (
+CREATE TABLE IF NOT EXISTS `${prefix}_menu` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `bid` int(10) NOT NULL,
   `pid` int(10) NOT NULL,
@@ -65,7 +65,7 @@ if (isset($sqlqry)) {
     unset($sqlqry);
 }
 
-$menresult = sql_query("SELECT bid FROM `${prefix}_blocks` WHERE `blockfile`='block-Menu.php' LIMIT 1");
+$menresult = sql_query("SELECT bid FROM `${prefix}_blocks` WHERE `blockfile`='block-Menu.php' LIMIT 1");//
 list($ismenu) = sql_fetch_row($menresult);
 
 if (!$ismenu) {
