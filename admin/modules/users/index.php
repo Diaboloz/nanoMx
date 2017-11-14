@@ -62,11 +62,11 @@ function mainusers()
         <div class="tab-pane active" id="userEdit" role="tabpanel">
 			<form method="post" action="' . adminUrl(PMX_MODULE, 'modify') . '" name="edit_user_form">
                 <table class="table table-hover w-50">
-                    <thead class="thead-inverse">
+                    <thead>
                         <tr>
-                            <th>' . _YA_USERSTAT . '</th>
-                            <th>' . _YA_ADM_USERENAMEGROUP . '</th>
                             <th>' . _SELECTSTAT . '</th>
+                            <th>' . _YA_ADM_USERENAMEGROUP . '</th>
+                            <th>' . _YA_USERSTAT . '</th>
                         </tr>
                     </thead>
                     <tbody>';
@@ -74,41 +74,41 @@ function mainusers()
     if ((!empty($options[0])) && ($userconfig->register_option === 2 || $userconfig->register_option === 4)) {
         echo '
             <tr>
-                <th scope="row">' . _YA_ADM_NEWUSERS . '</th>
-                <td><select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="uid_0">' . implode("", $options[0]) . '</select>&nbsp;(' . count($options[0]) . ')</td>
-                <td><input type="radio" name="user_stat" value="0" /></td>
+                <td><input type="radio" name="user_stat" value="0" /></td>         
+                <td><select class="form-control" name="uid_0">' . implode("", $options[0]) . '</select>&nbsp;(' . count($options[0]) . ')</td>
+                <td><span class="badge badge-warning">' . _YA_ADM_NEWUSERS . '</span></td>
             </tr>';
     }
 
     if (!empty($options[1])) {
         echo '
             <tr>
-                <th scope="row">' . _YA_ADM_ACTIVUSERS . '</th>
-                <td><select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="uid_1">' . implode("", $options[1]) . '</select>&nbsp;(' . count($options[1]) . ')</td>
                 <td><input type="radio" name="user_stat" value="1" checked="checked" /></td>
+                <td><select class="form-control" name="uid_1">' . implode("", $options[1]) . '</select>&nbsp;(' . count($options[1]) . ')</td>
+                <td><span class="badge badge-success">' . _YA_ADM_ACTIVUSERS . '</span></td>
             </tr>';
     }
 
     if (!empty($options[2])) {
         echo '
             <tr>
-                <th scope="row">' . _YA_ADM_DEACTIVUSERS . '</th>
-                <td><select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="uid_2">' . implode("", $options[2]) . '</select>&nbsp;(' . count($options[2]) . ')</td>
-                <td><input type="radio" name="user_stat" value="2" /></td>
+                <td><input type="radio" name="user_stat" value="2" /></td>          
+                <td><select class="form-control" name="uid_2">' . implode("", $options[2]) . '</select>&nbsp;(' . count($options[2]) . ')</td>
+                <td><span class="badge badge-secondary">' . _YA_ADM_DEACTIVUSERS . '</span></td>
             </tr>';
     }
 
     if (!empty($options[-1])) {
         echo '
             <tr>
-                <th scope="row">' . _YA_REAC_DELETED . '</th>
-                <td><select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="uid_3">' . implode("", $options[-1]) . '</select>&nbsp;(' . count($options[-1]) . ')</td>
                 <td><input type="radio" name="user_stat" value="-1" /></td>
+                <td><select class="form-control" name="uid_3">' . implode("", $options[-1]) . '</select>&nbsp;(' . count($options[-1]) . ')</td>
+                <td><span class="badge badge-danger">' . _YA_REAC_DELETED . '</span></td>
             </tr>';
     }
 
     echo '
-        </tbody>
+            </tbody>
         </table>
         <div class="container">
             <div class="form-group">

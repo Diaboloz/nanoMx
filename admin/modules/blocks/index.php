@@ -161,11 +161,11 @@ function blockslistall()
             $block->title = (empty($block->active)) ? '<span class="font-italic">' . $block->title . '</span>' : $block->title;
 
             $block->functions = array();
-            $block->functions[] = '<a class="btn btn-secondary btn-sm" title="' . _EDIT . '" href="' . adminUrl(PMX_MODULE, 'Edit', 'bid=' . $block->bid) . '">' . $img_edit . '</a>';
-            $block->functions[] = '<a class="btn btn-secondary btn-sm" href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $block->bid) . '">' . ((empty($block->active)) ? $img_activate : $img_deactivate) . '</a>';
+            $block->functions[] = '<a class="btn btn-outline-secondary btn-sm" title="' . _EDIT . '" href="' . adminUrl(PMX_MODULE, 'Edit', 'bid=' . $block->bid) . '">' . $img_edit . '</a>';
+            $block->functions[] = '<a class="btn btn-outline-secondary btn-sm" href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $block->bid) . '">' . ((empty($block->active)) ? $img_activate : $img_deactivate) . '</a>';
             if ($block->position !== 'z') {
-                $block->functions[] = '<a class="btn btn-secondary btn-sm" title="' . _DELETE . '" href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $block->bid) . '">' . $img_delete . '</a>';
-                $block->functions[] = '<a class="btn btn-secondary btn-sm" title="' . _SHOW . '" href="' . adminUrl(PMX_MODULE, 'show', 'bid=' . $block->bid) . '">' . $img_view . '</a>';
+                $block->functions[] = '<a class="btn btn-outline-secondary btn-sm" title="' . _DELETE . '" href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $block->bid) . '">' . $img_delete . '</a>';
+                $block->functions[] = '<a class="btn btn-outline-secondary btn-sm" title="' . _SHOW . '" href="' . adminUrl(PMX_MODULE, 'show', 'bid=' . $block->bid) . '">' . $img_view . '</a>';
             }
 
             if ($multilingual) {

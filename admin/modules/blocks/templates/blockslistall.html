@@ -44,7 +44,7 @@ $colspan = ($this->multilingual) ? 7 : 6;
       <td><input type="text" class="form-control" name="weight[<?php echo $block->bid ?>]" value="<?php echo ($weight + 1) ?>" size="3" maxlength="3" /></td>
       <td><?php echo $block->title ?></td>
       <td><?php echo $block->type ?></td>
-      <td><?php echo (($block->active) ? '<span class="badge badge-success">' . _ACTIVE . '</span>' : '<span class="badge badge-default">' . _INACTIVE . '</span>') ?></td>
+      <td><?php echo (($block->active) ? '<span class="badge badge-success">' . _ACTIVE . '</span>' : '<span class="badge badge-secondary">' . _INACTIVE . '</span>') ?></td>
       <td><?php echo $block->who_view ?></td>
       <?php if($this->multilingual): ?>
       <td><?php echo $block->blanguage ?></td>
