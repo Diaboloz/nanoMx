@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 6 $
- * $Author: PragmaMx $
- * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ * $Revision: 320 $
+ * $Author: pragmamx $
+ * $Date: 2017-02-08 22:14:48 +0100 (Mi, 08. Feb 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -38,12 +38,12 @@ $conf['minlen_req'] = 12; #
 // Minimale Länge der SQL-Abfrage, ab wann überhaupt geprüft werden soll
 $conf['minlen_sql'] = 15; #
 // Session zerstören = logout falls User oder Admin
-$conf['killsession'] = 0;
+$conf['killsession'] = 1;
 // IP-Adressen bannen
 // - 0 = kein Banning
 // - 1 = nur bereits gebannte IP-Adressen werden von der Seite ferngehalten
 // - 2 = wenn Angriffe festgestellt werden, wird die entsprechende IP automatisch gebannt
-$conf['ipbanning'] = 0;
+$conf['ipbanning'] = 2;
 // Listendatei der gebannten IP's
 $conf['ipfile'] = PMX_DYNADATA_DIR . '/logfiles/banned.log';
 // Nachricht, die erscheint, wenn eine IP-Adresse gebannt ist
@@ -52,7 +52,7 @@ $conf['ipbanmsg'] = '<html><head><title>banned</title></head><body bgcolor="#DDD
         <table width="99%" height="99%" border="10" cellspacing="30" cellpadding="100">
         <tr align="center" valign="middle"><td>
         <h2><font color="#800000">sorry, ip ' . MX_REMOTE_ADDR . ' is banned from our site</font></h2>
-        <h4><br /><a href="mailto:' . mxPrepareToDisplay($GLOBALS['adminmail']) . '">' . mxPrepareToDisplay($GLOBALS['adminmail']) . '</a></h4>
+        
         </td></tr></table>
         </body></html>';
 // logfile der gebannten IP's, die die Seite besuchen

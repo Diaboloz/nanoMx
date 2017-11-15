@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * This file is part of
  * pragmaMx - Web Content Management System.
@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 199 $
+ * $Revision: 95 $
  * $Author: PragmaMx $
- * $Date: 2016-08-04 15:24:53 +0200 (Do, 04. Aug 2016) $
+ * $Date: 2015-11-16 11:24:13 +0100 (Mo, 16. Nov 2015) $
  */
 
 if (!defined('mxMainFileLoaded')) {
@@ -45,6 +45,7 @@ CKEDITOR.editorConfig = function( config )
   config.baseHref = '<?php echo PMX_HOME_URL ?>/';
   config.skin = 'moonocolor';
   config.extraPlugins = 'linkrel';
+  config.width = '100%';
 
   config.toolbar_reduced =
   [
@@ -62,7 +63,7 @@ CKEDITOR.editorConfig = function( config )
     { name: 'paragraph', items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ] },
     { name: 'links', items : [ 'Link','Unlink' ] },
     '/',
-    { name: 'insert', items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ] },
+    { name: 'insert', items : [ 'Image','image2','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe','oembed' ] },
     { name: 'styles', items : [ 'Styles','Format','Font','FontSize' ] },
     { name: 'colors', items : [ 'TextColor','BGColor' ] }
   ];
@@ -78,7 +79,7 @@ CKEDITOR.editorConfig = function( config )
     { name: 'paragraph', items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ] },
     { name: 'links', items : [ 'Link','Unlink','Anchor' ] },
     '/',
-    { name: 'insert', items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ] },
+    { name: 'insert', items : [ 'Image','image2','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe','oembed' ] },
     { name: 'styles', items : [ 'Styles','Format','Font','FontSize' ] },
     { name: 'colors', items : [ 'TextColor','BGColor' ] }
   ];

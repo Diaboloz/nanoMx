@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 206 $
- * $Author: PragmaMx $
- * $Date: 2016-09-12 13:33:26 +0200 (Mo, 12. Sep 2016) $
+ * $Revision: 286 $
+ * $Author: module-factory $
+ * $Date: 2016-12-06 16:00:52 +0100 (Di, 06. Dez 2016) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -358,9 +358,10 @@ function mxReferer()
  * @param mixed $log_event
  * @param string $account
  * @param integer $withdata
+ * @param mixid $mod_name
  * @return
  */
-function mxSecureLog($log_eventid, $log_event, $account = '', $withdata = false)
+function mxSecureLog($log_eventid, $log_event, $account = '', $mod_name = '', $withdata = false)
 {
     if (empty($GLOBALS["vkpsec_logging"])) {
         return;
@@ -375,6 +376,15 @@ function mxSecureLog($log_eventid, $log_event, $account = '', $withdata = false)
     if (MX_IS_ADMIN) {
         extract(mxGetAdminSession()); ;
     }
+
+    if(!empty($account)){
+        $uname = $account;
+    }
+
+    if(!empty($mod_name)){
+        $aid = $mod_name;
+    }
+
     $data = (empty($withdata)) ? '' : serialize($_REQUEST);
     $qry = "INSERT INTO ${prefix}_securelog
         (log_ip, log_time, log_eventid, log_event, uname, aid, request) VALUES
@@ -389,12 +399,13 @@ function mxSecureLog($log_eventid, $log_event, $account = '', $withdata = false)
  * @param mixed $event
  * @param string $account
  * @param mixed $withdata
+ * @param mixid $mod_name
  * @return
  */
-function mxUserSecureLog($eventid, $event, $account = '', $withdata = false)
+function mxUserSecureLog($eventid, $event, $account = '',$mod_name = '', $withdata = false)
 {
     if (pmxDebug::is_debugmode()) {
-        return mxSecureLog($eventid, $event, $account, true);
+        return mxSecureLog($eventid, $event, $account, true, true);
     }
 }
 
@@ -582,7 +593,7 @@ function pmxGetMobileDevice()
  * @package
  * @author tora60
  * @copyright Copyright (c) 2010
- * @version $Id: mx_system.php 206 2016-09-12 11:33:26Z PragmaMx $
+ * @version $Id: mx_system.php 286 2016-12-06 15:00:52Z module-factory $
  * @access public
  */
 class pmxUserStored {
@@ -612,8 +623,8 @@ class pmxUserStored {
 
         define('MX_IS_USER' , self::$isuser); // Userberechtigung  initialisieren
         define('MX_IS_ADMIN', self::$isadmin); // Adminberechtigung initialisieren
-        define('MX_IS_SYSADMIN', MX_IS_ADMIN && isset(self::$admin['radminsuper']) && self::$admin['radminsuper']); // SYS-Adminberechtigung initialisieren		
-		
+        define('MX_IS_SYSADMIN', MX_IS_ADMIN && isset(self::$admin['radminsuper']) && self::$admin['radminsuper']); // SYS-Adminberechtigung initialisieren
+
 	}
 	
     /**

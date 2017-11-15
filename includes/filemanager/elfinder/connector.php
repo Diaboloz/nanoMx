@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 6 $
- * $Author: PragmaMx $
- * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ * $Revision: 318 $
+ * $Author: pragmamx $
+ * $Date: 2017-02-05 22:09:24 +0100 (So, 05. Feb 2017) $
  *
  * http://elrte.org/redmine/projects/elfinder/wiki/Connector_Configuration_EN
  * https://github.com/Studio-42/elFinder/blob/2.x/php/elFinderVolumeDriver.class.php#L153
@@ -47,7 +47,7 @@ pmxDebug::restore();
  * @package
  * @author tora60
  * @copyright Copyright (c) 2013
- * @version $Id: connector.php 6 2015-07-08 07:07:06Z PragmaMx $
+ * @version $Id: connector.php 318 2017-02-05 21:09:24Z pragmamx $
  * @access public
  */
 class elfinder_connector {
@@ -83,7 +83,7 @@ class elfinder_connector {
  * @package
  * @author tora60
  * @copyright Copyright (c) 2012
- * @version $Id: connector.php 6 2015-07-08 07:07:06Z PragmaMx $
+ * @version $Id: connector.php 318 2017-02-05 21:09:24Z pragmamx $
  * @access public
  */
 class pmxElfinder extends elFinder {
@@ -224,7 +224,13 @@ class pmxElfinder extends elFinder {
                 $thisroot['uploadDeny'] = array();
                 $thisroot['uploadOrder'] = 'deny,allow';
                 break;
-
+            case MX_IS_ADMIN:
+               // admin darf auch hochladen
+                 $this->_config['allow_upload'] = true;
+                 $thisroot['uploadAllow'] = array('any');
+                 $thisroot['uploadDeny'] = array();
+                 $thisroot['uploadOrder'] = 'deny,allow';
+                 break;
             case !$this->_config['allow_upload']:
                 $thisroot['uploadAllow'] = array();
                 $thisroot['uploadDeny'] = array('all');

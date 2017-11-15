@@ -33,15 +33,16 @@ if (isset($pagetitle)) {
     $GLOBALS['pagetitle'] = $pagetitle;
 	pmxBase::pagetitle($pagetitle);
 } else {
-    // nur für nuke-Module noch drin!
-    global $pagetitle;
+    // TODO: raus !! nur für nuke-Module noch drin!
+    //global $pagetitle;
 }
 
 /* aktuelle URL versuchen zu speichern */
 pmxDebug::pause();
 
 $currequest = parse_url($_SERVER['REQUEST_URI']);
-mxSessionSetVar('lasturl', basename($currequest['path']) . ((empty($currequest['query'])) ? '' : '?' . $currequest['query']));
+$lasturl=(empty($currequest['query'])) ? '': basename($currequest['path']) . '?' . $currequest['query'];
+mxSessionSetVar('lasturl',$lasturl);
 
 pmxDebug::restore();
 

@@ -1,0 +1,59 @@
+{#
+ * This file is part of
+ * pragmaMx - Web Content Management System.
+ * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
+ *
+ * pragmaMx is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * $Revision: 314 $
+ * $Author: svenlang $
+ * $Date: 2016-12-31 13:47:53 +0100 (Sa, 31. Dez 2016) $
+#}
+
+{#
+ * JavaScript Structur
+ *
+ * 1. Load the Visualization API (in class Charts()).
+ * 2. Load the corechart package and the current language.
+ * 3. Set a callback to run when the Google Visualization API is loaded.
+ * 4. Create the data table.
+ * 5. Instantiate and draw our chart, passing in some options.
+#}
+
+<script type="text/javascript">
+
+	google.charts.load('current', {
+		packages: ['corechart'],
+		language: '{{ currentlang }}'
+	});
+
+	google.charts.setOnLoadCallback(
+	  	function () {
+	  	  try {
+			var dom = document.getElementById('{{ domId }}');
+			var data = google.visualization.arrayToDataTable( {{ data|json_encode|raw }} );
+			var chart = new google.visualization[ '{{ chart }}' ]( dom );
+			chart.draw( data, {{ options|json_encode|raw }} );
+		  } catch (e) {
+	  	    // JSON require a try/catch
+	  	    // console.log(e);
+		  }
+		}
+	);
+</script>
+
+
+{% if MX_IS_ADMIN %}
+
+	{% for item in error %}
+		<div class="error">{{ item }}</div>
+	{% endfor %}
+
+{% endif %}
+
+<div id="plugin-charts-wrapper">
+	<div id="{{ domId }}"></div>
+</div>

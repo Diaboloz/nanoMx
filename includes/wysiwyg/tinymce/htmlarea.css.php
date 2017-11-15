@@ -111,10 +111,9 @@ if (!$area_background || !$area_foreground) {
     ?>
 
 #htmlarea, #htmlarea body,
-body, body.body-allone, body#htmlarea {
+body, body.body-allone {
    height: auto!important;
    text-align: left;
-   background-color: #FEFEFE;
 }
 
 <?php

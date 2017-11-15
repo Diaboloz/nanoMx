@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 6 $
+ * $Revision: 259 $
  * $Author: PragmaMx $
- * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ * $Date: 2016-11-27 18:20:19 +0100 (So, 27. Nov 2016) $
  */
 
 /**
@@ -20,7 +20,7 @@
  * @package pragmaMx
  * @author tora60
  * @copyright Copyright (c) 2014
- * @version $Id: Hook.php 6 2015-07-08 07:07:06Z PragmaMx $
+ * @version $Id: Hook.php 259 2016-11-27 17:20:19Z PragmaMx $
  * @access public
  */
 class pmxHook {
@@ -36,7 +36,12 @@ class pmxHook {
          */
         'modlist' => array(),
 
-        /* Dient zum Einschränken des Hooks auf für den aktuellen User erlaubte Module. */
+         /* Dient zum Einschränken des Hooks auf bestimmte Plugins.
+         * Es werden nur die Plugins berücksichtigt, die in diesem Array aufgeführt sind.
+         */
+        'pluglist' => array(),
+
+		/* Dient zum Einschränken des Hooks auf für den aktuellen User erlaubte Module. */
         'only_allowed' => true,
 
         /* Dient zum Einschränken des Hooks auf im System aktivierte Module. */
@@ -132,6 +137,7 @@ class pmxHook {
 
         if ($files) {
             /* hier wird gleich der Modulname an die hook-Datei übergeben !! */
+			
             foreach ($files as $module_name => $filename) {
                 $hook = null;
                 switch (true) {
@@ -148,10 +154,11 @@ class pmxHook {
                         $hook($module_name, $this->_props, $outcome);
                 }
             }
+ 
         } else {
             return false;
         }
-
+		
         /* Immer true/false ! Die Funktion hat keinen Rückgabewert,
          * nur der Übergabeparameter $outcome wird verändert/ergänzt
          */
@@ -175,7 +182,9 @@ class pmxHook {
             $checked = $config->deactivated;
 
             $files = array();
-            foreach ((array)glob(PMX_MODULES_DIR . DS . '*' . DS . 'core' . DS . '*.php', GLOB_NOSORT) as $filename) {
+			$filess =(array)glob(PMX_MODULES_DIR . DS . '*' . DS . 'core' . DS . '*.php', GLOB_NOSORT);
+			
+            foreach ($filess as $filename) {
                 if ($filename && $info = pathinfo($filename)) {
                     $module_name = basename(dirname($info['dirname']));
                     $hook_name = $info['filename'];
@@ -190,15 +199,17 @@ class pmxHook {
                     }
                 }
             }
+			//mxDebugFuncVars($files);
             $cache->write($files, __METHOD__, 18000); // 5 Stunden Cachezeit
         }
 
         if (!isset($files[$this->_hookname])) {
             return false;
         }
-
+		//mxDebugFuncVars($files);
         return $files[$this->_hookname];
     }
+
 
     /**
      * pmxHook::_get_files_fromlist()

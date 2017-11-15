@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 194 $
+ * $Revision: 346 $
  * $Author: PragmaMx $
- * $Date: 2016-07-25 15:10:19 +0200 (Mo, 25. Jul 2016) $
+ * $Date: 2017-06-30 12:03:47 +0200 (Fr, 30. Jun 2017) $
  *
  * turkish language file, translated by:
  * Sıtkı Özkurt from www.akcaabat-acisu.com
@@ -63,7 +63,7 @@ define("_SYS_INTERNATIONALDATES", 1); //0 = mm/dd/yyyy, 1 = dd/mm/yyyy
 define("_SYS_TIME24HOUR", 1); // 1 = 24 hour time... 0 = AM/PM time
 define("_SYS_WEEKBEGINN", 1); # the First Day in the Week: 0 = Sunday, 1 = Monday
 define("_Z1", "Bu sitedeki tüm logo ve markalar sahiplerinin malıdır. Diğer detayları <a href=\"modules.php?name=Impressum\">Künye</a> bölümünde bulabilirsiniz .");
-define("_Z2", "Yorumlar yazarların sorumluluğu altındadır,<br />geri kalan her şey © by <a href=\"" . PMX_HOME_URL . "\">" . $GLOBALS['sitename'] . "</a>");
+define("_Z2", "Yorumlar yazarların sorumluluğu altındadır,<br />geri kalan her şey &copy; by <a href=\"" . PMX_HOME_URL . "\">" . $GLOBALS['sitename'] . "</a>");
 define("_Z3", "Bu site pragmaMx " . PMX_VERSION . " tabanlıdır.");
 define("_Z4", "Haberlerimizi <a href=\"modules.php?name=rss\">RSS</a> kullanarak yayınlayabilirsiniz.");
 define("_YES", "Evet");
@@ -348,4 +348,11 @@ define("_MAILISBLOCKED", "Bu e-posta adresi (veya bir kısmı) izinli değil.");
 define("_COOKIEINFO","Web sitemizi kullanarak, deneyiminizi geliştirmek için çerezler kullanmayı kabul edersiniz.");
 define("_MOREINFO","daha fazla bilgi");
 
+/* 2.4. */
+define("_OFFLINE_1","Bu web sitesi şu anda çevrimdışı");
+define("_OFFLINE_2","Maalesef, daha sonra tekrar deneyin.");
+define("_OFFLINE_3","Anlayışınız için teşekkür ederiz.<br/>yöneticiniz");
+langdefine("_MINUTE","dakika");
+langdefine("_MINUTES","dakika");
+langdefine("_READINGTIME","Hakkında zaman okuma");
 ?>

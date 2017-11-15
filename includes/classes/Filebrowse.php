@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 206 $
- * $Author: PragmaMx $
- * $Date: 2016-09-12 13:33:26 +0200 (Mo, 12. Sep 2016) $
+ * $Revision: 318 $
+ * $Author: pragmamx $
+ * $Date: 2017-02-05 22:09:24 +0100 (So, 05. Feb 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -22,13 +22,13 @@ defined('mxMainFileLoaded') or die('access denied');
  * @package
  * @author tora60
  * @copyright Copyright (c) 2009
- * @version $Id: Filebrowse.php 206 2016-09-12 11:33:26Z PragmaMx $
+ * @version $Id: Filebrowse.php 318 2017-02-05 21:09:24Z pragmamx $
  * @access public
  */
 class pmxFilebrowse {
     /* Grundkonfiguration und Speicher für getter / setter... */
     protected $_config = array(/* Standardwerte */
-        'manager' => 'elfinder',
+        'manager' => NULL, //'elfinder',
         'title' => 'pragmaMx filemanager',
         'type' => '',
         'getback' => 'path',
@@ -299,6 +299,7 @@ class pmxFilebrowse {
      */
     public function is_active()
     {
+		//mxDebugFuncVars($this->_config['manager']);
         return ($this->_config['manager']) ? true : false;
     }
 

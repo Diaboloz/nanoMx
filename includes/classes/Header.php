@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 201 $
+ * $Revision: 344 $
  * $Author: PragmaMx $
- * $Date: 2016-08-05 10:29:04 +0200 (Fr, 05. Aug 2016) $
+ * $Date: 2017-06-07 16:26:06 +0200 (Mi, 07. Jun 2017) $
  */
 
 /**
@@ -20,7 +20,7 @@
  * @package pragmaMx
  * @author tora60
  * @copyright Copyright (c) 2008
- * @version $Id: Header.php 201 2016-08-05 08:29:04Z PragmaMx $
+ * @version $Id: Header.php 344 2017-06-07 14:26:06Z PragmaMx $
  * @access public
  */
 class pmxHeader {
@@ -121,8 +121,8 @@ class pmxHeader {
     {
         $more = self::get_more(); // als erstes abfragen, weil in my_header noch Zuweisungen stehen könnten
         $export['style_code'] = self::get_style_code();
-        $export['style'] = self::get_style();
-        $export['style'] .= "\n" . '<link rel="stylesheet" href="' . MX_THEME_DIR . '/style/style.css" type="text/css" />' . "\n";
+        $export['style'] = "\n" . '<link rel="stylesheet" type="text/css" href="' . MX_THEME_DIR . '/style/style.css" />' . "\n";
+        $export['style'] .= self::get_style();
         $export['jquery'] = self::get_jquery();
         $export['script_code'] = self::get_script_code();
         $export['script'] = self::get_script();
@@ -253,6 +253,56 @@ class pmxHeader {
         self::$__adds['script_code'][] = preg_replace('#</?script[^>]*>#i', '', $code);
     }
 
+	/**
+     * pmxHeader::add_script_body()
+     *
+     * @param mixed $code
+     * @return
+     */
+    public static function add_body_script_code($code)
+    {
+        self::$__adds['body_code'][] = preg_replace('#</?script[^>]*>#i', '', $code);
+    }
+	
+    /**
+     * pmxHeader::add_script()
+     *
+     * @param mixed $src
+     * @param string $if_for_ie
+     * @return
+     */
+    public static function add_body_script($src, $if_for_ie = '')
+    {
+        switch (true) {
+            case !$src:
+            case $if_for_ie && !self::_is_ie():
+                return false;
+        }
+
+        /* Systempfade am Anfang entfernen */
+        $src = trim(self::_cleanpath($src));
+
+        /* verhindern, dass url doppelt eingefügt wird */
+        if (in_array($src, self::$__urls)) {
+            return true;
+        }
+
+        $src = self::_getminfilename($src); // min Version vorhanden?
+
+        self::$__urls[] = $src;
+
+        if (strrpos($src, '/' . self::$__jquery['main']) !== false && !$if_for_ie) {
+            self::add_jquery();
+            return;
+        }
+
+        $src = '<script type="text/javascript" src="' . $src . '"></script>';
+        if ($if_for_ie) {
+            $src = "<!--[if " . $if_for_ie . "]>\n" . $src . "\n<![endif]-->";
+        }
+
+        self::$__adds['body'][] = $src;
+    }
     /**
      * pmxHeader::add_jquery()
      *
@@ -467,7 +517,30 @@ class pmxHeader {
             return implode("\n", $more) . "\n";
         }
     }
+   /**
+     * pmxHeader::get_body()
+     * setzt zusätzliche JScrips ans ende des HTML-Body's
+     * @return
+     */
+    public static function get_body($body_content)
+    {
+		$body_js="\n";
+        /* die Sammlung zurückgeben... */
 
+        if (array_key_exists('body', self::$__adds)) {
+            $body_js .= implode("\n", array_unique(self::$__adds['body'])) . "\n";
+        }
+		
+        if (array_key_exists('body_code', self::$__adds)) {
+            $body = array_unique(self::$__adds['body_code']);
+			$body_js .= self::_preparelines(self::$__adds['body_code'], 'script') . "\n";
+            /* foreach ($body as $key => $value) {
+                $body[$key] = preg_replace('#\s*\n\s+#', "\n", $value);
+            }
+            $body_js = implode("\n", $body) . "\n"; */
+        }
+		return $body_content . "\n".$body_js;
+    }
     /**
      * pmxHeader::get_user()
      * nur noch zur Abwärtskompatibilität
@@ -624,12 +697,13 @@ class pmxHeader {
 			
 				if (self::$__status==NULL) self::$__status=(isset($GLOBALS['http_response_code'])) ? $GLOBALS['http_response_code'] :http_response_code();
 
-                $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
 
             } else { 
 				http_response_code(intval($code));
 				self::$__status=intval($code);
 			}
+			
+            $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
 			
 			switch (self::$__status) {
 				case 100: $text = 'Continue'; break;
@@ -663,6 +737,7 @@ class pmxHeader {
 				case 413: $text = 'Request Entity Too Large'; break;
 				case 414: $text = 'Request-URI Too Large'; break;
 				case 415: $text = 'Unsupported Media Type'; break;
+				case 423: $text = 'Locked'; break;
 				case 500: $text = 'Internal Server Error'; break;
 				case 501: $text = 'Not Implemented'; break;
 				case 502: $text = 'Bad Gateway'; break;

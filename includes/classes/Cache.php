@@ -9,13 +9,13 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 6 $
- * $Author: PragmaMx $
- * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ * $Revision: 320 $
+ * $Author: pragmamx $
+ * $Date: 2017-02-08 22:14:48 +0100 (Mi, 08. Feb 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
-
+defined('PMX_CACHE_INAKTIVE') or define("PMX_CACHE_INAKTIVE",FALSE);
 /**
  * Cache
  *
@@ -26,7 +26,7 @@ defined('mxMainFileLoaded') or die('access denied');
  * @package
  * @author tora60
  * @copyright Copyright (c) 2011
- * @version $Id: Cache.php 6 2015-07-08 07:07:06Z PragmaMx $
+ * @version $Id: Cache.php 320 2017-02-08 21:14:48Z pragmamx $
  * @access public
  */
 class pmxCache {
@@ -77,6 +77,7 @@ class pmxCache {
      */
     public function read($sCacheName = false)
     {
+		if (PMX_CACHE_INAKTIVE) return false;
         if (false === $sCacheName) {
             $sCacheName = $this->_key();
         }
@@ -126,6 +127,7 @@ class pmxCache {
      */
     public function write($mData, $sCacheName = false, $iLifetime = -1)
     {
+		if (PMX_CACHE_INAKTIVE) return false;
         if (false === $sCacheName) {
             $sCacheName = $this->_key();
         }

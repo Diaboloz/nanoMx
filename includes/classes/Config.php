@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 6 $
+ * $Revision: 345 $
  * $Author: PragmaMx $
- * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ * $Date: 2017-06-14 14:19:55 +0200 (Mi, 14. Jun 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -195,6 +195,25 @@ class pmxConfig {
         return $value;
     }
 
+   /**
+     * pmxConfig::delValue()
+     *
+     * Löscht einen einzelnen Wert in der Konfiguration.
+     * Durch die Angabe von $section, kann auch eine andere Sektion beeinflusst
+     * werden, als die, die in der aktuellen Klasseninstanz durch den
+     * Konstruktor festgelegt ist.
+     *
+     * @param string $name , Name des Wertes
+     * @param string $section , übergeordnete Sektion
+     * @return boolean , bei Erfolg TRUE, im Fehlerfall FALSE
+     */
+    public function delValue($name, $section)
+    {
+        $section = $this->_sectionname($section);
+
+        return $this->_del_value_in_database($name, $section);
+    }
+
     /**
      * pmxConfig::getSection()
      *
@@ -266,6 +285,25 @@ class pmxConfig {
     }
 
     /**
+     * pmxConfig::delSection()
+     *
+     * Löscht einen ganze Section in der Konfiguration.
+     * Durch die Angabe von $section, kann auch eine andere Sektion beeinflusst
+     * werden, als die, die in der aktuellen Klasseninstanz durch den
+     * Konstruktor festgelegt ist.
+     *
+     * @param string $name , Name des Wertes
+     * @param string $section , übergeordnete Sektion
+     * @return boolean , bei Erfolg TRUE, im Fehlerfall FALSE
+     */
+    public function delSection($section)
+    {
+        $section = $this->_sectionname($section);
+
+        return $this->_del_section_in_database($section);
+    }
+
+	/**
      * pmxConfig::set()
      *
      * Speichert die neuen Konfigurationswerte in der Sektion ab, die in der
@@ -483,6 +521,45 @@ class pmxConfig {
             return 'pmx.main';
         }
     }
+    /**
+     * pmxConfig::_del_section_in_database()
+     *
+     * Interne Funktion zum löschen einer Sektion in der Datenbank
+     *
+     * @param string $section
+     * @return
+     */
+    protected function _del_section_in_database($section)
+    {
+        if ($section=="" or $section=="pmx.main") {
+			trigger_error("Section failed");
+			return false;
+		}
+        $qry = "DELETE FROM `" . self::$_dbtable . "`
+                WHERE `section`='" . mxAddSlashesForSQL($section) . "'";
+        $result = sql_system_query($qry);
+        
+        return $result;
+    }
+    /**
+     * pmxConfig::_del_value_in_database()
+     *
+     * Interne Funktion zum löschen einer Sektion in der Datenbank
+     *
+     * @param string $section
+     * @return
+     */    
+	 protected function _del_value_in_database($name, $section)
+    {
+
+        $qry = "DELETE FROM `" . self::$_dbtable . "`
+                WHERE `section`='" . mxAddSlashesForSQL($section) . "'
+                  AND `key`='" . mxAddSlashesForSQL($name) . "'";
+        $result = sql_system_query($qry);
+		return $result;
+	}
+	
+
 }
 
 /**
@@ -492,7 +569,7 @@ class pmxConfig {
  * @package
  * @author tora60
  * @copyright Copyright (c) 2011
- * @version $Id: Config.php 6 2015-07-08 07:07:06Z PragmaMx $
+ * @version $Id: Config.php 345 2017-06-14 12:19:55Z PragmaMx $
  * @access public
  */
 class Config extends pmxConfig {

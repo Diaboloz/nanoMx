@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 194 $
+ * $Revision: 346 $
  * $Author: PragmaMx $
- * $Date: 2016-07-25 15:10:19 +0200 (Mo, 25. Jul 2016) $
+ * $Date: 2017-06-30 12:03:47 +0200 (Fr, 30. Jun 2017) $
  *
  * danish language file, translated by:
  * Wilhelm Moellering
@@ -46,7 +46,8 @@ define("_SYS_TIME24HOUR", 1); // 1 = 24 hour time... 0 = AM/PM time
 define("_SYS_WEEKBEGINN", 1); # the First Day in the Week: 0 = Sunday, 1 = Monday
 
 define("_Z1", "Alle logoer og varemærker på denne side tilhører deres respektive ejere og indehavere.<br />Derudover gælder Fraskrivelse af ansvar. Flere detaljer kan findes på <a href=\"modules.php?name=Impressum\">Impressum</a>.");
-define("_Z2", "Artiklerne er ejendom af deres respektive forfattere,<br />alle andre © by <a href=\"" . PMX_HOME_URL . "\">" . $GLOBALS['sitename'] . "</a>");
+define("_Z2", "Artiklerne er ejendom af deres respektive forfattere,<br />alle andre &copy; by <a href=\"" . PMX_HOME_URL . "\">
+" . $GLOBALS['sitename'] . "</a>");
 define("_Z3", "Denne hjemmeside er baseret på pragmaMx " . PMX_VERSION . ".");
 define("_Z4", "Indholdet af denne hjemmeside er som <a href=\"modules.php?name=rss\">RSS/RDF-Quelle</a> tilgængelig.");
 define("_YES", "Ja");
@@ -334,4 +335,12 @@ define("_MAILISBLOCKED", "Denne emailadresse (eller dele af den) er ikke tilladt
 /* since 2.2.5*/
 define("_COOKIEINFO","Ved at bruge vores hjemmeside, accepterer du at bruge cookies til at forbedre din oplevelse.");
 define("_MOREINFO","mere information");
+
+/* 2.4. */
+define("_OFFLINE_1","Denne hjemmeside er offline nu.");
+define("_OFFLINE_2","Beklager, prøv igen senere.");
+define("_OFFLINE_3","Tak for din forståelse.<br/>Administratoren");
+langdefine("_MINUTE","minut");
+langdefine("_MINUTES","minutter");
+langdefine("_READINGTIME","Læsning tid om");
 ?>

@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 6 $
+ * $Revision: 277 $
  * $Author: PragmaMx $
- * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ * $Date: 2016-12-05 14:19:59 +0100 (Mo, 05. Dez 2016) $
  */
 
 define('mxAdminFileLoaded', true);
@@ -40,6 +40,7 @@ require_once(PMX_SYSTEM_DIR . DS . 'mx_adminfunctions.php');
 
 /* Sprachdatei auswaehlen */
 mxGetLangfile('admin');
+pmxTranslate::init();
 
 $pagetitle = _ADMINMENU;
 

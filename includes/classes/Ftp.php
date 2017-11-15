@@ -190,7 +190,7 @@ class pmxFTP
 	static function fcopy($source, $dest, $context=NULL)
 	{
 		$fp = fopen($source, 'r');
-		$iscopy=@ftp_put(self::$_ftph, $dest, $fp, self::_findmode($source));
+		$iscopy=@ftp_put(self::$_ftph, $dest, $fp, self::_findMode($source));
 		fclose($fp);
 		
 		if (!$iscopy) {

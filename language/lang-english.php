@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 194 $
- * $Author: PragmaMx $
- * $Date: 2016-07-25 15:10:19 +0200 (Mo, 25. Jul 2016) $
+ * $Revision: 352 $
+ * $Author: pragmamx $
+ * $Date: 2017-08-23 22:33:53 +0200 (Mi, 23. Aug 2017) $
  *
  * english language file by:
  * pragmaMx Developer Team
@@ -36,17 +36,17 @@ define("_DOC_LANGUAGE", "en");
 define("_DOC_DIRECTION", "ltr");
 define("_DATESTRING", "%A, %B %d %Y");
 define("_DATESTRING2", "%A, %B %d");
-define("_XDATESTRING", "on %d/%m/%Y at %H:%M");
-define("_SHORTDATESTRING", "%d/%m/%Y");
+define("_XDATESTRING", "on %m/%d/%Y at %H:%M");
+define("_SHORTDATESTRING", "%m/%d/%Y");
 define("_XDATESTRING2", "%A, %B %d");
 define("_DATEPICKER", _SHORTDATESTRING);
 define("_TIMEFORMAT", "%I:%M %p");
-define("_DATETIME_FORMAT","%d/%m/%Y %I:%M %p");
+define("_DATETIME_FORMAT","%m/%d/%Y %I:%M %p");
 define("_SYS_INTERNATIONALDATES", 0); //0 = mm/dd/yyyy, 1 = dd/mm/yyyy
 define("_SYS_TIME24HOUR", 0); // 1 = 24 hour time... 0 = AM/PM time
 define("_SYS_WEEKBEGINN", 0); # the First Day in the Week: 0 = Sunday, 1 = Monday
 define("_Z1", "All logos and trademarks in this site are property of their respective owner.<br />For more Details, take a look in our <a href=\"modules.php?name=Impressum\">Imprint</a>");
-define("_Z2", "The comments are property of their posters,<br />all the rest © by <a href=\"" . PMX_HOME_URL . "\">" . $GLOBALS['sitename'] . "</a>");
+define("_Z2", "The comments are property of their posters,<br />all the rest &copy; by <a href=\"" . PMX_HOME_URL . "\">" . $GLOBALS['sitename'] . "</a>");
 define("_Z3", "This Website based on pragmaMx " . PMX_VERSION . ".");
 define("_Z4", "You can syndicate our news using the file <a href=\"modules.php?name=rss\">backend.php</a>.");
 define("_YES", "Yes");
@@ -332,4 +332,12 @@ define("_MAILISBLOCKED", "This Emailadress (or Parts of it) is not allowed.");
 /* since 2.2.5*/
 define("_COOKIEINFO","By using our website, you agree to use cookies to enhance your experience. ");
 define("_MOREINFO","more information");
+
+/* 2.4. */
+define("_OFFLINE_1","This website is offline now.");
+define("_OFFLINE_2","Sorry, please try again later.");
+define("_OFFLINE_3","Thank you for your understanding.. <br/>Your Administrator");
+langdefine("_MINUTE","minute");
+langdefine("_MINUTES","minutes");
+langdefine("_READINGTIME","Reading time approx");
 ?>

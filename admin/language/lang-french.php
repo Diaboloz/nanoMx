@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 6 $
- * $Author: PragmaMx $
- * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ * $Revision: 283 $
+ * $Author: SvenLang $
+ * $Date: 2016-12-06 03:39:14 +0100 (Di, 06. Dez 2016) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -46,7 +46,7 @@ define("_SETBAN", "Blocage IP &amp; Courriels");
 define("_YADELETER", "Nouveau compte utilisateur");
 define("_SECLOGTITLE", "Surveillance des évènements");
 define("_OPNOTAVAILABLE", "Cette fonction ('%s') est indisponible.");
-//define("_MXTRACKING", "Traçage");
+define("_MXTRACKING", "Traçage");
 define("_MX_MENU_MANAGER", "Gestion du menu");
 define("_EXPANDALL", "Déployer");
 define("_COLLAPSEALL", "Réduire");
@@ -88,4 +88,7 @@ define("_PLUGINS", "Plugins");
 define("_LOGFILER", "Fichiers journaux");
 define("_HOOKS", "Gérer les crochets");
 define("_THEMES","Thèmes");
+
+define("_PANELPLUGIN", "Plugins");
+define("_PANELPLUGIN_DESCR", "plugins installés");
 ?>

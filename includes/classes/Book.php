@@ -11,9 +11,9 @@
  *
  * Author: Olaf Herfurth / TerraProject  http://www.tecmu.de
  *
- * $Revision: 6 $
- * $Author: PragmaMx $
- * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ * $Revision: 393 $
+ * $Author: pragmamx $
+ * $Date: 2017-10-09 20:12:50 +0200 (Mo, 09. Okt 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -65,7 +65,7 @@ class pmxBook extends pmxContent {
         $this->__set('logging', 0);
         //$this->__set('config', array('-1'));
         /* Root-ID einlesen */
-        $this->getRootID();
+        //$this->getRootID();
     }
 
     public function getModuleName()
@@ -79,7 +79,11 @@ class pmxBook extends pmxContent {
         
 		$temp = $this->getRoot();
 
-        if (!array_key_exists('config', $temp)) $temp = $this->setConfigDefaults();
+        if (!array_key_exists('config', $temp)) {
+			$temp = $this->setConfigDefaults();
+		} else {
+			$temp = $this->getRoot();
+		}
 
         $root = $this->getRecordDefault();
         $config1 = unserialize($root['config']);
@@ -114,7 +118,7 @@ class pmxBook extends pmxContent {
     protected function _getDefaultValues()
     {
         $config = array();
-
+		$config['hidestartpage']=0;
         $config['insertfirst'] = 0;
         $config['rightblocks'] = 0;
         $config['viewblog'] = 0;
@@ -173,6 +177,17 @@ class pmxBook extends pmxContent {
         $config['attmaxheight'] = 200;
         $config['attmaxwidththumb'] = 150;
         $config['baserating'] = 5;
+		$config['link'] = 0;
+		
+        $config['sp_cuttext'] = 1;
+        $config['sp_cutlen'] = 100;
+        $config['sp_tabscount'] = 2;
+        $config['sp_changescount'] = 10;
+		$config['sp_preview']=2;
+		$config['sp_cattext']=1;
+		$config['sp_imgsize']=200;
+		$config['sp_viewcreator']=1;
+		
         return $config;
     }
 
@@ -230,6 +245,7 @@ class pmxBook extends pmxContent {
             'access' => 0,
             'group_access' => serialize(array('-1')),
             'status' => 0,
+			'link'=>0,
             'module_name' => $this->modulname,
             'attachment' => serialize(array()),
             'info' => serialize(
@@ -468,7 +484,7 @@ class pmxBook extends pmxContent {
         $record = $this->_updateNode($id, $catarray, false);
         $this->renumstartpage();
         if ($record['position'] == 1) $this->writelog($id, $record, "SET STARTPAGE");
-        return;
+        return $startpage_count;
     }
     public function unsetstartpage($id)
     {
@@ -479,6 +495,25 @@ class pmxBook extends pmxContent {
         return;
     }
 
+	public function sethomepage($id)
+    {
+		/* erst alles zurücksetzen */
+		$catarray = array('link' => 0);
+		$this->_updateAllNodes($catarray, false);
+		$catarray = array('link' => 1);
+        $record = $this->_updateNode($id, $catarray, true);
+        if ($record['link'] == 1) $this->writelog($id, $record, "SET HOMEPAGE");
+        return;
+    }
+	
+    public function resethomepage($id)
+    {
+        $catarray = array('link' => 0);
+        $record = $this->_updateAllNodes( $catarray, true);
+        if ($record['link'] == 0) $this->writelog($id, $record, "DEL FROM HOMEPAGE");
+		return;
+    }
+	
     public function renumstartpage($positions = array())
     {
         // Position[id]=position
@@ -549,6 +584,11 @@ class pmxBook extends pmxContent {
     {
         return $this->_updateNodes($ids, $record);
     }
+
+    public function updateAllRecords( $record = array())
+    {
+        return $this->_updateAllNodes($record);
+    }	
 
     public function moveRecord ($source_id, $parentid)
     {
@@ -803,6 +843,21 @@ class pmxBook extends pmxContent {
         return $records;
     }
 
+	public function getHomePage()
+    {
+        $records = array();
+		$filter = $this->setFilter("home", "link", "=", "1");
+        $filter = $this->setFilter("home", "publish", "=", "1");
+        //$filter = $this->setFilter("home", "language", " IN ", "('ALL','" . $this->language . "')");
+		$records = $this->_getNodes("home");
+        foreach($records as $value) {
+            $value['text1'] = strip_tags($value['text1']);
+            $records[$value['id']]['text1'] = preg_replace("/{(.*?)}/", "", $value['text1']);
+			//$record=$records[$value['id']];
+        }       
+        return  array_shift($records);
+    }
+	
     public function getTitle($keywords)
     {
         $records = array();

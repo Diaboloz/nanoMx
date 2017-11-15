@@ -9,17 +9,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 165 $
+ * $Revision: 296 $
  * $Author: PragmaMx $
- * $Date: 2016-06-09 10:27:55 +0200 (Do, 09. Jun 2016) $
+ * $Date: 2016-12-13 12:53:33 +0100 (Di, 13. Dez 2016) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
 
 $worker['developer'][] = 'Olaf Herfurth'; // seit 1.12
 $worker['developer'][] = 'Andreas Eichler'; // since 2.2
-$worker['developer'][] = 'Thierry Roussel';
-$worker['developer'][] = 'Sıtkı Özkurt';
+$worker['developer'][] = 'Sven Hedström-Lang'; // since 2.4
+
+$worker['former_developer'][] = 'Thierry Roussel';
+$worker['former_developer'][] = 'Sıtkı Özkurt';
 
 $worker['former_developer'][] = 'Andreas Ellsel';
 $worker['former_developer'][] = 'Hajo Grunert';

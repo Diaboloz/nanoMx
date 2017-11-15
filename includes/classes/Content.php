@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 147 $
- * $Author: PragmaMx $
- * $Date: 2016-05-06 10:27:20 +0200 (Fr, 06. Mai 2016) $
+ * $Revision: 437 $
+ * $Author: pragmamx $
+ * $Date: 2017-10-14 20:42:54 +0200 (Sa, 14. Okt 2017) $
  */
 
 /**
@@ -51,9 +51,9 @@ class pmxContent {
         global $prefix;
 
         $this->_setStandard($parameter);
-		$this->_read_Columns();
+		//$this->_read_Columns();
         /* Root-ID einlesen */
-        $this->getRoot();
+        //$this->getRoot();
         return;
     }
 
@@ -122,24 +122,23 @@ class pmxContent {
     private function _read_Columns()
     {
         global $prefix;
+		static $nureinmal;
 
-        $tables = sql_query("SHOW TABLES LIKE '" . $this->config['dbtable'] . "'");
+		if ($nureinmal) return true;
+		
+        $tables = sql_query("SHOW TABLES LIKE '" . $this->config['dbtable'] . "%'");
         list($table) = sql_fetch_row($tables);
-        if ($this->config['dbtable'] != $table) {
+		$table=sql_num_rows($tables);
+        //if ($this->config['dbtable'] != $table) {
+		if ($table<2) {
             $this->_createDBTables();
         }
-
-        //if (trim($this->config['modulname']) == '') return false;
-
-        //if (!is_array($this->db_columns)) {
+ 
             $result = sql_query("SHOW COLUMNS FROM " . $this->config['dbtable'] . "");
             while ($col = sql_fetch_assoc($result)) {
                 $this->db_columns[$col['Field']] = '0';
-
             }
-        //}
-		//var_dump($this->db_columns);
-		//die();
+			
         /* unbedingt vorhandene Felder in der Tabelle !!! */
         unset ($result);
         if (!array_key_exists('id', $this->db_columns)) return false;
@@ -152,7 +151,8 @@ class pmxContent {
         if (!array_key_exists('config', $this->db_columns)) return false;
         if (!array_key_exists('title', $this->db_columns)) return false;
         if (!array_key_exists('status', $this->db_columns)) return false;
-
+		
+		$nureinmal=true;
         return true;
     }
 
@@ -311,7 +311,7 @@ class pmxContent {
                         title='" . $this->config['modulname'] . "',
                         alias=''
                         ";
-            $result = sql_query($rootRecord);
+            $result = sql_system_query($rootRecord);
             $this->rootID['id'] = sql_insert_id();
             $this->rootID['leftID'] = 1;
             $this->rootID['rightID'] = 2;
@@ -748,7 +748,7 @@ class pmxContent {
      * @parameter  $ : $record array(mixed) - Record
      */
 
-    public function _updateNode ($cid = 0, $cat = array(), $update_time = true)
+    public function _updateNode($cid = 0, $cat = array(), $update_time = true)
     {
         if (($cid == 0) or ($cid == $this->rootID))return false;
 
@@ -833,7 +833,49 @@ class pmxContent {
         return true;
     }
     /**
-     * Update Field +1
+<<<<<<< .mine=======     *  _updateAllNodes
+     *  
+     *  ACHTUNG : ändert gleichzeitig ALLE Datensätze des Moduls mit den entsprechenden Daten 
+     *  
+     *  @return 
+     *  
+     */
+	public function _updateAllNodes($cat = array(), $update_time = true)
+    {
+        
+        /* Insert SET-String aufbauen aus dem Array */
+        $setstr = "";
+		$setarray=array();
+
+        foreach ($cat as $key => $value) {
+            switch ($key) {
+                case "date_edit":
+                case "id":
+                case "parent_id":
+                case "leftID":
+                case "rightID":
+                case "module_name":
+                case "config":
+                case "info":
+                    $keyflag = false;
+                    break;
+                default:
+                    $keyflag = true;
+                    break;
+            }
+            if ($keyflag) $setarray[]= " " . $key . "='" . $value . "'";
+        }
+		$setstr = implode(",",$setarray);
+        $setstr .= ($update_time)?", date_edit='" . time() . "'":"";
+        $setstr .= " WHERE module_name='" . $this->config['modulname'] . "' ";
+
+        /* jetzt alle Datensätze ändern */
+        sql_query("UPDATE " . $this->config['dbtable'] . " SET " . $setstr . " ");
+
+        return true;
+    }	
+    /**
+>>>>>>> .theirs     * Update Field +1
      *
      * @parameter  $ : $cid intval    - Node
      * @parameter  $ : $field - Fieldname
@@ -1267,7 +1309,7 @@ class pmxContent {
                 $outputsql .= "s." . $sqlfield . ", ";
             }
         } else {
-            $outputsql = "s.id, s.parent_id,s.publish,s.access,s.title,s.import,";
+            $outputsql = "s.id, s.parent_id,s.publish,s.access,s.title,s.import,s.leftID,";
         }
         /*jetzt endlich abfrage */
         $result = sql_query("SELECT " . $outputsql . "
@@ -1417,9 +1459,8 @@ class pmxContent {
         $result = sql_query("SELECT p.id, p.title FROM " . $this->config['dbtable'] . " as n," . $this->config['dbtable'] . " as p
                                 WHERE p.module_name='" . $this->config['modulname'] . "'
                                       and n.module_name='" . $this->config['modulname'] . "'
-                                      and n.id=$id
+                                      and n.id=$id " . $getroot . "
                                       and n.leftID BETWEEN p.leftID AND p.rightID
-                                      " . $getroot . "
                                 ORDER BY p.leftID asc
                                 ");
         $output = array();
@@ -1481,7 +1522,7 @@ class pmxContent {
      * //DROP TABLE IF EXISTS `mx112rc1_content`;
      */
 
-    private function _createDBTables()
+    private function _createDBTables($log=false)
     {
         sql_system_query("CREATE TABLE IF NOT EXISTS " . $this->config['dbtable'] . " (
               `id` int(11) NOT NULL auto_increment,
@@ -1530,20 +1571,22 @@ class pmxContent {
             ) ENGINE=MyISAM DEFAULT CHARSET=utf8  COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;");
         /*
         alternativ UNIQUE KEY `alias` (`alias`),
-   */
-        sql_query("CREATE TABLE IF NOT EXISTS " . $this->config['dbtable'] . "_log (
-        `logid` int(11) NOT NULL auto_increment,
-        `id` int(12) NOT NULL default '0',
-        `action` text ,
-        `title` text ,
-        `date_action` int(11) NOT NULL default '0',
-        `text_action` longtext,
-        `module_name` text NOT NULL,
-        `edit_uid` int(11) NOT NULL default '0',
-        `edit_uname` text,
-        PRIMARY KEY  (`logid`)
+		*/
+		
+			sql_system_query("CREATE TABLE IF NOT EXISTS " . $this->config['dbtable'] . "_log (
+			`logid` int(11) NOT NULL auto_increment,
+			`id` int(12) NOT NULL default '0',
+			`action` text ,
+			`title` text ,
+			`date_action` int(11) NOT NULL default '0',
+			`text_action` longtext,
+			`module_name` text NOT NULL,
+			`edit_uid` int(11) NOT NULL default '0',
+			`edit_uname` text,
+			PRIMARY KEY  (`logid`)
 
-      ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;");
+		  ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;");
+		
     }
 }
 

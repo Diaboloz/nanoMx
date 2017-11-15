@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 216 $
- * $Author: PragmaMx $
- * $Date: 2016-09-20 15:29:30 +0200 (Di, 20. Sep 2016) $
+ * $Revision: 382 $
+ * $Author: pragmamx $
+ * $Date: 2017-10-03 19:56:58 +0200 (Di, 03. Okt 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -444,6 +444,10 @@ function sql_list_tables($database,$dbi=NULL)
 			  character_set_database = 'utf8',
 			  character_set_server = 'utf8'
 			");
+			/* Probleme mit MySQL 5.7 beheben */
+			self::$instance->query("SET SESSION sql_mode='IGNORE_SPACE,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'"); 
+			/*NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION*/
+			/*sql_mode=IGNORE_SPACE,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION*/
 
 			/* Zeitzone einstellen */
 			self::$instance->query("SET time_zone = '" . date('P') . "';");

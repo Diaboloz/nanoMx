@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 219 $
- * $Author: PragmaMx $
- * $Date: 2016-09-23 11:58:34 +0200 (Fr, 23. Sep 2016) $
+ * $Revision: 352 $
+ * $Author: pragmamx $
+ * $Date: 2017-08-23 22:33:53 +0200 (Mi, 23. Aug 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -59,6 +59,7 @@ if (defined('MX_HOME_FILE') && empty($GLOBALS['VKPTheme'])) {
  */
 themefooter();
 
+echo mxOfflineInfo();
 /**
  * zusätzliche Datei für benutzerdefinierte Zusätze am Ende der HTML-Ausgabe
  */
@@ -78,7 +79,7 @@ if (pmxBase::mxCookieInfo() && (pmxBase::mxCookieInfo()=='1' && (MX_MODULE != "a
 		/* TODO: alternativ umschaltbar machen */
 	 //echo"<script>document.addEventListener('DOMContentLoaded', function(event) {cookieChoices.showCookieConsentDialog('".$cookieinfo."');});</script>";		
 	
-	 echo "<script type=\"text/javascript\" src=\"".PMX_JAVASCRIPT_PATH."cookiechoices/cookiechoices.js\"></script>";
+	 pmxHeader::add_body_script(PMX_JAVASCRIPT_PATH."cookiechoices/cookiechoices.js");
 }
 
 /* Debug-Info ausgeben */
@@ -136,6 +137,10 @@ if (ob_get_length()) {
     /* zusätzliche headertags vorher noch an die korrekte Stelle setzen */
     $mxoutput = pmxHeader::move($mxoutput);
 
+	/* zusätzliche JS ans Ende der Contents setzen */
+	$mxoutput= pmxHeader::get_body($mxoutput);
+	
+	
     /* HTML-Validation */
     if ($GLOBALS['TidyOutput'] && is_tidy_available()) {
         header('X-Tidy: Yes');

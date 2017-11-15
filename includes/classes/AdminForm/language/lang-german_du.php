@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 214 $
+ * $Revision: 277 $
  * $Author: PragmaMx $
- * $Date: 2016-09-15 15:51:34 +0200 (Do, 15. Sep 2016) $
+ * $Date: 2016-12-05 14:19:59 +0100 (Mo, 05. Dez 2016) $
  *
  * @package pragmaMx
  */
@@ -26,6 +26,7 @@ $toolbarlangarray = array('_NOACTION' => 'Bitte triff erst eine Auswahl !',
     '_BACK' => 'zurück',
     '_CANCEL' => 'Abbrechen',
     '_CATEGORYS' => 'Kategorien',
+    '_CATEGORY' => 'Kategorie',
     '_COLOR' => 'Farben',
     '_COMMENTS' => 'Kommentar',
     '_CONFIG' => 'Einstellungen',

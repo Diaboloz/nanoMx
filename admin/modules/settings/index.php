@@ -83,6 +83,9 @@ function Configure()
 
     $mxSiteService = (empty($mxSiteService)) ? 0 : $mxSiteService;
     $mxSiteServiceText = (empty($mxSiteServiceText)) ? '' : $mxSiteServiceText;
+	
+	$mxOfflineMode = (empty($mxOfflineModeText)) ? 0 : $mxOfflineMode;
+    $mxOfflineModeText = (empty($mxOfflineModeText)) ? '' : $mxOfflineModeText;
 
     $mxUseThemecache = (empty($mxUseThemecache)) ? 0 : (int)$mxUseThemecache;
 
@@ -397,6 +400,9 @@ function Configure()
     $tb->add("debug", "yesno", "xmxSiteService", $mxSiteService, _SITESERVICE );
 	$tb->add("debug","textarea","xmxSiteServiceText",htmlspecialchars($mxSiteServiceText),_SITESERVICETEXT,"",50);
 
+	$tb->add("debug", "yesno", "xmxOfflineMode", $mxOfflineMode, _OFFLINE_MODE );
+	$tb->add("debug","textarea","xmxOfflineModeText",htmlspecialchars($mxOfflineModeText),_OFFLINE_MODE_TEXT,"",50);
+	
     $tb->add("debug", "yesno", "xmxUseThemecache", $mxUseThemecache, _DEACTHEMECACHE );
 		$debug_errors=array(_NO=>VIEW_NOBODY,_MVADMIN=>VIEW_ADMIN,_MVALL=>VIEW_ALL);
 	$tb->add("debug","output",_DEBUG_ERRORS);
@@ -469,6 +475,8 @@ function ConfigSave($pvs)
     $xpopauth = (empty($xpopauth)) ? '' : $xpopauth; // ab 0.1.8
     $xanonymous = (empty($xanonymous)) ? "Anonymous" : $xanonymous;
     $xmxSiteService = ($xmxSiteService && empty($xmxSiteServiceText)) ? 0 : $xmxSiteService;
+    $xmxOfflineMode = ($xmxOfflineMode && empty($xmxOfflineModeText)) ? 0 : $xmxOfflineMode;
+	
     $xUseGzipCompression = (empty($xUseGzipCompression)) ? 0 : intval($xUseGzipCompression);
     $xmxJpCacheUse = (empty($xmxJpCacheUse)) ? 0 : intval($xmxJpCacheUse);
     $xmxJpCacheTimeout = (empty($xmxJpCacheTimeout)) ? MX_SETINACTIVE_MINS : $xmxJpCacheTimeout;
@@ -537,7 +545,6 @@ function ConfigSave($pvs)
 /*
  pragmaMx - Web Content Management System
  Copyright by pragmaMx Developer Team - http://www.pragmamx.org
- write with: \$Id: index.php 216 2016-09-20 13:29:30Z PragmaMx $
  Version: pragmaMx " . PMX_VERSION . "
  */
 

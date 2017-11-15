@@ -2,7 +2,7 @@
 /*
  * smtp_message.php
  *
- * @(#) $Id: smtp_message.php 6 2015-07-08 07:07:06Z PragmaMx $
+ * @(#) $Id: smtp_message.php 347 2017-07-17 13:46:12Z PragmaMx $
  * @(#) Header: /home/mlemos/cvsroot/mimemessage/smtp_message.php,v 1.35 2011/01/28 06:33:39 mlemos Exp $
  *
  *
@@ -15,7 +15,7 @@
 	<package>net.manuellemos.mimemessage</package>
 
 	<name>smtp_message_class</name>
-	<version>@(#) $Id: smtp_message.php 6 2015-07-08 07:07:06Z PragmaMx $</version>
+	<version>@(#) $Id: smtp_message.php 347 2017-07-17 13:46:12Z PragmaMx $</version>
 	<copyright>Copyright © (C) Manuel Lemos 1999-2004</copyright>
 	<title>MIME E-mail message composing and sending via SMTP</title>
 	<author>Manuel Lemos</author>
@@ -482,7 +482,7 @@ class smtp_message_class extends email_message_class {
 {metadocument}
 	<variable>
 		<name>mailer_delivery</name>
-		<value>smtp $Revision: 6 $</value>
+		<value>smtp $Revision: 347 $</value>
 		<documentation>
 			<purpose>Specify the text that is used to identify the mail
 				delivery class or sub-class. This text is appended to the
@@ -493,7 +493,7 @@ class smtp_message_class extends email_message_class {
 	</variable>
 {/metadocument}
 */
-    var $mailer_delivery = 'smtp $Revision: 6 $';
+    var $mailer_delivery = 'smtp $Revision: 347 $';
 
     /*
 {metadocument}
@@ -515,6 +515,9 @@ class smtp_message_class extends email_message_class {
 */
     var $maximum_bulk_deliveries = 100;
 
+	function __construct(){}
+	
+	
     Function SetRecipients(&$recipients, &$valid_recipients)
     {
         for($valid_recipients = $recipient = 0, Reset($recipients);$recipient < count($recipients);Next($recipients), $recipient++) {

@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 234 $
- * $Author: PragmaMx $
- * $Date: 2016-09-29 13:10:09 +0200 (Do, 29. Sep 2016) $
+ * $Revision: 423 $
+ * $Author: pragmamx $
+ * $Date: 2017-10-11 21:11:50 +0200 (Mi, 11. Okt 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');

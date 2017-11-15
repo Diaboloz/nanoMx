@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 7 $
+ * $Revision: 350 $
  * $Author: PragmaMx $
- * $Date: 2015-07-08 12:52:42 +0200 (Mi, 08. Jul 2015) $
+ * $Date: 2017-08-17 15:57:11 +0200 (Do, 17. Aug 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -105,6 +105,7 @@ function theme_get_template()
     }
     // das template enthaelt jetzt nur noch den Inhalt zwischen <body> und </body>
     $theme_template['template'] = trim($matches[2]);
+	//mxDebugFuncVars($theme_template['template']);
     /**
      * seit pragmaMx 0.1.9 koennen die Platzhalter in einer zentralen Funktion
      * zusammengestellt und gemeinsam am Ende ersetzt werden, diese Platzhalter
@@ -231,7 +232,7 @@ if (!function_exists('themefooter')) {
             // Falls keine Pufferebene mehr vorhanden, obwohl in mxBaseconfig explizit gestartet...
             ob_start();
         }
-
+		//mxDebugFuncVars($theme_template['template']);
         /* Inhalt abschicken */
         echo $theme_template['template'];
     }
@@ -506,7 +507,7 @@ function mx_theme_engineversion()
 {
     // ACHTUNG!! wird automatisch aus dem CVS-Header generiert !
 	$regs=array("0","0","0","0","0","0");
-    $eng = "\$Id: mx_themes.php 7 2015-07-08 10:52:42Z PragmaMx $";
+    $eng = "\$Id: mx_themes.php 350 2017-08-17 13:57:11Z PragmaMx $";
 	preg_match('#([^a-z]{1,}) ([0-9\]{1,2})\s([0-9]{4})[-/]([0-9]{1,2})[-/]([0-9]{1,2})#', $eng, $regs);
     //preg_match("#([^a-z]{1,}) ([0-9]{1,2})\s([0-9]{4})[-/]([0-9]{1,2})[-/]([0-9]{1,2})#", $eng, $regs);
     $eng = "2.$regs[1]/$regs[2]-$regs[3]-$regs[4]";
@@ -752,6 +753,9 @@ if (!function_exists('theme_get_debuginfo')) {
 if (!function_exists('theme_show_languageflags')) {
     function theme_show_languageflags($languagelist = array(), $path = 'images/language', $extension = 'png')
     {
+		if (pmxBase::multilanguage()==0){
+			return false;
+		}
         $query = $_SERVER['QUERY_STRING'];
         if (isset($_GET['newlang'])) {
             $query = preg_replace('#[&?]?newlang=[a-zA-Z_]*#', '', $query);

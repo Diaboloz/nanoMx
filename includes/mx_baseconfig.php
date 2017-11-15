@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 206 $
+ * $Revision: 308 $
  * $Author: PragmaMx $
- * $Date: 2016-09-12 13:33:26 +0200 (Mo, 12. Sep 2016) $
+ * $Date: 2016-12-21 12:05:05 +0100 (Mi, 21. Dez 2016) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -119,24 +119,6 @@ function mxdefinepath()
     $scriptpath = str_replace(DS, '/', realpath(dirname($_SERVER['SCRIPT_FILENAME'])));
     $basepath = str_replace(DS, '/', PMX_REAL_BASE_DIR);
 
-    /* just the subfolder part between <installation_path> and the page */
-    $scriptpath = substr($scriptpath, strlen($basepath));
-	/* neu, da subst unter PHP7 anders funktioniert */
-	$scriptpath =($scriptpath=="")?FALSE:$scriptpath;
-	
-    $rootpath = str_replace(DS, '/', $info_script_name['dirname']);
-    /*we subtract the subfolder part from the end of <installation_path>, leaving us with just <installation_path> :)*/
-    if ($scriptpath !== false) {
-        $rootpath = str_replace('//', '/', substr($rootpath, 0, - strlen($scriptpath)) . '/');
-        $scriptpath = trim($scriptpath, '/') . '/';
-    } else {
-        $rootpath = str_replace('//', '/', $rootpath . '/');
-        $scriptpath = '';
-    }
-	
-	
-    /* der wichtigste Pfad: zum mx-Root */
-    define('PMX_BASE_PATH', $rootpath);
 	
     /**
      * verschiedene absolute Pfade zu Systemordnern definieren. Alle hier
@@ -175,6 +157,9 @@ function mxdefinepath()
 
     /* Ordner mit den Modulen */
     define('PMX_MODULES_PATH', 'modules/');
+
+    /* Ordner mit den Plugins */
+    define('PMX_PLUGIN_PATH', 'plugins/');
 
     /* Ordner mit den Themes */
     define('PMX_THEMES_PATH', 'themes/');
@@ -289,6 +274,7 @@ function mxdefinepath()
     define('MX_REMOTE_HOST', $_SERVER['REMOTE_HOST']);
     define('MX_USER_AGENT', $_SERVER['HTTP_USER_AGENT']);
 	define("MX_JQUERY_VERSION",pmxGetFileVersion(PMX_JAVASCRIPT_PATH."jquery/jquery.js"));
+	define("MX_JQUERYUI_VERSION",pmxGetFileVersion(PMX_JAVASCRIPT_PATH."jquery/ui/jquery.ui.core.min.js"));
 	
 }
 

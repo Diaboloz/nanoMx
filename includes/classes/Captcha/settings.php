@@ -2,7 +2,7 @@
 /**
  * pragmaMx - Web Content Management System
  * Copyright by pragmaMx Developer Team - http://www.pragmamx.org
- * written with: $Id: index.php 109 2016-02-24 07:07:05Z PragmaMx $
+ * written with: $Id: settings.php 237 2016-09-29 13:13:55Z PragmaMx $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -38,5 +38,9 @@ $reviewson = 1;
 $recommendon = 1;
 $registrationon = 1;
 $documentson = 1;
+$contacton = 1;
+$infoon = 1;
+$siriusgalleryon = 1;
+$beliebigon = 1;
 
 ?>

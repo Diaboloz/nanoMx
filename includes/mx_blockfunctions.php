@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 96 $
- * $Author: PragmaMx $
- * $Date: 2015-11-16 11:24:35 +0100 (Mo, 16. Nov 2015) $
+ * $Revision: 349 $
+ * $Author: pragmamx $
+ * $Date: 2017-08-07 19:53:59 +0200 (Mo, 07. Aug 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -84,7 +84,7 @@ function mxGetAllBlocks($side = false)
         }
 
         /* aus dem array mit Berechtigungen eine Abfragebedingung konstruieren */
-        $where .= " AND (" . implode(" OR ", $view) . ")";
+        $where .= " AND (" . implode(" OR ", $view) . ") and position >'' ";
 
         /* die aus den Bedingungen zusammengesetzte SQL-Abfrage */
         $qry = "SELECT * FROM ${prefix}_blocks
@@ -104,7 +104,7 @@ function mxGetAllBlocks($side = false)
             // den Inhalt und weitere Daten aus dem includeten blockfile bzw. cache  holen
             $block = mxGetBlockData($block);
             // wenn kein Blockinhalt, Schleife fortsetzen
-            if (empty($block['content'])) {
+            if (empty($block['content']) or empty($block['position'])) {
                 continue;
             }
             // wenn eine andere Position, den Zähler der Reihenfolge zurücksetzen
@@ -386,6 +386,7 @@ function render_blocks($block)
 function blocks($side)
 {
     // exit;
+	static $i;
     $side = strtolower($side[0]); // Uebergabeparameter in den ersten Kleinbuchstaben umwandeln
     // mxDebugFuncVars(basename(__FILE__), __FUNCTION__, $side);
     $blocks = mxGetAllBlocks($side); // statisches Blockarray für diese Seite abholen

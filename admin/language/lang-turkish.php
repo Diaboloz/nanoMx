@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 6 $
- * $Author: PragmaMx $
- * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ * $Revision: 283 $
+ * $Author: SvenLang $
+ * $Date: 2016-12-06 03:39:14 +0100 (Di, 06. Dez 2016) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -88,4 +88,7 @@ define("_PLUGINS", "Eklentiler");
 define("_LOGFILER", "Günlük dosyaları");
 define("_HOOKS", "Kancalar yönetimi");
 define("_THEMES","Tema");
+
+define("_PANELPLUGIN", "Eklentiler");
+define("_PANELPLUGIN_DESCR", "kurulu eklentiler");
 ?>

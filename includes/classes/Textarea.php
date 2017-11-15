@@ -829,7 +829,7 @@ class pmxTextarea {
  * @package
  * @author tora60
  * @copyright Copyright (c) 2011
- * @version $Id: Textarea.php 206 2016-09-12 11:33:26Z PragmaMx $
+ * @version $Id: Textarea.php 318 2017-02-05 21:09:24Z pragmamx $
  * @access public
  */
 class Textarea extends pmxTextarea {

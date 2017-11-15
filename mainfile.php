@@ -9,16 +9,13 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 243 $
- * $Author: PragmaMx $
- * $Date: 2016-09-30 09:39:28 +0200 (Fr, 30. Sep 2016) $
+ * $Revision: 448 $
+ * $Author: pragmamx $
+ * $Date: 2017-10-17 18:48:02 +0200 (Di, 17. Okt 2017) $
  */
  
 /* Nur Parsefehler melden */
 error_reporting(E_PARSE);
-
-/* nur für entwicklung */
-define ("PMX_DEVELOPMENT",FALSE);
 
 /**
  * Ausgabepuffer auf jeden Fall starten, wird am Ende dieser Datei
@@ -26,7 +23,9 @@ define ("PMX_DEVELOPMENT",FALSE);
  */
 ob_start();
 
-define('PMX_VERSION', '2.3.0');
+define('PMX_VERSION', '2.4.2');
+
+
 /* zu alte php-Version */
 (version_compare(PHP_VERSION, '5.4.0', '>=')) or die('Sorry, PHP-Version >= 5.4.0 is required for pragmaMx '.PMX_VERSION.'.');
 
@@ -34,7 +33,7 @@ define('PMX_VERSION', '2.3.0');
 (stripos($_SERVER['PHP_SELF'], basename(__FILE__)) === false) or die('access denied');
 
 /* Versionsinformation */
-preg_match('#([^a-z]{1,}) ([0-9\]{1,2})\s([0-9]{4})[-/]([0-9]{1,2})[-/]([0-9]{1,2})#', '$Id: mainfile.php 243 2016-09-30 07:39:28Z PragmaMx $', $key);
+preg_match('#([^a-z]{1,}) ([0-9\]{1,2})\s([0-9]{4})[-/]([0-9]{1,2})[-/]([0-9]{1,2})#', '$Id: mainfile.php 448 2017-10-17 16:48:02Z pragmamx $', $key);
 define('PMX_VERSION_NUM', PMX_VERSION . ".".substr($key[1],1,3));
 define('PMX_VERSION_DATE', "$key[2]-$key[3]-$key[4]");
 
@@ -96,6 +95,9 @@ define('PMX_LAYOUT_DIR', PMX_REAL_BASE_DIR . DS . 'layout');
 /* Ordner mit den Modulen */
 define('PMX_MODULES_DIR', PMX_REAL_BASE_DIR . DS . 'modules');
 
+/* Ordner mit den Plugins */
+define('PMX_PLUGINS_DIR', PMX_REAL_BASE_DIR . DS . 'plugins');
+
 /* Ordner mit den System-Bloecken */
 define('PMX_BLOCKS_DIR', PMX_REAL_BASE_DIR . DS . 'blocks');
 
@@ -117,20 +119,38 @@ define('PMX_PLUGIN_DIR', PMX_REAL_BASE_DIR . DS . 'plugins');
 /* Ordner mit Standard Javascripten */
 define('PMX_JAVASCRIPT_DIR', PMX_SYSTEM_DIR . DS . 'javascript');
 
-/* die Systemkonfigurationsdatei */
-define('PMX_CONFIGFILE' , PMX_REAL_BASE_DIR . DS . 'config.php');
 
+
+	$info_script_name = pathinfo($_SERVER['SCRIPT_NAME']);
+	$scriptpath = str_replace(DS, '/', realpath(dirname($_SERVER['SCRIPT_FILENAME'])));
+	$basepath = str_replace(DS, '/', PMX_REAL_BASE_DIR);
+
+	/* just the subfolder part between <installation_path> and the page */
+	$scriptpath = substr($scriptpath, strlen($basepath));
+	/* neu, da subst unter PHP7 anders funktioniert */
+	$scriptpath =($scriptpath=="")?FALSE:$scriptpath;
+
+	$rootpath = str_replace(DS, '/', $info_script_name['dirname']);
+	
+/*we subtract the subfolder part from the end of <installation_path>, leaving us with just <installation_path> :)*/
+if ($scriptpath !== false) {
+	$rootpath = str_replace('//', '/', substr($rootpath, 0, - strlen($scriptpath)) . '/');
+	$scriptpath = trim($scriptpath, '/') . '/';
+} else {
+	$rootpath = str_replace('//', '/', $rootpath . '/');
+	$scriptpath = '';
+}
+
+
+/* jetzt der wichtigste Pfad: zum mx-Root */
+define('PMX_BASE_PATH', $rootpath);
 
 /* sonstige Einstellungen vornehmen */
 ini_set('gpc_order', 'GPCS'); // ohne Environment, kann über getenv() abgefragt werden
-/* depcreated 
-ini_set('magic_quotes_runtime', '0'); 
-ini_set('magic_quotes_sybase', '0');
-*/
+
 
 /* alles auf utf8 stellen */
 ini_set('default_charset', 'UTF-8');
-//ini_set('mbstring.internal_encoding', 'UTF-8');   // sincePHP 5.6 deprecated
 
 /**
  * Alle Fehler ausser E_NOTICE melden,
@@ -142,6 +162,13 @@ error_reporting(E_ALL ^ E_NOTICE);
 require_once(PMX_SYSTEM_DIR . DS . 'mx_system.php');
 
 /* Konfiguration laden */
+
+if (file_exists(PMX_REAL_BASE_DIR . DS . 'custom.config.php')) include (PMX_REAL_BASE_DIR . DS . 'custom.config.php');
+
+
+/* die Systemkonfigurationsdatei definieren*/
+defined('PMX_CONFIGFILE') or define('PMX_CONFIGFILE' , PMX_REAL_BASE_DIR . DS . 'config.php');
+
 /* Parsefehler in config.php abfangen und bei Bedarf Setup anbieten. */
 if (!@include(PMX_CONFIGFILE)) {
 
@@ -189,19 +216,12 @@ if (!@include(PMX_CONFIGFILE)) {
 /* Konfiguration in Klasse einlesen  - macht globals überflüssig */
 load_class('Base',$mxConf);  
 
+/* Brücke für UTF-8 relevante String-Funktionen  */
+define('UTF8', PMX_SYSTEM_DIR . DS . 'utf8');
 
 /*  API's einbinden */
 
-require_once(PMX_SYSTEM_DIR . DS . 'mx_api.php');
-require_once(PMX_SYSTEM_DIR . DS . 'mx_date.php');
-require_once(PMX_SYSTEM_DIR . DS . 'mx_api_2.php');
-require_once(PMX_SYSTEM_DIR . DS . 'mx_blockfunctions.php');
-require_once(PMX_SYSTEM_DIR . DS . 'mx_file.php');
-
-/* Brücke für UTF-8 relevante String-Funktionen  */
-define('UTF8', PMX_SYSTEM_DIR . DS . 'utf8');
-include_once(UTF8 . DS . 'utf8.php');
-
+require_once(PMX_SYSTEM_DIR . DS . 'mx_includes.php');
 
 /* Länderspezifische Einstellungen, wird teilweise durch die Einstellung der Sprachdateien überschrieben */
 setlocale(LC_ALL, array('en_GB.UTF-8', 'en_GB.UTF8', 'en_GB.ISO-8859-1', 'en_GB', 'en_US', 'en', 'eng', 'english-uk', 'english-us', 'uk', 'us', 'GB', 'GBR', '826', 'CTRY_UNITED_KINGDOM', '840', 'CTRY_UNITED_STATES'));
@@ -348,6 +368,9 @@ $pagetitle = '';
 /* Theme definieren */
 
 switch (true) {
+	case pmxBase::setmobile()==false:
+		$mobile_device=false;
+		break;
 	case array_key_exists('thememobile',$_GET):
 		$mobile_device=true;
 		mxSessionSetVar("mobiletheme",true);

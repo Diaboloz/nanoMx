@@ -11,9 +11,9 @@
  *
  * this is a part of Tecmu 
  *
- * $Revision: 6 $
+ * $Revision: 277 $
  * $Author: PragmaMx $
- * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ * $Date: 2016-12-05 14:19:59 +0100 (Mo, 05. Dez 2016) $
  *
  */
 
@@ -63,14 +63,14 @@ function tecmu_isSirius($path="")
 	return $files;
 }
 
-function tecmu_addNews ($userid,$uname,$title,$text,$topic='1',$language="en")
+function tecmu_addNews($userid,$uname,$title,$text,$topic='1',$language="en")
 {
     global $prefix;
 	$qry = sql_query("INSERT INTO ${prefix}_queue (uid, uname, subject, story, storyext, timestamp, topic) VALUES ('".$userid."', '".$uname."', '".$title."', '".$text."', '', '".time()."', ".$topic.")");
 
 }
 
-function tecmu_checkversion ($module="",$version=0)
+function tecmu_checkversion($module="",$version=0)
 {
     global $currentlang;
 	

@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 228 $
- * $Author: module-factory $
- * $Date: 2016-09-29 07:25:39 +0200 (Do, 29. Sep 2016) $
+ * $Revision: 346 $
+ * $Author: PragmaMx $
+ * $Date: 2017-06-30 12:03:47 +0200 (Fr, 30. Jun 2017) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -245,6 +245,33 @@ function mxDebugInfo()
 
     return $out;
 }
+
+/**
+ * mxOfflineInfo()
+ * Offline-Info ausgeben
+ *
+ * @return
+ */
+function mxOfflineInfo()
+{
+    /* verhindern dass die Funktion mehrfach ausgeführt werden kann */
+    static $shown = false;
+    if ($shown) {
+        return '';
+    }
+    $shown = true;
+
+    $out = '';
+
+    if (MX_IS_ADMIN && (pmxBase::get("mxOfflineMode")==1) &&!defined('mxAdminFileLoaded')) {
+        $template = load_class('Template');
+        $template->init_path(__FILE__);
+        $out = $template->fetch('offline.html');
+    }
+
+    return $out;
+}
+
 
 /**
  * title()
@@ -747,7 +774,7 @@ function mxScrollContent($content, $direction = 'up', $speed = 4, $height = 60, 
  * @package
  * @author tora60
  * @copyright Copyright (c) 2010
- * @version $Id: mx_api_2.php 228 2016-09-29 05:25:39Z module-factory $
+ * @version $Id: mx_api_2.php 346 2017-06-30 10:03:47Z PragmaMx $
  * @access public
  */
 class pmxInlinePermissions {
@@ -1189,6 +1216,7 @@ function mxIncludeHeader(){
 
 function mxIncludeFooter(){
 	include (PMX_REAL_BASE_DIR . DS . "footer.php");
+	die();
 }
 
 function pmxGetFileVersion($file){
@@ -1197,7 +1225,7 @@ function pmxGetFileVersion($file){
 		case (!file_exists($file)):
 			$temp="";
 			break;
-		case (filesize($filename) === 0):
+		case (filesize($file) === 0):
 			$temp = '1.0';
 			break;
 		case (!preg_match('#\.(php|js|inc|htc|css|html)$#i', $file)):
@@ -1247,5 +1275,27 @@ function pmxDevelLogo($modorg=""){
 	 
 	 return $logo;
 	 
+}
+
+/**
+ *  function : mxReadingTime
+ *  ermitteld die Lesezeit eines Textes
+ *  
+ *  @param $content 
+ *  @return string
+ *  
+ */
+function mxReadingTime($content) {
+	$word_count = str_word_count(strip_tags($content));
+	$minutes = floor($word_count / 200);
+	$seconds = floor($word_count % 200 / (200 / 60));
+	$str_minutes = ($minutes == 1) ? _MINUTE : _MINUTES;
+	//$str_seconds = ($seconds == 1) ? "second" : "Sekunden";
+	if ($minutes == 0) { 
+		return _READINGTIME . " < 1 " . _MINUTE; 
+	}
+	else { 
+		return _READINGTIME . " " . $minutes ." " . $str_minutes; 
+	}
 }
 ?>

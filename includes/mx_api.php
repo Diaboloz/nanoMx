@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 226 $
- * $Author: module-factory $
- * $Date: 2016-09-28 14:55:33 +0200 (Mi, 28. Sep 2016) $
+ * $Revision: 338 $
+ * $Author: PragmaMx $
+ * $Date: 2017-05-15 14:46:58 +0200 (Mo, 15. Mai 2017) $
  *
  * @package pragmaMx
  */
@@ -127,6 +127,7 @@ function mxGetLangfile($module = '', $filepatern = 'lang-*.php')
             if ($ok) {
                 /* nur Temporär, das muss wieder raus !! > 3x */
                 // include(PMX_LANGUAGE_DIR . DS . 'to-do.php');
+				pmxTranslate::init();
                 return $xlang;
             }
         }
@@ -160,67 +161,7 @@ function mxGetLangfile($module = '', $filepatern = 'lang-*.php')
     return false;
 }
 
-/**
- * Setzen einer Session Variablen
- *
- * @since pragmaMx 0.1.0
- * @param string $varname Name der Session-Variablen, die gesetzt werden soll.
- * @param string $value Wert der Session-Variablen, der gesetzt werden soll.
- * @return bool Gibt true zurück
- */
-function mxSessionSetVar($varname, $value)
-{
-    $_SESSION[MX_SESSION_VARPREFIX . $varname] = $value;
-    return true;
-}
 
-/**
- * Auslesen einer Session-Variablen
- *
- * @since pragmaMx 0.1.0
- * @param string $varname Name der Session-Variablen, die ausgelesen werden soll.
- * @param mixed $default : optionaler Standardwert, falls die Session-Variable nicht existiert
- * @return mixed Gibt den Wert der Session-Variablen zurück.
- */
-function mxSessionGetVar($varname, $default = false)
-{
-    $varname = MX_SESSION_VARPREFIX . $varname;
-    if (!isset($_SESSION[$varname])) {
-        return $default;
-    }
-    return $_SESSION[$varname];
-}
-
-/**
- * Löschen einser Session-Variablen
- *
- * @since pragmaMx 0.1.0
- * @param string $varname Name der Session-Variablen, die gelöscht werden soll.
- * @return bool Gibt true zurück
- */
-function mxSessionDelVar($varname)
-{
-    unset($_SESSION[MX_SESSION_VARPREFIX . $varname]);
-    return true;
-}
-
-/**
- * Zerstören der aktuellen Session
- *
- * @since pragmaMx 0.1.0
- * @return bool Gibt true zurück
- */
-function mxSessionDestroy()
-{
-    mxSetCookie(MX_SESSION_NAME, "", -1);
-    mxSetCookie(MX_SAFECOOKIE_NAME_USER, "", -1);
-    mxSetCookie(MX_SAFECOOKIE_NAME_ADMIN, "", -1);
-    //mxSetNukeCookie('user');
-    //mxSetNukeCookie('admin');
-    $_SESSION = array();
-    session_destroy();
-    return true;
-}
 
 /**
  * Reinigen von Usereingaben / Erwzingen double oder integer.
@@ -699,7 +640,7 @@ function mxGetTheme()
 			break;
 		case MX_MOBILE_DEVICE:/* mobile theme einstellen */
 			$usertheme = $GLOBALS['mobiletheme'];
-			break;
+			//break;
         case (!MX_IS_USER && !MX_IS_ADMIN && isset($_COOKIE['theme'])):
             $usertheme = $_COOKIE['theme'];
             break;
@@ -953,163 +894,7 @@ function permission_granted($permission, $usergroups)
     return ($access > 0);
 }
 
-/**
- * ermittelt ob der aktuelle User die Berechtigung hat, ein Modul zu nutzen
- *
- * @param string $modulname Modulname des Modules für das die Berechtigung geprüft werden soll
- * @staticvar mixed $allmodules Statische Variable in der beim ersten Aufruf der Funktion
- * mxModuleAllowed()
- * die Berechtigungen gespeichert werden
- * @return bool Liefert das Ergebnis (true/false)
- */
-function mxModuleAllowed($modulename)
-{
-    global $prefix;
-    static $allmodules = array(); // statisches Array
-    if ($modulename == 'admin' && MX_IS_ADMIN) {
-        return true;
-    }
-    if ($modulename == mxGetMainModuleName()) {
-        return true;
-    }
-    if (!$allmodules) { // wenn statisches Array noch nicht initialisiert
-        if (mxGetAdminPref('radminsuper')) {
-            $qry = "SELECT m.title
-                 FROM `{$prefix}_modules` AS m
-                 ORDER BY m.title ASC";
-        } else {
-            $query_view[] = "(title = '" . mxGetMainModuleName() . "')"; // Home-Modul
-            $query_view[] = "(view = 0 AND active=1)"; // Alle Besucher
-            if (MX_IS_USER) {
-                $userinfo = pmxUserStored::current_userdata(); // gesamte Userdaten in Array lesen
-                $query_view[] = "(view = 1 AND g.group_id=" . intval($userinfo['user_ingroup']) . " AND active=1)"; // Nur angemeldete Benutzer
-            } else {
-                $query_view[] = "(view = 3 AND active=1)"; // Anonyme Besucher
-            }
-            if (MX_IS_ADMIN) {
-                $query_view[] = "(view = 2)"; // Nur Administratoren
-            }
 
-            $qry = "SELECT m.title
-                 FROM `{$prefix}_modules` AS m LEFT JOIN {$prefix}_groups_modules AS g
-                 ON m.mid = g.module_id
-                 WHERE (" . implode(" OR ", $query_view) . ")
-                 ORDER BY m.title ASC";
-        }
-
-        $result = sql_system_query($qry); // sql ausfuehren
-
-        if ($result) { // wenn erfolgreich
-            // Schleife, alle Modulnamen in array lesen
-            while (list($title) = sql_fetch_row($result)) {
-                // jetzt endlich das statische Array mit den Moduldaten füllen
-                $allmodules[$title] = 1;
-            }
-        }
-    }
-
-    /* Modulname im Array und index.php des Moduls vorhanden */
-    if (isset($allmodules[$modulename]) && file_exists(PMX_MODULES_DIR . DS . $modulename . DS . 'index.php')) {
-        return true;
-    }
-
-    /* wenn nicht, Modulname aus Array entfernen  */
-    unset($allmodules[$modulename]);
-    return false;
-}
-
-/**
- * ermittelt ob ein Modul aktiviert ist
- *
- * @param string $modulname : Name des Modules das geprüft werden soll
- * @return bool Liefert das Ergebnis (true/false)
- */
-function mxModuleActive($modulename)
-{
-    static $allmodules = array();
-    // wenn statisches Array noch nicht initialisiert
-    if (!$allmodules) {
-        global $prefix;
-        $qry = "SELECT title FROM `{$prefix}_modules` WHERE active=1";
-
-        $result = sql_system_query($qry);
-        while (list($title) = sql_fetch_row($result)) {
-            $allmodules[] = $title;
-        }
-    }
-
-    /* Modulname im Array und index.php des Moduls vorhanden */
-    return in_array($modulename, $allmodules);
-}
-
-/**
- * aktiviert oder deaktiviert ein Modul
- *
- * @param string $modulname : Name des Modules das geändert werden soll
- * @return bool Liefert das Ergebnis (true/false)
- */
-function mxSetModuleActive($modulename, $active = 1, $view=2)
-{
-    global $prefix;
-	$active = intval($active);
-	$active = ($active!=0)?1:0;
-		
-	/* views auswerten */
-	/* 0=alle, 1 = user, 2 = Admins */
-	$view = intval($view);
-	$view = ($view !=0)?(($view !=1)?2:1):0;	//damit werden auch negative angaben rausgefiltert
-
-    $result = sql_query("SELECT `mid` FROM `{$prefix}_modules` WHERE `title`='" . mxAddSlashesForSQL($modulename) . "'");
-    list($mid) = sql_fetch_row($result);
-    if ($mid) {
-        return sql_query("UPDATE `{$prefix}_modules` SET
-          `active`=" . intval($active) . ",
-          `view` = ".$view . "
-          WHERE `title`='" . mxAddSlashesForSQL($modulename) . "'");
-    } else {
-        return sql_query("INSERT INTO `{$prefix}_modules` SET
-          `title`='" . mxAddSlashesForSQL($modulename) . "',
-          `custom_title`='" . mxAddSlashesForSQL(ucwords(str_replace(array('_', '-'), ' ', $modulename))) . "',
-          `active`=" . intval($active) . ",
-          `view` = ".$view); 
-    }
-}
-
-/**
- * Ermitteln des Modulnamens für die Startseite
- * wenn keines angegeben wurde, News als Startseite eintragen
- *
- * @static string $main Statische Variable in der der name des Startseitenmodules gespeichert
- * wird
- * @return bool Liefert den Namen des Startseitenmodules zurück
- */
-function mxGetMainModuleName()
-{
-    global $prefix;
-    static $main;
-    if (!$main) {
-        $result = sql_system_query("select main_module from {$prefix}_main WHERE main_module <> ''");
-        list($main) = sql_fetch_row($result);
-        sql_free_result($result);
-        $main = (empty($main)) ? 'blank_Home' : $main;
-        /* falls das Modul nicht existiert, das erste verfügbare verwenden */
-        if (!file_exists(PMX_MODULES_DIR . DS . $main . DS . 'index.php')) {
-            $main = '';
-            foreach ((array)glob(PMX_MODULES_DIR . DS . '*' . DS . 'index.php', GLOB_NOSORT) as $modulename) {
-                $modulename = basename(dirname($modulename));
-                if ($modulename && strpos($modulename, '.') === false) {
-                    $main = $modulename;
-                    break;
-                }
-            }
-            if (!empty($main)) {
-                sql_system_query("DELETE FROM {$prefix}_main");
-                sql_system_query("INSERT INTO {$prefix}_main (main_module) VALUES ('" . mxAddSlashesForSQL($main) . "')");
-            }
-        }
-    }
-    return $main;
-}
 
 /**
  * Beschreibung
@@ -1805,10 +1590,10 @@ function mxRedirect($url = '', $message = '', $delay = 3)
         case $message:
         case headers_sent():
             mxRedirectMessage($url, $message, $debug, $delay);
-            session_write_close();
+            //session_write_close();
             die();
         default:
-            session_write_close();
+            //session_write_close();
             header('Location: ' . strtr($url, array('&amp;' => '&')));
             die();
     }
@@ -2002,25 +1787,6 @@ function mxCreateUserprofileLink($uname, $text = '', $title = '', $news = false,
         $text = '<a>' . $text;
     }
     return $text;
-}
-
-/**
- * mxTranslate()
- * Wenn der String als Sprachkonstante angegeben ist, diese verwenden
- *
- * @param mixed $string
- * @return
- */
-function mxTranslate($string)
-{
-    if ($string && defined($string) && preg_match('#^_[A-Z][A-Z0-9]#', $string)) {
-        return constant($string);
-    }
-    /* Sonderzeichen in HTML-Codes umwandeln  */
-    if (!strpos($string, ';') && (htmlspecialchars_decode($string) === $string)) {
-        return htmlspecialchars($string);
-    }
-    return $string;
 }
 
 /**
@@ -2741,7 +2507,7 @@ function adminUrl($module = '', $op = '', $more = '', $anchor = '', $arg_separat
 
     switch (true) {
         case !$module:
-            // Wenn Modul nict angegeben, dann ist auch $op hinfällig.
+            // Wenn Modul nicht angegeben, dann ist auch $op hinfällig.
             break;
         case $op:
             // Modul und $op angegeben, dann die beiden zusammenfügen
@@ -2779,6 +2545,45 @@ function adminUrl($module = '', $op = '', $more = '', $anchor = '', $arg_separat
     return 'admin.php' . $qry . $anchor;
 }
 
+
+/**
+ *  modulesUrl
+ *  
+ *  
+ */
+ function modulesUrl($module = '', $query = '',$anchor="", $arg_separator="&amp;")
+{
+    $para="";
+	$qry="";
+	
+	if (is_array($query)) {
+		$qry = http_build_query($query,"",$arg_separator);
+	} else {
+		$qry=$query;
+	}
+	
+    switch (true) {
+        case !$module:
+            // Wenn Modul nicht angegeben, dann ist auch $query hinfällig.
+			$para="";
+            break;
+        case $qry:
+            // Modul und $query angegeben, dann die beiden zusammenfügen
+            $para = '?name=' . $module . $arg_separator . $qry;
+            break;
+        case $module:
+            // nur Modul angegeben, dann ist das Modul auch $query
+            $para = '?name=' . $module;
+            break;
+    }    
+	
+	if ($anchor) {
+        $anchor = '#' . trim($anchor, ' #');
+    }
+	
+    return 'index.php' . $para . $anchor;
+}
+
 /**
  * mxChangeContent()
  * ersetzt Suchworte mit entsprechenden Ersetzungen in $content.
@@ -2810,7 +2615,7 @@ function mxChangeContent($content, $search = array(), $count = 0)
     if ($temp) {
         $content = str_replace(array_values($temp), array_keys($temp), $content);
     }
-    $content = html_entity_decode($content, ENT_COMPAT | ENT_HTML5, 'UTF-8');
+    //$content = html_entity_decode($content, ENT_COMPAT | ENT_HTML5, 'UTF-8');
 
     /* Sucharray sortiern um doppelte Einträge zu eleminieren */
     krsort($search);
@@ -2863,6 +2668,7 @@ function mxChangeContent($content, $search = array(), $count = 0)
 function langdefine($konstant, $text)
 {
     defined($konstant) OR define($konstant, $text);
+	pmxTranslate::add($konstant,$text);
 }
 
 /**
@@ -2958,6 +2764,48 @@ function pmxGetBrowserName($user_agent="")
     elseif (strpos($user_agent, 'MSIE') || strpos($user_agent, 'Trident/7')) return 'Internet Explorer';
    
     return 'Other';
+}
+
+
+
+
+
+/**
+ *  normalizePath
+ *  
+ *  @param $path Description
+ *  @return 
+ *  
+ */function normalizePath($path)
+{
+    $parts = array();// Array to build a new path from the good parts
+    $path = str_replace('\\', '/', $path);// Replace backslashes with forwardslashes
+    $path = preg_replace('/\/+/', '/', $path);// Combine multiple slashes into a single slash
+    $segments = explode('/', $path);// Collect path segments
+    $test = '';// Initialize testing variable
+    foreach($segments as $segment)
+    {
+        if($segment != '.')
+        {
+            $test = array_pop($parts);
+            if(is_null($test))
+                $parts[] = $segment;
+            else if($segment == '..')
+            {
+                if($test == '..')
+                    $parts[] = $test;
+
+                if($test == '..' || $test == '')
+                    $parts[] = $segment;
+            }
+            else
+            {
+                $parts[] = $test;
+                $parts[] = $segment;
+            }
+        }
+    }
+    return implode('/', $parts);
 }
 
 ?>

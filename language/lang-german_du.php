@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 194 $
+ * $Revision: 346 $
  * $Author: PragmaMx $
- * $Date: 2016-07-25 15:10:19 +0200 (Mo, 25. Jul 2016) $
+ * $Date: 2017-06-30 12:03:47 +0200 (Fr, 30. Jun 2017) $
  *
  * german language file by:
  * pragmaMx Developer Team
@@ -46,7 +46,7 @@ define("_SYS_INTERNATIONALDATES", 1); //0 = mm/dd/yyyy, 1 = dd/mm/yyyy
 define("_SYS_TIME24HOUR", 1); // 1 = 24 hour time... 0 = AM/PM time
 define("_SYS_WEEKBEGINN", 1); # the First Day in the Week: 0 = Sunday, 1 = Monday
 define("_Z1", "Alle Logos und Warenzeichen auf dieser Seite sind Eigentum der jeweiligen Besitzer und Lizenzhalter.<br />Im übrigen gilt Haftungsausschluss. Weitere Details findest Du im <a href=\"modules.php?name=Impressum\">Impressum</a>.");
-define("_Z2", "Die Artikel sind geistiges Eigentum des/der jeweiligen Autoren,<br />alles andere © by <a href=\"" . PMX_HOME_URL . "\">" . $GLOBALS['sitename'] . "</a>");
+define("_Z2", "Die Artikel sind geistiges Eigentum des/der jeweiligen Autoren,<br />alles andere &copy; by <a href=\"" . PMX_HOME_URL . "\">" . $GLOBALS['sitename'] . "</a>");
 define("_Z3", "Diese Webseite basiert auf pragmaMx " . PMX_VERSION . ".");
 define("_Z4", "Die Inhalte dieser Seite sind als <a href=\"modules.php?name=rss\">RSS/RDF-Quelle</a> verfügbar.");
 define("_YES", "Ja");
@@ -332,4 +332,11 @@ define("_MAILISBLOCKED", "Diese E-Mail-Adresse (oder Teile davon) ist nicht zuge
 /* since 2.2.5*/
 define("_COOKIEINFO","Cookies erleichtern die Bereitstellung unserer Dienste. Mit der Nutzung unserer Dienste erklären Sie sich damit einverstanden, dass wir Cookies verwenden.");
 define("_MOREINFO","mehr Informationen");
+/* 2.4. */
+define("_OFFLINE_1","Diese Seite befindet sich momentan im Offline-Modus. ");
+define("_OFFLINE_2","Wir bitten um Entschuldigung. Bitte versuchen Sie es bitte später wieder.");
+define("_OFFLINE_3","Vielen Dank für Ihr Verständnis. <br/>Ihr Admin-Team");
+langdefine("_MINUTE","Minute");
+langdefine("_MINUTES","Minuten");
+langdefine("_READINGTIME","Lesezeit ca.");
 ?>

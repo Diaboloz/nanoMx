@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 6 $
+ * $Revision: 255 $
  * $Author: PragmaMx $
- * $Date: 2015-07-08 09:07:06 +0200 (Mi, 08. Jul 2015) $
+ * $Date: 2016-11-14 12:52:08 +0100 (Mo, 14. Nov 2016) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -89,4 +89,6 @@ define("_LOGFILER", "Logfiles");
 define("_HOOKS", "Hooks verwalten");
 define("_THEMES","Themes");
 
+define("_PANELPLUGIN", "Plugins");
+define("_PANELPLUGIN_DESCR", "Zusätzliche und neu installierte Plugins");
 ?>

@@ -338,5 +338,122 @@ function mx_stat($file) {
 	return $s;
 }
 
+/**
+ *  mx_rmdir
+ *  
+ *  löscht angegebenen Pfad rekursiv inkl. der enthaltenen Dateien....
+ *  
+ *  @param $src 
+ *  @return $src
+ *  
+ */
+function mx_rmdir($src) {
+	$dir = opendir($src);
+	while(false !== ( $file = readdir($dir)) ) {
+		if (( $file != '.' ) && ( $file != '..' )) {
+			$full = $src . '/' . $file;
+			if ( is_dir($full) ) {
+				mx_rmdir($full);
+			}
+			else {
+				unlink($full);
+			}
+		}
+	}
+	closedir($dir);
+	rmdir($src);
+}
 
+/**
+ *  mx_copyFolder
+ *  
+ *  Kopiert einen kompletten Ordner ink. der Dateien an einen anderen Ort
+ *  
+ *  @param $source 		Quell-Pfad
+ *  @param $dest 		Ziel-Pfad
+ *  @param $recursive 	boolean
+ *  @return 
+ *  
+ */function mx_copyFolder($source, $dest, $recursive = false)
+{
+    if (!is_dir($dest)) 
+    { 
+        mkdir($dest); 
+	} 
+    $handle = @opendir($source);
+    if(!$handle) return false;
+	
+	// No slash on the end, please...
+	if ($source !== '/' && substr($source, -1) === '/')	$source = substr($source, 0, -1);
+	if ($dest   !== '/' && substr($dest, -1)   === '/')	$dest   = substr($dest, 0, -1);
+    
+	$ret['files']=0;
+	$ret['dirs']=0;
+	
+    while ($file = @readdir ($handle))
+    {
+        if (preg_match("#^\.{1,2}$#i",$file))
+        {
+            continue;
+        }
+        if(!$recursive && $source != $source.$file."/")
+        {
+            if(is_dir($source.$file))
+                continue;
+        }
+        if(is_dir($source.$file))
+        {
+            mx_copyFolder($source.$file."/", $dest.$file."/", $recursive);
+			$ret['dirs'] ++;
+        }
+        else
+        {
+            copy($source.$file, $dest.$file);
+			$ret['files'] ++;
+        }
+    }
+    @closedir($handle);
+	return $ret;
+}
+
+/**
+ *  mx_normalize_files_array
+ *  
+ *  The problem occurs when you have a form that uses both single file and HTML array feature. 
+ *  The array isn't normalized and tends to make coding for it really sloppy. 
+ *  I have included a nice method to normalize the $_FILES array.
+ *  input array $files - $_FILES
+ *  @return array 
+ *  
+ *  sample:
+ *  
+ *  $files= mx_normalize_files_array($_FILES);
+ *  
+ */
+ function mx_normalize_files_array($files = []) {
+
+	$normalized_array = [];
+
+	foreach($files as $index => $file) {
+
+		if (!is_array($file['name'])) {
+			$normalized_array[$index][] = $file;
+			continue;
+		}
+
+		foreach($file['name'] as $idx => $name) {
+			$normalized_array[$index][$idx] = [
+				'name' => $name,
+				'type' => $file['type'][$idx],
+				'tmp_name' => $file['tmp_name'][$idx],
+				'error' => $file['error'][$idx],
+				'size' => $file['size'][$idx]
+			];
+		}
+
+	}
+
+	return $normalized_array;
+
+}	
 ?>

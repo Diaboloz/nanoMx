@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 206 $
+ * $Revision: 296 $
  * $Author: PragmaMx $
- * $Date: 2016-09-12 13:33:26 +0200 (Mo, 12. Sep 2016) $
+ * $Date: 2016-12-13 12:53:33 +0100 (Di, 13. Dez 2016) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -31,7 +31,7 @@ function mxSessionInit($initiate = true)
     global $dbi, $prefix, $vkpIntranet;
     // nur, falls noch nicht bereits aufgerufen...
 	
-		$home_url=(PMX_DEVELOPMENT)?"pmx":PMX_HOME_URL;
+		$home_url=PMX_HOME_URL;
 	
     if (!defined("MX_SESSION_NAME")) {
         define("MX_SESSION_NAME" , substr("mx" . strtoupper(md5(@MX_USER_AGENT . "s" . $home_url)), 0, 32));
@@ -81,4 +81,81 @@ function mxSessionInit($initiate = true)
         "mx_sys_session_gc");
 	
 }
+
+/**
+ * Setzen einer Session Variablen
+ *
+ * @since pragmaMx 0.1.0
+ * @param string $varname Name der Session-Variablen, die gesetzt werden soll.
+ * @param string $value Wert der Session-Variablen, der gesetzt werden soll.
+ * @return bool Gibt true zurück
+ */
+function mxSessionSetVar($varname, $value)
+{
+    $_SESSION[MX_SESSION_VARPREFIX . $varname] = $value;
+    return true;
+}
+
+/**
+ * Auslesen einer Session-Variablen
+ *
+ * @since pragmaMx 0.1.0
+ * @param string $varname Name der Session-Variablen, die ausgelesen werden soll.
+ * @param mixed $default : optionaler Standardwert, falls die Session-Variable nicht existiert
+ * @return mixed Gibt den Wert der Session-Variablen zurück.
+ */
+function mxSessionGetVar($varname, $default = false)
+{
+    $varname = MX_SESSION_VARPREFIX . $varname;
+    if (!isset($_SESSION[$varname])) {
+        return $default;
+    }
+    return $_SESSION[$varname];
+}
+
+/**
+ * Löschen einser Session-Variablen
+ *
+ * @since pragmaMx 0.1.0
+ * @param string $varname Name der Session-Variablen, die gelöscht werden soll.
+ * @return bool Gibt true zurück
+ */
+function mxSessionDelVar($varname)
+{
+    unset($_SESSION[MX_SESSION_VARPREFIX . $varname]);
+    return true;
+}
+
+/**
+ * Zerstören der aktuellen Session
+ *
+ * @since pragmaMx 0.1.0
+ * @return bool Gibt true zurück
+ */
+function mxSessionDestroy()
+{
+    mxSetCookie(MX_SESSION_NAME, "", -1);
+    mxSetCookie(MX_SAFECOOKIE_NAME_USER, "", -1);
+    mxSetCookie(MX_SAFECOOKIE_NAME_ADMIN, "", -1);
+    //mxSetNukeCookie('user');
+    //mxSetNukeCookie('admin');
+    $_SESSION = array();
+    session_destroy();
+    return true;
+}
+/**
+ * Prüfen, ob Sessionvariable vorhanden
+ *
+ * @since pragmaMx 2.4.
+ * @return bool 
+ */
+function mxSessionCheckVar($varname){
+
+    if (isset($_SESSION[MX_SESSION_VARPREFIX . $varname])) {
+        return true;
+    }else{
+		return false;
+	}
+}
+
 ?>
