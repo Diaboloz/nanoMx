@@ -44,44 +44,92 @@ function displayGroups()
     $groupoptions = getAllAccessLevelSelectOptions($userconfig->default_group);
 
     include('header.php');
-    GraphicAdmin();
-    title(_GROUPSADMIN);
-    // OpenTable();
-    // echo "<center><font class=\"title\"><b>"._GROUPSADMIN."</b></font></center>";
-    // CloseTable();
-    // possible option to allow admin not to have Move Users displayed
-    // echo '<br />';
-    OpenTable();
-    echo "<fieldset><legend>" . _MOVEUSERS_TOGROUP . "</legend>" . _SMALL_MOVEUSERS_TOGROUP . '<br /><br />'
-     . "<form method=\"post\" action=\"" . adminUrl(PMX_MODULE) . "\" name=\"move_users_togroup\">"
-     . "<table style=\"margin:auto\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\"><tr><td><select multiple=\"multiple\" name=\"get_users[]\" size=\"7\" >" . $useroptions . "</select>"
-     . "</td><td align=\"center\">&nbsp;<b>" . _MOVETOROUPNAME . " </b>&nbsp;\n"
-     . "<select name=\"moveto_group\">" . $groupoptions . "</select><input type=\"hidden\" name=\"op\" value=\"" . PMX_MODULE . "/GroupMove\" />"
-     . "&nbsp;<input type=\"submit\" value=\" " . _OK . " \" /></td></tr></table></form></fieldset>";
-    CloseTable();
-    echo '<br />';
-    // end if admin does not want to have Move Users displayed
+    echo '
+        <h2>' . _GROUPSADMIN . '</h2>
+        <div class="card">
+            <div class="card-header">
+                <strong>' .  _MOVEUSERS_TOGROUP . '</strong>
+            </div>
+            <div class="card-body">
+               <p>' . _SMALL_MOVEUSERS_TOGROUP . '</p>
+               <form method="post" action="' . adminUrl(PMX_MODULE) . '" name="move_users_togroup">  
+                <div class="row">      
+                    <div class="form-group col-sm-2">                      
+                            <select id="get_users[]" multiple="multiple" name="get_users[]" class="form-control" >' . $useroptions . '</select>                       
+                    </div>
+                    <div class="col-sm-2 h5">
+                            ' . _MOVETOROUPNAME . '-->
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <select id="moveto_group" name="moveto_group" class="form-control">' . $groupoptions . '</select>
+                    </div> 
+                    <div class="form-group col-sm-2">
+                        <input type="hidden" name="op" value="' . PMX_MODULE . '/GroupMove" />
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> ' . _OK . '</button>    
+                    </div>                                           
+                </div>
+               </form> 
+            </div>
+      </div>';
+
     // edit group
-    OpenTable();
-    echo "<fieldset><legend>" . _EDITGROUP . "</legend>"
-     . "<form method=\"post\" action=\"" . adminUrl(PMX_MODULE) . "\" name=\"edit_group_form\">"
-     . "<b>" . _NEWGROUPNAME . " </b>"
-     . "<select name=\"chng_id\">" . $groupoptions . "</select>"
-     . "<select name=\"op\">"
-     . "<option value=\"" . PMX_MODULE . "/modifyGroup\">" . _MODIFY . "</option>\n"
-     . "<option value=\"" . PMX_MODULE . "/delUserLevel\">" . _DELETE . "</option></select>\n"
-     . "<input type=\"submit\" value=\"" . _OK . "\" /></form></fieldset>";
-    CloseTable();
-    echo '<br />';
+    echo '
+        <div class="card">
+            <div class="card-header">
+                <strong>' .  _EDITGROUP . '</strong>
+            </div>
+            <div class="card-body">
+               <form method="post" action="' . adminUrl(PMX_MODULE) . '" name="edit_group_form">  
+                <div class="row">      
+                    <div class="col-sm-2 h5">                      
+                            ' . _NEWGROUPNAME . '                       
+                    </div>
+                    <div class="form-group col-sm-2">
+                            <select id="chng_id" name="chng_id" class="form-control">' . $groupoptions . '</select>
+                    </div>
+                    <div class="form-group col-sm-2">
+                            <select id= "op" name="op" class="form-control">
+                                <option value="' . PMX_MODULE . '/modifyGroup">' . _MODIFY . '</option>
+                                <option value="' . PMX_MODULE . '/delUserLevel">' . _DELETE . '</option>
+                            </select>
+                    </div> 
+                    <div class="form-group col-sm-2">
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> ' . _OK . '</button>    
+                    </div>                                           
+                </div>
+               </form> 
+            </div>
+      </div>';
+
     // add new group
-    OpenTable();
-    echo "<fieldset><legend>" . _ADDGROUP . "</legend>"
-     . "<form action=\"" . adminUrl(PMX_MODULE) . "\" method=\"post\">"
-     . "<table border='0' cellspacing='1' cellpadding='2' align='center' class='bgcolor2'>"
-     . "<tr class='bgcolor1'><td width=\"100\" colspan=\"2\">" . _NEWGROUPNAME . "</td>"
-     . "<td colspan=\"6\"><input type=\"text\" name=\"add_groupname\" size=\"25\" maxlength=\"20\" /> <font class=\"tiny\">" . _REQUIRED . "</font></td></tr>"
-     . "<tr><td colspan=\"8\"><b>" . _MODULENAME . "</b></td></tr>";
-    $result = sql_query("select mid, title, view, active from " . $prefix . "_modules order by title ASC");
+    echo '
+        <div class="card">
+           <div class="card-header">
+                <strong>' .  _ADDGROUP . '</strong>
+            </div>
+
+            <div class="card-body">
+               <form method="post" action="' . adminUrl(PMX_MODULE) . '">  
+               <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="newgroupname">' . _NEWGROUPNAME . '</label>
+                 <div class="col-md-9">
+                    <input type="text" id="add_groupname" name="add_groupname" class="form-control" maxlength="20" /> 
+                    <span class="help-block">' . _REQUIRED . '</span>
+              </div>
+            </div>
+                    <table class="table table-sm">
+       
+                        <tr>
+                            <td><b>' . _MODULENAME . '</b></td>
+                        </tr>
+
+            ';
+
+
+    
+    $result = sql_query("SELECT mid, title, view, active 
+                        FROM " . $prefix . "_modules 
+                        ORDER BY title ASC");
     $y = 0;
     while (list($mid, $mtitle, $mview, $mactive) = sql_fetch_row($result)) {
         // print $y;
@@ -142,12 +190,17 @@ function displayGroups()
         echo "<td colspan=\"$colspan\">&nbsp;</td></tr>";
     }
     echo "<tr><td colspan=\"8\"><input type=\"hidden\" name=\"op\" value=\"" . PMX_MODULE . "/addGroup\" />"
-     . "<input type=\"submit\" value=\"" . _ADDGROUPBUT . "\" /></td></tr></table></form>";
-    groupListLegend();
-    echo "</fieldset>";
+     . "<input type=\"submit\" value=\"" . _ADDGROUPBUT . "\" /></td></tr>
+     
+     </table>
+        </form> 
+            </div>
 
+
+        </div>";
+    groupListLegend();
     CloseTable();
-    include("footer.php");
+    include('footer.php');
 }
 
 function editGroup($pvs)
@@ -585,15 +638,31 @@ function groupsRefreshLink($timeout = 0)
 
 function groupListLegend()
 {
-    echo "<table align=\"right\" border=\"0\" cellspacing=\"0\" cellpadding=\"3\">"
-     . "<tr><td colspan=\"3\"><b>" . _GRPLEGEND . ":</b></td></tr>"
-     . "<tr><th><input type=\"checkbox\" /></th><td>" . _GRPLEGENDELEMENT . "</td><td>&nbsp;=&nbsp;</td><td>" . _GRPLEGEND1 . "</td></tr>"
-     . "<tr><th><input type=\"checkbox\" /></th><td><i>" . _GRPLEGENDELEMENT . "</i></td><td>&nbsp;=&nbsp;</td><td>" . _GRPLEGEND2 . "</td></tr>"
-     . "<tr><th>-</th><td>" . _GRPLEGENDELEMENT . "</td><td>&nbsp;=&nbsp;</td><td>" . _GRPLEGEND3 . "</td></tr>"
-     . "<tr><th>-</th><td><i>" . _GRPLEGENDELEMENT . "</i></td><td>&nbsp;=&nbsp;</td><td>" . _GRPLEGEND4 . "</td></tr>"
-     . "<tr><th>x</th><td>" . _GRPLEGENDELEMENT . "</td><td>&nbsp;=&nbsp;</td><td>" . _GRPLEGEND5 . "</td></tr>"
-     . "<tr><th>x</th><td><i>" . _GRPLEGENDELEMENT . "</i></td><td>&nbsp;=&nbsp;</td><td>" . _GRPLEGEND6 . "</td></tr>"
-     . "</table>";
+    echo '
+        <h4>' . _GRPLEGEND . '</h4>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <input type="checkbox" />' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND1 . '
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox" />' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND1 . '
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox" /><i>' . _GRPLEGENDELEMENT . '</i>&nbsp;=&nbsp;' . _GRPLEGEND2 . '
+            </li>
+             <li class="list-group-item">
+                -' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND3 . '
+            </li> 
+            <li class="list-group-item">
+                -<i>' . _GRPLEGENDELEMENT . '</i>&nbsp;=&nbsp;' . _GRPLEGEND4 . '
+            </li>        
+            <li class="list-group-item">
+               x' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND5 . '
+            </li>                        
+            <li class="list-group-item">
+                x<i>' . _GRPLEGENDELEMENT . '</i>&nbsp;=&nbsp;' . _GRPLEGEND6 . '
+            </li>
+        </ul>';
 }
 
 switch ($op) {
