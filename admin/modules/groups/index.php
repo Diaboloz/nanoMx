@@ -35,7 +35,9 @@ function displayGroups()
 
     $userconfig = load_class('Userconfig');
     // Gruppentabelle checken
-    $result = sql_query("SELECT access_id FROM ${prefix}_groups_access WHERE access_id=1;");
+    $result = sql_query("SELECT access_id 
+                        FROM ${prefix}_groups_access 
+                        WHERE access_id=1;");
     list($xaccess_id) = sql_fetch_row($result);
     if (empty($xaccess_id)) {
         sql_query("REPLACE INTO ${prefix}_groups_access VALUES (1, '" . MX_FIRSTGROUPNAME . "')");
@@ -109,19 +111,34 @@ function displayGroups()
             </div>
 
             <div class="card-body">
-               <form method="post" action="' . adminUrl(PMX_MODULE) . '">  
+
+
+
+
+
+            <form method="post" action="' . adminUrl(PMX_MODULE) . '"> 
+
+            <div class="container">
+                <div class="row">
+
+               
+               <div class="col-md-9"> 
                <div class="form-group row">
-                <label class="col-md-3 form-control-label" for="newgroupname">' . _NEWGROUPNAME . '</label>
+                <label class="col-md-3 form-control-label" for="add_groupname">' . _NEWGROUPNAME . '</label>
                  <div class="col-md-9">
                     <input type="text" id="add_groupname" name="add_groupname" class="form-control" maxlength="20" /> 
                     <span class="help-block">' . _REQUIRED . '</span>
               </div>
-            </div>
-                    <table class="table table-sm">
+              </div>
+     
+                    <table class="table">
        
-                        <tr>
-                            <td><b>' . _MODULENAME . '</b></td>
-                        </tr>
+                        <thead>
+                            <tr>
+                             <th colspan="8"><b>' . _MODULENAME . '</b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
             ';
 
@@ -137,14 +154,14 @@ function displayGroups()
         if ($y == 1) echo "<tr class='bgcolor1'>";
         $mod_show = str_replace("_", " ", $mtitle);
         if ($mod_show != "") {
-            $strike1 = ($mactive) ? "" : "<i>";
-            $strike2 = ($mactive) ? "" : "</i>";
+            $strike1 = ($mactive) ? '' : '<span class="badge badge-light">';
+            $strike2 = ($mactive) ? '' : '</span>';
             if ($mview == 1) {
                 echo "<th><input type=\"checkbox\" name=\"can_view_modules[]\" value=\"" . $mid . "\" /></th><td>$strike1" . $mod_show . "$strike2</td>";
             } else if ($mview == 2 || $mview == 3) {
-                echo "<th>-</th><td>$strike1" . $mod_show . "$strike2</td>";
+                echo "<th><i class=\"fa fa-user fa-lg mt-4\"></i></th><td>$strike1" . $mod_show . "$strike2</td>";
             } else {
-                echo "<th>x</th><td>$strike1" . $mod_show . "$strike2</td>";
+                echo "<th><i class=\"fa fa-user-o fa-lg mt-4\"></i></th><td>$strike1" . $mod_show . "$strike2</td>";
             }
         } else {
             echo "<td>&nbsp;</td>";
@@ -158,9 +175,20 @@ function displayGroups()
         $colspan = (4 - $y) * 2;
         echo "<td colspan=\"$colspan\">&nbsp;</td></tr>";
     }
-    // blocks
-    echo "<tr><td colspan=\"8\"><b>" . _BLOCKNAME . "</b></td></tr>";
-    $result = sql_query("select bid, title, view, active, blockfile from " . $prefix . "_blocks order by title ASC");
+    //blocs
+    echo '
+        </tbody>
+        <table class="table">
+                           <thead>
+                            <tr>
+                             <th colspan="8"><b>' . _BLOCKNAME . '</b></th>
+                            </tr>
+                        </thead>
+                        <tbody>';         
+    
+    $result = sql_query("SELECT bid, title, view, active, blockfile 
+                        FROM " . $prefix . "_blocks 
+                        ORDER BY title ASC");
     $y = 0;
     while (list($bid, $btitle, $bview, $bactive, $blockfile) = sql_fetch_row($result)) {
         $y++;
@@ -168,14 +196,14 @@ function displayGroups()
         $block_show = (empty($btitle)) ? str_replace(array(".php", "block-"), array("", ""), $blockfile) : $btitle;
         $block_show = (empty($block_show)) ? "untitled ($bid)" : str_replace("_", " ", $block_show);
         if ($block_show != "") {
-            $strike1 = ($bactive) ? "" : "<i>";
-            $strike2 = ($bactive) ? "" : "</i>";
+            $strike1 = ($mactive) ? '' : '<span class="badge badge-light">';
+            $strike2 = ($mactive) ? '' : '</span>';
             if ($bview == 1) {
                 echo "<th><input type=\"checkbox\" name=\"can_view_blocks[]\" value=\"" . $bid . "\" /></th><td>$strike1" . $block_show . "$strike2</td>";
             } else if ($bview == 2 || $bview == 3) {
-                echo "<th>-</th><td>$strike1" . $block_show . "$strike2</td>";
+                echo "<th><i class=\"fa fa-user fa-lg mt-4\"></th><td>$strike1" . $block_show . "$strike2</td>";
             } else {
-                echo "<th>x</th><td>$strike1" . $block_show . "$strike2</td>";
+                echo "<th><i class=\"fa fa-user-o fa-lg mt-4\"></i></th><td>$strike1" . $block_show . "$strike2</td>";
             }
         } else {
             echo "<td>&nbsp;</td>";
@@ -189,17 +217,26 @@ function displayGroups()
         $colspan = (4 - $y) * 2;
         echo "<td colspan=\"$colspan\">&nbsp;</td></tr>";
     }
-    echo "<tr><td colspan=\"8\"><input type=\"hidden\" name=\"op\" value=\"" . PMX_MODULE . "/addGroup\" />"
-     . "<input type=\"submit\" value=\"" . _ADDGROUPBUT . "\" /></td></tr>
+    echo '
      
+     </tbody>
      </table>
-        </form> 
+     <input type="hidden" name="op" value="' . PMX_MODULE . '/addGroup" />
+     <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> ' . _ADDGROUPBUT . '</button>
+     </div>
+        ';
+
+
+        groupListLegend();
+    
+    echo '
+    </div>
+        </div>
+            </form> 
             </div>
 
 
-        </div>";
-    groupListLegend();
-    CloseTable();
+        </div>';
     include('footer.php');
 }
 
@@ -596,7 +633,9 @@ function getUsersSelectOptions()
 function checkDuplicateACL($checking_group_name)
 {
     global $user_prefix, $prefix;
-    $result = sql_query("SELECT access_title from " . $prefix . "_groups_access WHERE access_title='" . $checking_group_name . "'");
+    $result = sql_query("SELECT access_title 
+                        FROM " . $prefix . "_groups_access 
+                        WHERE access_title='" . $checking_group_name . "'");
     if ($result) {
         list($compare_title) = sql_fetch_row($result);
     }
@@ -639,30 +678,47 @@ function groupsRefreshLink($timeout = 0)
 function groupListLegend()
 {
     echo '
-        <h4>' . _GRPLEGEND . '</h4>
-        <ul class="list-group">
-            <li class="list-group-item">
+
+
+
+
+    <div class="col">
+
+
+<div class="card card-accent-primary">
+<div class="card-header">
+          ' . _GRPLEGEND . '
+        </div>
+        <div class="card-body">
+
+
+        <ul class="list-unstyled">
+            <li>
                 <input type="checkbox" />' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND1 . '
             </li>
-            <li class="list-group-item">
+            <li>
                 <input type="checkbox" />' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND1 . '
             </li>
-            <li class="list-group-item">
-                <input type="checkbox" /><i>' . _GRPLEGENDELEMENT . '</i>&nbsp;=&nbsp;' . _GRPLEGEND2 . '
+            <li>
+                <input type="checkbox" /><span class="badge badge-light">' . _GRPLEGENDELEMENT . '</span>&nbsp;=&nbsp;' . _GRPLEGEND2 . '
             </li>
-             <li class="list-group-item">
-                -' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND3 . '
+             <li>
+                <i class="fa fa-user fa-lg mt-4"></i>' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND3 . '
             </li> 
-            <li class="list-group-item">
-                -<i>' . _GRPLEGENDELEMENT . '</i>&nbsp;=&nbsp;' . _GRPLEGEND4 . '
+            <li>
+                <i class="fa fa-user fa-lg mt-4"></i><span class="badge badge-light">' . _GRPLEGENDELEMENT . '</span>&nbsp;=&nbsp;' . _GRPLEGEND4 . '
             </li>        
-            <li class="list-group-item">
-               x' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND5 . '
+            <li>
+               <i class="fa fa-user-o fa-lg mt-4"></i>' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND5 . '
             </li>                        
-            <li class="list-group-item">
-                x<i>' . _GRPLEGENDELEMENT . '</i>&nbsp;=&nbsp;' . _GRPLEGEND6 . '
+            <li>
+                <i class="fa fa-user-o fa-lg mt-4"></i><span class="badge badge-light">' . _GRPLEGENDELEMENT . '</span>&nbsp;=&nbsp;' . _GRPLEGEND6 . '
             </li>
-        </ul>';
+        </ul>
+    </div>
+
+        </div>
+      </div>';
 }
 
 switch ($op) {
