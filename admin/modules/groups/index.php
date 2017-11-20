@@ -122,10 +122,10 @@ function displayGroups()
                 <div class="row">
 
                
-               <div class="col-md-9"> 
+            <div class="col-md-6"> 
                <div class="form-group row">
-                <label class="col-md-3 form-control-label" for="add_groupname">' . _NEWGROUPNAME . '</label>
-                 <div class="col-md-9">
+                <label class="col-md-2 form-control-label" for="add_groupname"><strong>' . _NEWGROUPNAME . '</strong></label>
+                 <div class="col-md-4">
                     <input type="text" id="add_groupname" name="add_groupname" class="form-control" maxlength="20" /> 
                     <span class="help-block">' . _REQUIRED . '</span>
               </div>
@@ -151,29 +151,30 @@ function displayGroups()
     while (list($mid, $mtitle, $mview, $mactive) = sql_fetch_row($result)) {
         // print $y;
         $y++;
-        if ($y == 1) echo "<tr class='bgcolor1'>";
+        if ($y == 1) echo '<tr>';
         $mod_show = str_replace("_", " ", $mtitle);
         if ($mod_show != "") {
             $strike1 = ($mactive) ? '' : '<span class="badge badge-light">';
             $strike2 = ($mactive) ? '' : '</span>';
             if ($mview == 1) {
-                echo "<th><input type=\"checkbox\" name=\"can_view_modules[]\" value=\"" . $mid . "\" /></th><td>$strike1" . $mod_show . "$strike2</td>";
+                echo "<td><input class=\"form-check-input\" type=\"checkbox\" name=\"can_view_modules[]\" value=\"" . $mid . "\" />&nbsp;$strike1" . $mod_show . "$strike2</td>";
             } else if ($mview == 2 || $mview == 3) {
-                echo "<th><i class=\"fa fa-user fa-lg mt-4\"></i></th><td>$strike1" . $mod_show . "$strike2</td>";
+                echo "<td><i class=\"fa fa-user fa-lg\"></i>&nbsp;$strike1" . $mod_show . "$strike2</td>";
             } else {
-                echo "<th><i class=\"fa fa-user-o fa-lg mt-4\"></i></th><td>$strike1" . $mod_show . "$strike2</td>";
+                echo "<td><i class=\"fa fa-user-o fa-lg\"></i>&nbsp;$strike1" . $mod_show . "$strike2</td>";
             }
         } else {
-            echo "<td>&nbsp;</td>";
+            echo '<td>&nbsp;</td>';
         }
         if ($y == 4) {
             $y = 0;
-            echo "</tr>";
+            echo '</tr>';
         }
     }
     if ($y > 0) {
         $colspan = (4 - $y) * 2;
-        echo "<td colspan=\"$colspan\">&nbsp;</td></tr>";
+        echo '<td colspan="' . $colspan . '">&nbsp;</td>
+            </tr>';
     }
     //blocs
     echo '
@@ -192,30 +193,31 @@ function displayGroups()
     $y = 0;
     while (list($bid, $btitle, $bview, $bactive, $blockfile) = sql_fetch_row($result)) {
         $y++;
-        if ($y == 1) echo "<tr class='bgcolor1'>";
+        if ($y == 1) echo '<tr>';
         $block_show = (empty($btitle)) ? str_replace(array(".php", "block-"), array("", ""), $blockfile) : $btitle;
         $block_show = (empty($block_show)) ? "untitled ($bid)" : str_replace("_", " ", $block_show);
         if ($block_show != "") {
             $strike1 = ($mactive) ? '' : '<span class="badge badge-light">';
             $strike2 = ($mactive) ? '' : '</span>';
             if ($bview == 1) {
-                echo "<th><input type=\"checkbox\" name=\"can_view_blocks[]\" value=\"" . $bid . "\" /></th><td>$strike1" . $block_show . "$strike2</td>";
+                echo "<td><input class=\"form-check-input\" type=\"checkbox\" name=\"can_view_blocks[]\" value=\"" . $bid . "\" />&nbsp$strike1" . $block_show . "$strike2</td>";
             } else if ($bview == 2 || $bview == 3) {
-                echo "<th><i class=\"fa fa-user fa-lg mt-4\"></i></th><td>$strike1" . $block_show . "$strike2</td>";
+                echo "<td><i class=\"fa fa-user fa-lg\"></i>&nbsp;$strike1" . $block_show . "$strike2</td>";
             } else {
-                echo "<th><i class=\"fa fa-user-o fa-lg mt-4\"></i></th><td>$strike1" . $block_show . "$strike2</td>";
+                echo "<td><i class=\"fa fa-user-o fa-lg\"></i>&nbsp;$strike1" . $block_show . "$strike2</td>";
             }
         } else {
-            echo "<td>&nbsp;</td>";
+            echo '<td>&nbsp;</td>';
         }
         if ($y == 4) {
             $y = 0;
-            echo "</tr>";
+            echo '</tr>';
         }
     }
     if ($y > 0) {
         $colspan = (4 - $y) * 2;
-        echo "<td colspan=\"$colspan\">&nbsp;</td></tr>";
+        echo '<td colspan="' . $colspan . '">&nbsp;</td>
+            </tr>';
     }
     echo '
      
@@ -244,22 +246,60 @@ function editGroup($pvs)
 {
     global $user_prefix, $prefix;
     extract($pvs);
-    $result = sql_query("select access_id, access_title from " . $prefix . "_groups_access where access_id = '$chng_id'");
+    $result = sql_query("SELECT access_id, access_title 
+                        FROM " . $prefix . "_groups_access 
+                        WHERE access_id = '$chng_id'");
     list($access_id, $access_title) = sql_fetch_row($result);
     if (empty($access_id) || empty($access_title)) {
         mxErrorScreen(_GROUPNOEXIST);
         return;
     }
-    $namefield = ($access_id == 1) ? "<b>$access_title</b><input type=\"hidden\" name=\"chng_title\" value=\"$access_title\" />" : "<input type=\"text\" name=\"chng_title\" value=\"$access_title\" size=\"25\" maxlength=\"20\" />";
-    include("header.php");
-    GraphicAdmin();
-    title(_GROUPSADMIN);
-    OpenTable();
-    echo "<fieldset><legend>" . _GROUPUPDATE . ": <em>$access_title</em></legend>"
-     . "<form action=\"" . adminUrl(PMX_MODULE) . "\" method=\"post\" name=\"modify_group_form\">"
-     . "<table style=\"margin:auto\" border='0' cellspacing='1' cellpadding='2' class='bgcolor2'>"
-     . "<tr class='bgcolor1'><td colspan='2'>" . _GROUPID . ":</td><td colspan=\"6\"><b>$access_id</b></td></tr>"
-     . "<tr class='bgcolor1'><td colspan='2'>" . _GROUPTITLE . ":</td><td colspan=\"6\">$namefield</td></tr>";
+    $namefield = ($access_id == 1) ? "<strong>$access_title</strong><input type=\"hidden\" name=\"chng_title\" value=\"$access_title\" />" : "<input type=\"text\" class=\"form-control\" name=\"chng_title\" value=\"$access_title\" size=\"25\" maxlength=\"20\" />";
+
+    include('header.php');
+
+    echo '
+        <h2>' . _GROUPSADMIN . '</h2>
+        <div class="card">
+            <div class="card-header">
+                ' .  _GROUPUPDATE . ':<strong> ' . $access_title . '</strong>
+            </div>
+            <div class="card-body">
+                <form name="modify_group_form" method="post" action="' . adminUrl(PMX_MODULE) . '"> 
+                <div class="row">
+                    <div class="col-2">
+                        <div class="form-group row">
+                            <label class="col-md-6 form-control-label">' . _GROUPID . '</label>
+                            <div class="col-md-6"><p class="form-control-static">' . $access_id . '</p></div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 form-control-label">' . _GROUPTITLE . '</label>
+                            <div class="col-md-6"><span class="badge badge-pill badge-light">' . $namefield . '</span></div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="card">
+                            <div class="card-body">';
+    $useroptions = getAllUsersSelectOptions2($access_id);
+    $userscount = substr_count($useroptions, "<option value=");
+    echo '
+        <p><strong>' . $userscount . '</strong>&nbsp;' . _GROUPUSERSIN .'</p>';
+    if ($userscount) {
+        echo '
+            <select name="xx" size="3" class="form-control">' . $useroptions . '</select>';
+    }
+    echo '
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class=col-8">
+                        <table class="table">
+                            <tbody>';
+
     // erlaubte Module
     $qry = "SELECT m.mid, m.title, m.view, m.active
            FROM " . $prefix . "_modules AS m LEFT JOIN " . $prefix . "_groups_modules AS g ON m.mid = g.module_id
@@ -270,22 +310,22 @@ function editGroup($pvs)
     $result = sql_query($qry);
     if ($result) {
         $splitter = 0;
-        echo "<tr><td colspan=\"8\"><b>" . _MODULENAME . "</b></td></tr><tr></tr>"
-         . "<tr class='bgcolor1'>";
+        echo "<tr><td colspan=\"8\"><b>" . _MODULENAME . "</b></td></tr>"
+         . "<tr>";
         // loop through each mod compare groups string with access_id
         while (list($mid, $mtitle, $mview, $mactive) = sql_fetch_row($result)) {
             $splitter++;
             $xmid[] = $mid;
             $mod_show = str_replace("_", " ", $mtitle);
-            $strike1 = ($mactive) ? '' : '<span class="badge badge-light">';
-            $strike2 = ($mactive) ? '' : '</span>';
+            $strike1 = ($mactive) ? "" : "<i>";
+            $strike2 = ($mactive) ? "" : "</i>";
             if ($mview != 0) {
-                echo "<th><input type=\"checkbox\" name=\"group_module_cur[]\" value=\"" . $mid . "\" checked=\"checked\" /></th><td>$strike1" . $mod_show . "$strike2</td>";
+                echo "<td><input type=\"checkbox\" name=\"group_module_cur[]\" value=\"" . $mid . "\" checked=\"checked\" /> $strike1" . $mod_show . "$strike2</td>";
             } else {
-                echo "<th>x</th><td>$strike1" . $mod_show . "$strike2</td>";
+                echo "<td><i class=\"fa fa-user-o fa-lg\"></i>&nbsp;$strike1" . $mod_show . "$strike2</td>";
             }
             if ($splitter >= 4) {
-                echo "</tr><tr class='bgcolor1'>";
+                echo "</tr><tr>";
                 $splitter = 0;
             }
         }
@@ -301,22 +341,22 @@ function editGroup($pvs)
     if ($result) {
         $splitter = 0;
         echo "<tr><td colspan=\"8\"><b>" . _NOMODULEVIEW . "</b></td></tr><tr></tr>"
-         . "<tr class='bgcolor1'>";
+         . "<tr>";
         // loop through each mod compare groups string with access_id
         while (list($mid, $mtitle, $mview, $mactive) = sql_fetch_row($result)) {
             $splitter++;
             $mod_show = str_replace("_", " ", $mtitle);
-            $strike1 = ($mactive) ? '' : '<span class="badge badge-light">';
-            $strike2 = ($mactive) ? '' : '</span>';
+            $strike1 = ($mactive) ? "" : "<i>";
+            $strike2 = ($mactive) ? "" : "</i>";
             if ($mview == 1) {
-                echo "<th><input type=\"checkbox\" name=\"group_module_add[]\" value=\"" . $mid . "\" /></th><td>$strike1" . $mod_show . "$strike2</td>";
+                echo "<td><input type=\"checkbox\" name=\"group_module_add[]\" value=\"" . $mid . "\" /> $strike1" . $mod_show . "$strike2</td>";
             } else if ($mview == 2 || $mview == 3) {
-                echo "<th><i class=\"fa fa-user fa-lg mt-4\"></i></th><td>$strike1" . $mod_show . "$strike2</td>";
+                echo "<td><i class=\"fa fa-user fa-lg\"></i>&nbsp;$strike1" . $mod_show . "$strike2</td>";
             } else {
-                echo "<th>x</th><td>$strike1" . $mod_show . "$strike2</td>";
+                echo "<td><i class=\"fa fa-user-o fa-lg\"></i>&nbsp;$strike1" . $mod_show . "$strike2</td>";
             }
             if ($splitter >= 4) {
-                echo "</tr><tr class='bgcolor1'>";
+                echo "</tr><tr>";
                 $splitter = 0;
             }
         }
@@ -334,7 +374,7 @@ function editGroup($pvs)
     if ($result) {
         $splitter = 0;
         echo "<tr><td colspan=\"8\"><b>" . _BLOCKNAME . "</b></td></tr><tr></tr>"
-         . "<tr class='bgcolor1'>";
+         . "<tr>";
         // loop through each mod compare groups string with access_id
         while (list($bid, $btitle, $bview, $bactive, $blockfile) = sql_fetch_row($result)) {
             $splitter++;
@@ -344,12 +384,12 @@ function editGroup($pvs)
             $strike1 = ($bactive) ? "" : "<i>";
             $strike2 = ($bactive) ? "" : "</i>";
             if ($bview != 0) {
-                echo "<th><input type=\"checkbox\" name=\"group_block_cur[]\" value=\"" . $bid . "\" checked\"checked\" /></th><td>$strike1" . $block_show . "$strike2</td>";
+                echo "<td><input type=\"checkbox\" name=\"group_block_cur[]\" value=\"" . $bid . "\" checked\"checked\" /> $strike1" . $block_show . "$strike2</td>";
             } else {
-                echo "<th>x</th><td>$strike1" . $block_show . "$strike2</td>";
+                echo "<td><i class=\"fa fa-user-o fa-lg\"></i>&nbsp;$strike1" . $block_show . "$strike2</td>";
             }
             if ($splitter >= 4) {
-                echo "</tr><tr class='bgcolor1'>";
+                echo "</tr><tr>";
                 $splitter = 0;
             }
         }
@@ -365,7 +405,7 @@ function editGroup($pvs)
     if ($result) {
         $splitter = 0;
         echo "<tr><td colspan=\"8\"><b>" . _NOBLOCKVIEW . "</b></td></tr><tr></tr>"
-         . "<tr class='bgcolor1'>";
+         . "<tr>";
         // loop through each mod compare groups string with access_id
         while (list($bid, $btitle, $bview, $bactive, $blockfile) = sql_fetch_row($result)) {
             $splitter++;
@@ -374,14 +414,14 @@ function editGroup($pvs)
             $strike1 = ($bactive) ? "" : "<i>";
             $strike2 = ($bactive) ? "" : "</i>";
             if ($bview == 1) {
-                echo "<th><input type=\"checkbox\" name=\"group_block_add[]\" value=\"" . $bid . "\" /></th><td>$strike1" . $block_show . "$strike2</td>";
+                echo "<td><input type=\"checkbox\" name=\"group_block_add[]\" value=\"" . $bid . "\" />$strike1" . $block_show . "$strike2</td>";
             } else if ($bview == 2 || $bview == 3) {
-                echo "<th><i class=\"fa fa-user fa-lg mt-4\"></i></th><td>$strike1" . $block_show . "$strike2</td>";
+                echo "<td><i class=\"fa fa-user fa-lg\"></i>&nbsp;$strike1" . $block_show . "$strike2</td>";
             } else {
-                echo "<th>x</th><td>$strike1" . $block_show . "$strike2</td>";
+                echo "<td><i class=\"fa fa-user-o fa-lg\"></i>&nbsp;$strike1" . $block_show . "$strike2</td>";
             }
             if ($splitter >= 4) {
-                echo "</tr><tr class='bgcolor1'>";
+                echo "</tr><tr>";
                 $splitter = 0;
             }
         }
@@ -390,23 +430,24 @@ function editGroup($pvs)
             echo "<td colspan=\"$colspan\">&nbsp;</td></tr>";
         }
     }
-    echo "<tr><td colspan=\"8\"><input type=\"hidden\" name=\"access_title\" value=\"$access_title\" />"
-     . "<input type=\"hidden\" name=\"access_id\" value=\"$access_id\" />"
-     . "<input type=\"hidden\" name=\"op\" value=\"" . PMX_MODULE . "/updateGroup\" />"
-     . "<input type=\"submit\" value=\"" . _SAVECHANGES . "\" /></td></tr></table></form>";
-    $useroptions = getAllUsersSelectOptions2($access_id);
-    $userscount = substr_count($useroptions, "<option value=");
-    echo "<table class=\"form\"><tr valign=\"top\"><td width=\"20%\">"
-     . "<b>" . $userscount . "</b>&nbsp;" . _GROUPUSERSIN;
-    if ($userscount) {
-        echo "<br /><select name=\"xx\" size=\"10\">" . $useroptions . "</select>";
-    }
-    echo "</td><td width=\"1%\">&nbsp;&nbsp;</td><td width=\"79%\">";
+    echo '
+        <tr>
+        <td colspan="8">
+            <input type="hidden" name="access_title" value="' . $access_title . '" />
+            <input type="hidden" name="access_id" value="' . $access_id . '" />
+            <input type="hidden" name="op" value="' . PMX_MODULE . '/updateGroup" />
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> ' . _SAVECHANGES . '</button>
+        </td>
+    </tr>
+    </table>
+    </form>
+    </div>';
+
     groupListLegend();
-    echo "</td></tr></table>"
-     . "</fieldset>";
-    CloseTable();
-    include("footer.php");
+    echo'
+          </div>
+      </div>';
+    include('footer.php');
 }
 
 /* updates the Group selected to be modified */
@@ -543,7 +584,9 @@ function delUserLevel($pvs)
     global $user_prefix, $prefix;
     extract($pvs);
     // do not allow editing of the standard User, Moderator, Sup Mod or Admin
-    $result = sql_query("SELECT access_id, access_title from " . $prefix . "_groups_access WHERE access_id = '$chng_id'");
+    $result = sql_query("SELECT access_id, access_title 
+                        FROM " . $prefix . "_groups_access 
+                        WHERE access_id = '$chng_id'");
     list($access_id, $access_title) = sql_fetch_row($result);
     // if($chng_id == 1 || $access_title == MX_FIRSTGROUPNAME){
     if ($chng_id == 1) {
@@ -678,47 +721,24 @@ function groupsRefreshLink($timeout = 0)
 function groupListLegend()
 {
     echo '
-
-
-
-
-    <div class="col">
-
-
-<div class="card card-accent-primary">
-<div class="card-header">
-          ' . _GRPLEGEND . '
-        </div>
-        <div class="card-body">
-
-
-        <ul class="list-unstyled">
-            <li>
-                <input type="checkbox" />' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND1 . '
-            </li>
-            <li>
-                <input type="checkbox" />' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND1 . '
-            </li>
-            <li>
-                <input type="checkbox" /><span class="badge badge-light">' . _GRPLEGENDELEMENT . '</span>&nbsp;=&nbsp;' . _GRPLEGEND2 . '
-            </li>
-             <li>
-                <i class="fa fa-user fa-lg mt-4"></i>' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND3 . '
-            </li> 
-            <li>
-                <i class="fa fa-user fa-lg mt-4"></i><span class="badge badge-light">' . _GRPLEGENDELEMENT . '</span>&nbsp;=&nbsp;' . _GRPLEGEND4 . '
-            </li>        
-            <li>
-               <i class="fa fa-user-o fa-lg mt-4"></i>' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND5 . '
-            </li>                        
-            <li>
-                <i class="fa fa-user-o fa-lg mt-4"></i><span class="badge badge-light">' . _GRPLEGENDELEMENT . '</span>&nbsp;=&nbsp;' . _GRPLEGEND6 . '
-            </li>
-        </ul>
-    </div>
-
-        </div>
-      </div>';
+        <div class="col">
+            <div class="card card-accent-primary">
+                <div class="card-header">
+                    ' . _GRPLEGEND . '
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><input type="checkbox" />' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND1 . '</li>
+                        <li><input type="checkbox" />' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND1 . '</li>
+                        <li><input type="checkbox" /><span class="badge badge-light">' . _GRPLEGENDELEMENT . '</span>&nbsp;=&nbsp;' . _GRPLEGEND2 . '</li>
+                        <li><i class="fa fa-user fa-lg"></i>&nbsp;' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND3 . '</li> 
+                        <li><i class="fa fa-user fa-lg"></i>&nbsp;<span class="badge badge-light">' . _GRPLEGENDELEMENT . '</span>&nbsp;=&nbsp;' . _GRPLEGEND4 . '</li>        
+                        <li><i class="fa fa-user-o fa-lg"></i>&nbsp;' . _GRPLEGENDELEMENT . '&nbsp;=&nbsp;' . _GRPLEGEND5 . '</li>                        
+                        <li><i class="fa fa-user-o fa-lg"></i>&nbsp;<span class="badge badge-light">' . _GRPLEGENDELEMENT . '</span>&nbsp;=&nbsp;' . _GRPLEGEND6 . '</li>
+                    </ul>
+                </div>
+            </div>
+        </div>';
 }
 
 switch ($op) {
