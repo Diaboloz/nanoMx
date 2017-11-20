@@ -29,9 +29,6 @@ function ListComments()
     global $prefix, $cpgname, $limit;
 
     $offset = (empty($_GET['s'])) ? 0 : intval($_GET['s']);
-    $img_delete = mxCreateImage("images/delete.gif", _DELETE, 0, 'title="' . _DELETE . '"');
-    $img_edit = mxCreateImage("images/edit.gif", _EDIT, 0, 'title="' . _EDIT . '"');
-    $img_view = mxCreateImage("images/view.gif", _SHOW, 0, 'title="' . _SHOW . '"');
     $class = '';
 
     $result = sql_query("SHOW TABLES;"); #LIKE '{$prefix}%'
@@ -178,27 +175,27 @@ function ListComments()
 
         $func = array();
         if ($link) {
-            $func[] = '<a href="' . $link . '">' . $img_view . '</a>';
+            $func[] = '<a class="btn btn-outline-secondary btn-sm" href="' . $link . '"><i class="fa fa-eye fa-lg m-t-2"></i></a>';
         }
         if ($delete) {
-            $func[] = '<a href="' . $delete . '">' . $img_delete . '</a>';
+            $func[] = '<a class="btn btn-outline-secondary btn-sm" href="' . $delete . '"><i class="fa fa-trash fa-lg m-t-2"></i></a>';
         }
         if ($edit) {
-            $func[] = '<a href="' . $edit . '">' . $img_edit . '</a>';
+            $func[] = '<a class="btn btn-outline-secondary btn-sm" href="' . $edit . '"><i class="fa fa-edit fa-lg m-t-2"></i></a>';
         }
         $func = implode(' ', $func);
         $class = ($class == '') ? ' class="alternate-a"' : '';
         $entry[] = '
         	<tr' . $class . ' style="vertical-align: top;">
-       			<td>' . ($i + $offset) . '</td>
-       			<td>' . $row['cdate'] . '<br /><b>' . $row['user'] . '</b><br /><span class="tiny">' . wordwrap($row['host'], 28, "\n", true) . '</span></td>
+       			<td>' . ($i + $offset) . '<br/></td>
+       			<td><em>' . $row['cdate'] . '</em><br/><strong>' . $row['user'] . '</strong><br/><em>' . wordwrap($row['host'], 28, "\n", true) . '</em></td>
        			<td>' . $row['comment'] . '</td>
-       			<td><span class="tiny" style="font-weight: bold;">' . $modname . '</span><br />' . $func . '</td>
+                <td><span class="badge badge-pill badge-primary">' . $modname . '</span></td>
+       			<td>' . $func . '</td>
        		</tr>';
     }
     GraphicAdmin();
     title(_COMMENTSMOD);
-    OpenTable();
     if (isset($entry)) {
         if ($offset >= $limit) {
             $pager[] = '<a href="' . adminUrl(PMX_MODULE, '', 's=' . ($offset - $limit), '') . '" title="' . ($offset - $limit) . ' - ' . ($offset) . '">' . mxCreateImage('images/previous.png', _GOPREV, 0, 'style="vertical-align: bottom;"') . ' ' . _GOPREV . '</a>';
@@ -211,15 +208,19 @@ function ListComments()
         $entries = implode("\n", $entry);
 
         echo '
+        <div class="card">
+        <div class="card-header">'. _COMMENTSMOD .'</div>
+        <div class="card-body">
         <div class="pagination align-right">
-        	' . $pager . '
+            ' . $pager . '
         </div>
-        <table class="full list">
+        <table class="table">
         	<thead>
         		<tr>
-        			<th></th>
+        			<th>#</th>
         			<th>' . _COMMENTS . ' ' . _BY . '</th>
         			<th>' . _TEXT . '</th>
+                    <th></th>
         			<th>' . _FUNCTIONS . '</th>
         		</tr>
         	</thead>
@@ -228,10 +229,12 @@ function ListComments()
         	</tbody>
         </table>
         <div class="pagination align-right">
-        	 ' . $pager . '
-        </div>';
+             ' . $pager . '
+        </div>
+        </div>
+        </div>
+';
     }
-    CloseTable();
     include('footer.php');
 }
 

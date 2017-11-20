@@ -33,9 +33,9 @@ function topicsmanager($xtopictext = '', $xtopicimage = '', $t_err = 0)
     include("header.php");
     title(_TOPICSMANAGER);
 
-    OpenTable();
-    echo '<fieldset><legend>' . _CURRENTTOPICS . '</legend>';
-    echo '<p class="align-center">' . _CLICK2EDIT . '</p>'
+
+    echo '<div class="card"><div class="card-header">' . _CURRENTTOPICS . '</div>';
+    echo '<div class="card-body"><p class="alert alert-info">' . _CLICK2EDIT . '</p>'
      . '<table width="100%" cellpadding="5" cellspacing="0"><tr>';
     $count = 0;
     $result = sql_query("SELECT topicid, topicimage, topictext FROM {$prefix}_topics ORDER BY topictext");
@@ -49,30 +49,28 @@ function topicsmanager($xtopictext = '', $xtopicimage = '', $t_err = 0)
             $count = 0;
         }
     }
-    echo '</tr></table></fieldset>';
-    CloseTable();
+    echo '</table></div></div>';
+
 
     echo '<br /><a name="Add"></a>';
 
-    OpenTable();
-    echo '<fieldset><legend>' . _ADDATOPIC . '</legend>';
+    echo '<div class="card"><div class="card-header">' . _ADDATOPIC . '</div>';
     if ($t_err == 1) {
         echo '<center class="warning">' . _TOPICALLFIELDS1 . '</center><br />';
     }
-    echo '<form action="' . adminUrl(PMX_MODULE) . '" method="post" name ="newTopic">'
+    echo '<div class="card-body">
+          <form action="' . adminUrl(PMX_MODULE) . '" method="post" name ="newTopic">'
      . sec_subform($topictext, $topicimage)
      . '<input type="hidden" name="op" value="' . PMX_MODULE . '/make" />'
-     . '<input type="submit" value="' . _ADDTOPIC . '" />'
-     . '</form></fieldset>';
-    CloseTable();
+     . '<div class="form-group"><br/><button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i>  ' . _ADDTOPIC . '</button></div>'
+     . '</form></div></div>';
+
     include("footer.php");
 }
 
 function topicedit($topicid, $topictext = '', $topicimage = '', $name = '', $url = '', $t_err = 0)
 {
     global $prefix, $tipath;
-    $img_delete = mxCreateImage("images/delete.gif", _DELETE, 0, 'title="' . _DELETE . '"');
-    $img_edit = mxCreateImage("images/edit.gif", _EDIT, 0, 'title="' . _EDIT . '"');
     $name = (empty($name)) ? "" : mxEntityQuotes($name);
     $url = (empty($url)) ? "http://" : mxEntityQuotes($url);
 
@@ -84,37 +82,35 @@ function topicedit($topicid, $topictext = '', $topicimage = '', $name = '', $url
     include("header.php");
     title(_TOPICSMANAGER);
 
-    OpenTable();
-    echo '<fieldset><legend>' . _EDITTOPIC . ': ' . $topictext . '</legend>';
+    echo '<div class="card"><div class="card-header">' . _EDITTOPIC . ': ' . $topictext . '</div>';
     if ($t_err == 1) {
-        echo '<center class="warning">' . _TOPICALLFIELDS1 . '</center><br />';
+        echo '<div class="alert alert-warning>' . _TOPICALLFIELDS1 . '</div>';
     } elseif ($t_err == 2) {
-        echo '<center class="warning">' . _TOPICALLFIELDS2 . '</center><br />';
+        echo '<div class="alert alert-warning>' . _TOPICALLFIELDS2 . '</div>';
     }
-    echo '<form action="' . adminUrl(PMX_MODULE) . '" method="post" name ="newTopic">'
+    echo '<div class="card-body"><form action="' . adminUrl(PMX_MODULE) . '" method="post" name ="newTopic">'
      . sec_subform($topictext, $topicimage)
-     . '<b>' . _ADDRELATED . ':</b><br />'
-     . _SITENAME . ': <input type="text" name="name" value="' . $name . '" size="30" maxlength="30" /><br />'
-     . _URL . ': <input type="text" name="url" value="' . $url . '" size="50" maxlength="200" /><br /><br />'
+     . '<strong>' . _ADDRELATED . ':</strong><br />'
+     . '<div class="form-group row"><label for="name" class="col-sm-2 col-form-label">' . _SITENAME . '</label><div class="col-sm-10"><input type="text" class="form-control" name="name" value="' . $name . '" maxlength="30" /></div></div>'
+     . '<div class="form-group row"><label for="url" class="col-sm-2 col-form-label">' . _URL . '</label><div class="col-sm-10"><input type="text" class="form-control" name="url" value="' . $url . '" maxlength="200" /></div></div>'
      . '<b>' . _ACTIVERELATEDLINKS . ':</b><br />'
-     . '<table width="100%" border="0">';
+     . '<table class="table">';
     $res = sql_query("SELECT rid, name, url FROM {$prefix}_related WHERE tid=$topicid");
     $num = sql_num_rows($res);
     if ($num == 0) {
-        echo '<tr><td><font class="tiny">' . _NORELATED . '</font></td></tr>';
+        echo '<tr><td><i>' . _NORELATED . '</i></td></tr>';
     } while (list($rid, $name, $url) = sql_fetch_row($res)) {
-        echo '<tr><td align="left"><font class="content"><strong><big>&middot;</big></strong>&nbsp;&nbsp;<a href="' . $url . '">' . $name . '</a></font></td>'
-         . '<td align="center"><font class="content">'
-         . '<a href="' . $url . '">' . $url . '</a></font></td>'
-         . '<td align="right">&nbsp;<a href="' . adminUrl(PMX_MODULE, 'relatededit', 'tid=' . $topicid . '&amp;rid=' . $rid) . '">' . $img_edit . '</a>&nbsp;<a href="' . adminUrl(PMX_MODULE, 'relateddelete', 'tid=' . $topicid . '&amp;rid=' . $rid) . '">' . $img_delete . '</a></td></tr>';
+        echo '<tr><td align="left"><i class="fa fa-caret-right"></i> <a href="' . $url . '">' . $name . '</a></td>'
+         . '<td class="text-center">'
+         . '<a href="' . $url . '">' . $url . '</a></td>'
+         . '<td class="text-right"><a class="btn btn-outline-secondary btn-sm" href="' . adminUrl(PMX_MODULE, 'relatededit', 'tid=' . $topicid . '&amp;rid=' . $rid) . '"><i class="fa fa-edit"></i></a>&nbsp;<a class="btn btn-outline-secondary btn-sm" href="' . adminUrl(PMX_MODULE, 'relateddelete', 'tid=' . $topicid . '&amp;rid=' . $rid) . '"><i class="fa fa-trash"></i></a></td></tr>';
     }
     echo '</table><br /><br />'
      . '<input type="hidden" name="topicid" value="' . $topicid . '" />'
      . '<input type="hidden" name="op" value="' . PMX_MODULE . '/change" />'
-     . '<input type="submit" value="' . _SAVECHANGES . '" />'
-     . '<font class="content">[&nbsp;<a href="' . adminUrl(PMX_MODULE, 'delete', 'topicid=' . $topicid) . '">' . _DELETE . '</a>&nbsp;]</font>'
-     . '</form></fieldset>';
-    CloseTable();
+     . '<button class="btn btn-primary" type="submit"><i class="fa fa-check"></i> ' . _SAVECHANGES . '</button>'
+     . '<a class="btn btn-danger" href="' . adminUrl(PMX_MODULE, 'delete', 'topicid=' . $topicid) . '"><i class="fa fa-trash"></i> ' . _DELETE . '</a>'
+     . '</form></div></div>';
     include("footer.php");
 }
 
@@ -131,21 +127,19 @@ function relatededit($tid, $rid, $name = '', $url = '', $t_err = 0)
     $result2 = sql_query("SELECT topictext, topicimage FROM {$prefix}_topics WHERE topicid=$tid");
     list($topictext, $topicimage) = sql_fetch_row($result2);
     OpenTable();
-    echo '<center>'
-     . mxCreateImage($tipath . '/' . $topicimage, $topictext, 0, 'align="right"')
-     . '<font class="option"><b>' . _EDITRELATED . '</b></font><br /><br />';
+    echo '<div class="card"><div class="card-header">' . _EDITRELATED . ' : <strong>' . _TOPIC . ':</strong> ' . $topictext . '</div><div class="card-body">';
     if ($t_err == 2) {
-        echo '<center class="warning">' . _TOPICALLFIELDS3 . '</center><br /><br />';
+        echo '<div class="alert alert-warning>' . _TOPICALLFIELDS3 . '</div>';
     }
-    echo '<b>' . _TOPIC . ':</b> ' . $topictext . '</center><br /><br />'
+    echo '<div class="text-center">' . mxCreateImage($tipath . '/' . $topicimage, $topictext, 0, 'align="right"') . '</div>'
      . '<form action="' . adminUrl(PMX_MODULE) . '" method="post">'
-     . _SITENAME . ': <input type="text" name="name" value="' . mxEntityQuotes($name) . '" size="30" maxlength="30" /><br /><br />'
-     . _URL . ': <input type="text" name="url" value="' . mxEntityQuotes($url) . '" size="60" maxlength="200" /><br /><br />'
+     . '<div class="form-group row"><label for="name" class="col-sm-2 col-form-label">' . _SITENAME . '</label><div class="col-sm-10"><input class="form-control" type="text" name="name" value="' . mxEntityQuotes($name) . '" size="30" maxlength="30" /></div></div>'
+     . '<div class="form-group row"><label for="url" class="col-sm-2 col-form-label">' . _URL . '</label><div class="col-sm-10"><input class="form-control" type="text" name="url" value="' . mxEntityQuotes($url) . '" size="60" maxlength="200" /></div></div>'
      . '<input type="hidden" name="op" value="' . PMX_MODULE . '/relatedsave" />'
      . '<input type="hidden" name="tid" value="' . $tid . '" />'
      . '<input type="hidden" name="rid" value="' . $rid . '" />'
-     . '<input type="submit" value="' . _SAVECHANGES . '" /> ' . _GOBACK
-     . '</form>';
+     . '<button class="btn btn-primary" type="submit"><i class="fa fa-check"></i> ' . _SAVECHANGES . '</button>  ' . _GOBACK
+     . '</form></div></div>';
     CloseTable();
     include("footer.php");
 }
@@ -341,16 +335,20 @@ function sec_subform($topictext, $topicimage)
 
     ?>
 
-<label><?php echo _TOPICNAME ?> &nbsp;
-<span class="tiny"> <?php echo _TOPICTEXT1 ?> </span></label><br />
-<input type="text" name="topictext" size="40" maxlength="40" value="<?php echo mxEntityQuotes($topictext) ?>" required="required" /><br /><br />
-<label><?php echo _TOPICIMAGE ?></label><br />
-<input type="text" name="topicimage" id="topicimagefield" value="<?php echo $topicimage ?>" size="25" maxlength="100" required="required" /> &nbsp;
+<div class="form-group">
+<label for="topictext"><?php echo _TOPICTEXT1 ?></label>
+<input class="form-control" type="text" name="topictext" id="topictext" size="40" maxlength="40" value="<?php echo mxEntityQuotes($topictext) ?>" required="required" />
+</div>
+
+<div class="form-row align-items-center">
+    <div class="col-auto">
+<input class="form-control mb-2 mb-sm-0" type="text" name="topicimage" id="topicimagefield" value="<?php echo $topicimage ?>" size="25" maxlength="100" required="required" placeholder="<?php echo _TOPICIMAGE ?>" /> 
+</div>
 <?php if($fb->is_active()){ ?>
-  <button id="rtvkhs"><?php echo _BROWSE ?></button> &nbsp;
+  <button id="rtvkhs" class="btn btn-primary"><?php echo _BROWSE ?></button> &nbsp;
 <?php } //endif ?>
 <img align="top" alt="topicimage" id="topicimagepic" src="<?php echo $view_image ?>" style="max-height:100px;max-width:100px;" />
-<br /><br />
+</div>
 
 <script type="text/javascript">
   /*<![CDATA[*/
