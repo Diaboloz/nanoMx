@@ -201,7 +201,7 @@ function displayGroups()
             if ($bview == 1) {
                 echo "<th><input type=\"checkbox\" name=\"can_view_blocks[]\" value=\"" . $bid . "\" /></th><td>$strike1" . $block_show . "$strike2</td>";
             } else if ($bview == 2 || $bview == 3) {
-                echo "<th><i class=\"fa fa-user fa-lg mt-4\"></th><td>$strike1" . $block_show . "$strike2</td>";
+                echo "<th><i class=\"fa fa-user fa-lg mt-4\"></i></th><td>$strike1" . $block_show . "$strike2</td>";
             } else {
                 echo "<th><i class=\"fa fa-user-o fa-lg mt-4\"></i></th><td>$strike1" . $block_show . "$strike2</td>";
             }
@@ -277,8 +277,8 @@ function editGroup($pvs)
             $splitter++;
             $xmid[] = $mid;
             $mod_show = str_replace("_", " ", $mtitle);
-            $strike1 = ($mactive) ? "" : "<i>";
-            $strike2 = ($mactive) ? "" : "</i>";
+            $strike1 = ($mactive) ? '' : '<span class="badge badge-light">';
+            $strike2 = ($mactive) ? '' : '</span>';
             if ($mview != 0) {
                 echo "<th><input type=\"checkbox\" name=\"group_module_cur[]\" value=\"" . $mid . "\" checked=\"checked\" /></th><td>$strike1" . $mod_show . "$strike2</td>";
             } else {
@@ -306,12 +306,12 @@ function editGroup($pvs)
         while (list($mid, $mtitle, $mview, $mactive) = sql_fetch_row($result)) {
             $splitter++;
             $mod_show = str_replace("_", " ", $mtitle);
-            $strike1 = ($mactive) ? "" : "<i>";
-            $strike2 = ($mactive) ? "" : "</i>";
+            $strike1 = ($mactive) ? '' : '<span class="badge badge-light">';
+            $strike2 = ($mactive) ? '' : '</span>';
             if ($mview == 1) {
                 echo "<th><input type=\"checkbox\" name=\"group_module_add[]\" value=\"" . $mid . "\" /></th><td>$strike1" . $mod_show . "$strike2</td>";
             } else if ($mview == 2 || $mview == 3) {
-                echo "<th>-</th><td>$strike1" . $mod_show . "$strike2</td>";
+                echo "<th><i class=\"fa fa-user fa-lg mt-4\"></i></th><td>$strike1" . $mod_show . "$strike2</td>";
             } else {
                 echo "<th>x</th><td>$strike1" . $mod_show . "$strike2</td>";
             }
@@ -376,7 +376,7 @@ function editGroup($pvs)
             if ($bview == 1) {
                 echo "<th><input type=\"checkbox\" name=\"group_block_add[]\" value=\"" . $bid . "\" /></th><td>$strike1" . $block_show . "$strike2</td>";
             } else if ($bview == 2 || $bview == 3) {
-                echo "<th>-</th><td>$strike1" . $block_show . "$strike2</td>";
+                echo "<th><i class=\"fa fa-user fa-lg mt-4\"></i></th><td>$strike1" . $block_show . "$strike2</td>";
             } else {
                 echo "<th>x</th><td>$strike1" . $block_show . "$strike2</td>";
             }
