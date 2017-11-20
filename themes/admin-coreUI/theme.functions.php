@@ -353,7 +353,7 @@ function thememiddlebox($title, $content, $block = array(), $noecho = 0)
  * @param array $story
  * @return
  */
-function themeindex($x, $x, $x, $x, $x, $x, $x, $x, $x, $x, $x, $x, $story = array())
+function themeindex($x1, $x2, $x3, $x4, $x5, $x6, $x7, $x8, $x9, $x10, $x11, $x12, $story = array())
 {
     global $theme_template;
 
@@ -390,7 +390,7 @@ function themeindex($x, $x, $x, $x, $x, $x, $x, $x, $x, $x, $x, $x, $story = arr
  * @param array $story
  * @return
  */
-function themearticle($x, $x, $x, $x, $x, $x, $x, $x, $x, $story = array())
+function themearticle($x1, $x2, $x3, $x4, $x5, $x6, $x7, $x8, $x9, $story = array())
 {
     global $theme_template;
     pmxHeader::add_style('themes/' . basename(dirname(__FILE__)) . '/style/news.css');
