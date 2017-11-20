@@ -162,8 +162,8 @@ if (!empty($GLOBALS['mxUseThemecache']) && file_exists(PMX_LAYOUT_DIR . DS . $st
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <?php if (pmxHeader::get_meta("canonical")) { echo "<link rel=\"canonical\" href=\"" . pmxHeader::get_meta("canonical") . "\" />\n"; } ?>
 <title><?php echo pmxHeader::get_meta('title') ?></title>
-<?php if (defined('MX_HOME_FILE')) { echo "<meta name=\"description\" " . pmxHeader::get_meta("description") . " />\n"; } ?>
-<?php if (pmxHeader::get_meta("viewport")) { echo "<meta name=\"viewport\" " . pmxHeader::get_meta("viewport") . " />\n"; } ?>
+<?php if (defined('MX_HOME_FILE')) { echo "<meta name=\"description\" content=\"" . pmxHeader::get_meta("description") . "\" />\n"; } ?>
+<?php if (pmxHeader::get_meta("viewport")) { echo "<meta name=\"viewport\" content=\"" . pmxHeader::get_meta("viewport") . "\" />\n"; } ?>
 <?php if (pmxHeader::get_meta("alternate")) { echo pmxHeader::get_meta("alternate"); } ?>
 
 <link rel="stylesheet" href="<?php echo $stylesheet ?>" type="text/css" />
