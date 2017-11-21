@@ -1,0 +1,136 @@
+<?php
+// guggen ob neuer Admin, oder Admin zum bearbeiten
+$editmode = (strpos($this->action, 'edit') !== false);
+?>
+<div class="container mt-4 mb-4">
+ <form action="<?php echo adminUrl(PMX_MODULE, $this->action) ?>" method="post">
+    <input type="hidden" name="check" value="<?php echo $this->reqcheck ?>" />
+    <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/<?php echo $this->action ?>" />
+	<div class="form-group row">
+        <label class="col-md-2 col-form-label" for="aid"><?php echo _NICKNAME ?></label>
+        <div class="col-md-9">
+		    <?php if ($editmode) { ?>
+        <input type="hidden" name="aid" value="<?php echo $this->aid ?>" />
+				<p class="form-control-static strong"><strong><?php echo $this->aid ?></strong></p>
+			<?php } else { ?>
+				<input id="aid" type="text" name="aid" value="<?php echo $this->aid ?>" size="30" maxlength="25" />
+				<span class="help-block badge badge-pill badge-danger"><?php echo _REQUIREDNOCHANGE ?></span>
+			<?php } ?>
+        </div>
+  </div>
+
+	<div class="form-group row">
+		<label class="col-md-2 col-form-label" for="name"><?php echo _NAME ?></label>
+        <div class="col-md-9">
+			<input id="name" type="text" name="name" size="40" maxlength="50" placeholder="<?php echo $this->name ?>" value="<?php echo $this->name ?>" />
+            <span class="help-block badge badge-pill badge-danger"><?php echo _REQUIRED ?></span>
+        </div>
+  </div>
+
+	<div class="form-group row">
+		  <label class="col-md-2 col-form-label" for="email"><?php echo _EMAIL ?></label>
+      <div class="col-md-9">
+			   <input id="email" type="text" name="email" size="40" maxlength="100" placeholder="<?php echo $this->email ?>" value="<?php echo $this->email ?>" />
+            <span class="help-block badge badge-pill badge-danger"><?php echo _REQUIRED ?></span>
+      </div>
+  </div>
+	
+
+  <div class="form-group row">
+        <label class="col-md-2 col-form-label" for="url"><?php echo _URL ?></label>
+        <div class="col-md-9">
+          <input id="url" type="text" name="url" value="<?php echo $this->url ?>" size="40" maxlength="255" />
+        </div>
+  </div>
+
+	
+	<div class="form-group row">
+        <label class="col-md-2 col-form-label" for="autologin"><?php echo _UALOGIN ?></label>
+        <div class="col-md-3">
+            <select id="autologin" name="autologin" class="form-control">
+              <?php echo $this->useroptions ?>
+            </select>
+        </div>
+  </div>
+	
+  
+  <?php if ($this->isgod) { ?>
+   <input type="hidden" name="radminsuper" value="1" />
+    <div class="form-group row">
+        <label class="col-md-2 col-form-label" for="autologin"><?php echo _PERMISSIONS ?></label>
+        <div class="col-md-3">
+            <p class="form-control-static strong"><strong><?php echo _SUPERUSER ?></strong></p>
+        </div>
+    </div>
+  <?php } else { ?>
+
+  <?php 
+  $cols = 4;
+  $first = array_shift($this->adminprefs);
+  $count = count($this->adminprefs);
+  $rows = ceil($count / $cols);
+  #$all = $rows * $cols;
+  $parts = array_chunk($this->adminprefs, $cols, true);
+  #mxDebugFuncVars($parts);
+  #mxDebugFuncVars($cols,$rows,$count,$all,$first);
+  ?>
+  <table class="table">
+  <?php foreach ($parts as $key => $row) { ?>
+    <tr>
+    <?php if($key === 0) { ?>
+      <td rowspan="<?php echo ($rows+1) ?>"><strong><?php echo _PERMISSIONS ?></strong></td>
+    <?php } ?>
+    <?php foreach ($row as $pref => $col) : ?>
+      <td>
+        <input type="checkbox" name="<?php echo $pref ?>" value="1"<?php echo (($col[0]) ? ' checked="checked"' :'') ?> />&nbsp;<?php echo $col[1] ?>
+      </td>
+    <?php endforeach ?>
+    </tr>
+  <?php } ?>
+    <tr>
+      <td><input type="checkbox" name="radminsuper" value="1"<?php echo (($first[0]) ? ' checked="checked"' :'') ?> /> <strong><?php echo $first[1] ?></strong></td>
+      <td colspan="4"><div class="alert alert-danger" role="alert"><?php echo _SUPERWARNING ?></div></td>
+    </tr>
+  </table>
+
+  <?php } // isgod ?>
+
+  <div class="form-group row">
+    <label class="col-md-2 col-form-label"><?php echo _PASSWORD ?></label>
+        <div class="col-md-10">
+        <?php echo $this->formPassword('pwd', NULL, array('size'=>'30')) ?>
+        <?php if ($editmode) { ?>
+          <span class="help-block badge badge-pill badge-warning"><?php echo _FORCHANGES ?></span>
+        <?php } else { ?>
+          <span class="help-block badge badge-pill badge-danger"><?php echo _REQUIRED ?></span>
+        <?php } ?>
+        </div>
+    </div>
+
+  <div class="form-group row">
+    <label class="col-md-2 col-form-label"><?php echo _RETYPEPASSWD ?></label>
+        <div class="col-md-10">
+        <?php echo $this->formPassword('pwd2', NULL, array('size'=>'30')) ?>
+        <?php if ($editmode) { ?>
+          <span class="help-block badge badge-pill badge-warning"><?php echo _FORCHANGES ?></span>
+        <?php } else { ?>
+          <span class="help-block badge badge-pill badge-danger"><?php echo _REQUIRED ?></span>
+        <?php } ?>
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary"><?php echo $this->caption2 ?></button>
+      </div>
+    </div>
+ </form>
+</div>
+
+<?php
+/* die Passwortfelder auf jeden Fall leeren, damit Browserdaten entfernt werden */
+pmxHeader::add_jquery();
+pmxHeader::add_script_code('$(document).ready(function(){$(\'input[type="password"]\').val("");});');
+
+// $Id: form.html 6 2015-07-08 07:07:06Z PragmaMx $ äöüß
+?>

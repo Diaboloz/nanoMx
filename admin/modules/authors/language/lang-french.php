@@ -16,7 +16,7 @@
 
 defined('mxMainFileLoaded') or die('access denied');
 
-define("_AUTHORS_ENTRIES", "Liste Administrateur");
+define("_AUTHORS_ENTRIES", "Administrateur(s)");
 define("_ERRORINVNICKNAME", "Pseudo invalide");
 define("_ADDAUTHOR", "Ajouter un nouvel administrateur");
 define("_ADDAUTHOR2", "Ajouter un administrateur");
@@ -31,10 +31,10 @@ define("_CALENDARADMIN", "Calendrier");
 define("_COMPLETEFIELDS", "Vous devez remplir tous les champs");
 define("_CREATIONERROR", "Erreur dans la création d'un compte auteur");
 define("_DBERROR", "Erreur base de données");
-define("_FORCHANGES", "(Pour les changements seulement)");
+define("_FORCHANGES", "(Seulement en cas de changement)");
 define("_GODNOTDEL", "Le compte DIEU ne peut pas être effacé");
 define("_MAINACCOUNT", "Admin Dieu");
-define("_MODIFYINFO", "Modifier l'information");
+define("_MODIFYINFO", "Modifier l'administrateur");
 define("_NAME", "Nom");
 define("_NOAUTHORS", "Aucun administrateur disponible.");
 define("_PASSWDNOMATCH", "Désolé, les mots de passe ne correspondent pas.  Retournez à la page précédente et essayez à nouveau.");

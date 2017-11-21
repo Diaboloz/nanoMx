@@ -96,7 +96,7 @@ class pmx_authors_admin {
         $this->_template->assign('tabs', $this->_tabs);
 
         include_once('header.php');
-        $this->_template->display('page.html');
+        $this->_template->display('navTabs.html');
         include_once('footer.php');
     }
 
@@ -124,7 +124,7 @@ class pmx_authors_admin {
 
         $this->_template->assign('rows', $rows);
 
-        $content = $this->_template->fetch('list.html');
+        $content = $this->_template->fetch('listAdmin.html');
         return $this->_page($content);
     }
 
@@ -149,16 +149,16 @@ class pmx_authors_admin {
 
         /* Daten für Formular */
         $this->_template->assign($data);
-        $this->_template->assign('caption2', _ADDAUTHOR2);
+        $this->_template->assign('caption2', '<i class="fa fa-plus" aria-hidden="true"></i>&nbsp;' . _ADDAUTHOR2 . '');
         $this->_template->assign('action', 'add/save');
         $this->_template->assign('useroptions', $useroptions);
         $this->_template->assign('reqcheck', $this->_set_session_check());
         $this->_template->assign('adminprefs', $adminprefs);
-        $form = $this->_template->fetch('form.html');
+        $form = $this->_template->fetch('formAdmin.html');
         /* Daten für Seite */
         $this->_template->assign('form', $form);
         $this->_template->assign('caption', _ADDAUTHOR);
-        $content = $this->_template->fetch('add.html');
+        $content = $this->_template->fetch('addAdmin.html');
         return $this->_page($content);
     }
 
@@ -225,7 +225,9 @@ class pmx_authors_admin {
                 return $this->main();
         }
 
-        $result = sql_query("SELECT * FROM `{$prefix}_authors` WHERE aid='" . mxAddSlashesForSQL($aid) . "'");
+        $result = sql_query("SELECT * 
+							FROM `{$prefix}_authors` 
+							WHERE aid='" . mxAddSlashesForSQL($aid) . "'");
         $admindata = sql_fetch_assoc($result);
 
         $data = array_merge($this->_defaults(), $admindata, $data);
@@ -241,16 +243,16 @@ class pmx_authors_admin {
         $this->_tabs[_MODIFYINFO] = '';
         /* Daten für Formular */
         $this->_template->assign($data);
-        $this->_template->assign('caption2', _SAVE);
+        $this->_template->assign('caption2', '<i class="fa fa-check" aria-hidden="true"></i>&nbsp;' . _SAVE . '');
         $this->_template->assign('action', 'edit/save');
         $this->_template->assign('useroptions', $useroptions);
         $this->_template->assign('reqcheck', $this->_set_session_check());
         $this->_template->assign('adminprefs', $adminprefs);
-        $form = $this->_template->fetch('form.html');
+        $form = $this->_template->fetch('formAdmin.html');
         /* Daten für Seite */
         $this->_template->assign('form', $form);
         $this->_template->assign('caption', _MODIFYINFO);
-        $content = $this->_template->fetch('edit.html');
+        $content = $this->_template->fetch('editAdmin.html');
         return $this->_page($content);
     }
 
@@ -328,7 +330,7 @@ class pmx_authors_admin {
         $this->_template->assign('part', 1);
         $this->_template->assign('reqcheck', $this->_set_session_check());
 
-        $content = $this->_template->fetch('delete.html');
+        $content = $this->_template->fetch('deleteAdmin.html');
         return $this->_page($content);
     }
 
@@ -355,13 +357,18 @@ class pmx_authors_admin {
         }
 
         /* Beiträge veröffentlicht? */
-        $result = sql_query("SELECT aid FROM " . $prefix . "_stories WHERE aid='" . mxAddSlashesForSQL($aid) . "' LIMIT 1");
+        $result = sql_query("SELECT aid 
+							FROM " . $prefix . "_stories 
+							WHERE aid='" . mxAddSlashesForSQL($aid) . "' LIMIT 1");
         if (!sql_fetch_row($result)) {
             /* wenn keine Beiträge veröffentlicht, direkt weiter zum löschen */
             return $this->delete_action($aid, $_POST['check']);
         }
 
-        $result = sql_query("SELECT aid FROM `{$prefix}_authors` WHERE aid <> '" . mxAddSlashesForSQL($aid) . "' ORDER BY aid");
+        $result = sql_query("SELECT aid 
+							FROM `{$prefix}_authors` 
+							WHERE aid <> '" . mxAddSlashesForSQL($aid) . "' 
+							ORDER BY aid");
         $items = array();
         while (list($oaid) = sql_fetch_row($result)) {
             $items[] = $oaid;
@@ -375,7 +382,7 @@ class pmx_authors_admin {
         $this->_template->assign('part', 2);
         $this->_template->assign('reqcheck', $_POST['check']);
 
-        $content = $this->_template->fetch('delete.html');
+        $content = $this->_template->fetch('deleteAdmin.html');
         return $this->_page($content);
     }
 
@@ -423,7 +430,9 @@ class pmx_authors_admin {
         }
 
         $uid = 0;
-        $result = sql_query("SELECT user_uid FROM `{$prefix}_authors` WHERE aid='" . $aid . "'");
+        $result = sql_query("SELECT user_uid 
+							FROM `{$prefix}_authors` 
+							WHERE aid='" . $aid . "'");
         list($uid) = sql_fetch_row($result);
         if ($uid) {
             /* Modulspezifische Useränderungen durchführen */
@@ -447,7 +456,9 @@ class pmx_authors_admin {
     private function _insert_new_user($aid, $name, $pwd, $pwd_salt, $email, $url)
     {
         global $prefix, $user_prefix;
-        $qry = "SELECT uid FROM {$user_prefix}_users WHERE uname='" . mxAddSlashesForSQL($aid) . "'";
+        $qry = "SELECT uid 
+				FROM {$user_prefix}_users 
+				WHERE uname='" . mxAddSlashesForSQL($aid) . "'";
         $result = sql_query($qry);
         list($uid) = sql_fetch_row($result);
         if (empty($uid)) {
@@ -488,7 +499,9 @@ class pmx_authors_admin {
     private function _get_userlist_options($admin_uid, $aid)
     {
         global $user_prefix, $prefix;
-        $qry = "SELECT uid, uname FROM {$user_prefix}_users WHERE user_stat=1 ORDER BY uname";
+        $qry = "SELECT uid, uname 
+				FROM {$user_prefix}_users 
+				WHERE user_stat=1 ORDER BY uname";
         $result = sql_query($qry);
         $sel = (empty($admin_uid) && empty($aid)) ? 'selected="selected" class="current"' : '';
         $liste = "<option value=\"0\" " . $sel . ">&nbsp;&nbsp;" . _UANOBODY . "</option>\n";
@@ -597,7 +610,9 @@ class pmx_authors_admin {
         if ($mode == 'add') {
             if (!($this->_errors)) {
                 /* prüfen ob neuer Adminname bereits vorhanden */
-                $result = sql_query("SELECT aid FROM `{$prefix}_authors` WHERE aid='" . mxAddSlashesForSQL($data['aid']) . "'");
+                $result = sql_query("SELECT aid 
+									FROM `{$prefix}_authors` 
+									WHERE aid='" . mxAddSlashesForSQL($data['aid']) . "'");
                 list($xaid) = sql_fetch_row($result);
                 if ($xaid) {
                     $this->_errors[] = _AUTHOREXISTINDB . '(' . $data['aid'] . ')';
@@ -653,7 +668,9 @@ class pmx_authors_admin {
             if (!$this->_newpass) {
                 $pwd = '';
                 $salt = '';
-                $result = sql_query("SELECT pwd, pwd_salt FROM `{$prefix}_authors` WHERE aid='" . mxAddSlashesForSQL($pvs['aid']) . "'");
+                $result = sql_query("SELECT pwd, pwd_salt 
+									FROM `{$prefix}_authors` 
+									WHERE aid='" . mxAddSlashesForSQL($pvs['aid']) . "'");
                 list($pwd, $salt) = sql_fetch_row($result);
             }
             /* neuen User in Usertabelle anlegen */
@@ -676,7 +693,9 @@ class pmx_authors_admin {
         global $prefix;
 
         $uid = 0;
-        $result = sql_query("SELECT user_uid FROM `{$prefix}_authors` WHERE aid='" . mxAddSlashesForSQL($pvs['aid']) . "'");
+        $result = sql_query("SELECT user_uid 
+							FROM `{$prefix}_authors` 
+							WHERE aid='" . mxAddSlashesForSQL($pvs['aid']) . "'");
         list($uid) = sql_fetch_row($result);
         if ($uid) {
             /* Modulspezifische Useränderungen durchführen */

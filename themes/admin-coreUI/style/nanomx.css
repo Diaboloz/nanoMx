@@ -15,7 +15,7 @@
 .tabs-nav li{display:inline;font-size:1em;line-height:2.25em;margin:0;padding:0;position:relative;white-space:nowrap;}
 .tabs-nav li a{font-size: 1.2em;background-color:#efefef;border-style:solid solid none solid;border-width:1px;bottom:0;color:#444444;display:inline-block;margin-right:0;margin-top:.2em;padding-left:.75em;padding-right:.75em;padding-top:0;position:relative;text-decoration:none;white-space:nowrap;}
 .tabs-nav li a:hover,.tabs-nav li.current ul li a:hover{background-color:#e5e5e5;color:#4a4a4a;}
-.tabs-nav li.current a,.tabs-nav li.tabs-active a,.tabs-nav li.active a{background-color:#fff;bottom:-2px;color:#666;margin-top:0;padding-top:.2em;box-shadow: 0 -2px 0 #8FAB28;}
+.tabs-nav li.current a,.tabs-nav li.tabs-active a,.tabs-nav li.active a{background-color:#fff;bottom:-2px;color:#666;margin-top:0;padding-top:.2em;box-shadow: 0 -2px 0 #20a8d8;}
 .tabs-nav,.tabs-nav li a,.tabs-nav li ul,.tabs-panel{border-color:#dadada;}
 .tabs-collapsible .tabs-nav li.current a,.tabs-collapsible .tabs-nav li.tabs-active a,.tabs-collapsible .tabs-nav li.active a{cursor:pointer;}
 .tabs-nav li.current a,.tabs-nav li.tabs-active a,.tabs-nav li.active a,.tabs-nav li.tabs-loading a{cursor:text;}

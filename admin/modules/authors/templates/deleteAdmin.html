@@ -1,0 +1,49 @@
+<div class="card">
+
+<?php if($this->part == 1){ ?>
+
+	<form action="<?php echo adminUrl(PMX_MODULE, 'delete/send') ?>" method="post">
+		<input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/delete/send" />
+		<input type="hidden" name="aid" value="<?php echo $this->aid ?>" />
+		<input type="hidden" name="check" value="<?php echo $this->reqcheck ?>" />
+		<div class="card-body">
+			<p><?php echo sprintf(_AUTHORDELSURE, '<strong>'.$this->aid.'</strong>') ?></p>
+		</div>
+		<div class="card-footer">
+			<button type="submit" name="deleteyes" class="btn btn-sm btn-primary"><i class="fa fa-check"></i>&nbsp;<?php echo _YES ?></button>
+			<button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i>&nbsp;<?php echo _NO ?></button>
+		</div>
+	</form>
+
+<?php } else { ?>
+
+<form action="<?php echo adminUrl(PMX_MODULE, 'delete/assignstories') ?>" method="post">
+    <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/delete/assignstories" />
+    <input type="hidden" name="aid" value="<?php echo $this->aid ?>" />
+    <input type="hidden" name="check" value="<?php echo $this->reqcheck ?>" />
+		<div class="card-header">
+			<strong><?php echo _PUBLISHEDSTORIES ?></strong>
+		</div>
+		<div class="card-body">
+			<div class="form-group row">
+                <label class="col-md-3 col-form-label" for="select"><?php echo _SELECTNEWADMIN ?></label>
+                <div class="col-md-9">
+					<select id="newaid" name="newaid" class="form-control">
+					<?php foreach ($this->items as $oaid) { ?>
+						<option value="<?php echo $oaid ?>"><?php echo $oaid ?>&nbsp;</option>
+					<?php } //endforeach ?>
+					</select>
+				</div>
+            </div>
+		</div>
+		<div class="card-footer">
+			<button type="submit" name="deleteyes" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> <?php echo _OK ?></button>
+			<button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> <?php echo _CANCEL ?></button>
+		</div>
+</form>
+
+<?php } //endif ?>
+
+</div>
+
+<?php // $Id: delete.html 6 2015-07-08 07:07:06Z PragmaMx $ äöüß ?>
