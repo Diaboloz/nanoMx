@@ -1,40 +1,15 @@
-
-
 <h2><?php echo _BLOCKACTIVATION ?></h2>
 
-<div class="alert alert-danger">
-
-  <h3><?php echo _WANT2ACTIVATE ?></h3>
-
-  <ul class="tabs-nav-secondary">
-  <?php foreach ($this->links as $item) : ?>
-    <li><?php echo $item ?></li>
-  <?php endforeach ?>
-  </ul>
-
+<div class="alert alert-warning text-center">
+  <p><?php echo _WANT2ACTIVATE ?></p>
+  <p><?php echo implode(' ', $this->links) ?></p>
 </div>
 
-<!-- START:BLOC CARD -->
-<div class="row">
-<div class="col-lg-12">
 <div class="card">
-<div class="card-header">
- <i class="fa fa-edit"></i>  
-</div> <!-- end:.card-header -->
-
-<div class="card-block">
-<?php echo showpreview($this->block) ?>
-</div> <!-- end:.card-block -->
-
-<div class="card-footer">
-<?php echo block_editmenue ($this->block, _BLOCKACTIVATION, $this->menu) ?>
-</div> <!-- end:.card-footer -->
-
-</div> <!-- end:.card -->
-</div> <!-- end:.col-lg-12 -->
-</div> <!-- end:.row -->
-<!-- END:BLOC CARD -->
-
-<?php
-/* pragmaMx CVS $Id: changestatus.html 6 2015-07-08 07:07:06Z PragmaMx $ */
-?>
+	<div class="card-body">
+		<?php echo showpreview($this->block) ?>
+	</div>
+	<div class="card-footer">
+		<?php echo block_editmenue ($this->block, _BLOCKACTIVATION, $this->menu) ?>
+	</div>
+</div>

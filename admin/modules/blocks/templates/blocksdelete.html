@@ -1,12 +1,9 @@
-
 <h2><?php echo _BLOCKSADMIN ?></h2>
 
-<div class="warning">
-  <p><?php echo _ARESUREDELBLOCK ?><i> <?php echo $this->block['title'] ?></i>?</p>
-  <br />
-  <p>[ <?php echo implode(' | ', $this->links) ?> ]</p>
+<div class="alert alert-danger text-center">
+  <p><?php echo _ARESUREDELBLOCK ?> <strong>"<?php echo $this->block['title'] ?>"</strong></p>
+  <p><?php echo implode(' ', $this->links) ?></p>
 </div>
-<br />
 
 <?php
 echo showpreview($this->block);

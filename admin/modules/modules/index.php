@@ -139,15 +139,15 @@ function modules()
             /* Datei gefunden */
             if (is_file($filename)) {
                 /* Datei verlinken und raus hier */
-                $clickit2 = "<a class=\"btn btn-secondary btn-sm\" href=\"admin.php?op=" . $title . "\" target=\"_blank\" title=\"" . $title . " " . _ADMINISTRATION . "\">" . $img_admin . "</a>";
+                $clickit2 = "<a class=\"btn btn-primary btn-sm\" href=\"admin.php?op=" . $title . "\" target=\"_blank\" title=\"" . $title . " " . _ADMINISTRATION . "\">" . $img_admin . "</a>";
                 break;
             }
         }
 
         if ($title != $mainmod) {
-            $change = "<a class=\"btn btn-secondary btn-sm\" href=\"" . adminUrl(PMX_MODULE, 'status', "mid=" . $mid . "&amp;active=" . $act) . "\">" . $change . "</a>";
-            $puthome = "<a class=\"btn btn-secondary btn-sm\" title=\""._PUTINHOME."\" href=\"" . adminUrl(PMX_MODULE, 'set_home', "mid=" . $mid) . "\">" . $img_home . "</a>";
-            $clickit = "<a class=\"btn btn-secondary btn-sm\" title=\""._SHOW."\" href=\"modules.php?name=" . $title . "\" target=\"_blank\">" . $img_view . "</a>";
+            $change = "<a class=\"btn btn-primary btn-sm\" href=\"" . adminUrl(PMX_MODULE, 'status', "mid=" . $mid . "&amp;active=" . $act) . "\">" . $change . "</a>";
+            $puthome = "<a class=\"btn btn-primary btn-sm\" title=\""._PUTINHOME."\" href=\"" . adminUrl(PMX_MODULE, 'set_home', "mid=" . $mid) . "\">" . $img_home . "</a>";
+            $clickit = "<a class=\"btn btn-primary btn-sm\" title=\""._SHOW."\" href=\"modules.php?name=" . $title . "\" target=\"_blank\">" . $img_view . "</a>";
 
             if ($active) {
                 $out_active[] = '
@@ -156,7 +156,7 @@ function modules()
                         <td>' . $custom_title . '</td>
                         <td>' . $main_id . '</td>
                         <td>' . $who_view . '</td>
-                        <td nowrap="nowrap"><a class="btn btn-secondary btn-sm" title="'._EDIT.'" href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $change . ' ' . $puthome . ' ' . $clickit . ' ' . $clickit2 . '</td>
+                        <td><a class="btn btn-primary btn-sm" title="'._EDIT.'" href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $change . ' ' . $puthome . ' ' . $clickit . ' ' . $clickit2 . '</td>
                     </tr>'; #<td>".$active."</td>
             } else {
                 $out_deact[] = '
@@ -165,7 +165,7 @@ function modules()
                         <td>' . $custom_title . '</td>
                         <td>' . $main_id . '</td>
                         <td>' . $who_view . '</td>
-                        <td nowrap="nowrap"><a class="btn btn-secondary btn-sm" href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $change . ' ' . $puthome . ' ' . $clickit . ' ' . $clickit2 . '</td>
+                        <td><a class="btn btn-primary btn-sm" href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $change . ' ' . $puthome . ' ' . $clickit . ' ' . $clickit2 . '</td>
                     </tr>';
             }
         } else {
@@ -182,7 +182,7 @@ function modules()
     }
     unset($dbmodlist);
     $headline = '
-		<thead class="thead-default">
+		<thead>
 			<tr>
                 <th>' . _TITLE . '</th>
                 <th>' . _CUSTOMTITLE . '</th>
@@ -191,10 +191,9 @@ function modules()
                 <th>' . _FUNCTIONS . '</th>
             </tr>
 		</thead>';
-    GraphicAdmin();
     echo '
-		<a name="additem" id="additem"></a>';
-    title(_MODULESADMIN);
+		<a name="additem" id="additem"></a>
+        <h2>' . _MODULESADMIN . '</h2>';
     if (isset($doublerror)) {
         echo "
 			<div class=\"alert alert-warning\">
@@ -241,7 +240,7 @@ function modules()
     <table class="table">
         <?php echo $headline . implode("\n", $out_active) ?>
     </table>
-<p class="note align-left"><?php echo _MODULESACTIVATION ?></p>
+    <p class="alert alert-info"><?php echo _MODULESACTIVATION ?></p>
   </div>
  <?php endif; ?>
  <!-- END:out_active -->
@@ -255,7 +254,7 @@ function modules()
     <table class="table">
         <?php echo $headline . implode("\n", $out_main) ?>
     </table>
-<p class="note align-left"><?php echo _MODULEHOMENOTE ?></p>
+    <p class="alert alert-info"><?php echo _MODULEHOMENOTE ?></p>
   </div>
  <?php endif; ?>
  <!-- END:out_active --> 
@@ -308,7 +307,6 @@ function set_home($gvs)
 
     if (empty($ok)) {
         include('header.php');
-        GraphicAdmin();
         title(_HOMEMODULE);
         echo '
        	<div class="card">
@@ -370,14 +368,15 @@ function module_edit($mid)
     list($title, $custom_title, $active, $view, $main_id) = sql_fetch_row($result);
     $custom_title = (empty($custom_title)) ? str_replace('_', ' ', $title) : $custom_title;
     include('header.php');
-    GraphicAdmin();
     title(_MODULEEDIT);
     echo '
     <div class="card">
-      <div class="card-block">
-		<fieldset>
-			<legend>'. _CHANGEMODNAME . ': ' . $title . '</legend>
-			<form action="' . adminUrl(PMX_MODULE, 'edit_save') . '" method="post">
+        <div class="card-header">
+          '. _CHANGEMODNAME . ': <strong>' . $title . '</strong>
+        </div>
+      <div class="card-body">
+        <form action="' . adminUrl(PMX_MODULE, 'edit_save') . '" method="post">
+
 				<table>
 					<tr>
 						<td>' . _CUSTOMMODNAME . '</td>';
@@ -387,7 +386,6 @@ function module_edit($mid)
 				' . _HOME . '
 				<input type="hidden" name="custom_title" value="' . mxEntityQuotes($custom_title) . '" />
 			</td>
-		</td>
 	</tr>';
     } else {
         echo '
@@ -436,7 +434,6 @@ function module_edit($mid)
 		<input type="hidden" name="op" value="' . PMX_MODULE . '/edit_save" />
 		<input type="submit" class="btn btn-primary" value="' . _SAVECHANGES . '" />
 	</form>
-	</fieldset>
      <center>' . _GOBACK . '</center>
 
      </div>

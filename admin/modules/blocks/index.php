@@ -32,7 +32,6 @@ function BlocksAdmin()
     $template->init_path(__FILE__);
 
     include('header.php');
-    GraphicAdmin();
     // title(_BLOCKSADMIN);
     $template->display('navTabs.html');
     include('footer.php');
@@ -77,11 +76,11 @@ function blockslistall()
     if ($countblocks) {
 
         // Icons Bootstrap 4
-        $img_activate   = '<i class="fa fa-eye fa-lg m-t-2"></i>';
-        $img_deactivate = '<i class="fa fa-eye-slash fa-lg m-t-2"></i>';
-        $img_edit       = '<i class="fa fa-edit fa-lg m-t-2"></i>';
-        $img_delete     = '<i class="fa fa-trash fa-lg m-t-2"></i>';
-        $img_view       = '<i class="fa fa-search fa-lg m-t-2"></i>';
+        $img_activate   = '<i class="fa fa-eye fa-lg"></i>';
+        $img_deactivate = '<i class="fa fa-eye-slash fa-lg"></i>';
+        $img_edit       = '<i class="fa fa-edit fa-lg"></i>';
+        $img_delete     = '<i class="fa fa-trash fa-lg"></i>';
+        $img_view       = '<i class="fa fa-search fa-lg"></i>';
         // Icons Bootstrap 4 - End
 
         while ($block = sql_fetch_object($result)) {
@@ -161,11 +160,11 @@ function blockslistall()
             $block->title = (empty($block->active)) ? '<span class="font-italic">' . $block->title . '</span>' : $block->title;
 
             $block->functions = array();
-            $block->functions[] = '<a class="btn btn-outline-secondary btn-sm" title="' . _EDIT . '" href="' . adminUrl(PMX_MODULE, 'Edit', 'bid=' . $block->bid) . '">' . $img_edit . '</a>';
-            $block->functions[] = '<a class="btn btn-outline-secondary btn-sm" href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $block->bid) . '">' . ((empty($block->active)) ? $img_activate : $img_deactivate) . '</a>';
+            $block->functions[] = '<a class="btn btn-primary btn-sm" title="' . _EDIT . '" href="' . adminUrl(PMX_MODULE, 'Edit', 'bid=' . $block->bid) . '">' . $img_edit . '</a>';
+            $block->functions[] = '<a class="btn btn-primary btn-sm" href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $block->bid) . '">' . ((empty($block->active)) ? $img_activate : $img_deactivate) . '</a>';
             if ($block->position !== 'z') {
-                $block->functions[] = '<a class="btn btn-outline-secondary btn-sm" title="' . _DELETE . '" href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $block->bid) . '">' . $img_delete . '</a>';
-                $block->functions[] = '<a class="btn btn-outline-secondary btn-sm" title="' . _SHOW . '" href="' . adminUrl(PMX_MODULE, 'show', 'bid=' . $block->bid) . '">' . $img_view . '</a>';
+                $block->functions[] = '<a class="btn btn-primary btn-sm" title="' . _DELETE . '" href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $block->bid) . '">' . $img_delete . '</a>';
+                $block->functions[] = '<a class="btn btn-primary btn-sm" title="' . _SHOW . '" href="' . adminUrl(PMX_MODULE, 'show', 'bid=' . $block->bid) . '">' . $img_view . '</a>';
             }
 
             if ($multilingual) {
@@ -252,7 +251,6 @@ function BlocksEdit()
     $template->assign('block', $block); // für das Menu...
 
     include('header.php');
-    GraphicAdmin();
     // title(_EDITBLOCK);
     $template->display('blocksedit.html');
     include('footer.php');
@@ -547,7 +545,6 @@ function block_show()
     $template->assign('block', $block);
 
     include('header.php');
-    // GraphicAdmin();
     // title(_BLOCKSADMIN);
     $template->display('blockshow.html');
     include('footer.php');
@@ -634,13 +631,13 @@ function ChangeStatus()
     } else {
         switch ($menu) {
             case 1:
-                $links[] = '<a href="' . adminUrl('menu') . '">' . _NO . '</a>';
-                $links[] = '<a href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $bid . '&amp;ok=1&amp;menu=1') . '">' . _YES . '</a>';
+                $links[] = '<a class="btn btn-primary" href="' . adminUrl('menu') . '"><i class="fa fa-ban fa-lg"></i> ' . _NO . '</a>';
+                $links[] = '<a class="btn btn-primary" href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $bid . '&amp;ok=1&amp;menu=1') . '"><i class="fa fa-check fa-lg"></i> ' . _YES . '</a>';
                 break;
 
             default:
-                $links[] = '<a href="' . adminUrl(PMX_MODULE) . '">' . _NO . '</a>';
-                $links[] = '<a href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $bid . '&amp;ok=1') . '">' . _YES . '</a>';
+                $links[] = '<a class="btn btn-primary" href="' . adminUrl(PMX_MODULE) . '"><i class="fa fa-ban fa-lg"></i> ' . _NO . '</a>';
+                $links[] = '<a class="btn btn-primary" href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $bid . '&amp;ok=1') . '"><i class="fa fa-check fa-lg"></i> ' . _YES . '</a>';
                 break;
         }
         $template = load_class('Template');
@@ -648,7 +645,6 @@ function ChangeStatus()
         $template->assign(compact('menu', 'links', 'block'));
 
         include('header.php');
-        GraphicAdmin();
         // title(_BLOCKACTIVATION);
         $template->display('changestatus.html');
         include('footer.php');
@@ -679,12 +675,12 @@ function BlocksDelete()
 
     switch ($menu) {
         case 1:
-            $links[] = '<a href="' . adminUrl('menu') . '">' . _NO . '</a>';
-            $links[] = '<a href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $bid . '&amp;ok=1&amp;menu=1') . '">' . _YES . '</a>';
+            $links[] = '<a class="btn btn-primary" href="' . adminUrl('menu') . '"><i class="fa fa-ban fa-lg"></i> ' . _NO . '</a>';
+            $links[] = '<a class="btn btn-primary" href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $bid . '&amp;ok=1&amp;menu=1') . '"><i class="fa fa-check fa-lg"></i> ' . _YES . '</a>';
             break;
         default:
-            $links[] = '<a href="' . adminUrl(PMX_MODULE) . '">' . _NO . '</a>';
-            $links[] = '<a href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $bid . '&amp;ok=1') . '">' . _YES . '</a>';
+            $links[] = '<a class="btn btn-primary" href="' . adminUrl(PMX_MODULE) . '"><i class="fa fa-ban fa-lg"></i> ' . _NO . '</a>';
+            $links[] = '<a class="btn btn-primary" href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $bid . '&amp;ok=1') . '"><i class="fa fa-check fa-lg"></i> ' . _YES . '</a>';
             break;
     }
 
@@ -693,7 +689,6 @@ function BlocksDelete()
     $template->assign(compact('menu', 'links', 'block'));
 
     include('header.php');
-    GraphicAdmin();
     // title(_BLOCKSADMIN);
     $template->display('blocksdelete.html');
     include('footer.php');
@@ -713,7 +708,6 @@ function HeadlinesAdmin()
     $template->assign('items', $items);
 
     include('header.php');
-    GraphicAdmin();
     // title(_HEADLINESADMIN);
     $template->display('headlinesadmin.html');
     include('footer.php');
@@ -731,7 +725,6 @@ function HeadlinesEdit()
     $template->assign($row);
 
     include('header.php');
-    GraphicAdmin();
     // title(_HEADLINESADMIN);
     $template->display('headlinesedit.html');
     include('footer.php');
@@ -767,7 +760,6 @@ function HeadlinesDel()
         $template->assign('hid', $hid);
 
         include('header.php');
-        GraphicAdmin();
         // title(_HEADLINESADMIN);
         $template->display('headlinesdel.html');
         include('footer.php');

@@ -22,11 +22,11 @@ $colspan = ($this->multilingual) ? 7 : 6;
 
   <table class="table">
   <?php foreach ($this->blocks as $pos => $thatblockpos) : ?>
-      <tr class="thead-default">
+       <tr>
         <th colspan="<?php echo $colspan ?>">
-            <span class="font-weight-bold text-uppercase"><?php echo $pos ?></span>
+            <span class="text-uppercase badge badge-secondary"><?php echo $pos ?></span>
         </th>
-      </tr>
+       </tr>
       <tr>
         <th class="text-uppercase"><?php echo _BLOCKORDER ?></th>
         <th class="text-uppercase"><?php echo _BLOCKTITLE ?></th>
@@ -61,11 +61,11 @@ $colspan = ($this->multilingual) ? 7 : 6;
   <?php endforeach ?>
   </table>
   <p>
-    <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>&nbsp; <?php echo _BLOCKSAVEORDER ?></button>
+    <button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp; <?php echo _BLOCKSAVEORDER ?></button>
   </p>
 </form>
 
 <p>
-  <a class="btn btn-sm btn-secondary" href="<?php echo adminUrl(PMX_MODULE, 'fixweight') ?>" class="button"><?php echo _FIXBLOCKS ?></a> 
-  <a class="btn btn-sm btn-secondary" href="<?php echo adminUrl('reset', 'cache/blocks') ?>" class="button"><?php echo _BLOCKDELCACHE ?></a>
+  <a class="btn btn-sm btn-secondary" href="<?php echo adminUrl(PMX_MODULE, 'fixweight') ?>"><?php echo _FIXBLOCKS ?></a> 
+  <a class="btn btn-sm btn-secondary" href="<?php echo adminUrl('reset', 'cache/blocks') ?>"><?php echo _BLOCKDELCACHE ?></a>
 </p>
