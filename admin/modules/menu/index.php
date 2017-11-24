@@ -55,10 +55,10 @@ class Mx_Menu_Admin extends pmxMenu {
 
         $get = $this->handleEvent();
 
-        define('IMG_MXMENU_EDIT', mxCreateImage('images/edit.gif', _EDIT, array('title' => _EDIT)));
+        define('IMG_MXMENU_EDIT', '<i class="fa fa-edit fa-lg"></i>');
         define('IMG_MXMENU_DEACTIVATE', mxCreateImage('images/activate.gif', _DEACTIVATE, array('title' => _DEACTIVATE)));
         define('IMG_MXMENU_ACTIVATE', mxCreateImage('images/deactivate.gif', _ACTIVATE, array('title' => _ACTIVATE)));
-        define('IMG_MXMENU_DELETE', mxCreateImage('images/delete.gif', _DELETE, array('title' => _DELETE)));
+        define('IMG_MXMENU_DELETE', '<i class="fa fa-trash fa-lg"></i>');
         define('IMG_MXMENU_HOME', mxCreateImage('images/inhome.gif', _HOME, array('title' => _HOME)));
         // define('IMG_MXMENU_MODULE_IMPORT', mxCreateImage('images/import.gif', _MX_MENU_MODULE_IMPORT, array('title' => _MX_MENU_MODULE_IMPORT)));
         // define('IMG_MXMENU_MODULE_ADMIN', mxCreateImage('images/admin.gif', _MX_MENU_MODULE_ADMIN, array('title' => _MX_MENU_MODULE_ADMIN)));
