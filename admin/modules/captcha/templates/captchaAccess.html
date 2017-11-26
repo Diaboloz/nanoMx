@@ -3,7 +3,7 @@
      <div class="container">
 
           <div class="form-group row">
-            <label class="col-sm-3 col-form-label"><?php echo _CAPTCHASESSION ?></label>
+            <label class="col-sm-3 form-control-label"><?php echo _CAPTCHASESSION ?></label>
             <div class="col-sm-3">
               <div class="form-check">
                   <label class="form-check-label">
@@ -18,7 +18,7 @@
 
 
           <div class="form-group row">
-            <label class="col-sm-3 col-form-label"><?php echo _CAPTCHAUSERON ?></label>
+            <label class="col-sm-3 form-control-label"><?php echo _CAPTCHAUSERON ?></label>
             <div class="col-sm-3">
               <div class="form-check">
                   <label class="form-check-label">
@@ -34,7 +34,7 @@
           <h4 class="mb-2"><?php echo _CAPTCHAMODSET ?></h4>
 
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label"><?php echo _CAPTCHACOMMENTSON ?></label>
+            <label class="col-sm-2 form-control-label"><?php echo _CAPTCHACOMMENTSON ?></label>
             <div class="col-sm-3">
               <div class="form-check">
                   <label class="form-check-label">
@@ -50,7 +50,7 @@
       <?php foreach ($this->hookvars as $hook) {
           if (!$hook['hidden'])  { ?>
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label"><?php echo $hook['caption'] ?></label>
+            <label class="col-sm-2 form-control-label"><?php echo $hook['caption'] ?></label>
             <div class="col-sm-3">
               <div class="form-check">
                   <label class="form-check-label">
@@ -77,14 +77,13 @@
 
 
     <div class="form-group row">
-      <div class="offset-sm-2 col-sm-10">
+      <div class="offset-sm-2 col-md-12">
         <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" />
-        <input type="submit" class="btn btn-primary" value="<?php echo _CAPTCHASAVESETTINGS ?>" />
-        <input type="hidden" name="do_html_opt_reset" value="0" />
-        <input type="checkbox" name="do_html_opt_reset" value="1" />&nbsp;<?php echo _CAPTCHASETRESET ?>
+        <button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;<?php echo _CAPTCHASAVESETTINGS ?></button>
+        <input type="hidden" name="do_html_opt_reset" value="0" />       
+        <p class="help-block"><input type="checkbox" name="do_html_opt_reset" value="1" />&nbsp;<?php echo _CAPTCHASETRESET ?></p>
       </div>
-    </div> 
-
+    </div>
 
       </div><!-- /container -->
 	  </form>

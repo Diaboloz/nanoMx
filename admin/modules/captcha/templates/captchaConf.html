@@ -1,49 +1,60 @@
   <div class="tab-pane active" id="captchaConf" role="tabpanel">
    <form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
- 
-	<div class="container">
 	
-    <div class="card">
-      <div class="card-block text-center">
-        <div class="text-muted small text-uppercase font-weight-bold"><?php echo _CAPTCHASAMPLE ?></div>
-        <div class="h2 py-1"><?php echo $this->captcha_object->image() ?></div>
+<div class="row">
+
+<div class="col-md-2">
+  <div class="card">
+        <div class="card-header">
+          <?php echo _CAPTCHASAMPLE ?>
+        </div>
+        <div class="card-body">
+                  <div class="h2 py-1"><?php echo $this->captcha_object->image() ?></div>
         <div class="chart-wrapper">
          <div class="mt-10"><?php echo $this->captcha_object->reloadbutton() ?></div>
         </div>
+        </div>
       </div>
-    </div>
 
           <div class="form-group row">
-            <label for="imagewidth" class="col-sm-2 col-form-label"><?php echo _CAPTCHAIMAGEWIDTH ?></label>
-            <div class="col-sm-1">
+            <label for="imagewidth" class="col-md-8 form-control-label"><?php echo _CAPTCHAIMAGEWIDTH ?></label>
+            <div class="col-md-4">
               <input type="text" class="form-control" id="imagewidth" name="imagewidth" size="12" placeholder="<?php echo $this->imagewidth ?>" />
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="imageheight" class="col-sm-2 col-form-label"><?php echo _CAPTCHAIMAGEHEIGHT ?></label>
-            <div class="col-sm-1">
+            <label for="imageheight" class="col-md-8 form-control-label"><?php echo _CAPTCHAIMAGEHEIGHT ?></label>
+            <div class="col-md-4">
               <input type="text" class="form-control" id="imageheight" name="imageheight" size="12" placeholder="<?php echo $this->imageheight ?>" />
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="passphraselenght" class="col-sm-2 col-form-label"><?php echo _CAPTCHAPASSPHRASELENGHT ?></label>
-            <div class="col-sm-1">
+            <label for="passphraselenght" class="col-md-8 form-control-label"><?php echo _CAPTCHAPASSPHRASELENGHT ?></label>
+            <div class="col-md-4">
               <input type="text" class="form-control" id="passphraselenght" name="passphraselenght" size="12" placeholder="<?php echo $this->passphraselenght ?>" />
             </div>
           </div>
 
+
+
+</div>
+
+
+<div class="col-md-3">
+
+
           <div class="form-group row">
-            <label for="charstouse" class="col-sm-2 col-form-label"><?php echo _CAPTCHACHARSTOUSE ?></label>
-            <div class="col-sm-3">
+            <label for="charstouse" class="col-md-6 form-control-label"><?php echo _CAPTCHACHARSTOUSE ?></label>
+            <div class="col-md-6">
               <textarea class="form-control" id="charstouse" name="charstouse" cols="30" rows="4"><?php echo chunk_split($this->charstouse, 25) ?></textarea>
             </div>
           </div>
 
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label"><?php echo _CAPTCHACHARCASESEN ?></label>
-            <div class="col-sm-3">
+            <label class="col-md-6 form-control-label"><?php echo _CAPTCHACHARCASESEN ?></label>
+            <div class="col-md-3">
               <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="radio" value="1"<?php echo ($this->casesensitive) ? ' checked="checked"' : '' ?> name="casesensitive" /> <?php echo _YES ?>
@@ -56,15 +67,15 @@
           </div>
 
           <div class="form-group row">
-            <label for="fontsize" class="col-sm-2 col-form-label"><?php echo _CAPTCHAFONTSIZE ?></label>
-            <div class="col-sm-2">
+            <label for="fontsize" class="col-md-6 form-control-label"><?php echo _CAPTCHAFONTSIZE ?></label>
+            <div class="col-md-3">
               <input type="text" class="form-control" id="fontsize" name="fontsize" size="12" placeholder="<?php echo $this->fontsize ?>" />
             </div>
           </div>
 
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label"><?php echo _CAPTCHARANDOMCOLOR ?></label>
-            <div class="col-sm-3">
+            <label class="col-md-6 form-control-label"><?php echo _CAPTCHARANDOMCOLOR ?></label>
+            <div class="col-md-3">
               <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="radio" value="1"<?php echo ($this->useRandomColors) ? ' checked="checked"' : '' ?> name="useRandomColors" /> <?php echo _YES ?>
@@ -76,18 +87,16 @@
             </div>
           </div>
 
-
           <div class="form-group row">
-            <label for="angle" class="col-sm-2 col-form-label"><?php echo _CAPTCHAANGLE ?></label>
-            <div class="col-sm-2">
+            <label for="angle" class="col-md-6 form-control-label"><?php echo _CAPTCHAANGLE ?></label>
+            <div class="col-md-3">
               <input type="text" class="form-control" id="angle"  name="angle" size="12" placeholder="<?php echo $this->angle ?>" />
             </div>
           </div>
 
-
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label"><?php echo _CAPTCHAFILTER ?></label>
-            <div class="col-sm-3">
+            <label class="col-md-6 form-control-label"><?php echo _CAPTCHAFILTER ?></label>
+            <div class="col-md-3">
               <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="radio" value="1"<?php echo ($this->filter) ? ' checked="checked"' : '' ?> name="filter" /> <?php echo _YES ?>
@@ -100,23 +109,30 @@
           </div>
 
           <div class="form-group row">
-            <label for="bgintensity" class="col-sm-2 col-form-label"><?php echo _CAPTCHABGINTENSITY ?></label>
-            <div class="col-sm-2">
+            <label for="bgintensity" class="col-md-6 form-control-label"><?php echo _CAPTCHABGINTENSITY ?></label>
+            <div class="col-md-3">
               <input type="text" class="form-control" id="bgintensity"  name="bgintensity" size="12" placeholder="<?php echo $this->bgintensity ?>" />
             </div>
           </div>
 
+
+
+</div>
+<div class="col-md-3">
+
+
+
           <div class="form-group row">
-            <label for="bgfonttype" class="col-sm-2 col-form-label"><?php echo _CAPTCHABGFONTTYPE ?></label>
-            <div class="col-sm-2">
+            <label for="bgfonttype" class="col-md-6 form-control-label"><?php echo _CAPTCHABGFONTTYPE ?></label>
+            <div class="col-md-3">
               <input type="text" class="form-control" id="bgfonttype"  name="bgfonttype" placeholder="<?php echo $this->bgfonttype ?>" />
             </div>
           </div>
 
 
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label"><?php echo _CAPTCHAFILTERTYPE ?></label>
-            <div class="col-sm-3">
+            <label class="col-md-6 form-control-label"><?php echo _CAPTCHAFILTERTYPE ?></label>
+            <div class="col-md-6">
               <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="filtertype">
                 <option <?php echo ($this->filtertype == 'Wavy') ? ' selected="selected" class="current"' : '' ?> value="Wavy">Wavy</option>
                 <option <?php echo ($this->filtertype == 'Bubbly') ? ' selected="selected" class="current"' : '' ?> value="Bubbly">Bubbly</option>
@@ -126,8 +142,8 @@
           </div>
 
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label"><?php echo _CAPTCHAADDHORLINES ?></label>
-            <div class="col-sm-3">
+            <label class="col-md-6 form-control-label"><?php echo _CAPTCHAADDHORLINES ?></label>
+            <div class="col-md-3">
               <div class="form-check">
                   <label class="form-check-label">
                     <input type="radio" value="1"<?php echo ($this->addhorizontallines) ? ' checked="checked"' : '' ?> name="addhorizontallines" /> <?php echo _YES ?>
@@ -140,8 +156,8 @@
           </div>
 
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label"><?php echo _CAPTCHASCRATCHES ?></label>
-            <div class="col-sm-3">
+            <label class="col-md-6 form-control-label"><?php echo _CAPTCHASCRATCHES ?></label>
+            <div class="col-md-3">
               <div class="form-check">
                   <label class="form-check-label">
                     <input type="radio" value="1"<?php echo ($this->scratches) ? ' checked="checked"' : '' ?> name="scratches" /> <?php echo _YES ?>
@@ -154,15 +170,15 @@
           </div>
 
           <div class="form-group row">
-            <label for="scratchamount" class="col-sm-2 col-form-label"><?php echo _CAPTCHASCRATCHAMOUNT ?></label>
-            <div class="col-sm-2">
+            <label for="scratchamount" class="col-md-6 form-control-label"><?php echo _CAPTCHASCRATCHAMOUNT ?></label>
+            <div class="col-md-3">
               <input type="text" class="form-control" id="scratchamount"  name="scratchamount" size="12" placeholder="<?php echo $this->scratchamount ?>" />
             </div>
           </div>
 
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label"><?php echo _CAPTCHAADDAGRID ?></label>
-            <div class="col-sm-3">
+            <label class="col-md-6 form-control-label"><?php echo _CAPTCHAADDAGRID ?></label>
+            <div class="col-md-3">
               <div class="form-check">
                   <label class="form-check-label">
                     <input type="radio" value="1"<?php echo ($this->addagrid) ? ' checked="checked"' : '' ?> name="addagrid" /> <?php echo _YES ?>
@@ -175,23 +191,24 @@
           </div>
 
           <div class="form-group row">
-            <label for="minsize" class="col-sm-2 col-form-label"><?php echo _CAPTCHAMINSIZE ?></label>
-            <div class="col-sm-2">
+            <label for="minsize" class="col-md-6 form-control-label"><?php echo _CAPTCHAMINSIZE ?></label>
+            <div class="col-md-3">
               <input type="text" class="form-control" id="minsize"  name="minsize" size="12" placeholder="<?php echo $this->minsize ?>" />
             </div>
           </div>
 
     <div class="form-group row">
-      <div class="offset-sm-2 col-sm-10">
+      <div class="col-md-12">
         <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/save" />
-        <input type="submit" class="btn btn-primary" value="<?php echo _CAPTCHASAVESETTINGS ?>" />
-        <input type="hidden" name="do_html_opt_reset" value="0" />
-        <input type="checkbox" name="do_html_opt_reset" value="1" />&nbsp;<?php echo _CAPTCHASETRESET ?>
+        <button type="submit" class="btn btn-primary" name="add_item_form[submit]"><i class="fa fa-check fa-lg"></i>&nbsp;<?php echo _CAPTCHASAVESETTINGS ?></button>
+        <input type="hidden" name="do_html_opt_reset" value="0" />       
+        <p class="help-block"><input type="checkbox" name="do_html_opt_reset" value="1" />&nbsp;<?php echo _CAPTCHASETRESET ?></p>
       </div>
     </div>
 
+</div>
 
- </div><!-- / captcha-1 -->
+ </div>
 
  </form>
   </div>
