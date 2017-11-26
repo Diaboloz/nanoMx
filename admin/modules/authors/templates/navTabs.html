@@ -1,14 +1,14 @@
 <h2><?php echo _AUTHORSADMIN ?></h2>
 
 <?php if($this->messages): ?>
-<div class="important">
-  <ul><li><?php echo implode('</li><li>', $this->messages) ?></li></ul>
+<div class="alert alert-info">
+  <ul class="list-unstyled"><li><?php echo implode('</li><li>', $this->messages) ?></li></ul>
 </div>
 <?php endif; ?>
 
 <?php if($this->errors): ?>
-<div class="error">
-  <ul><li><?php echo implode('</li><li>', $this->errors) ?></li></ul>
+<div class="alert alert-danger">
+  <ul class="list-unstyled"><li><?php echo implode('</li><li>', $this->errors) ?></li></ul>
 </div>
 <?php endif; ?>
 

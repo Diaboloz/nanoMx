@@ -1,6 +1,6 @@
 <?php
-$img_delete = '<i class="fa fa-trash fa-lg"></i>';
-$img_edit = '<i class="fa fa-edit fa-lg"></i>';
+$img_delete = '<i class="fa fa-trash fa-lg"></i>&nbsp;' . _DELETE;
+$img_edit = '<i class="fa fa-edit fa-lg"></i>&nbsp;' . _EDIT;
 ?>
 
 <table class="table table-striped">
@@ -17,14 +17,14 @@ $img_edit = '<i class="fa fa-edit fa-lg"></i>';
     <?php
     foreach ($this->rows as $row) {
         $uname = ($row['uname'] && $row['user_stat'] == 1) ? $row['uname'] : '&nbsp;';
-        $admdel = ($row['isgod']) ? '<span class="badge badge-warning">' . _MAINACCOUNT . '</span>': '<a class="btn btn-primary" href="' . adminUrl(PMX_MODULE, 'delete', 'aid=' . $row['aid']) . '">' . $img_delete . '</a>';
+        $admdel = ($row['isgod']) ? '<span class="badge badge-warning">' . _MAINACCOUNT . '</span>': '<a class="btn btn-primary btn-sm" href="' . adminUrl(PMX_MODULE, 'delete', 'aid=' . $row['aid']) . '">' . $img_delete . '</a>';
     ?>
     <tr>
       <td><?php echo $row['aid'] ?></td>
       <td><?php echo $row['name'] ?></td>
       <td><?php echo $uname ?>&nbsp;</td>
       <td>
-        <a class="btn btn-primary" href="<?php echo adminUrl(PMX_MODULE, 'edit', 'aid=' . $row['aid']) ?>"><?php echo $img_edit ?></a>
+        <a class="btn btn-primary btn-sm" href="<?php echo adminUrl(PMX_MODULE, 'edit', 'aid=' . $row['aid']) ?>"><?php echo $img_edit ?></a>
         <?php echo $admdel ?>
       </td>
     </tr>

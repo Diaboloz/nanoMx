@@ -92,7 +92,7 @@ function backupdoit()
     title(_SAVEDATABASE);
     echo '
     	<div class="card">
-  			<div class="card-block">
+  			<div class="card-body">
     			<ul class="list-unstyled">
     				<li>' . implode('</li><li>', $msg) . '</li>
     			</ul>			
@@ -113,29 +113,30 @@ function backupstart()
     title(_SAVEDATABASETITLE);
     echo '
     	<div class="card">
-  			<div class="card-block">
-  				<div class="container">
+  			<div class="card-body">
+
     			<form action="' . adminUrl(PMX_MODULE) . '" method="post" name="doit">
     				<input type="hidden" name="op" value="' . PMX_MODULE . '/doit" />
-				    <div class="form-group row">
-      					<label for="savepath" class="col-sm-2 col-form-label">' . _DB_BACKUP_10 . '</label>
-      					<div class="col-sm-10">
-      						<input type="text" class="form-control" id="savepath" name="savepath" placeholder="' . $savepath . '" size="50" /> 
-      						<small class="text-muted">
+
+				    <div class="row">
+      					<label for="savepath" class="col-md-2 form-control-label">' . _DB_BACKUP_10 . '</label>
+      					<div class="col-md-5">
+                  <input type="text" class="form-control" id="savepath" name="savepath" value="' . $savepath . '" size="50" />
+      						<span class="help-block text-muted small">
       							 ' . _DB_BACKUP_11 . ' (' . $docroot . ')
-      						</small>   					
+      						</span>   					
       					</div>
     				</div>
 
-				    <div class="form-group row">
-      					<label for="savefile" class="col-sm-2 col-form-label">' . _DB_BACKUP_12 . '</label>
-      					<div class="col-sm-10">
+				    <div class="row">
+      					<label for="savefile" class="col-md-2 form-control-label">' . _DB_BACKUP_12 . '</label>
+      					<div class="col-md-5">
       						<input type="text" class="form-control" id="savefile" name="savefile" value="' . $savefile . '" size="50" maxlength="80" />				
       					</div>
     				</div>
 
-    <fieldset class="form-group row">
-      <legend class="col-form-legend col-sm-2">' . _DB_BACKUP_13 . '</legend>
+    <div class="row">
+      <legend class="col-form-legend col-md-2">' . _DB_BACKUP_13 . '</legend>
       <div class="col-sm-10">
         <div class="form-check">
           <label class="form-check-label">
@@ -148,7 +149,7 @@ function backupstart()
         <div class="form-check">
           <label class="form-check-label">
           	<input class="form-check-input" type="radio" name="ff" value="minigzip" /> ' . _DB_BACKUP_14 . '
-          	<small class="text-muted">' . _DB_BACKUP_19 . '</small>
+          	<span class="help-block">' . _DB_BACKUP_19 . '</span>
           </label>
         </div>';
     } else {
@@ -156,17 +157,20 @@ function backupstart()
         <div class="form-check">
           <label class="form-check-label">
           	<input class="form-check-input" type="radio" name="ff" value="gzip" />' . _DB_BACKUP_15 . '
-          	<small class="text-muted">' . _DB_BACKUP_20 . '</small>
+          	<span class="help-block">' . _DB_BACKUP_20 . '</span>
           </label>
         </div>';
     }
 
     echo '
         </div>
-    </fieldset>
-    			<input type="submit" class="btn btn-primary" value="' . _DB_BACKUP_17 . '" />
+    </div>
+    <div class="row">
+      <div class="col-md-2 offset-md-2">
+    			<button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _DB_BACKUP_17 . '</button>
+    </div>
     			</form>
-    		</div>
+ 
     	</div>
     </div>';
     include('footer.php');
