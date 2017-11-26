@@ -55,11 +55,11 @@ class Mx_Menu_Admin extends pmxMenu {
 
         $get = $this->handleEvent();
 
-        define('IMG_MXMENU_EDIT', '<i class="fa fa-edit fa-lg"></i>');
-        define('IMG_MXMENU_DEACTIVATE', mxCreateImage('images/activate.gif', _DEACTIVATE, array('title' => _DEACTIVATE)));
-        define('IMG_MXMENU_ACTIVATE', mxCreateImage('images/deactivate.gif', _ACTIVATE, array('title' => _ACTIVATE)));
-        define('IMG_MXMENU_DELETE', '<i class="fa fa-trash fa-lg"></i>');
-        define('IMG_MXMENU_HOME', mxCreateImage('images/inhome.gif', _HOME, array('title' => _HOME)));
+        define('IMG_MXMENU_EDIT', '<i class="fa fa-edit fa-lg"></i>&nbsp;'. _EDIT . '');
+       // define('IMG_MXMENU_DEACTIVATE', mxCreateImage('images/activate.gif', _DEACTIVATE, array('title' => _DEACTIVATE)));
+       // define('IMG_MXMENU_ACTIVATE', mxCreateImage('images/deactivate.gif', _ACTIVATE, array('title' => _ACTIVATE)));
+        define('IMG_MXMENU_DELETE', '<i class="fa fa-trash fa-lg"></i>&nbsp;'. _DELETE . '');
+        define('IMG_MXMENU_HOME', '<i class="fa fa-home fa-lg"></i>&nbsp;'. _HOME . '');
         // define('IMG_MXMENU_MODULE_IMPORT', mxCreateImage('images/import.gif', _MX_MENU_MODULE_IMPORT, array('title' => _MX_MENU_MODULE_IMPORT)));
         // define('IMG_MXMENU_MODULE_ADMIN', mxCreateImage('images/admin.gif', _MX_MENU_MODULE_ADMIN, array('title' => _MX_MENU_MODULE_ADMIN)));
         /* Template initialisieren */
@@ -129,7 +129,7 @@ class Mx_Menu_Admin extends pmxMenu {
             'this_menu' => $this,
             );
         $this->template->assign($array);
-        $this->page['content'] = $this->template->fetch("show_all.html");
+        $this->page['content'] = $this->template->fetch('show_all.html');
         $this->page['selected'] = 1;
     }
 
@@ -148,7 +148,7 @@ class Mx_Menu_Admin extends pmxMenu {
                 $this->nav_item[2]['url'] = adminUrl(PMX_MODULE, "add_menu/edit/$id");
                 $this->nav_item[2]['title'] = _MX_MENU_ADDMENU_EDIT;
             }
-            $this->page['content'] = $this->template->fetch("add_menu.html");
+            $this->page['content'] = $this->template->fetch('add_menu.html');
             $this->page['selected'] = 2;
         }
     }
@@ -438,10 +438,10 @@ class Mx_Menu_Admin extends pmxMenu {
         $msg_style = "";
         switch ($type) {
             case 1:
-                $msg_style = 'warning';
+                $msg_style = 'alert alert-danger text-center';
                 break; # successful
             default:
-                $msg_style = 'note';
+                $msg_style = 'alert alert-info text-center';
                 break; # error
         }
         return (!empty($text) ? '<div class="' . $msg_style . '">' . $text . '</div>' : '');

@@ -17,21 +17,18 @@
  * bugfixed by Joerg & Andi
  **/
 ?>
-<p><?php echo $this->intro ?></p>
+<div class="alert alert-info">
+  <?php echo $this->intro ?>
+</div>
 <?php echo $this->message ?>
-<form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
+
+<form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post" class="form-inline">
 	<input type="hidden" name="add_menu_form[id]" value="<?php echo $this->id ?>" />
-	<div class="form-group row">
-        <label class="col-md-2 col-form-label" for="add_menu_form[title]"><?php echo _TITLE ?></label>
-        <div class="col-md-9">
-			<input maxlength="60" name="add_menu_form[title]" size="60" value="<?php echo $this->title ?>" type="text" />
-			<span class="help-block badge badge-pill badge-danger"><?php echo _MX_MENU_INPUTREQUIRED_NOTE ?></span>
-			<p class="help-block"><?php echo _MX_MENU_ADDMENU_NAME_DESCR ?></p>
-        </div>
+	<div class="form-group">
+        <label><?php echo _TITLE ?></label>
+  </div>
+  <div class="form-group mx-sm-3">
+		  	<input class="form-control" maxlength="60" name="add_menu_form[title]" size="60" value="<?php echo $this->title ?>" placeholder="<?php echo _MX_MENU_ADDMENU_NAME_DESCR ?>" type="text" />
 	</div>
-    <div class="form-group row">
-      <div class="col-sm-10">
-        <button type="submit" class="btn btn-primary" name="add_menu_form[submit]"><?php echo _SAVE ?></button>
-      </div>
-    </div>
+        <button type="submit" class="btn btn-primary" name="add_menu_form[submit]"><i class="fa fa-plus fa-lg"></i>&nbsp;<?php echo _ADD ?></button>
 </form>

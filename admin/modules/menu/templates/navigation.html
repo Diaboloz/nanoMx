@@ -17,9 +17,6 @@
  * bugfixed by Joerg & Andi
  **/
 title(_MX_MENU_ADMIN) ?>
-
-<?php OpenTable() ?>
-
 	<ul class="tabs-nav">
 	<?php foreach($this->nav_item as $item) :?>
 	<?php if ($this->nomenublocks === true && $item['title'] == _MX_MENU_ADDITEM) :?>
@@ -32,5 +29,3 @@ title(_MX_MENU_ADMIN) ?>
 <div class="tabs-panel">
  	<?php echo $this->page ?>
 </div>
-
-<?php CloseTable() ?>

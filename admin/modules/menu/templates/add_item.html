@@ -44,52 +44,52 @@ option.sel-main-block{
 
 <?php echo $this->message ?>
 
-<noscript class="warning"><?php echo _JSSHOULDBEACTIVE ?></noscript>
+<noscript class="alert alert-warning"><?php echo _JSSHOULDBEACTIVE ?></noscript>
 
 <form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
 
     <div class="form-group row">
-        <label class="col-md-3 col-form-label"><?php echo _MX_MENU_MODULE_IMPORT ?>:</label>
-        <div class="col-md-9">
+        <label class="col-md-2 col-form-label"><?php echo _MX_MENU_MODULE_IMPORT ?></label>
+        <div class="col-md-2">
             <select id="add-item-import-module" class="form-control">
-				<option value="">&nbsp;</option>
-				<?php foreach ($this->modules as $mod) : ?>
-					<option value="<?php echo $mod['link'] ?>" <?php echo (($mod['link']==$this->row['url']) ? ' selected="selected" class="current"' : '') ?>><?php echo $mod['custom_title'] ?></option>
-				<?php endforeach ?>
-			</select>&nbsp;<input type="reset" value="<?php echo _FORMRESET ?>" />
+				      <option value="">&nbsp;</option>
+				      <?php foreach ($this->modules as $mod) : ?>
+					     <option value="<?php echo $mod['link'] ?>" <?php echo (($mod['link']==$this->row['url']) ? ' selected="selected" class="current"' : '') ?>><?php echo $mod['custom_title'] ?></option>
+				      <?php endforeach ?>
+			      </select>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-danger" type="reset"><i class="fa fa-ban fa-lg"></i>&nbsp;<?php echo _CANCEL ?></button>
         </div>
     </div>
 
     <div class="form-group row">
-        <label class="col-md-3 col-form-label"><span style="font-weight:bold;"><?php echo _TITLE ?>:</span><span class="required" title="<?php echo _MX_MENU_INPUTREQUIRED_NOTE ?>"> *</span></label>
-        <div class="col-md-9">
-			<input maxlength="128" name="add_item_form[title]" size="60" value="<?php echo $this->row['title'] ?>" type="text" />
-			<input type="button" class="form-control" title="<?php echo _MX_MENU_ADDITEM_NAME_DESCR ?>" />
-			<span class="help-block"><?php echo _MX_MENU_ADDITEM_NAME_DESCR ?></span>
+        <label class="col-md-2 col-form-label"><?php echo _TITLE ?><span class="required" title="<?php echo _MX_MENU_INPUTREQUIRED_NOTE ?>"> *</span></label>
+        <div class="col-md-3">
+			   <input class="form-control" maxlength="128" name="add_item_form[title]" size="60" value="<?php echo $this->row['title'] ?>" type="text" />
+			   <span class="help-block"><?php echo _MX_MENU_ADDITEM_NAME_DESCR ?></span>
         </div>
     </div>
 
     <div class="form-group row">
-        <label class="col-md-3 col-form-label"><?php echo _MX_MENU_PATH ?>:</label>
-        <div class="col-md-9">
-		    <input maxlength="255" name="add_item_form[url]" size="60" value="<?php echo $this->row['url'] ?>" type="text" />
-			<input type="button" class="form-control" title="<?php echo _MX_MENU_ADDITEM_PATH_DESCR ?>" />
-			<span class="help-block"><?php echo _MX_MENU_ADDITEM_PATH_DESCR ?></span>
+        <label class="col-md-2 col-form-label"><?php echo _MX_MENU_PATH ?></label>
+        <div class="col-md-3">
+		       <input class="form-control" maxlength="255" name="add_item_form[url]" size="60" value="<?php echo $this->row['url'] ?>" type="text" placeholder="http://" />
+			     <span class="help-block"><?php echo _MX_MENU_ADDITEM_PATH_DESCR ?></span>
         </div>
     </div>
 
     <div class="form-group row">
-        <label class="col-md-3 col-form-label"><?php echo _DESCRIPTION ?>:</label>
-        <div class="col-md-9">
-			<input maxlength="200" name="add_item_form[description]" size="60" value="<?php echo $this->row['description'] ?>" type="text" />
-			<input type="button" class="form-control" title="<?php echo _MX_MENU_ADDITEM_TITLE_DESCR ?>" />
-			<span class="help-block"><?php echo _MX_MENU_ADDITEM_TITLE_DESCR ?></span>
+        <label class="col-md-2 col-form-label"><?php echo _DESCRIPTION ?></label>
+        <div class="col-md-3">
+			     <input class="form-control" maxlength="200" name="add_item_form[description]" size="60" value="<?php echo $this->row['description'] ?>" type="text" />
+			     <span class="help-block"><?php echo _MX_MENU_ADDITEM_TITLE_DESCR ?></span>
         </div>
     </div>
  
     <div class="form-group row">
-        <label class="col-md-3 col-form-label"><?php echo _MX_MENU_ADDITEM_ASSOCIATEDMENU ?>:</label>
-        <div class="col-md-9">
+        <label class="col-md-2 col-form-label"><?php echo _MX_MENU_ADDITEM_ASSOCIATEDMENU ?></label>
+        <div class="col-md-2">
 		<?php if(count($this->menus)>0) :?>
 		<select name="add_item_form[bid]" class="form-control">
 			<?php foreach($this->menus as $menu) :?>
@@ -108,25 +108,29 @@ option.sel-main-block{
     </div>
  
     <div class="form-group row">
-        <label class="col-md-3 col-form-label"><?php echo _MX_MENU_ADDITEM_WEIGHT ?>:</label>
-        <div class="col-md-9">
-		   <select disabled="disabled" name="add_item_form[weight]" class="form-control"></select>
+        <label class="col-md-2 col-form-label"><?php echo _MX_MENU_ADDITEM_WEIGHT ?></label>
+        <div class="col-md-2">
+		      <select disabled="disabled" name="add_item_form[weight]" class="form-control"></select>
         </div>
     </div>
   
     <div class="form-group row">
-        <input name="add_item_form[expanded]" value="0" type="hidden" />
-		<input name="add_item_form[expanded]" value="1" type="checkbox"<?php echo $this->row['expanded'] ?> /> <?php echo _MX_MENU_ITEM_EXP_OPEN ?>
-		<input type="button" class="tooltip-info" title="<?php echo _MX_MENU_ITEM_EXP_DESCR ?>" />
-		<p class="tiny infotext"><?php echo _MX_MENU_ITEM_EXP_DESCR ?></p>
+      <div class="col-md-2 offset-md-2">
+        <div class="checkbox">
+          <label for="checkbox">
+            <input name="add_item_form[expanded]" value="0" type="hidden" />
+            <input id="checkbox" name="add_item_form[expanded]" value="1" type="checkbox"<?php echo $this->row['expanded'] ?> /> <?php echo _MX_MENU_ITEM_EXP_OPEN ?>
+          </label>
+		      <p class="help-block"><?php echo _MX_MENU_ITEM_EXP_DESCR ?></p>
+        </div>
+      </div>
     </div>		
   
 	<div class="form-group row">
-		<label class="col-md-3 col-form-label"><?php echo _MX_MENU_TARGET2 ?>:</label>
-        <div class="col-md-9">
-		    <input maxlength="10" name="add_item_form[target]" size="10" value="<?php echo $this->row['target'] ?>" type="text" />
-			<input type="button" class="form-control" title="<?php echo _MX_MENU_ADDITEM_TARGET_DESCR ?>" />
-			<span class="help-block"><?php echo _MX_MENU_ADDITEM_TARGET_DESCR ?></span>
+		<label class="col-md-2 col-form-label"><?php echo _MX_MENU_TARGET2 ?></label>
+        <div class="col-md-3">
+		      <input class="form-control" maxlength="10" name="add_item_form[target]" size="10" value="<?php echo $this->row['target'] ?>" type="text" />
+			     <span class="help-block"><?php echo _MX_MENU_ADDITEM_TARGET_DESCR ?></span>
         </div>
     </div>						
 
@@ -135,8 +139,8 @@ option.sel-main-block{
 	<input type="hidden" value="<?php echo $this->row['id'] ?>" name="add_item_form[id]" />
   
     <div class="form-group row">
-		<div class="col-sm-10">
-			<input name="add_item_form[submit]" class="btn btn-primary" value="<?php echo _SAVE ?>" type="submit">
+		<div class="col-md-3 offset-md-2">
+      <button type="submit" class="btn btn-primary" name="add_item_form[submit]"><i class="fa fa-plus fa-lg"></i>&nbsp;<?php echo _ADD ?></button>
 		</div>
     </div>  
   

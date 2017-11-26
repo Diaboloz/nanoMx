@@ -23,7 +23,7 @@
   <ul>
    <li><a href="<?php echo adminUrl('modules', '','', '#additem') ?>"><b><?php echo _MX_MENU_MODULE_ADMIN ?></b></a></li>
   </ul>
-   <table cellspacing="0" class="list">
+   <table class="table">
     <tr>
      <th><?php echo _MX_MENU_MODULE_TITLE ?></th>
      <th><?php echo _MX_MENU_MODULE_NAME ?></th>
@@ -41,8 +41,8 @@
     <tr<?php echo $class ?>>
      <td><a href="modules.php?name=<?php echo $module['title'] ?>"><span<?php echo ($module['active'] == 0 ? " style='font-style:italic;' " : "") ?>><?php echo $module['custom_title'] ?></span></a><?php echo ($module['active']==1 ? "" : chr(32)._MX_MENU_ITEM_ISDISABLED)?></td>
      <td><?php echo $module['title'] ?></td>
-     <td class="align-center"><a href="<?php echo adminUrl(PMX_MODULE, 'add_item/module/'. $module['mid']) ?>"><?php echo IMG_MXMENU_MODULE_IMPORT ?></a></td>
-     <td class="align-center"><a href="<?php echo adminUrl('modules', 'edit', array('mid'=>$module['mid'])) ?>"><?php echo IMG_MXMENU_MODULE_ADMIN ?></a></td>
+     <td><a href="<?php echo adminUrl(PMX_MODULE, 'add_item/module/'. $module['mid']) ?>"><?php echo IMG_MXMENU_MODULE_IMPORT ?></a></td>
+     <td><a href="<?php echo adminUrl('modules', 'edit', array('mid'=>$module['mid'])) ?>"><?php echo IMG_MXMENU_MODULE_ADMIN ?></a></td>
     </tr>
     <?php endforeach ;?>
    </table>

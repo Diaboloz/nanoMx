@@ -25,7 +25,7 @@
  <?php foreach($this->menus as $menu): ?>
   <div class="card">
     <div class="card-header">
-          <?php echo $menu['title'] . (($menu['active']) ? '' : ' <span class="badge badge-light">('._MX_MENU_NOTACTIVE.')</span>') ?>
+          <?php echo $menu['title'] . (($menu['active']) ? '' : ' <strong>['._MX_MENU_NOTACTIVE.']</strong>') ?>
       </div>
 
 <div class="card-body">
@@ -34,13 +34,13 @@
   <div class="row">
 
     <div class="col-3">
-    <div class="list-group">
-     <a class="list-group-item list-group-item-action" href="<?php echo adminUrl(PMX_MODULE, 'add_menu/edit/' . $menu['bid']) ?>"><i class="fa fa-edit fa-lg"></i> <?php echo _MX_MENU_EDIT ?></a>
-    <a class="list-group-item list-group-item-action" href="<?php echo adminUrl('blocks', 'Edit', array('bid'=>$menu['bid'], 'menu'=>1)) ?>">
-    <i class="fa fa-cogs fa-lg"></i> <?php echo _MX_MENU_BLOCKSADMIN ?>
-      <span class="badge badge-secondary"><?php echo ($menu['active'] != 1) ? _ACTIVATE : _DEACTIVATE ?> <?php echo _MX_MENU_FURTHERSETTINGS ?></span>
+		<div class="list-group">
+			<a class="list-group-item list-group-item-action" href="<?php echo adminUrl(PMX_MODULE, 'add_menu/edit/' . $menu['bid']) ?>"><i class="fa fa-edit fa-lg"></i> <?php echo _MX_MENU_EDIT ?></a>
+			<a class="list-group-item list-group-item-action" href="<?php echo adminUrl('blocks', 'Edit', array('bid'=>$menu['bid'], 'menu'=>1)) ?>">
+			<i class="fa fa-cogs fa-lg"></i> <?php echo _MX_MENU_BLOCKSADMIN ?>
+			<span class="badge badge-secondary"><?php echo ($menu['active'] != 1) ? _ACTIVATE : _DEACTIVATE ?> <?php echo _MX_MENU_FURTHERSETTINGS ?></span>
     </a>
-    <a class="list-group-item list-group-item-action" href="<?php echo adminUrl(PMX_MODULE, 'delete_menu/id,' . $menu['bid']) ?>"><i class="fa fa-trash fa-lg"></i> <?php echo _MX_MENU_DELETE ?></a>
+    <a class="list-group-item list-group-item-danger" href="<?php echo adminUrl(PMX_MODULE, 'delete_menu/id,' . $menu['bid']) ?>"><i class="fa fa-trash fa-lg"></i> <?php echo _MX_MENU_DELETE ?></a>
     <a class="list-group-item list-group-item-action" href="<?php echo adminUrl(PMX_MODULE, 'add_item/' . $menu['bid']) ?>"><i class="fa fa-plus fa-lg"></i> <?php echo _MX_MENU_ADDITEM ?></a>
     </div>
     </div>
@@ -53,7 +53,7 @@
 				<th><?php echo _MX_MENU_ITEM ?></th>
 				<th><?php echo _MX_MENU_ITEM_EXP_OPEN ?></th>
 				<th><?php echo _MX_MENU_TARGET ?></th>
-				<th colspan="2"><?php echo _MX_MENU_OPERATIONS ?></th>
+				<th><?php echo _MX_MENU_OPERATIONS ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -65,10 +65,10 @@
 				<td>
           <a class="btn btn-primary btn-sm" href="<?php echo adminUrl(PMX_MODULE, 'add_item/edit/'. $row['id']) ?>"><?php echo IMG_MXMENU_EDIT ?></a>
           <?php if($row['url'] != 'modules.php?name='.$this->main_module): ?>
-				    <a class="btn btn-primary btn-sm" href="<?php echo adminUrl(PMX_MODULE, 'delete_item/id,'.$row['id']) ?>"><?php echo IMG_MXMENU_DELETE ?></a>
+				    <a class="btn btn-danger btn-sm" href="<?php echo adminUrl(PMX_MODULE, 'delete_item/id,'.$row['id']) ?>"><?php echo IMG_MXMENU_DELETE ?></a>
           <?php else: ?>
         </td>
-				<td class="align-center"><?php echo IMG_MXMENU_HOME ?></td>
+				<td><?php echo IMG_MXMENU_HOME ?></td>
 				<td>&nbsp;</td>
         <?php endif;?>
 			</tr>
