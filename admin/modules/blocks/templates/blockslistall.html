@@ -49,7 +49,7 @@ $colspan = ($this->multilingual) ? 7 : 6;
       <?php if($this->multilingual): ?>
       <td><?php echo $block->blanguage ?></td>
       <?php endif; ?>
-      <td class="nowrap">
+      <td>
         <div <?php echo $errclass ?>>
         <?php foreach ($block->functions as $key => $item) : ?>
           <?php echo $item ?>
@@ -61,11 +61,11 @@ $colspan = ($this->multilingual) ? 7 : 6;
   <?php endforeach ?>
   </table>
   <p>
-    <button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp; <?php echo _BLOCKSAVEORDER ?></button>
+    <button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;<?php echo _BLOCKSAVEORDER ?></button>
   </p>
 </form>
 
 <p>
-  <a class="btn btn-sm btn-secondary" href="<?php echo adminUrl(PMX_MODULE, 'fixweight') ?>"><?php echo _FIXBLOCKS ?></a> 
-  <a class="btn btn-sm btn-secondary" href="<?php echo adminUrl('reset', 'cache/blocks') ?>"><?php echo _BLOCKDELCACHE ?></a>
+  <a class="btn btn-sm btn-secondary" href="<?php echo adminUrl(PMX_MODULE, 'fixweight') ?>"><i class="fa fa-arrows-v fa-lg"></i>&nbsp;<?php echo _FIXBLOCKS ?></a> 
+  <a class="btn btn-sm btn-secondary" href="<?php echo adminUrl('reset', 'cache/blocks') ?>"><i class="fa fa-refresh fa-lg"></i>&nbsp;<?php echo _BLOCKDELCACHE ?></a>
 </p>

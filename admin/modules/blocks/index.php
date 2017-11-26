@@ -76,11 +76,11 @@ function blockslistall()
     if ($countblocks) {
 
         // Icons Bootstrap 4
-        $img_activate   = '<i class="fa fa-eye fa-lg"></i>';
-        $img_deactivate = '<i class="fa fa-eye-slash fa-lg"></i>';
-        $img_edit       = '<i class="fa fa-edit fa-lg"></i>';
-        $img_delete     = '<i class="fa fa-trash fa-lg"></i>';
-        $img_view       = '<i class="fa fa-search fa-lg"></i>';
+        $img_activate   = '<i class="fa fa-eye fa-lg"></i>&nbsp;'  . _ACTIVATE;
+        $img_deactivate = '<i class="fa fa-eye-slash fa-lg"></i>&nbsp;'  . _DEACTIVATE;
+        $img_edit       = '<i class="fa fa-edit fa-lg"></i>&nbsp;'  . _EDIT;
+        $img_delete     = '<i class="fa fa-trash fa-lg"></i>&nbsp;'  . _DELETE;
+        $img_view       = '<i class="fa fa-search fa-lg"></i>&nbsp;'  . _SHOW;
         // Icons Bootstrap 4 - End
 
         while ($block = sql_fetch_object($result)) {
@@ -161,10 +161,10 @@ function blockslistall()
 
             $block->functions = array();
             $block->functions[] = '<a class="btn btn-primary btn-sm" title="' . _EDIT . '" href="' . adminUrl(PMX_MODULE, 'Edit', 'bid=' . $block->bid) . '">' . $img_edit . '</a>';
-            $block->functions[] = '<a class="btn btn-primary btn-sm" href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $block->bid) . '">' . ((empty($block->active)) ? $img_activate : $img_deactivate) . '</a>';
+            $block->functions[] = '<a class="btn btn-' . ((empty($block->active)) ? 'success' : 'secondary') . ' btn-sm" href="' . adminUrl(PMX_MODULE, 'ChangeStatus', 'bid=' . $block->bid) . '">' . ((empty($block->active)) ? $img_activate : $img_deactivate) . '</a>';
             if ($block->position !== 'z') {
-                $block->functions[] = '<a class="btn btn-primary btn-sm" title="' . _DELETE . '" href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $block->bid) . '">' . $img_delete . '</a>';
-                $block->functions[] = '<a class="btn btn-primary btn-sm" title="' . _SHOW . '" href="' . adminUrl(PMX_MODULE, 'show', 'bid=' . $block->bid) . '">' . $img_view . '</a>';
+                $block->functions[] = '<a class="btn btn-danger btn-sm" title="' . _DELETE . '" href="' . adminUrl(PMX_MODULE, 'Delete', 'bid=' . $block->bid) . '">' . $img_delete . '</a>';
+                $block->functions[] = '<a class="btn btn-info btn-sm" title="' . _SHOW . '" href="' . adminUrl(PMX_MODULE, 'show', 'bid=' . $block->bid) . '">' . $img_view . '</a>';
             }
 
             if ($multilingual) {
