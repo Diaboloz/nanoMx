@@ -112,9 +112,9 @@ function mainusers()
         </table>
         <div class="container">
             <div class="form-group">
-                    <input type="submit" class="btn btn-primary"  name="umodify" value="' . _MODIFY . '" />
-                    <input type="submit" class="btn btn-danger" name="udelete" value="' . _DELETE . '" />
                     <input type="hidden" name="op" value="' . PMX_MODULE . '/modify" />
+                    <button type="submit" class="btn btn-primary"  name="umodify"><i class="fa fa-edit fa-lg"></i>&nbsp;' . _MODIFY . '</button>
+                    <button type="submit" class="btn btn-danger" name="udelete"><i class="fa fa-trash fa-lg"></i>&nbsp;' . _DELETE . '</button>                   
             </div>       
         </div>
 	</form>
@@ -153,7 +153,7 @@ function mainusers()
 			<div class="form-group row">
 				<div class="offset-sm-2 col-sm-10">
 					<input type="hidden" name="op" value="' . PMX_MODULE . '/add" />
-					<input type="submit" class="btn btn-primary" value="' . _ADDUSERBUT . '" />
+					<button type="submit" class="btn btn-primary"><i class="fa fa-plus fa-lg"></i>&nbsp;' . _ADDUSERBUT . '</button> 
 				</div>
 			</div>	
 
@@ -321,12 +321,14 @@ function modify()
             	<span class="form-text text-muted">' . $forchanges . '</span>			
             </div>           	
         </div>
-		<input type="submit" class="btn btn-primary" value="' . _SAVECHANGES . '" />';
+		<button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _SAVECHANGES . '</button> 
+        ';
 
     } else {
         echo '
 				<input type="hidden" name="user_stat" value="1" />
-				<input type="submit" class="btn btn-primary" name="ureactivate" value="' . _REACTIVATEUSER . '" />';
+                <button type="submit" class="btn btn-primary" name="ureactivate"><i class="fa fa-check fa-lg"></i>&nbsp;' . _REACTIVATEUSER . '</button>
+                ';
     }
 
     echo '

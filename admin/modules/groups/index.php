@@ -67,7 +67,7 @@ function displayGroups()
                     </div> 
                     <div class="form-group col-sm-2">
                         <input type="hidden" name="op" value="' . PMX_MODULE . '/GroupMove" />
-                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> ' . _OK . '</button>    
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _OK . '</button>    
                     </div>                                           
                 </div>
                </form> 
@@ -96,7 +96,7 @@ function displayGroups()
                             </select>
                     </div> 
                     <div class="form-group col-sm-2">
-                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> ' . _OK . '</button>    
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _OK . '</button>    
                     </div>                                           
                 </div>
                </form> 
@@ -224,7 +224,7 @@ function displayGroups()
      </tbody>
      </table>
      <input type="hidden" name="op" value="' . PMX_MODULE . '/addGroup" />
-     <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> ' . _ADDGROUPBUT . '</button>
+     <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-plus fa-lg"></i>&nbsp;' . _ADDGROUPBUT . '</button>
      </div>
         ';
 
@@ -436,7 +436,7 @@ function editGroup($pvs)
             <input type="hidden" name="access_title" value="' . $access_title . '" />
             <input type="hidden" name="access_id" value="' . $access_id . '" />
             <input type="hidden" name="op" value="' . PMX_MODULE . '/updateGroup" />
-            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> ' . _SAVECHANGES . '</button>
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _SAVECHANGES . '</button>
         </td>
     </tr>
     </table>
