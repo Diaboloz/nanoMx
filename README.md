@@ -2,7 +2,7 @@
 Free nanoMx CMS is light, ultra fast, very secure, modern, Community Content Management System.
 
 
-## lot of features
+## Lot of features
     *Complet Website Navigation and Web Pages
     *Nice & featured Users account
 	*User Groups, and Permissions
@@ -46,6 +46,7 @@ nanoMx CMS is open-sourced software licensed under the GNU/GPL license.
 ## Support & development
 http://nanomx.pro/
 
-
 ## Donate
-Make a donation to support the work of the Open Source Initiative.
+Help us & make a donation to support the work of the Open Source Initiative.
+
+[DONATE](https://www.paypal.me/ThierryROUSSEL)
