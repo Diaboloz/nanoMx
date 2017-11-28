@@ -194,7 +194,7 @@ function ListComments()
        			<td>' . $func . '</td>
        		</tr>';
     }
-    GraphicAdmin();
+	
     title(_COMMENTSMOD);
     if (isset($entry)) {
         if ($offset >= $limit) {

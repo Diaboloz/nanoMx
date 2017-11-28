@@ -334,7 +334,6 @@ class imgupload_admin
         }
 
         include('header.php');
-        GraphicAdmin();
         title($title);
         echo $out;
         include('footer.php');

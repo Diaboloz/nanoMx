@@ -66,10 +66,9 @@ function pmx_get_admin_dashboard()
  */
 function pmx_admin_main()
 {
-    mxIncludeHeader();
-    GraphicAdmin();
+    include('header.php');
     echo pmx_get_admin_dashboard();
-    mxIncludeFooter();
+	include('footer.php');
 }
 
 /**

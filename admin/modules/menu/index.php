@@ -67,9 +67,7 @@ class Mx_Menu_Admin extends pmxMenu {
         $this->template->init_path(__FILE__);
         $this->set_navigation();
 
-        include("header.php");
-
-        GraphicAdmin();
+        include('header.php');
 
         switch ($get['menu']) {
             case "add_menu":

@@ -1,7 +1,11 @@
-<h2>Hooks verwalten</h2>
+<h2>Gérer les crochets</h2>
 
-<p><?php echo _HOOKS_DESCRIBE1 ?></p>
-<p class="important"><?php echo _HOOKS_DESCRIBE2 ?></p>
+<div class="card">
+  <div class="card-body">
+    <p><?php echo _HOOKS_DESCRIBE1 ?></p>
+    <p class="alert alert-warning"><?php echo _HOOKS_DESCRIBE2 ?></p>
+  </div>
+</div>
 
 <div id="hook-tabs">
   <ul class="tabs-nav">
@@ -13,7 +17,6 @@
     <form method="post" action="<?php echo adminUrl(PMX_MODULE) ?>">
     <?php echo $this->formHidden('op', PMX_MODULE . '/save') ?>
       <div id="tb<?php echo $id1 ?>" class="tabs-panel panel2">
-      <p class="align-right"><?php echo $this->formSubmit('', _SAVECHANGES)?></p>
       <h3 class="hook-hidecaption"><?php echo $tab['title'] ?></h3>
       <ul class="tabs-nav">
       <?php foreach ($tab['data'] as $id2 => $tab2) {  ?>
@@ -24,10 +27,10 @@
         <div id="tb2<?php echo $id2 ?>" class="tabs-panel">
         <h4 class="hook-hidecaption"><?php echo $tab2['title'] ?></h4>
         <?php foreach ($tab2['data'] as $hook => $files) { ?>
-          <div class="box clearfix" style="width: 100%">
           <h4><?php echo $hook ?></h4>
+          <div class="form-group row">       
           <?php foreach ($files as $id2 => $modname) { ?>
-          <label for="<?php echo $id1.$id2 ?>">
+          <label for="<?php echo $id1.$id2 ?>" class="checkbox-inline">
           <?php ($checked = (in_array($id2, $this->checked)) ? ' checked="checked"' : '') ?>
             <input type="checkbox" value="1" name="id[<?php echo $id2 ?>]" id="<?php echo $id1.$id2 ?>"<?php echo $checked ?> />
           <?php echo $modname ?>
@@ -37,7 +40,7 @@
         <?php } //endforeach ?>
         </div>
       <?php } //endforeach ?>
-      <p class="align-center"><?php echo $this->formSubmit('', _SAVECHANGES)?></p>
+        <button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;<?php echo _SAVECHANGES ?></button>
       </div>
     </form>
   <?php } //endforeach ?>

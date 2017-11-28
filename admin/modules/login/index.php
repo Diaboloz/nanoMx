@@ -77,11 +77,6 @@ function admin_login()
     $template->elements = $field;
 
 	
-    //include ('header.php');
-    //OpenTable();
-    //$template->display('loginform.html');
-    //CloseTable();
-    //include ('footer.php');
 	
 	/* neu */
 	

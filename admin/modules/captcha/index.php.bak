@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 255 $
+ * $Revision: 109 $
  * $Author: PragmaMx $
- * $Date: 2016-11-14 12:52:08 +0100 (Mo, 14. Nov 2016) $
+ * $Date: 2016-02-24 08:07:05 +0100 (Mi, 24. Feb 2016) $
  */
 
 defined('mxMainFileLoaded') or die('access denied');
@@ -103,7 +103,7 @@ class captcha_admin extends pmxCaptcha {
         $content .= "/**\n";
         $content .= " * pragmaMx - Web Content Management System\n";
         $content .= " * Copyright by pragmaMx Developer Team - http://www.pragmamx.org\n";
-        $content .= " * written with: \$Id: index.php 255 2016-11-14 11:52:08Z PragmaMx $\n";
+        $content .= " * written with: \$Id: index.php 109 2016-02-24 07:07:05Z PragmaMx $\n";
         $content .= " */\n\n";
         $content .= "defined('mxMainFileLoaded') or die('access denied');\n\n";
 

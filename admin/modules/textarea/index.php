@@ -146,7 +146,6 @@ function ReadEditor()
 
     include('header.php');
     title(_EDITOR_SETTINGS);
-    OpenTable();
 
     ?>
 <form action="<?php echo adminUrl(PMX_MODULE) ?>" method="post">
@@ -398,7 +397,6 @@ function ReadEditor()
 </script>
 
     <?php
-    CloseTable();
     include('footer.php');
 }
 

@@ -67,7 +67,7 @@ class self_admin {
         $template->assign('errors', $this->_errors);
 
         include ('header.php');
-        $template->display('edit.html');
+        $template->display('editSelfAdmin.html');
         include ('footer.php');
     }
 

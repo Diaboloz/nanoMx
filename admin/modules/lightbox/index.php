@@ -148,9 +148,8 @@ class lightbox_admin {
         pmxHeader::add_lightbox(true) ;
         pmxHeader::add_script_code('$(document).ready(function() {$(".cinput span[title]").tooltip()});') ;
 
-        include("header.php");
+        include('header.php');
         title(_LIGHTBOX);
-        OpenTable();
 
         echo '<form action="' . adminUrl(PMX_MODULE, 'save') . '" method="post">';
         echo '<input type="hidden" name="ok" value="1" size="0" />';
@@ -368,9 +367,8 @@ class lightbox_admin {
 
         echo '</fieldset></form>';
 
-        CloseTable();
 
-        include("footer.php");
+        include('footer.php');
     }
 	
 	function _settings1($ok=0)

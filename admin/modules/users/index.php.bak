@@ -42,7 +42,7 @@ function mainusers()
     $udata['user_bday'] = '0000-00-00';
     $newpass = pmx_password_create();
     $options = getAllUsersSelectOptions1();
-    pmx_html_passwordchecker();
+    //TODO nanomx pmx_html_passwordchecker();
 
     include('header.php');
     title(_USERADMIN);

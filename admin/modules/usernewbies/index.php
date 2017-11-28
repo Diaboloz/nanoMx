@@ -76,8 +76,7 @@ function viewthelist($counter = 0)
         die();
     }
     $menge = (int)sql_num_rows($result_m);
-    include("header.php");
-    GraphicAdmin();
+    include('header.php');
     title(_YADTITLE);
     $check = time() - (60 * 60 * $GLOBALS['wait_time']);
     if ($menge > 0) {
@@ -159,11 +158,9 @@ function delete_the_requested($counter, $int_counter, $uid_array)
         $delete_uid = intval($delete_uid);
         $internal_counter++;
         if (!$result = sql_query("DELETE FROM {$user_prefix}_users_temptable WHERE uid=" . $delete_uid)) {
-            include("header.php");
-            OpenTableAL();
+            include('header.php');
             echo "<center>Error delete Entry 202</center>";
-            CloseTableAL();
-            include("footer.php");
+            include('footer.php');
             die();
         }
     }
@@ -185,9 +182,7 @@ function adminsendusermail($counter, $int_counter, $uid_array)
         $internal_counter++;
         if (!$result = sql_query("SELECT * FROM {$user_prefix}_users_temptable WHERE uid=" . $resend_uid)) {
             include("header.php");
-            OpenTableAL();
             echo "<center>Error Admin Link resend Entry 451</center>";
-            CloseTableAL();
             include("footer.php");
             die();
         } else {

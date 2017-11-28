@@ -1,0 +1,81 @@
+<h2><?php echo _UAYOURADMINACCOUNT ?></h2>
+
+<?php if($this->messages): ?>
+<div class="alert alert-warning">
+  <ul>
+    <li><?php echo implode('</li><li>', $this->messages) ?></li>
+  </ul>
+</div>
+<?php endif; ?>
+
+<?php if($this->errors): ?>
+<div class="alert alert-danger">
+  <ul>
+    <li><?php echo implode('</li><li>', $this->errors) ?></li>
+  </ul>
+</div>
+<?php endif; ?>
+
+<div class="card">
+  <div class="card-header">
+    <?php echo _UAMODIFYINFO  ?>
+  </div> 
+	<div class="card-body">
+	  <form action="<?php echo adminUrl(PMX_MODULE, 'edit/save') ?>" method="post" class="form-horizontal"> 
+       
+		<div class="form-group row">
+          <label class="col-md-3 col-form-label"><?php echo _NICKNAME ?></label>
+          <div class="col-md-9">
+			<p class="form-control-static"><?php echo $this->aid  ?></p>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="name" class="col-md-3 col-form-label"><?php echo _UANAME ?></label>
+          <div class="col-md-9">
+            <input class="form-control" type="text" id="name" name="name" size="40" maxlength="50" value="<?php echo $this->name ?>" /> <span class="required" title="<?php echo _UAREQUIRED ?>"></span>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="email" class="col-md-3 col-form-label"><?php echo _UAEMAIL ?></label>
+          <div class="col-md-9">
+            <input class="form-control" type="text" id="email"  name="email" size="40" maxlength="100" value="<?php echo $this->email ?>" /> <span class="required" title="<?php echo _UAREQUIRED ?>"></span>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="url" class="col-md-3 col-form-label"><?php echo _UAURL ?></label>
+          <div class="col-md-9">
+            <input class="form-control" type="text" id="url" name="url" value="<?php echo $this->url ?>" size="40" maxlength="255" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="pwd" class="col-md-3 col-form-label"><?php echo _PASSWORD ?></label>
+          <div class="col-md-9">
+            <?php echo $this->formPassword('pwd', NULL, array('size'=>'30', 'id'=>'pwd', 'class'=>'form-control')) ?> <span class="form-text text-muted"><?php echo _UAFORCHANGES  ?></span>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="pwd2" class="col-md-3 col-form-label"><?php echo _UARETYPEPASS ?></label>
+          <div class="col-md-9">
+            <?php echo $this->formPassword('pwd2', NULL, array('size'=>'30', 'id'=>'pwd2', 'class'=>'form-control'), false) ?> <span class="form-text text-muted"><?php echo _UAFORCHANGES  ?></span>
+          </div>
+        </div>
+	</form> <!-- END:form -->
+  </div> <!-- END:.card-body -->
+  <div class="card-footer">
+    <input type="hidden" name="op" value="<?php echo PMX_MODULE ?>/edit/save" />
+    <button type="submit" class="btn btn-primary"><?php echo _UASAVE ?></button>
+  </div>
+</div> <!-- END:.card -->
+
+<?php 
+/* die Passwortfelder auf jeden Fall leeren, damit Browserdaten entfernt werden */
+pmxHeader::add_jquery();
+pmxHeader::add_script_code('$(document).ready(function(){$(\'input[type="password"]\').val("");});');
+
+/* pragmaMx CVS $Id: edit.html 6 2015-07-08 07:07:06Z PragmaMx $ äöüß */
+?>

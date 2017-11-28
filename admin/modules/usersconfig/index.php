@@ -111,7 +111,6 @@ class userconfig_admin extends pmxUserconfig {
         $template->tab_other = $template->fetch('other.html');
 
         include('header.php');
-        GraphicAdmin();
         title(_USERSADMINHEAD);
         $template->display('usersconfig.html');
         include('footer.php');
