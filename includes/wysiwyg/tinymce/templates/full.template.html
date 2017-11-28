@@ -1,0 +1,85 @@
+<?php
+$plugs = array(/* Liste der Plugins */
+  'anchor',
+  'autolink',
+  'charmap',
+  'code',
+  'contextmenu',
+  'directionality',
+  'emoticons',
+  'fullscreen',
+  'hr',
+  'image',
+  'insertdatetime',
+  'link',
+  'lists',
+  'media',
+  'nonbreaking',
+  'noneditable',
+  'paste',
+  'preview',
+  'searchreplace',
+  'spellchecker',
+  'table',
+  'template',
+  'textcolor',
+  'visualchars',
+);
+
+if ($this->pagebreak) {
+  $plugs[] = 'pagebreak';
+}
+
+$plugins = implode(',', $plugs);
+?>
+
+
+<textarea cols="<?php echo $this->cols ?>" rows="<?php echo $this->rows ?>" name="<?php echo $this->name ?>" id="<?php echo $this->name ?>" class="mce-<?php echo $this->name ?>-id wysiwygarea" style="overflow:auto;display:block;height:<?php echo $this->height ?>;width:<?php echo $this->width ?>;"><?php echo $this->value ?></textarea>
+
+<script type="text/javascript">
+  /*<![CDATA[*/
+  $().ready(function() {
+    $('textarea.mce-<?php echo $this->name ?>-id').tinymce({
+      // Location of TinyMCE script
+      script_url: '<?php echo $this->script_url ?>',
+      // General options
+      mode: "textareas",
+      theme: "modern",
+      skin: "lightgray",
+      editor_selector: "mce-<?php echo $this->name ?>-id",
+      width: "<?php echo $this->width ?>",
+      height: "<?php echo $this->height ?>",
+      language: "<?php echo $this->lang ?>",
+      directionality: "<?php echo $this->langdirection ?>",
+      plugins: "<?php echo $plugins ?>",
+      body_id : "htmlarea",
+      body_class : "body-allone",
+      content_css: "<?php echo $this->contentcss ?>",
+    <?php if($this->filebrowser['active']){ ?>
+      file_browser_callback : pmxFileBrowser, 
+    <?php } //endif ?>
+      // Style formats
+      style_formats : [ <?php include(dirname(__DIR__) . '/styles.php') ?> ],
+    });
+
+    function pmxFileBrowser(field_name, url, type, win) {
+      <?php // https://github.com/Studio-42/elFinder/wiki/Integration-with-TinyMCE-4.x ?>
+      tinymce.activeEditor.windowManager.open({
+        file: '<?php echo $this->filebrowser['url'] ?>&type=' + type, // script URL - use an absolute path!
+        title: '<?php echo $this->filebrowser['title'] ?>',
+        width: 850,
+        height: 450,
+        resizable: "yes"
+      }, {
+        setUrl: function (url) {
+          win.document.getElementById(field_name).value = url;
+        }
+      });
+      return false;
+    }
+
+  });
+  /*]]>*/
+</script>
+
+<?php /* pragmaMx CVS $Id: full.template.html 6 2015-07-08 07:07:06Z PragmaMx $ */ ?>
