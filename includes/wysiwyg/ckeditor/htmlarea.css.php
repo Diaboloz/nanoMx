@@ -9,9 +9,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * $Revision: 95 $
+ * $Revision: 142 $
  * $Author: PragmaMx $
- * $Date: 2015-11-16 11:24:13 +0100 (Mo, 16. Nov 2015) $
+ * $Date: 2016-05-01 17:57:18 +0200 (So, 01. Mai 2016) $
  */
 
 if (!($mainfile = realpath(dirname(__file__) . '/../../../mainfile.php'))) {
@@ -135,7 +135,6 @@ div.cke_panel_block {
    background-image: none;
    height: auto!important;
    text-align: left;
-   width:auto;
 }
 
 <?php }

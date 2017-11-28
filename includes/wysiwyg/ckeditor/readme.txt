@@ -3,17 +3,17 @@ pragmaMx Editor: CKEditor 4.4.x
 
 Download:
  http://ckeditor.com/download
- Die Option "Or let me customize CKEditor" wählen.
- Hier dann den Button "Upload build-config.js" betätigen und die 
+ Die Option "Or let me customize CKEditor" wÃ¤hlen.
+ Hier dann den Button "Upload build-config.js" betÃ¤tigen und die
  Datei /includes/wysiwyg/ckeditor/build-download-config.js aus dem pragmaMx 
  Paket hochladen lassen.
- Die geänderten Optionen überprüfen ggf. ergänzen und dann downloaden...
+ Die geÃ¤nderten Optionen Ã¼berprÃ¼fen ggf. ergÃ¤nzen und dann downloaden...
 
-benötigte Dateien und wohin damit?
+benÃ¶tigte Dateien und wohin damit?
  Im Zipfile liegt ein Unterordner "ckeditor".
  Den Inhalt dieses Ordners hier in den Unterordner "editor" kopieren.
- Die evtl. beigefügten Unterordner adapters, samples und _source werden 
- nicht benötigt.
+ Die evtl. beigefÃ¼gten Unterordner adapters, samples und _source werden
+ nicht benÃ¶tigt.
 
 Konfiguration, siehe hier:
  http://docs.cksource.com/CKEditor_3.x/Developers_Guide
