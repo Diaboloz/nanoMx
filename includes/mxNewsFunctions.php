@@ -508,13 +508,48 @@ function vkpAutomatedSelect($year, $day, $month, $hour, $min)
         $mi[] = "<option value=\"$xmin\" $sel>$ymin</option>";
         $xmin = $xmin + 5;
     }
-    echo "<br /><b>" . $title . "</b>&nbsp;&nbsp;";
-    echo "<br /><span class=\"tiny\">" . _NOWIS . ": " . vkpGetDate() . "</span><br /><br />";
-    echo " " . _DAY . ": <select name=\"day\">" . (implode("\n", $d)) . "</select>";
-    echo " " . _UMONTH . ": <select name=\"month\">" . (implode("\n", $m)) . "</select>";
-    echo " " . _YEAR . ": <input type=\"text\" name=\"year\" value=\"$year\" size=\"5\" maxlength=\"4\" />";
-    echo " " . _HOUR . ": <select name=\"hour\">" . (implode("\n", $h)) . "</select>";
-    echo " : <select name=\"min\">" . (implode("\n", $mi)) . "</select><br />";
+    echo '
+        <p class="h5">' . $title . '</p>
+        <p class="small">' . _NOWIS . ': ' . vkpGetDate() . '</p>
+<div class="row">
+
+            <div class="form-group col-sm-3">
+              <label for="day">' . _DAY . '</label>
+              <select class="form-control" name="day" id="day">
+                ' . (implode("\n", $d)) . '
+              </select>
+            </div>
+
+            <div class="form-group col-sm-3">
+              <label for="month">' . _UMONTH . '</label>
+              <select class="form-control" name="month" id="month">
+                ' . (implode("\n", $m)) . '
+              </select>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="year">' . _YEAR . '</label>
+                <input class="form-control" type="text" name="year" id="year" value="' . $year . '" size="5" maxlength="4" />
+              </div>
+            </div>
+
+
+
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>' . _HOUR . '</label>
+                <select class="form-control" name="hour">
+                    ' . (implode("\n", $h)) . '
+                </select>
+                <select class="form-control" name="min">
+                    ' . (implode("\n", $mi)) . '
+                </select>
+              </div>
+            </div>
+
+          </div>';
+
 }
 
 /**
