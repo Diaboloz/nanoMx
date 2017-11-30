@@ -334,21 +334,46 @@ function addNewsTextFields($story)
 {
     // die Daten muessen ohne Backslashes kommen
     $sw = load_class('Textarea');
-    echo "<div>";
-    echo "<span class=\"content\"><b>" . _TITLE . "</b></span><br />";
-    echo "<input type=\"text\" name=\"title\" size=\"80\" maxlength=\"80\" value=\"" . mxEntityQuotes($story['title']) . "\" />";
-    echo "<br /><br /></div>";
-    echo '<div><b>' . _STORYTEXT . ':</b><br />';
-    echo $sw->getHtml(array('name' => 'hometext', 'value' => $story['hometext'], 'height' => '350'));
-    echo "<br /></div>";
-    echo "<div><b>" . _EXTENDEDTEXT . ':</b><br />';
-    echo $sw->getHtml(array('name' => 'bodytext', 'value' => $story['bodytext'], 'height' => '400'));
-    echo "<br /></div>";
+    echo '
+		<div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="title">' . _TITLE . '</label>
+                <input type="text" class="form-control" id="title" name="title" size="80" maxlength="80" value="' . mxEntityQuotes($story['title']) . '" />
+              </div>
+            </div>
+          </div>';
+
+    echo '
+        <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="hometext">' . _STORYTEXT . '</label>
+                ' . $sw->getHtml(array('name' => 'hometext', 'value' => $story['hometext'], 'height' => '350')) . '
+              </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="bodytext">' . _EXTENDEDTEXT . '</label>
+                ' . $sw->getHtml(array('name' => 'bodytext', 'value' => $story['bodytext'], 'height' => '400')) . '
+              </div>
+            </div>
+        </div>';
     // Achtung: Notes funktionieren nur, wenn die Funktion über das Adminmodul aufgerufen wird
     if (MX_IS_ADMIN && defined("mxAdminFileLoaded")) {
-        echo "<div><b>" . _NOTES . ':</b><br />';
-        echo $sw->getHtml(array('name' => 'notes', 'value' => $story['notes'], 'height' => '120'));
-        echo "<br /></div>";
+        echo '
+        <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="notes">' . _NOTES . '</label>
+                    ' . $sw->getHtml(array('name' => 'notes', 'value' => $story['notes'], 'height' => '120')) . '
+              </div>
+            </div>
+        </div>';
     }
 }
 
@@ -382,9 +407,9 @@ function vkpSelectTopic($topic = 0)
 {
     global $prefix;
     echo '
-		<b>' . _TOPIC . ':</b>
-		<br />
-		<select name="topic">';
+        <label class="col-md-4 form-control-label" for="topic">' . _TOPIC . '</label>
+            <div class="col-md-5">
+		        <select id="topic" name="topic" class="form-control">';
     $toplist = sql_query("SELECT topicid, topictext 
 						FROM " . $prefix . "_topics 
 						ORDER BY topictext");
@@ -396,7 +421,8 @@ function vkpSelectTopic($topic = 0)
 			</option>';
     }
     echo '
-		</select>';
+		        </select>
+            </div>';
 }
 
 /**
@@ -500,19 +526,14 @@ function vkpAutomatedSelect($year, $day, $month, $hour, $min)
 function vkpNewsSelectTopicCat($story)
 {
     echo '
-		<table cellpadding="0" cellspacing="0" width="100%">
-			<tr valign="top">
-				<td width="30%">';
-					vkpSelectTopic($story['topic']);
-	echo '
-				</td>
-				<td>&nbsp;&nbsp;</td>
-				<td width="70%">';
-					SelectCategory($story['catid']);
-    echo '
-				</td>
-			</tr>
-		</table>';
+        <div class="form-group row">';
+            vkpSelectTopic($story['topic']);
+   echo '
+        </div>
+        <div class="form-group row">';
+            SelectCategory($story['catid']);
+    echo'          
+        </div>';
 }
 
 /**
@@ -526,12 +547,22 @@ function vkpNewsSelectActComments($acomm = 0)
     // Achtung!!! acomm: 0 = Ja , 1 = Nein
     $sel1 = (empty($acomm)) ? 'checked="checked"' : '';
     $sel2 = (empty($acomm)) ? '' : 'checked="checked"';
-    echo '
-		<br />
-		<b>' . _ACTIVATECOMMENTS . '</b>&nbsp;&nbsp;
-		<input type="radio" name="acomm" value="0" ' . $sel1 . ' />' . _YES . '
-		&nbsp;
-		<input type="radio" name="acomm" value="1" ' . $sel2 . ' />' . _NO ;
+    echo '            
+		<div class="form-group row">
+			<label class="col-md-2 col-form-label">' . _ACTIVATECOMMENTS . '</label>
+            <div class="col-md-4">
+				<div class="radio">
+					<label for="radio1">
+						<input type="radio" id="radio1" name="acomm" value="0" ' . $sel1 . ' />' . _YES . '
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="radio2">
+						<input type="radio" id="radio2" name="acomm" value="1" ' . $sel2 . ' />' . _NO . '
+                    </label>
+                </div>
+            </div>
+        </div>';
 }
 
 /**

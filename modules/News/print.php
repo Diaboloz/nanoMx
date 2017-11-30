@@ -42,9 +42,11 @@ if (!headers_sent()) {
 mxGetLangfile($module_name);
 include_once(PMX_SYSTEM_DIR . "/mxNewsFunctions.php");
 
-$result = sql_query("select title, time, hometext, bodytext, topic, notes from ${prefix}_stories where sid=" . intval($_REQUEST['sid']));
+$result = sql_query("SELECT title, time, hometext, bodytext, topic, notes 
+					FROM ${prefix}_stories 
+					WHERE sid=" . intval($_REQUEST['sid']));
 list($title, $time, $hometext, $bodytext, $topic, $notes) = sql_fetch_row($result);
-$result = sql_query("select topictext from " . $prefix . "_topics where topicid=" . intval($topic));
+$result = sql_query("SELECT topictext FROM " . $prefix . "_topics WHERE topicid=" . intval($topic));
 list($topictext) = sql_fetch_row($result);
 $time = formatTimestamp($time);
 /**
@@ -66,7 +68,11 @@ switch (true) {
         break;
 }
 if ($notes) {
-    $content .= '<br /><br /><br /><em>' . $notes . '</em>';
+    $content .= '
+		<br />
+		<br />
+		<br />
+		<em>' . $notes . '</em>';
 }
 
 ?>

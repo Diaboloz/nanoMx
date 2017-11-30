@@ -14,7 +14,7 @@ Free nanoMx CMS is light, ultra fast, very secure, modern, Community Content Man
 	*SEO
 	*More & more....
 	
-nanoMx is designed to run on a machine with PHP 5+ and MySQL 5+
+nanoMx is designed to run on a machine with PHP 5.4.x min (PHP7 ready) and MySQL 5+
 
 ## Powered by:
 *PHP
