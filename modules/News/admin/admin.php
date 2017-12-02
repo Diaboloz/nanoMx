@@ -144,13 +144,14 @@ function vkpNewsSelectPoll($artid, $pollID)
     }
 
     echo '
-		<br />
-		<b>' . _ATTACHAPOLL . '</b>
-		<br />
-		<select name="pollID">
-			' . implode(PHP_EOL, $options) . '
-		</select>
-		<br />';
+		<div class="form-group row">
+        	<label class="col-md-4 form-control-label" for="pollID">' . _ATTACHAPOLL . '</label>
+            <div class="col-md-5">
+				<select id="pollID" name="pollID" class="form-control">
+					' . implode(PHP_EOL, $options) . '
+				</select>
+            </div>
+        </div>';
 
     if ($artid && $pollTitle) {
         echo '- ' . sprintf(_ANNOUNCEEDIT, '<a href="' . adminUrl('Surveys', 'edit', array('pollID' => $pollID)) . '">' . $pollTitle . '</a>') . '<br />';
@@ -476,9 +477,9 @@ function myform($story, $preview = 0, $caption = '')
 
     if (isset($story['errmsg'])) {
         echo '
-			<div class="alert alert-danger">
-				<h2>' . _ERROROCCURS . '</h2>
-				<ul>
+			<div class="alert alert-danger text-center">
+				<p class="h3">' . _ERROROCCURS . '</p>
+				<ul class="list-unstyled">
 					<li>' . implode('</li><li>', $story['errmsg']) . '</li>
 				</ul>
 			</div>';
@@ -495,7 +496,7 @@ function myform($story, $preview = 0, $caption = '')
 	<div class="col-md-4">
 		<div class="card">
 		<div class="card-header">
-          				<i class="fa fa-wrench"></i>&nbsp' . _SETTING . '
+          				<i class="fa fa-wrench"></i>&nbsp' . _CONFIGURE . '
 		        	</div>
 			<div class="card-body">';
     vkpNewsSelectTopicCat($story);
@@ -509,8 +510,7 @@ function myform($story, $preview = 0, $caption = '')
     echo '<input type="hidden" name="sid" value="' . $story['sid'] . '" />';
     echo '<input type="hidden" name="qid" value="' . $story['qid'] . '" />';
     echo '<input type="hidden" name="aid" value="' . $story['aid'] . '" />';
-    echo '<br /><br /><br />';
-    echo '<select name="op">';
+    echo '<select class=" form-control" name="op">';
     if ($story['op'] == PMX_MODULE . '/DisplayStory' || $story['op'] == PMX_MODULE . '/PreviewAgain') {
         echo '<option value="' . PMX_MODULE . '/PreviewAgain">' . _PREVIEWSTORY . '</option>';
     }
@@ -524,7 +524,7 @@ function myform($story, $preview = 0, $caption = '')
         echo '<option value="' . PMX_MODULE . '/ChangeStory">' . _SAVECHANGES . '</option>';
     }
     echo '</select>';
-    echo '<input type="submit" value="' . _OK . '" />';
+    echo '<button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _OK . '</button>';
     if ($story['op'] == PMX_MODULE . '/DisplayStory' || $story['op'] == PMX_MODULE . '/PreviewAgain') {
         echo ' &nbsp;&nbsp; [&nbsp;<a href="' . adminUrl(PMX_MODULE, 'DeleteStory', 'qid=' . $story['qid'] . '&amp;ok=0') . '">' . _DELETE . '</a>&nbsp;]';
     } else if ($story['op'] == PMX_MODULE . '/EditStory') {
@@ -798,19 +798,27 @@ function vkpUsernameField ($story)
     }
     $informant_before = (isset($story['informant_before'])) ? $story['informant_before'] : $story['informant'];
     echo '
-		<br />
-		<b>' . _SUBMITTER . ':</b>
-		<br />
-    <input type="text" name="informant" size="28" maxlength="25" value="' . mxEntityQuotes($story['informant']) . '" />
-    <input type="hidden" name="informant_before" value="' . mxEntityQuotes($informant_before) . '" />
-    ';
+		<div class="form-group row">
+    		<label class="col-md-4 form-control-label" for="informant">' . _SUBMITTER . '</label>
+    		<div class="col-md-5">
+    		    <input type="text" class="form-control" id="informant" name="informant" size="28" maxlength="25" value="' . mxEntityQuotes($story['informant']) . '" />
+    			<input type="hidden" name="informant_before" value="' . mxEntityQuotes($informant_before) . '" />';
+
     if (!empty($userinfo['uid'])) {
         // thx to diabolo...
-        echo '&nbsp;&nbsp;<span class="content">
-        [&nbsp;<a href="mailto:' . $userinfo['email'] . '">' . _SENDEMAILUSER . '</a>
-        | <a href="modules.php?name=Private_Messages&amp;op=send&amp;uname=' . $story['informant'] . '" target="_blank">' . _SENDPMUSER . '</a>&nbsp;]
-        </span>';
+        echo '
+        	<p>
+        	<a href="mailto:' . $userinfo['email'] . '">' . _SENDEMAILUSER . '</a>';
+        if(mxModuleAllowed('Private_Messages')){
+        	echo ' | <a href="modules.php?name=Private_Messages&amp;op=send&amp;uname=' . $story['informant'] . '" target="_blank">' . _SENDPMUSER . '</a>';
+        }
+        echo '
+        	</p>';
     }
+    echo '
+    		</div>          
+        </div>';
+
 }
 
 /**

@@ -38,7 +38,7 @@ define("_NEWSBY", "Nouvelles transmises par");
 define("_BYTESMORE", "octets de plus");
 define("_COMMENTSQ", "commentaires ?");
 define("_COMMENT", "Commentaire");
-define("_CONFIGURE", "Préférences");
+define("_CONFIGURE", "Configuration");
 define("_LOGINCREATE", "Connexion/Créer un compte");
 define("_THRESHOLD", "Disposition");
 define("_NOCOMMENTS", "Pas de commentaire");

@@ -295,6 +295,7 @@ function vkpStoryPreview($story)
     if (empty($story['topic'])) {
         $story['topic'] = vkpGetFirstTopic();
     }
+    /* change for nanomx
     if (function_exists('mx_theme_engineversion')) {
         @mxGetLangfile('News');
         if (MX_IS_USER) {
@@ -307,21 +308,22 @@ function vkpStoryPreview($story)
         @themearticle(null, null, null, null, null, null, null, null, null, $story);
     } else {
         /* fuer veraltete Themes (nuke etc.) */
-        echo vkpTopicImage($story['topic'], 1);
-        echo "<b>" . mxPrepareToDisplay($story['title']) . "</b><br /><br />";
+        //remove image topic echo vkpTopicImage($story['topic'], 1);
+        echo '
+            <div class="card m-2 p-2">
+                <h4>' . mxPrepareToDisplay($story['title']) . '</h4>';
         echo mxPrepareToDisplay($story['hometext']);
         if (isset($story['bodytext']) && trim(strip_tags($story['bodytext']))) {
             echo '<hr noshade="noshade" size="1" />' . mxPrepareToDisplay($story['bodytext']);
         }
         if (isset($story['notes']) && trim(strip_tags($story['notes']))) {
             echo '
-				<br />
-				<br />
-				<b>' . _NOTE . "</b> <i>" . mxPrepareToDisplay($story['notes']) . "</i>";
+                <p><strong>' . _NOTE . '</strong></p>
+                    ' . mxPrepareToDisplay($story['notes']);
         }
-    }
+    //}
     echo '
-		<br />';
+		  </div>';
 }
 
 /**
@@ -387,10 +389,12 @@ function vkpNewsSelectLanguage($alanguage = '')
 {
     if ($GLOBALS['multilingual']) {
         echo '
-			<br />
-			<b>' . _LANGUAGE . ': </b>
-			<br />
-			' . mxLanguageSelect('alanguage', $alanguage, 'language', 1) . '<br />';
+            <div class="form-group row">
+                <label class="col-md-4 form-control-label" for="language">' . _LANGUAGE . '</label>
+            <div class="col-md-5">
+                ' . mxLanguageSelect('alanguage', $alanguage, 'language', 1) . '
+            </div>
+        </div>';
     } else {
         echo '
 			<input type="hidden" name="alanguage" value="" />';
@@ -584,18 +588,14 @@ function vkpNewsSelectActComments($acomm = 0)
     $sel2 = (empty($acomm)) ? '' : 'checked="checked"';
     echo '            
 		<div class="form-group row">
-			<label class="col-md-2 col-form-label">' . _ACTIVATECOMMENTS . '</label>
-            <div class="col-md-4">
-				<div class="radio">
-					<label for="radio1">
-						<input type="radio" id="radio1" name="acomm" value="0" ' . $sel1 . ' />' . _YES . '
-                    </label>
-                </div>
-                <div class="radio">
-                    <label for="radio2">
-						<input type="radio" id="radio2" name="acomm" value="1" ' . $sel2 . ' />' . _NO . '
-                    </label>
-                </div>
+			<label class="col-md-4 col-form-label">' . _ACTIVATECOMMENTS . '</label>
+            <div class="col-md-8">
+                <label class="radio-inline">
+                    <input type="radio" name="acomm" value="0" ' . $sel1 . ' />' . _YES . '
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="acomm" value="1" ' . $sel2 . ' />' . _NO . '
+                </label>               
             </div>
         </div>';
 }
