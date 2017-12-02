@@ -39,11 +39,13 @@ function vkpStoriesHeader($title)
     $menu = implode('</li><li>', $item);
     title($title);
     echo '
-    <div class="card">
-		<ul class="nav nav-pills">
-			<li class="nav-item">' . $menu . '</li>
-		</ul>
-	</div>';
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    	<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">' . $menu . '</li>
+			</ul>
+		</div>
+	</nav>';
 }
 
 /**
@@ -507,7 +509,12 @@ function myform($story, $preview = 0, $caption = '')
     vkpNewsSelectPoll($story['sid'], $story['pollID']);
     vkpNewsSelectLanguage($story['alanguage']);
     vkpUsernameField ($story);
-    echo '<input type="hidden" name="sid" value="' . $story['sid'] . '" />';
+    echo '
+    </div><!-- card-body -->
+    <div class="card-footer">
+    <div class="row">
+    	<div class="col-md-6">
+    		<input type="hidden" name="sid" value="' . $story['sid'] . '" />';
     echo '<input type="hidden" name="qid" value="' . $story['qid'] . '" />';
     echo '<input type="hidden" name="aid" value="' . $story['aid'] . '" />';
     echo '<select class=" form-control" name="op">';
@@ -523,15 +530,22 @@ function myform($story, $preview = 0, $caption = '')
     if ($story['op'] == PMX_MODULE . '/EditStory') {
         echo '<option value="' . PMX_MODULE . '/ChangeStory">' . _SAVECHANGES . '</option>';
     }
-    echo '</select>';
-    echo '<button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _OK . '</button>';
-    if ($story['op'] == PMX_MODULE . '/DisplayStory' || $story['op'] == PMX_MODULE . '/PreviewAgain') {
-        echo ' &nbsp;&nbsp; [&nbsp;<a href="' . adminUrl(PMX_MODULE, 'DeleteStory', 'qid=' . $story['qid'] . '&amp;ok=0') . '">' . _DELETE . '</a>&nbsp;]';
-    } else if ($story['op'] == PMX_MODULE . '/EditStory') {
-        echo ' &nbsp;&nbsp; [&nbsp;<a href="' . adminUrl(PMX_MODULE, 'RemoveStory', 'sid=' . $story['sid'] . '&amp;ok=0') . '">' . _DELETE . '</a>&nbsp;]';
-    }
+    echo '</select>
+    	</div>';
     echo '
-		</div>
+
+    	<div class="col-md-6">
+    	<button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _OK . '</button>';
+    if ($story['op'] == PMX_MODULE . '/DisplayStory' || $story['op'] == PMX_MODULE . '/PreviewAgain') {
+        echo '&nbsp; <a class="btn btn-danger" href="' . adminUrl(PMX_MODULE, 'DeleteStory', 'qid=' . $story['qid'] . '&amp;ok=0') . '"><i class="fa fa-trash fa-lg"></i>&nbsp;' . _DELETE . '</a>';
+    } else if ($story['op'] == PMX_MODULE . '/EditStory') {
+        echo '&nbsp; <a class="btn btn-danger" href="' . adminUrl(PMX_MODULE, 'RemoveStory', 'sid=' . $story['sid'] . '&amp;ok=0') . '"><i class="fa fa-trash fa-lg"></i>&nbsp;' . _DELETE . '</a>';
+    }
+    echo '</div>
+    	</div>
+    </div>
+
+
 		</div>
     </div>
     </div>
@@ -834,37 +848,56 @@ function CategoriesMenu()
         ORDER BY ${prefix}_stories_cat.title");
     while (list($catid, $title, $anz) = sql_fetch_row($result)) {
         $tit = base64_encode($title);
-        $fields[] = '<tr><td>
-<b>' . htmlspecialchars($title) . '</b></td><td>
-<form action="' . adminUrl(PMX_MODULE) . '" method="post">
-<input type="text" name="title" value="' . htmlspecialchars($title) . '" size="22" maxlength="40" />
-<input type="hidden" name="op" value="' . PMX_MODULE . '/SaveEditCategory" />
-<input type="hidden" name="catid" value="' . $catid . '" />
-<input type="hidden" name="anz" value="' . $anz . '" />
-<input type="submit" value="' . _SAVECHANGES . '" />&nbsp;&nbsp;
-</form></td>
-<td><a href="' . adminUrl(PMX_MODULE, 'DelCategory', 'catid=' . $catid . '&amp;anz=' . $anz . '&amp;tit=' . $tit) . '">' . _DELETE . '</a></td>
-<td align="right">&nbsp;&nbsp;' . $anz . ' ' . _ARTICLES . '</td>
-</tr>';
+        $fields[] = '
+        	<tr>
+        		<td>
+					<strong>' . htmlspecialchars($title) . '</strong>
+				</td>
+				<td>' . $anz . '&nbsp;' . _ARTICLES . '</td>
+				<td>
+					<form action="' . adminUrl(PMX_MODULE) . '" method="post">
+						<input type="text" class="form-control" name="title" value="' . htmlspecialchars($title) . '" size="22" maxlength="40" />
+						<input type="hidden" name="op" value="' . PMX_MODULE . '/SaveEditCategory" />
+						<input type="hidden" name="catid" value="' . $catid . '" />
+						<input type="hidden" name="anz" value="' . $anz . '" />
+						<button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _SAVECHANGES . '</button>						
+					</form>
+				</td>
+				<td><a class="btn btn-danger" href="' . adminUrl(PMX_MODULE, 'DelCategory', 'catid=' . $catid . '&amp;anz=' . $anz . '&amp;tit=' . $tit) . '"><i class="fa fa-trash fa-lg"></i>&nbsp;' . _DELETE . '</a></td>
+				
+			</tr>';
     }
-
-    $fields[] = '<tr><td colspan="3"><br /></td></tr>
-<tr><td>
-<b>' . _CATEGORYADD . '</b></td><td>
-<form action="' . adminUrl(PMX_MODULE) . '" method="post">
-<input type="text" name="title" value="" size="22" maxlength="40" />
-<input type="hidden" name="op" value="' . PMX_MODULE . '/SaveCategory" />
-<input type="submit" value="' . _SAVE . '" />
-</form>
-</td><td colspan="2"><a name="AddCategory">&nbsp;</a>
-</td>
-</tr>';
 
     include('header.php');
     vkpStoriesHeader(_CATEGORIESADMIN);
-    echo '<table>';
+    echo '
+    	<div class="card">
+    		<div class="card-header">
+        	  <i class="fa fa-bars"></i>&nbsp;' . _CATEGORIESADMIN . '
+        	</div>
+    		<table class="table">
+    			<tbody>';
     echo implode("\n", $fields);
-    echo '</table>';
+    echo '
+    			</tbody>
+    		</table>
+    		<div class="card-footer">
+				<form action="' . adminUrl(PMX_MODULE) . '" method="post">
+                	<input type="hidden" name="op" value="' . PMX_MODULE . '/SaveCategory" /> 
+					<div class="row">    
+	                    <div class="col-md-3 h5">                      
+                            ' . _CATEGORYADD . '                    
+    	                </div>           
+                    	<div class="form-group col-md-3">
+							<input class="form-control" type="text" name="title" value="" size="22" maxlength="40" />
+                    	</div>
+                    	<div class="form-group col-sm-2">
+                        	<button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-plus fa-lg"></i>&nbsp;' . _ADD . '</button>    
+                    	</div>                                   
+                	</div>
+                </form>  
+        	</div>
+    	</div>';
     include('footer.php');
 }
 
