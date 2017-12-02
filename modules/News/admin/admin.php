@@ -169,14 +169,13 @@ function DeleteStory($qid, $ok = 1)
         include('header.php');
         vkpStoriesHeader(_SUBMISSIONSADMIN);
         echo '
-			<center class="important">
-				<font class="option"><b>' . _SURETODELSTORY . '</b></font>
-				<br />
-				<br />
-				<br />
-				[&nbsp;<a href="' . adminUrl(PMX_MODULE, 'DeleteStory', "qid=$qid&amp;ok=1") . '\">' . _YES . '</a> | 
-				<a href="' . adminUrl(PMX_MODULE) . '">' . _NO . '</a>&nbsp;]
-			</center>';
+			<div class="alert alert-danger text-center">
+				<p>' . _SURETODELSTORY . '</p>
+				<p>
+					<a class="btn btn-danger" href="' . adminUrl(PMX_MODULE, 'DeleteStory', "qid=$qid&amp;ok=1") . '\">' . _YES . '</a>
+					<a class="btn btn-primary" href="' . adminUrl(PMX_MODULE) . '">' . _NO . '</a>
+				</p>
+			</div>';
         include('footer.php');
     } else {
         $result = sql_query("DELETE FROM ${prefix}_queue where qid=" . intval($qid));
@@ -400,7 +399,8 @@ function RemoveStory($sid, $ok = 0)
         	<div class="alert alert-danger text-center">
 				<p>' . _REMOVESTORY . '&nbsp;' . $sid . '&nbsp;' . _ANDCOMMENTS . '
     			<p>
-    				[&nbsp;<a href="' . adminUrl(PMX_MODULE) . '">' . _NO . '</a> | <a href="' . adminUrl(PMX_MODULE, 'RemoveStory', 'sid=' . $sid . '&amp;ok=1') . '">' . _YES . '</a>&nbsp;]
+    				<a class="btn btn-danger" href="' . adminUrl(PMX_MODULE, 'RemoveStory', 'sid=' . $sid . '&amp;ok=1') . '\">' . _YES . '</a>
+					<a class="btn btn-primary" href="' . adminUrl(PMX_MODULE) . '">' . _NO . '</a>
     			</p>
 			</div>';
         include('footer.php');
@@ -558,9 +558,10 @@ function myform($story, $preview = 0, $caption = '')
 function submissions()
 {
     global $bgcolor1, $bgcolor2, $prefix;
-    $img_delete = mxCreateImage("images/delete.gif", _DELETE, 0, 'title="' . _DELETE . '"');
-    $img_edit = mxCreateImage("images/edit.gif", _EDIT, 0, 'title="' . _EDIT . '"');
-    $img_view = mxCreateImage("images/view.gif", _SHOW, 0, 'title="' . _SHOW . '"');
+
+    $img_delete = '<i class="fa fa-trash fa-lg"></i>&nbsp;'  . _DELETE;
+    $img_edit = '<i class="fa fa-edit fa-lg"></i>&nbsp;'  . _EDIT;
+    $img_view = '<i class="fa fa-search fa-lg"></i>&nbsp;'  . _SHOW;
 
     include('header.php');
     $result = sql_query("SELECT qid, subject, timestamp, alanguage
@@ -577,7 +578,7 @@ function submissions()
         $out .= "<td>&nbsp;" . formatTimestamp($time, _SHORTDATESTRING) . "</td>\n";
         $out .= "<td>&nbsp;<a href=\"" . adminUrl(PMX_MODULE, 'DisplayStory', "qid=" . $qid) . "\">" . $title . "</a></td>\n";
         $out .= "<td>" . $alanguage . "</td>\n";
-        $out .= "<td nowrap=\"nowrap\"><a href=\"" . adminUrl(PMX_MODULE, 'DisplayStory', "qid=" . $qid) . "\">" . $img_view . "</a> <a href=\"" . adminUrl(PMX_MODULE, "DeleteStory", "qid=" . $qid . "&amp;ok=0") . "\">" . $img_delete . "</a></td>\n";
+        $out .= "<td><a class=\"btn btn-info\" href=\"" . adminUrl(PMX_MODULE, 'DisplayStory', "qid=" . $qid) . "\">" . $img_view . "</a> <a class=\"btn btn-danger\" href=\"" . adminUrl(PMX_MODULE, "DeleteStory", "qid=" . $qid . "&amp;ok=0") . "\">" . $img_delete . "</a></td>\n";
         $out .= "</tr>";
         $dummy++;
     }
@@ -594,20 +595,26 @@ function submissions()
 			</div>';
     } else {
         echo '
-			<center><b>' . _NEWSUBMISSIONS . '</b></center>
-			<br />
-			<br />
-			<table class="list full">
-				<tr>
-					<th>&nbsp;</th>
-					<th>' . _DATE . '</th>
-					<th>' . _TITLE . '</th>
-					<th>' . _UALANGUAGE . '</th>
-					<th>' . _FUNCTIONS . '</th>
-				</tr>';
+        <div class="card">
+        	<div class="card-header">
+        	  <i class="fa fa-pause"></i>&nbsp;' . _NEWSUBMISSIONS . '
+        	</div>
+        	<div class="card-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>&nbsp;</th>
+							<th>' . _DATE . '</th>
+							<th>' . _TITLE . '</th>
+							<th>' . _UALANGUAGE . '</th>
+							<th>' . _FUNCTIONS . '</th>
+						</tr>
+					</thead>';
         echo $out;
         echo '
-			</table>';
+				</table>
+			</div>
+		</div>';
     }
     include('footer.php');
 }
@@ -672,7 +679,7 @@ function currentStories()
 				<table class="table">
 					<thead>
 						<tr>
-							<th>N°</th>
+							<th>&nbsp;</th>
 							<th>' . _DATE . '</th>
 							<th>' . _TITLE . '</th>
 							<th>' . _UALANGUAGE . '</th>
@@ -715,9 +722,9 @@ function timedStories()
     extract(mxGetAdminData());
     include('header.php');
 
-    $img_delete = mxCreateImage("images/delete.gif", _DELETE, 0, 'title="' . _DELETE . '"');
-    $img_edit = mxCreateImage("images/edit.gif", _EDIT, 0, 'title="' . _EDIT . '"');
-    $img_view = mxCreateImage("images/view.gif", _SHOW, 0, 'title="' . _SHOW . '"');
+    $img_delete = '<i class="fa fa-trash fa-lg"></i>&nbsp;'  . _DELETE;
+    $img_edit = '<i class="fa fa-edit fa-lg"></i>&nbsp;'  . _EDIT;
+    $img_view = '<i class="fa fa-search fa-lg"></i>&nbsp;'  . _SHOW;
 
     $result = sql_query("SELECT sid, aid as s_aid, title, time, topic, informant, alanguage
     					FROM ${prefix}_stories WHERE  time  > now()
@@ -732,10 +739,10 @@ function timedStories()
             $alanguage = (empty($alanguage)) ? _ALL : $alanguage;
             $out .= "<tr>\n";
             $out .= "<td>" . ($dummy + 1) . "</td>\n";
-            $out .= "<td nowrap=\"nowrap\">" . formatTimestamp($time, _SHORTDATESTRING) . "</td>\n";
+            $out .= "<td>" . formatTimestamp($time, _SHORTDATESTRING) . "</td>\n";
             $out .= "<td>" . $title . "</td>\n";
             $out .= "<td>" . mxGetLanguageString($alanguage) . "</td>\n";
-            $out .= "<td nowrap=\"nowrap\"><a href=\"" . adminUrl(PMX_MODULE, 'EditStory', "sid=" . $sid) . "\">" . $img_edit . "</a> <a href=\"" . adminUrl(PMX_MODULE, 'RemoveStory', 'sid=' . $sid) . "\">" . $img_delete . "</a></td>\n";
+            $out .= "<td nowrap=\"nowrap\"><a class=\"btn btn-primary\" href=\"" . adminUrl(PMX_MODULE, 'EditStory', "sid=" . $sid) . "\">" . $img_edit . "</a> <a class=\"btn btn-danger\" href=\"" . adminUrl(PMX_MODULE, 'RemoveStory', 'sid=' . $sid) . "\">" . $img_delete . "</a></td>\n";
             $out .= "</tr>";
         } else {
             $out2 .= "<option value=\"" . $sid . "\">" . $time . " - " . htmlspecialchars($title) . "</option>\n";
@@ -757,22 +764,25 @@ function timedStories()
 			</div>';
     } else {
         echo '
-			<center>
-				<b>' . _ADMIN_NEWSTIMED . '</b>
-			</center>
-			<br />
-			<br />
-			<table class="list full">
-				<tr>
-					<th>&nbsp;</th>
-					<th>' . _ADM_MESS_DATESTART . '</th>
-					<th>' . _TITLE . '</th>
-					<th>' . _UALANGUAGE . '</th>
-					<th>' . _FUNCTIONS . '</th>
-				</tr>';
+       <div class="card">
+        	<div class="card-header">
+        	  <i class="fa fa-newspaper-o"></i>&nbsp;' . _ADMIN_NEWSTIMED . '
+        	</div>
+        	<div class="card-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>&nbsp;</th>
+							<th>' . _ADM_MESS_DATESTART . '</th>
+							<th>' . _TITLE . '</th>
+							<th>' . _UALANGUAGE . '</th>
+							<th>' . _FUNCTIONS . '</th>
+						</tr>
+					</thead>';
         echo $out;
         echo '
-			</table>';
+			</table>
+		</div>';
         if ($out2) {
             echo '
 				<center><b>' . _ADMIN_NEWSOLD . '</b> (' . ($dummy - $countview) . ')</center>';
