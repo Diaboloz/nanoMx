@@ -40,12 +40,12 @@ function modules()
     global $prefix;
 
     // Icons Bootstrap 4
-    $img_activate   = '<i class="fa fa-check fa-lg m-t-2"></i>';
-    $img_deactivate = '<i class="fa fa-minus-circle fa-lg m-t-2"></i>';
-    $img_edit       = '<i class="fa fa-edit fa-lg m-t-2"></i>';
-    $img_home       = '<i class="fa fa-home fa-lg m-t-2"></i>';
-    $img_view       = '<i class="fa fa-eye fa-lg m-t-2"></i>';
-    $img_admin      = '<i class="fa fa-wrench fa-lg m-t-2"></i>';
+    $img_activate   = '<i class="fa fa-check fa-lg"></i>&nbsp;' . _ACTIVATE;
+    $img_deactivate = '<i class="fa fa-minus-circle"></i>&nbsp;' . _DEACTIVATE;
+    $img_edit       = '<i class="fa fa-edit fa-lg"></i>&nbsp;' . _EDIT;
+    $img_home       = '<i class="fa fa-home fa-lg"></i>&nbsp;' . _PUTINHOME;
+    $img_view       = '<i class="fa fa-eye fa-lg"></i>&nbsp;' . _SHOW;
+    $img_admin      = '<i class="fa fa-wrench fa-lg"></i>&nbsp;' . _ADMINISTRATION;
     // Icons Bootstrap 4 - End
 
     $mainmod = mxGetMainModuleName();
@@ -100,6 +100,7 @@ function modules()
         extract($module);
         $act = (empty($active)) ? 1 : 0;
         $change = (empty($active)) ? $img_activate : $img_deactivate;
+        $colorchange = (empty($active)) ? 'success' : 'secondary';
         $custom_title = (empty($custom_title)) ? str_replace("_", " ", $title) : $custom_title;
 
         $main_id = (empty($main_id)) ? 'Modules' : $main_id;
@@ -139,15 +140,15 @@ function modules()
             /* Datei gefunden */
             if (is_file($filename)) {
                 /* Datei verlinken und raus hier */
-                $clickit2 = "<a class=\"btn btn-primary btn-sm\" href=\"admin.php?op=" . $title . "\" target=\"_blank\" title=\"" . $title . " " . _ADMINISTRATION . "\">" . $img_admin . "</a>";
+                $clickit2 = "<a class=\"btn btn-warning btn-sm\" href=\"admin.php?op=" . $title . "\" target=\"_blank\" title=\"" . $title . " " . _ADMINISTRATION . "\">" . $img_admin . "</a>";
                 break;
             }
         }
 
         if ($title != $mainmod) {
-            $change = "<a class=\"btn btn-primary btn-sm\" href=\"" . adminUrl(PMX_MODULE, 'status', "mid=" . $mid . "&amp;active=" . $act) . "\">" . $change . "</a>";
-            $puthome = "<a class=\"btn btn-primary btn-sm\" title=\""._PUTINHOME."\" href=\"" . adminUrl(PMX_MODULE, 'set_home', "mid=" . $mid) . "\">" . $img_home . "</a>";
-            $clickit = "<a class=\"btn btn-primary btn-sm\" title=\""._SHOW."\" href=\"modules.php?name=" . $title . "\" target=\"_blank\">" . $img_view . "</a>";
+            $change = "<a class=\"btn btn-$colorchange btn-sm\" href=\"" . adminUrl(PMX_MODULE, 'status', "mid=" . $mid . "&amp;active=" . $act) . "\">" . $change . "</a>";
+            $puthome = "<a class=\"btn btn-light btn-sm\" title=\""._PUTINHOME."\" href=\"" . adminUrl(PMX_MODULE, 'set_home', "mid=" . $mid) . "\">" . $img_home . "</a>";
+            $clickit = "<a class=\"btn btn-info btn-sm\" title=\""._SHOW."\" href=\"modules.php?name=" . $title . "\" target=\"_blank\">" . $img_view . "</a>";
 
             if ($active) {
                 $out_active[] = '
@@ -169,14 +170,14 @@ function modules()
                     </tr>';
             }
         } else {
-            $clickit = "<a class=\"btn btn-secondary btn-sm\" href=\"index.php\" target=\"_blank\">" . $img_view . "</a>";
+            $clickit = "<a class=\"btn btn-info btn-sm\" href=\"index.php\" target=\"_blank\">" . $img_view . "</a>";
             $out_main[] = '
                 <tr>
                     <td>' . $title . '</td>
                     <td><b>' . _HOME . '</b></td>
                     <td>' . $main_id . '</td>
                     <td>' . _MVALL . '</td>
-                    <td><a class="btn btn-secondary btn-sm" href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $clickit . ' ' . $clickit2 . '</td>
+                    <td><a class="btn btn-primary btn-sm" href="' . adminUrl(PMX_MODULE, 'edit', 'mid=' . $mid) . '">' . $img_edit . '</a> &nbsp;' . $clickit . ' ' . $clickit2 . '</td>
                 </tr>';
         }
     }
@@ -236,7 +237,6 @@ function modules()
 <!-- out_active -->
 <?php if ($out_active): ?>
   <div class="tab-pane active" id="mod-active" role="tabpanel">
-    <h3 class="mod-hidecaption"><?php echo _ACTIVEMODULES ?>:</h3>
     <table class="table">
         <?php echo $headline . implode("\n", $out_active) ?>
     </table>
@@ -250,7 +250,6 @@ function modules()
 <!-- out_main -->
 <?php if ($out_main): ?>
   <div class="tab-pane" id="mod-main" role="tabpanel">
-    <h3 class="mod-hidecaption"><?php echo _DEFHOMEMODULE ?>:</h3>
     <table class="table">
         <?php echo $headline . implode("\n", $out_main) ?>
     </table>
@@ -264,7 +263,6 @@ function modules()
  <!-- out_main -->
 <?php if ($out_deact): ?> 
   <div class="tab-pane" id="mod-inactive" role="tabpanel">
-    <h3 class="mod-hidecaption"><?php echo _NOACTIVEMODULES ?>:</h3>
     <table class="table">
         <?php echo $headline . implode("\n", $out_deact) ?>
     </table>
@@ -371,33 +369,29 @@ function module_edit($mid)
     title(_MODULEEDIT);
     echo '
     <div class="card">
+        <form action="' . adminUrl(PMX_MODULE, 'edit_save') . '" method="post">   
         <div class="card-header">
-          '. _CHANGEMODNAME . ': <strong>' . $title . '</strong>
+          <i class="fa fa-edit"></i>&nbsp;'. _CHANGEMODNAME . ': <strong>' . $title . '</strong>
         </div>
       <div class="card-body">
-        <form action="' . adminUrl(PMX_MODULE, 'edit_save') . '" method="post">
-
-				<table>
-					<tr>
-						<td>' . _CUSTOMMODNAME . '</td>';
+             <div class="form-group row">
+                <label class="col-md-2 col-form-label">' . _CUSTOMMODNAME . '</label>
+                <div class="col-md-3">';
     if ($title == $main_module) {
         echo '
-			<td>
 				' . _HOME . '
-				<input type="hidden" name="custom_title" value="' . mxEntityQuotes($custom_title) . '" />
-			</td>
-	</tr>';
+				<input class="form-control" type="hidden" name="custom_title" value="' . mxEntityQuotes($custom_title) . '" />';
     } else {
         echo '
-			<td>
-				<input type="text" name="custom_title" value="' . mxEntityQuotes($custom_title) . '" size="50" />
-			</td>
-		</tr>';
+				<input class="form-control" type="text" name="custom_title" value="' . mxEntityQuotes($custom_title) . '" size="50" />';
     }
+
     echo '
-		<tr>
-			<td>' . _VIEWPRIV . '</td>
-		<td>';
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label">' . _VIEWPRIV . '</label>
+                <div class="col-md-3">';
     if ($title == $main_module) {
         echo '
 			' . _MVALL . ' (' . _DEFHOMEMODULE . ')
@@ -407,36 +401,50 @@ function module_edit($mid)
     } else {
         echo getViewSelect($view)
          . '
-		 </td>
-		</tr>
-		<tr>
-			<td><!-- ' . _VIEWPRIV . ' --></td>
-			<td>' . getGroupSelect($mid) . '</td>
-		</tr>"
-        <tr>
-			<td>' . _ACTIVE . '</td>
-			<td>' . getActiveSelect($active) . '</td>
-		</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td><input type="checkbox" name="putinhome" value="1" />&nbsp; ' . _PUTINHOME . '</td>
-			</tr>';
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-3 offset-md-2">
+                    ' . getGroupSelect($mid) . '
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label">' . _ACTIVE . '</label>
+                <div class="col-md-3">
+                    ' . getActiveSelect($active) . '
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-5 offset-md-2">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="putinhome" value="1" />&nbsp; ' . _PUTINHOME . '
+                        </label>
+                    </div>
+                </div>
+            </div>';
     }
     echo '
-		<tr>
-			<td>' . _COSTUMNAVIBLOCK . '</td>
-			<td>' . getModuleBlockSelect($main_id) . '</td>
-		</tr>';
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label">' . _COSTUMNAVIBLOCK . '</label>
+                <div class="col-md-3">
+                    ' . getModuleBlockSelect($main_id) . '
+                </div>
+            </div>';
     echo '
-	</table>
-		<input type="hidden" name="mid" value="' . $mid . '" />
-		<input type="hidden" name="title" value="' . $title . '" />
-		<input type="hidden" name="op" value="' . PMX_MODULE . '/edit_save" />
-		<input type="submit" class="btn btn-primary" value="' . _SAVECHANGES . '" />
-	</form>
-     <center>' . _GOBACK . '</center>
-
-     </div>
+        </div>
+	   <div class="card-footer">
+		  <input type="hidden" name="mid" value="' . $mid . '" />
+		  <input type="hidden" name="title" value="' . $title . '" />
+		  <input type="hidden" name="op" value="' . PMX_MODULE . '/edit_save" />
+          <button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _SAVECHANGES . '</button>
+            ' . _GOBACK . '
+        </div>
+     </form>
     </div>';
     include('footer.php');
 }

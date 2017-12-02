@@ -672,7 +672,7 @@ function currentStories()
 				<table class="table">
 					<thead>
 						<tr>
-							<th>&nbsp;</th>
+							<th>N°</th>
 							<th>' . _DATE . '</th>
 							<th>' . _TITLE . '</th>
 							<th>' . _UALANGUAGE . '</th>
@@ -863,8 +863,11 @@ function CategoriesMenu()
 						<button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _SAVECHANGES . '</button>						
 					</form>
 				</td>
-				<td><a class="btn btn-danger" href="' . adminUrl(PMX_MODULE, 'DelCategory', 'catid=' . $catid . '&amp;anz=' . $anz . '&amp;tit=' . $tit) . '"><i class="fa fa-trash fa-lg"></i>&nbsp;' . _DELETE . '</a></td>
-				
+				<td>
+					<a class="btn btn-danger" href="' . adminUrl(PMX_MODULE, 'DelCategory', 'catid=' . $catid . '&amp;anz=' . $anz . '&amp;tit=' . $tit) . '">
+						<i class="fa fa-trash fa-lg"></i>&nbsp;' . _DELETE . '
+					</a>
+				</td>
 			</tr>';
     }
 
