@@ -29,7 +29,6 @@ function ListComments()
     global $prefix, $cpgname, $limit;
 
     $offset = (empty($_GET['s'])) ? 0 : intval($_GET['s']);
-    $class = '';
 
     $result = sql_query("SHOW TABLES;"); #LIKE '{$prefix}%'
     while (list($tablename) = sql_fetch_row($result)) {
@@ -114,7 +113,7 @@ function ListComments()
     $i = 0;
     $showmore = false;
 
-    include("header.php");
+    include('header.php');
     while ($row = sql_fetch_assoc($result)) {
         $i++;
         // wenn das Limit überschritten, dann "mehr" anzeigen und schleife beenden
@@ -175,22 +174,27 @@ function ListComments()
 
         $func = array();
         if ($link) {
-            $func[] = '<a class="btn btn-outline-secondary btn-sm" href="' . $link . '"><i class="fa fa-eye fa-lg m-t-2"></i></a>';
+            $func[] = '<a class="btn btn-info btn-sm" href="' . $link . '"><i class="fa fa-eye fa-lg"></i>&nbsp;' . _SHOW . '</a></a>';
         }
         if ($delete) {
-            $func[] = '<a class="btn btn-outline-secondary btn-sm" href="' . $delete . '"><i class="fa fa-trash fa-lg m-t-2"></i></a>';
+            $func[] = '<a class="btn btn-danger btn-sm" href="' . $delete . '"><i class="fa fa-trash fa-lg">&nbsp;</i>' . _DELETE . '</a>';
         }
         if ($edit) {
-            $func[] = '<a class="btn btn-outline-secondary btn-sm" href="' . $edit . '"><i class="fa fa-edit fa-lg m-t-2"></i></a>';
+            $func[] = '<a class="btn btn-primary btn-sm" href="' . $edit . '"><i class="fa fa-edit fa-lg"></i>&nbsp;' . _EDIT . '</a>';
         }
         $func = implode(' ', $func);
-        $class = ($class == '') ? ' class="alternate-a"' : '';
         $entry[] = '
-        	<tr' . $class . ' style="vertical-align: top;">
+        	<tr>
        			<td>' . ($i + $offset) . '<br/></td>
-       			<td><em>' . $row['cdate'] . '</em><br/><strong>' . $row['user'] . '</strong><br/><em>' . wordwrap($row['host'], 28, "\n", true) . '</em></td>
-       			<td>' . $row['comment'] . '</td>
-                <td><span class="badge badge-pill badge-primary">' . $modname . '</span></td>
+       			<td>
+       				<strong>' . $row['user'] . '</strong>
+       				<br />
+       				<small>' . $row['cdate'] . '</small>
+       				<br />
+       				<small>' . wordwrap($row['host'], 28, "\n", true) . '</small>
+       			</td>
+       			<td><span class="badge badge-pill badge-primary">' . $modname . '</span></td>
+       			<td class="w-50">' . $row['comment'] . '</td>               
        			<td>' . $func . '</td>
        		</tr>';
     }
@@ -208,32 +212,31 @@ function ListComments()
         $entries = implode("\n", $entry);
 
         echo '
-        <div class="card">
-        <div class="card-header">'. _COMMENTSMOD .'</div>
-        <div class="card-body">
-        <div class="pagination align-right">
-            ' . $pager . '
-        </div>
-        <table class="table">
-        	<thead>
-        		<tr>
-        			<th>#</th>
-        			<th>' . _COMMENTS . ' ' . _BY . '</th>
-        			<th>' . _TEXT . '</th>
-                    <th></th>
-        			<th>' . _FUNCTIONS . '</th>
-        		</tr>
-        	</thead>
-        	<tbody>
-        	' . $entries . '
-        	</tbody>
-        </table>
-        <div class="pagination align-right">
-             ' . $pager . '
-        </div>
-        </div>
-        </div>
-';
+        	<div class="card">
+        		<div class="card-header"><i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp;'. _COMMENTSMOD .'</div>
+        			<div class="card-body">
+        				<div class="pagination align-right">
+            				' . $pager . '
+        				</div>
+        			<table class="table">
+        				<thead>
+        					<tr>
+        						<th>#</th>
+        						<th>' . _COMMENTS . ' ' . _BY . '</th>
+        						<th>&nbsp;</th>
+        						<th>' . _TEXT . '</th>                   			
+        						<th>' . _FUNCTIONS . '</th>
+        					</tr>
+        				</thead>
+        				<tbody>
+        					' . $entries . '
+        				</tbody>
+        			</table>
+        			<div class="pagination align-right">
+             			' . $pager . '
+        			</div>
+        		</div>
+        	</div>';
     }
     include('footer.php');
 }
