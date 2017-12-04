@@ -113,3 +113,8 @@ td.required:before {
     color: #F00;
     font-weight: bold;
 }
+
+/* tabs CoreUI*/
+#pmx-content .nav-tabs .nav-link.active {
+    border-top: 2px solid #20a8d8;
+}
