@@ -43,7 +43,7 @@ CKEDITOR.editorConfig = function( config )
 
 <?php /* The base href URL used to resolve relative and absolute URLs in the editor content. */ ?>
   config.baseHref = '<?php echo PMX_HOME_URL ?>/';
-  config.skin = 'moonocolor';
+  config.skin = 'moono';
   
   config.extraPlugins = 'image2';
   config.extraPlugins = 'linkrel';			
