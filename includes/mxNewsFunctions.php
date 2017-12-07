@@ -310,20 +310,24 @@ function vkpStoryPreview($story)
         /* fuer veraltete Themes (nuke etc.) */
         //remove image topic echo vkpTopicImage($story['topic'], 1);
         echo '
-            <div class="card m-2 p-2">
-                <h4>' . mxPrepareToDisplay($story['title']) . '</h4>';
-        echo mxPrepareToDisplay($story['hometext']);
+            <div class="card border-primary m-2 p-2">
+                <h4 class="card-title">' . mxPrepareToDisplay($story['title']) . '</h4>
+                <div class="text-primary">
+                    ' . mxPrepareToDisplay($story['hometext']) . '
+                </div>';
         if (isset($story['bodytext']) && trim(strip_tags($story['bodytext']))) {
-            echo '<hr noshade="noshade" size="1" />' . mxPrepareToDisplay($story['bodytext']);
+            echo '<hr />' . mxPrepareToDisplay($story['bodytext']);
         }
         if (isset($story['notes']) && trim(strip_tags($story['notes']))) {
             echo '
-                <p><strong>' . _NOTE . '</strong></p>
-                    ' . mxPrepareToDisplay($story['notes']);
+                <div class="text-info">
+                    <p class="h5">' . _NOTE . '</p>
+                    ' . mxPrepareToDisplay($story['notes']) . '
+                </div>';
         }
     //}
     echo '
-		  </div>';
+		   </div>';
 }
 
 /**
@@ -350,7 +354,7 @@ function addNewsTextFields($story)
         <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label for="hometext">' . _STORYTEXT . '</label>
+                <label>' . _STORYTEXT . '</label>
                 ' . $sw->getHtml(array('name' => 'hometext', 'value' => $story['hometext'], 'height' => '350')) . '
               </div>
             </div>
@@ -360,7 +364,7 @@ function addNewsTextFields($story)
         <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label for="bodytext">' . _EXTENDEDTEXT . '</label>
+                <label>' . _EXTENDEDTEXT . '</label>
                 ' . $sw->getHtml(array('name' => 'bodytext', 'value' => $story['bodytext'], 'height' => '400')) . '
               </div>
             </div>
@@ -371,7 +375,7 @@ function addNewsTextFields($story)
         <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label for="notes">' . _NOTES . '</label>
+                <label>' . _NOTES . '</label>
                     ' . $sw->getHtml(array('name' => 'notes', 'value' => $story['notes'], 'height' => '120')) . '
               </div>
             </div>

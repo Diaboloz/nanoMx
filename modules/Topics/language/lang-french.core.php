@@ -17,7 +17,7 @@
 defined('mxMainFileLoaded') or die('access denied');
 
 define("_TOPICS", "Sujets");
-define("_TOPICSMANAGER", "Affectation des sujets");
+define("_TOPICSMANAGER", "Gestion des sujets");
 define("_STAT_SACTIVETOPICS", "Thèmes actifs");
 
 ?>

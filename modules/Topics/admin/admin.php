@@ -30,42 +30,60 @@ function topicsmanager($xtopictext = '', $xtopicimage = '', $t_err = 0)
 {
     global $prefix, $tipath;
 
-    include("header.php");
+    include('header.php');
     title(_TOPICSMANAGER);
 
-
-    echo '<div class="card"><div class="card-header">' . _CURRENTTOPICS . '</div>';
-    echo '<div class="card-body"><p class="alert alert-info">' . _CLICK2EDIT . '</p>'
-     . '<table width="100%" cellpadding="5" cellspacing="0"><tr>';
+    echo '
+    	<div class="card">
+    		<div class="card-header"><i class="fa fa-object-group" aria-hidden="true"></i>&nbsp;' . _CURRENTTOPICS . '</div>
+    		<div class="card-body">
+    			<!-- <p class="alert alert-info">' . _CLICK2EDIT . '</p> -->
+                <div class="card-deck">';
     $count = 0;
     $result = sql_query("SELECT topicid, topicimage, topictext FROM {$prefix}_topics ORDER BY topictext");
     while (list($topicid, $topicimage, $topictext) = sql_fetch_row($result)) {
-        echo '<td align="center"><font class="content">'
-         . '<a href="' . adminUrl(PMX_MODULE, 'edit', 'topicid=' . $topicid) . '">' . mxCreateImage($tipath . '/' . $topicimage, $topictext) . '<br />'
-         . $topictext . '</a></font></td>';
+        echo '
+                <div class="card text-center">
+                    ' . mxCreateImage($tipath . '/' . $topicimage, $topictext, array('class' => 'mt-3 mx-auto mb-3 d-block')) . '
+        			<div class="card-footer">
+                    <h4 class="card-title">
+         				<a href="' . adminUrl(PMX_MODULE, 'edit', 'topicid=' . $topicid) . '">
+         					'	. $topictext . '
+         				</a>
+         			</h4>
+                    </div>
+                </div>';
         $count++;
         if ($count == 5) {
             echo '</tr><tr>';
             $count = 0;
         }
     }
-    echo '</table></div></div>';
+    echo '
+                </div>
+    		</div>
+    	</div>';
 
-
-    echo '<br /><a name="Add"></a>';
-
-    echo '<div class="card"><div class="card-header">' . _ADDATOPIC . '</div>';
+    echo '
+        <a name="Add"></a>
+        <div class="card">
+    		<div class="card-header"><i class="fa fa-plus-square-o" aria-hidden="true"></i>&nbsp;' . _ADDATOPIC . '</div>';
     if ($t_err == 1) {
-        echo '<center class="warning">' . _TOPICALLFIELDS1 . '</center><br />';
+        echo '
+            <div class="alert alert-warning">' . _TOPICALLFIELDS1 . '</div>';
     }
-    echo '<div class="card-body">
-          <form action="' . adminUrl(PMX_MODULE) . '" method="post" name ="newTopic">'
-     . sec_subform($topictext, $topicimage)
-     . '<input type="hidden" name="op" value="' . PMX_MODULE . '/make" />'
-     . '<div class="form-group"><br/><button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i>  ' . _ADDTOPIC . '</button></div>'
-     . '</form></div></div>';
+    echo '
+    		<div class="card-body">
+          	<form action="' . adminUrl(PMX_MODULE) . '" method="post" name ="newTopic">
+            ' . sec_subform($topictext, $topicimage) . '
+            <input type="hidden" name="op" value="' . PMX_MODULE . '/make" />
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i>&nbsp' . _ADDTOPIC . '</button></div>
+            </form>
+            </div>
+        </div>';
 
-    include("footer.php");
+    include('footer.php');
 }
 
 function topicedit($topicid, $topictext = '', $topicimage = '', $name = '', $url = '', $t_err = 0)
@@ -79,39 +97,90 @@ function topicedit($topicid, $topictext = '', $topicimage = '', $name = '', $url
         list($topicid, $topicimage, $topictext) = sql_fetch_row($result);
     }
 
-    include("header.php");
+    include('header.php');
     title(_TOPICSMANAGER);
 
-    echo '<div class="card"><div class="card-header">' . _EDITTOPIC . ': ' . $topictext . '</div>';
+    echo '
+    	<div class="card">
+    		<div class="card-header"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;' . _EDITTOPIC . ': <strong>' . $topictext . '</strong></div>';
     if ($t_err == 1) {
-        echo '<div class="alert alert-warning>' . _TOPICALLFIELDS1 . '</div>';
+        echo '
+        		<div class="alert alert-warning>' . _TOPICALLFIELDS1 . '</div>';
     } elseif ($t_err == 2) {
-        echo '<div class="alert alert-warning>' . _TOPICALLFIELDS2 . '</div>';
+        echo '
+        		<div class="alert alert-warning>' . _TOPICALLFIELDS2 . '</div>';
     }
-    echo '<div class="card-body"><form action="' . adminUrl(PMX_MODULE) . '" method="post" name ="newTopic">'
-     . sec_subform($topictext, $topicimage)
-     . '<strong>' . _ADDRELATED . ':</strong><br />'
-     . '<div class="form-group row"><label for="name" class="col-sm-2 col-form-label">' . _SITENAME . '</label><div class="col-sm-10"><input type="text" class="form-control" name="name" value="' . $name . '" maxlength="30" /></div></div>'
-     . '<div class="form-group row"><label for="url" class="col-sm-2 col-form-label">' . _URL . '</label><div class="col-sm-10"><input type="text" class="form-control" name="url" value="' . $url . '" maxlength="200" /></div></div>'
-     . '<b>' . _ACTIVERELATEDLINKS . ':</b><br />'
-     . '<table class="table">';
+    echo '
+    	<div class="card-body">
+    		<form action="' . adminUrl(PMX_MODULE) . '" method="post" name ="newTopic">
+            <div class="row">
+                <div class="col-md-4">
+                    ' . sec_subform($topictext, $topicimage) . '
+                </div>
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-header">' . _ADDRELATED . '</div>
+                        <div class="card-body">
+     		                 <div class="form-group row">
+                                <label for="name" class="col-md-2 form-control-label">' . _SITENAME . '</label>
+                                <div class="col-md-10">
+                                    <input id="name" type="text" class="form-control" name="name" value="' . $name . '" maxlength="30" />
+                                </div>
+                            </div>
+     		                 <div class="form-group row">
+                                <label for="url" class="col-md-2 form-control-label">' . _URL . '</label>
+                                <div class="col-md-10">
+                                    <input id="url" type="text" class="form-control" name="url" value="' . $url . '" maxlength="200" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">' . _ACTIVERELATEDLINKS . '</div>
+     		     <table class="table">';
     $res = sql_query("SELECT rid, name, url FROM {$prefix}_related WHERE tid=$topicid");
     $num = sql_num_rows($res);
     if ($num == 0) {
-        echo '<tr><td><i>' . _NORELATED . '</i></td></tr>';
+        echo '
+        			<tr>
+        				<td>
+                            <div class="alert alert-info text-center">' . _NORELATED . '</div>
+        				</td>
+        			</tr>';
     } while (list($rid, $name, $url) = sql_fetch_row($res)) {
-        echo '<tr><td align="left"><i class="fa fa-caret-right"></i> <a href="' . $url . '">' . $name . '</a></td>'
-         . '<td class="text-center">'
-         . '<a href="' . $url . '">' . $url . '</a></td>'
-         . '<td class="text-right"><a class="btn btn-outline-secondary btn-sm" href="' . adminUrl(PMX_MODULE, 'relatededit', 'tid=' . $topicid . '&amp;rid=' . $rid) . '"><i class="fa fa-edit"></i></a>&nbsp;<a class="btn btn-outline-secondary btn-sm" href="' . adminUrl(PMX_MODULE, 'relateddelete', 'tid=' . $topicid . '&amp;rid=' . $rid) . '"><i class="fa fa-trash"></i></a></td></tr>';
+        echo '
+        			<tr>
+        				<td>
+                            <i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;<a class="h6" href="' . $url . '">' . $name . '</a>
+                        </td>
+         			    <td>
+         				   <a href="' . $url . '">' . $url . '</a>
+         				</td>
+         			    <td>
+                            <a class="btn btn-primary btn-sm" href="' . adminUrl(PMX_MODULE, 'relatededit', 'tid=' . $topicid . '&amp;rid=' . $rid) . '">
+                                <i class="fa fa-edit fa-lg"></i>&nbsp;' . _EDIT . '</a>
+                            <a class="btn btn-danger btn-sm" href="' . adminUrl(PMX_MODULE, 'relateddelete', 'tid=' . $topicid . '&amp;rid=' . $rid) . '">
+                                <i class="fa fa-trash fa-lg"></i>&nbsp;' . _DELETE . '</a>
+                        </td>
+                    </tr>';
     }
-    echo '</table><br /><br />'
-     . '<input type="hidden" name="topicid" value="' . $topicid . '" />'
-     . '<input type="hidden" name="op" value="' . PMX_MODULE . '/change" />'
-     . '<button class="btn btn-primary" type="submit"><i class="fa fa-check"></i> ' . _SAVECHANGES . '</button>'
-     . '<a class="btn btn-danger" href="' . adminUrl(PMX_MODULE, 'delete', 'topicid=' . $topicid) . '"><i class="fa fa-trash"></i> ' . _DELETE . '</a>'
-     . '</form></div></div>';
-    include("footer.php");
+    echo '
+    			</table>
+
+            </div>
+
+
+    		<input type="hidden" name="topicid" value="' . $topicid . '" />
+     		<input type="hidden" name="op" value="' . PMX_MODULE . '/change" />
+     	      	<button class="btn btn-primary" type="submit"><i class="fa fa-check"></i> ' . _SAVECHANGES . '</button>
+     		    &nbsp;<a class="btn btn-danger" href="' . adminUrl(PMX_MODULE, 'delete', 'topicid=' . $topicid) . '"><i class="fa fa-trash"></i> ' . _DELETE . '</a>
+     	</form>
+     	</div>
+     </div>';
+    include('footer.php');
 }
 
 function relatededit($tid, $rid, $name = '', $url = '', $t_err = 0)
@@ -162,22 +231,24 @@ function relateddelete($tid, $rid, $ok = 0)
         sql_query("DELETE FROM {$prefix}_related WHERE rid='$rid'");
         return mxRedirect(adminUrl(PMX_MODULE, 'edit', "topicid=$tid"));
     }
-    include("header.php");
+    include('header.php');
     title(_TOPICSMANAGER);
 
     $result = sql_query("SELECT name, url FROM {$prefix}_related WHERE rid=$rid");
     list($name, $url) = sql_fetch_row($result);
     $result2 = sql_query("SELECT topicimage, topictext FROM {$prefix}_topics WHERE topicid='$tid'");
     list($topicimage, $topictext) = sql_fetch_row($result2);
-    OpenTable();
-    echo '<center>' . mxCreateImage($tipath . '/' . $topicimage, $topictext) . '<br /><br />'
-     . '<b>' . _DELETELINK . ': <i>' . $topictext . '</i></b><br /><br />'
-     . '<b>' . _SITENAME . ':</b> ' . $name . '<br />'
-     . '<b>' . _URL . ':</b> ' . $url . '<br /><br />'
-     . _LINKDELSURE . '<br /><br />'
-     . '[&nbsp;<a href="' . adminUrl(PMX_MODULE, 'edit', 'topicid=' . $tid) . '">' . _NO . '</a> | <a href="' . adminUrl(PMX_MODULE, 'relateddelete', 'tid=' . $tid . '&amp;rid=' . $rid . '&amp;ok=1') . '">' . _YES . '</a>&nbsp;]</center><br /><br />';
-    CloseTable();
-    include("footer.php");
+     echo '
+        <div class="alert alert-danger text-center">
+              ' . mxCreateImage($tipath . '/' . $topicimage, $topictext) . '
+            <h5 class="mt-3">' . _DELETELINK . ': <mark>' . $topictext . '</mark></h5>
+            <p>' . _SITENAME . ': <strong>' . $name . '</strong></p>
+            <p>' . _URL . ': <strong>' . $url . '</strong></p>
+            <p>' . _LINKDELSURE . '</p>
+            <a class="btn btn-primary" href="' . adminUrl(PMX_MODULE, 'edit', 'topicid=' . $tid) . '">' . _NO . '</a>&nbsp;
+            <a class="btn btn-danger" href="' . adminUrl(PMX_MODULE, 'relateddelete', 'tid=' . $tid . '&amp;rid=' . $rid . '&amp;ok=1') . '">' . _YES . '</a>
+        </div>';
+    include('footer.php');
 }
 
 function topicmake()
@@ -245,19 +316,21 @@ function topicdelete($topicid, $ok = 0)
         return mxRedirect(adminUrl(PMX_MODULE));
     } else {
         // global $topicimage; // ToDo: Ist ueberfluessig !?!
-        include("header.php");
+        include('header.php');
         title(_TOPICSMANAGER);
 
         $result2 = sql_query("SELECT topicimage, topictext FROM {$prefix}_topics WHERE topicid='$topicid'");
         list($topicimage, $topictext) = sql_fetch_row($result2);
-        OpenTableAl();
-        echo '<center>' . mxCreateImage($tipath . '/' . $topicimage, $topictext) . '<br /><br />'
-         . '<b>' . _DELETETOPIC . ': <i>' . $topictext . '</i></b><br /><br />'
-         . _TOPICDELSURE . '<br />'
-         . _TOPICDELSURE1 . '<br /><br />'
-         . '[&nbsp;<a href="' . adminUrl(PMX_MODULE) . '">' . _NO . '</a> | <a href="' . adminUrl(PMX_MODULE, 'delete', 'topicid=' . $topicid . '&amp;ok=1') . '">' . _YES . '</a>&nbsp;]</center><br /><br />';
-        CloseTableAl();
-        include("footer.php");
+        echo '
+            <div class="alert alert-danger text-center">
+                ' . mxCreateImage($tipath . '/' . $topicimage, $topictext) . '
+            <h5 class="mt-3">' . _DELETETOPIC . ': <mark>' . $topictext . '</mark></h5>
+            <p>' . _TOPICDELSURE . '</p>
+            <p>' .  _TOPICDELSURE1 . '</p>
+            <a class="btn btn-primary" href="' . adminUrl(PMX_MODULE) . '">' . _NO . '</a>&nbsp;
+            <a class="btn btn-danger" href="' . adminUrl(PMX_MODULE, 'delete', 'topicid=' . $topicid . '&amp;ok=1') . '">' . _YES . '</a>
+         </div>';
+        include('footer.php');
     }
 }
 
