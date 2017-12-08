@@ -2,55 +2,46 @@
 
 
 	<?php echo $this->formOpen ?>
-<div class="card">
-	<div class="card-header"><?php echo _TTAVAILTEMPLATES ?></div>
-	<div class="card-body">
-	<table class="table">
-	 <thead class="thead-default"> 
-	 <tr> 
-	 <th width="210px"><?php echo _TT_THEME_PREVIEW ?></th> 
-	 <th ><?php echo _TT_THEMENAME ?></th> 
-	 <th ><?php echo _TT_THEME_INFO ?></th> 
-	 <th style="text-align:center"><?php echo _TTFUNCTION ?></th> 
-	 
-	 <th style="text-align:center"><?php echo _TT_ADMINTHEME ?></th> 
-	 <th style="text-align:center"><?php echo _TT_THEME_ACTIVE ?></th> 
-	 </tr>
-	 </thead> 
 
-	 <tbody> 
+	<div class="card-deck">
+
 	<?php
 	$i=0;
 	$stylearray=array("max-width"=>"100px","border"=>"none","margin"=>"0");
 	foreach ($this->themes as $themename=>$content) {
 	
 		/* links definieren */
-		$adminactivate="<a class=\"btn btn-secondary btn-sm\" href=\"admin.php?op=themes&act=admindefault&theme=".$themename."\" title=\""._TT_ACTIVATE."\"><i class=\"fa fa-check fa-lg m-t-2\"></i></a>";
-		$standardactivate="<a class=\"btn btn-secondary btn-sm\" href=\"admin.php?op=themes&act=setdefault&theme=".$themename."\" title=\""._TT_ACTIVATE."\"><i class=\"fa fa-star fa-lg m-t-2\"></i></a>";
-		$mobileactivate="<a class=\"btn btn-secondary btn-sm\" href=\"admin.php?op=themes&act=setmobile&theme=".$themename."\" title=\""._TT_ACTIVATE."\"><i class=\"fa fa-mobile fa-lg m-t-2\"></i></a>";
-		$standard= "<i class=\"fa fa-star fa-lg m-t-2\"></i>";
-		$standardmobile= "<i class=\"fa fa-mobile fa-lg m-t-2\"></i>";
-		$adminlink="<a class=\"btn btn-secondary btn-sm\" href=\"admin.php?op=themes&act=admin&theme=".$themename."\" title=\""._ADMINISTRATION."\"><i class=\"fa fa-cogs fa-lg m-t-2\"></i></a>";
+		$adminactivate="<a class=\"btn btn-secondary\" href=\"admin.php?op=themes&act=admindefault&theme=".$themename."\" title=\""._TT_ACTIVATE."\"><i class=\"fa fa-check fa-lg\"></i></a>";
+		$standardactivate="<a class=\"btn btn-primary\" href=\"admin.php?op=themes&act=setdefault&theme=".$themename."\" title=\""._TT_ACTIVATE."\"><i class=\"fa fa-star fa-lg\"></i></a>";
+		$mobileactivate='<a class="btn btn-primary" href="admin.php?op=themes&act=setmobile&theme="'.$themename.'" title="'._TT_ACTIVATE.'"><i class="fa fa-mobile fa-lg"></i></a>';
+		$standard= '<span class="btn btn-success"><i class="fa fa-check-square-o fa-lg"></i></span>';
+		$standardmobile= "<i class=\"fa fa-mobile fa-lg\"></i>";
+		$adminlink="<a class=\"btn btn-secondary\" href=\"admin.php?op=themes&act=admin&theme=".$themename."\" title=\""._ADMINISTRATION."\"><i class=\"fa fa-cogs\"></i></a>";
 	?>	
-		<tr class="<?php echo ($i/2==intval($i/2))?"alternate":"alternate-b"; ?>" >
-        <td><a name="<?php echo $themename ?>" />
-		<?php echo ($content['thumbnail']==false)?"":"<a class=\"btn btn-secondary btn-sm\" href=\"".$content['preview']."\" rel='pretty[themes]' title=\"".$themename."\"/>".mxCreateImage($content['thumbnail'],"".$themename."",$stylearray)."</a>"; ?></td>
-		<td><?php echo $themename ?></td>
-		<td><?php echo $content['info']; ?></td>
-		<td style="text-align:center">
-			<?php echo (($content['admintheme']==true)?"":"<a class=\"btn btn-secondary btn-sm\" title=\""._TT_THEME_PREVIEW." : ".$themename."\" href=\"modules.php?name=Themetest&themeselect=".$themename."&iframe=true&width=80%&height=90%\" rel=\"pretty\"><i class=\"fa fa-eye fa-lg m-t-2\"></i></a>"); ?>
+
+<div class="card">
+	<div class="card-header h4"><?php echo $themename ?></div>
+	<div class="card-body">
+	<a name="<?php echo $themename ?>" />
+		<?php echo ($content['thumbnail']==false)?"":"<a class=\"btn btn-secondary\" href=\"".$content['preview']."\" rel='pretty[themes]' title=\"".$themename."\"/>".mxCreateImage($content['thumbnail'],"".$themename."",$stylearray)."</a>"; ?>
+		<p><?php echo $content['info']; ?></p>
+	</div>
+	<div class="card-footer">
+
+			<?php echo (($content['admintheme']==true)?"":"<a class=\"btn btn-info\" title=\""._TT_THEME_PREVIEW." : ".$themename."\" href=\"modules.php?name=Themetest&themeselect=".$themename."&iframe=true&width=80%&height=90%\" rel=\"pretty\"><i class=\"fa fa-eye fa-lg\"></i></a>"); ?>
 			<?php echo (($content['admin']==true)?$adminlink:""); ?>
-			</td>
+
 		
-		<td style="text-align:center"><?php echo ($this->xconfig['admintheme']==$themename)?$standard:(($content['admintheme']==true)?$adminactivate:""); ?></td>
-		<td style="text-align:center"><?php echo ($this->xconfig['defaulttheme']==$themename)?$standard:(($content['admintheme']==true)?"":$standardactivate); ?>
-		<?php echo ($this->xconfig['mobiletheme']==$themename)?$standardmobile:(($content['admintheme']==true)?"":$mobileactivate); ?></td>
+		<?php echo ($this->xconfig['defaulttheme']==$themename)?$standard:(($content['admintheme']==true)?"":$standardactivate); ?>
+		<?php echo ($this->xconfig['mobiletheme']==$themename)?$standardmobile:(($content['admintheme']==true)?"":$mobileactivate); ?>
 		
-		</tr>
+
+	</div>
+</div>	
+
+
+
+
 	<?php $i++; }  ?>
 	
-
-
-	 </tbody>
-	 </table>
-	</div></div>
+	</div>
