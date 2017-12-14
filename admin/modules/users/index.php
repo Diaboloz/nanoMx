@@ -126,23 +126,23 @@ function mainusers()
             <div class="container">
 		
         	<div class="form-group row">
-            	<label for="name" class="col-sm-2 col-form-label">' . _NAME . '</label>
-            	<div class="col-sm-3">
+            	<label for="name" class="col-md-2 form-control-label">' . _NAME . '</label>
+            	<div class="col-md-3">
 					<input type="text" class="form-control" id="name" name="name" value="' . ((empty($udata['name'])) ? '' : htmlspecialchars($udata['name'])) . '" size="60" maxlength="60" />
             	</div>
         	</div>
 
 	        <div class="form-group row">
-				<label for="uname" class="col-sm-2 col-form-label">' . _NICKNAME . '</label>
-				<div class="col-sm-3">
+				<label for="uname" class="col-md-2 form-control-label">' . _NICKNAME . '</label>
+				<div class="col-md-3">
 					<input type="text" class="form-control" id="uname" name="uname" size="30" maxlength="25" />
 				</div>
 				<span class="form-text text-muted">' . _REQUIRED . '</span>
 			</div>
 			
 	        <div class="form-group row">
-				<label for="pass" class="col-sm-2 col-form-label">' . _PASSWORD . '</label>
-				<div class="col-sm-2">
+				<label for="pass" class="col-md-2 form-control-label">' . _PASSWORD . '</label>
+				<div class="col-md-2">
 					<input type="text" class="form-control password-checker-input" id="pass" name="pass" size="30" value="' . $newpass . '" /> 
 				</div>
 			</div>			
@@ -262,9 +262,8 @@ function modify()
     title(_USERADMIN);
     echo '
     	<div class="card">
-			<div class="card-block">
-				<h3 class="mb-2">' . $ptitle . '  <span class="badge badge-default">' . $udata['uname'] . '</span></h3>';
-
+            <div class="card-header">' . $ptitle . '&nbsp;<strong>' . $udata['uname'] . '</strong></div>
+			<div class="card-body">';
     if ($uploadedpic) {
 
         ?>
@@ -305,22 +304,26 @@ function modify()
         echo '
 
         <div class="form-group row">
-            <label for="pass" class="col-sm-2 col-form-label">' . _PASSWORD . '</label>
-            <div class="col-sm-3">
+            <label for="pass" class="col-md-2 form-control-label">' . _PASSWORD . '</label>
+            <div class="col-md-3">
             	<input type="password" id="pass" name="pass" value="' . $formpass . '" size="30" class="form-control password-checker-input" />
             	<span class="form-text text-muted">' . $forchanges . '</span>			
             </div>           	
         </div>
 
         <div class="form-group row">
-            <label for="pass2" class="col-sm-2 col-form-label">' . _RETYPEPASSWD . '</label>
-            <div class="col-sm-3">
+            <label for="pass2" class="col-md-2 form-control-label">' . _RETYPEPASSWD . '</label>
+            <div class="col-md-3">
             	<input type="password" id="pass2" name="pass2" value="' . $formpass . '" size="30" class="form-control password-checker-input" />
             	<span class="form-text text-muted">' . $forchanges . '</span>			
             </div>           	
         </div>
-		<button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _SAVECHANGES . '</button> 
-        ';
+        <div class="form-group row">
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>&nbsp;' . _SAVECHANGES . '</button> 
+            </div>              
+        </div>';
 
     } else {
         echo '
@@ -652,8 +655,8 @@ function adminuserform($udata = array())
 
     $out = '
         <div class="form-group row">
-            <label for="email" class="col-sm-2 col-form-label">' . _EMAIL . '</label>
-            <div class="col-sm-4">
+            <label for="email" class="col-md-2 form-control-label">' . _EMAIL . '</label>
+            <div class="col-md-4">
 				<input type="text" class="form-control" id="email" name="email" value="' . ((empty($udata['email'])) ? '' : htmlspecialchars($udata['email'])) . '" size="60" maxlength="100" /> 
             </div>
 			<span class="form-text text-muted">' . _REQUIRED . '</span>            
@@ -661,18 +664,18 @@ function adminuserform($udata = array())
     if ($udata['user_stat'] != -1) {
         $out .= '
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">' . _YA_USERSTAT . '</label>
-            <div class="col-sm-1">
-				<select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="user_stat">' . getUserStatOptions($udata['user_stat']) . '</select> 
+            <label class="col-md-2 form-control-label">' . _YA_USERSTAT . '</label>
+            <div class="col-md-2">
+				<select class="form-control" name="user_stat">' . getUserStatOptions($udata['user_stat']) . '</select> 
             </div>
             	<span class="form-text text-muted">' . _REQUIRED . '</span>
         </div>';
     }
     $out .= '
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">' . _YA_INGROUP . '</label>
-            <div class="col-sm-1">
-				<select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="user_ingroup">' . getAllAccessLevelSelectOptions($udata['user_ingroup']) . '</select>			
+            <label class="col-md-2 form-control-label">' . _YA_INGROUP . '</label>
+            <div class="col-md-2">
+				<select class="form-control" name="user_ingroup">' . getAllAccessLevelSelectOptions($udata['user_ingroup']) . '</select>			
             </div>
             	<span class="form-text text-muted">' . _REQUIRED . '</span>
         </div>';
