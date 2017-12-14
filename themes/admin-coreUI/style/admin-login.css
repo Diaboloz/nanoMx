@@ -29,8 +29,8 @@
 html { width: 100%; height:100%; overflow:hidden; 	}
 
 body {
-  background-color: #E4E5E6 ;
-   color: #151B1E ;	
+  background-color: #262626;
+   color: #656565 ;	
    background-image: none;
    position: relative;
    font-size:1em;
@@ -41,7 +41,6 @@ body {
 }
 
 .login-page {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	color: #333;
 	position: relative;
@@ -77,10 +76,11 @@ body {
 	width:100%;
 	text-align:center;
 }
-.content {
-	
-
+.content a {
+	color:#666;
+	text-decoration: none;
 }
+
 table.form{
 	width:80%;
 	text-align:center;
@@ -89,11 +89,18 @@ table.form{
 table.form input[type=submit]{
 	margin-top:20px;
 	padding:10px;
-	color: #222;
+	background-color: rgb(0,120,231);
+    color: #fff;	
+    font-size: 1.1em;
+    border-radius: 4px;
 } 
 table.form input[type=submit]:hover{
-	
-	background-color:#187da0;
+	/* csslint ignore:start */
+    filter: alpha(opacity=90);
+    /* csslint ignore:end */
+    background-image: -webkit-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+	cursor: pointer;
 }
 
 
